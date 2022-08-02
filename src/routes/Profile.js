@@ -1,11 +1,11 @@
 
+
 import Header from "../components/Header"
 
-function Mainpage(){
+function Profile(){
     return(
-        <>
+        <> 
         <Header/>
-    </>
+        </>
     )
-    
-}export default Mainpage;
+}export default Profile;

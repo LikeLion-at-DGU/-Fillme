@@ -1,11 +1,10 @@
 
 import Header from "../components/Header"
 
-function Mainpage(){
+function Feed(){
     return(
-        <>
+        <> 
         <Header/>
-    </>
+        </>
     )
-    
-}export default Mainpage;
+}export default Feed;

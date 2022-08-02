@@ -1,7 +1,11 @@
 
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import {useState} from "react";
-import Header from "./components/Header"
+import Mainpage from "./routes/Mainpage";
+import Discover from "./routes/Discover";
+import Feed from "./routes/Feed";
+import Profile from "./routes/Profile";
+
 import{
   BrowserRouter as Router,
   Routes,
@@ -9,13 +13,19 @@ import{
   Link,
 } from "react-router-dom";
 
+
 function App() {
   return (
     <>
 
     <Router>
       <Routes>
-        <Route path = "/" element = {<Header/>}></Route>
+
+        <Route path = "/" element = {<Mainpage/>}></Route>
+        <Route path = "/Feed" element = {<Feed/>}></Route>
+        <Route path = "/Discover" element = {<Discover/>}></Route>
+        <Route path = "/Profile" element = {<Profile/>}></Route>
+        
       </Routes>
     </Router>
     </>
