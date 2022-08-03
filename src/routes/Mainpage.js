@@ -5,7 +5,7 @@ function Mainpage(){
     return(
         <>
         <Header/>
-    </>
+        </>
     )
     
 }export default Mainpage;
