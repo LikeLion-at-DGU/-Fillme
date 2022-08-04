@@ -10,18 +10,22 @@
 
 @font-face{
     font-family:"Roboto";
-    src : url("../font/Roboto-Regular.ttf")
+    src : url("../font/Roboto-Regular.ttf");
+    unicode-range: U+0041-005A,U+0061-007A;
 }
 
 @font-face{
     font-family:"AppleSDGothicNeoB00";
-    src : url("../font/AppleSDGothicNeoB.ttf")
+    src : url("../font/AppleSDGothicNeoB.ttf");
+    unicode-range:U+AC00-D7A3;
 }
 
 @font-face{
     font-family:"AppleSDGothicNeoM00";
     src : url("../font/AppleSDGothicNeoM.ttf")
 }
+
+
 .Feed{
     margin:100px 140px;
     
@@ -61,7 +65,7 @@
 }
 
 #feed_persona{
-    font-family: Roboto;
+    font-family: Roboto, AppleSDGothicNeoM00;
     font-weight: 600;
     font-size: 15px;
     margin-bottom: 5px;
@@ -69,7 +73,7 @@
 
 
 #feed_title{
-    font-family: AppleSDGothicNeoB00;
+    font-family: Roboto,AppleSDGothicNeoB00;
     font-weight: 400;
     font-size: 22px;
 }
