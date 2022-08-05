@@ -1,11 +1,11 @@
 
 import Header from "../components/Header"
 
-function Mainpage(){
-    return(
+function Mainpage() {
+    return (
         <>
-        <Header/>
+            <Header />
         </>
     )
-    
-}export default Mainpage;
+
+} export default Mainpage;
