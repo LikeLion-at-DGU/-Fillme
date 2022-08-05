@@ -8,33 +8,20 @@ function Discover_feelings({ id, user_id, image, name, intro, type }) {
         backgroundRepeat: `no-repeat`,
         backgroundPosition: `center`
     };
-    if (hover) {
-        return (
-            <div className="card" id={"feelings" + id} style={feelings_style}>
-                <section id="user_id">@{user_id}</section>
-                <div className="user_data">
-                    <section id="name">{name}</section>
-                    <section id="intro">{intro}</section>
-                    <section id="type">{type}</section>
-                </div>
-            </div>
-        )
 
-    }
-    else {
-        return (
-
-            <div className="card" id={"feelings" + id}
-                style={feelings_style}>
-                <section id="user_id">@{user_id}</section>
-                <div className="user_date">
-                    <section id="name">{name}</section>
-                    <section id="intro">{intro}</section>
-                    <section id="type">{type}</section>
-                </div>
+    return (
+        <div className="card" id={"discover" + id}>
+            <div className="image" style={feelings_style}>
+                <p id="user_id">@{user_id}</p>
             </div>
-        )
-    }
+            <div className="user_data">
+                <p id="name">{name}</p>
+                <p id="intro">{intro}</p>
+                <p id="type">{type}</p>
+            </div>
+        </div>
+    )
+
 
 } export default Discover_feelings;
 
