@@ -11,7 +11,6 @@ function Discover(){
         <div className = "Discover">
             <h1 className = "title">Discover Feelings</h1>
 
-
             <div className = "fill_the_feelings">
                 {feed.map(render_Discover_feelings)}
             </div>
@@ -30,6 +29,7 @@ const feed = [
         name : "Isabella Harper",
         image : "https://t1.daumcdn.net/cfile/tistory/994827455F1187B004",
         intro : "dance your life, dance the moment",
+        type : ["glissade", "이사벨라 하퍼", "JACK", "태오꺼", "발레리나", "동국대학교 연극영화과 20", "사랑받는 강아지", "태오 여자친구"],
     },
     {
         id:2,
@@ -37,6 +37,7 @@ const feed = [
         name : "강태오",
         image : "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/golden-retriever-royalty-free-image-506756303-1560962726.jpg?crop=1.00xw:0.756xh;0,0.0756xh&resize=768:*",
         intro : "인생은 한 번뿐 이 순간을 즐기자",
+        tyoe : []
     },
 
     {
