@@ -10,17 +10,34 @@
 
 @font-face{
     font-family:"Roboto";
-    src : url("../font/Roboto-Regular.ttf")
+    src: url("../font/Roboto-Regular.ttf");
+        unicode-range: 
+        /* 영어 대문자, 영어 소문자 */
+        U+0041-005A, U+0061-007A,
+        /* 숫자, 특수문자 */
+        U+0030-0039, U+0020-002F, U+003A-0040, U+005B-0060, U+007B-007E
+}
+
+@font-face{
+    font-family:"Roboto-bold";
+    src: url("../font/Roboto-Bold.ttf");
+        unicode-range: 
+        /* 한글, 영어 대문자, 영어 소문자 */
+        U+0041-005A, U+0061-007A,
+        /* 숫자, 특수문자 */
+        U+0030-0039, U+0020-002F, U+003A-0040, U+005B-0060, U+007B-007E
 }
 
 @font-face{
     font-family:"AppleSDGothicNeoB00";
-    src : url("../font/AppleSDGothicNeoB.ttf")
+    src : url("../font/AppleSDGothicNeoB.ttf");
+    unicode-range: U+AC00-D7A3;
 }
 
 @font-face{
     font-family:"AppleSDGothicNeoM00";
-    src : url("../font/AppleSDGothicNeoM.ttf")
+    src : url("../font/AppleSDGothicNeoM.ttf");
+    unicode-range: U+AC00-D7A3;
 }
 
 .Discover{
@@ -30,15 +47,15 @@
 
 .title{
     font-family: Elsie;
+    margin-bottom: 30px;
 }
 
 .image{
-    width: 100%;
+    width: 50%;
 }
 
 
 .profile{
-    width: 100%;
     padding-bottom: 25%;
     display: flex;
     flex-direction: row;
@@ -49,29 +66,64 @@
 
 }
 
-#name{
-    font-family: AppleSDGothicNeoB00;
-    font-weight: 400;
-    font-size: 35px;
-    color: #FFFFFF;
+.card{
+    width: 100%;
+    padding-bottom: 20%;
+    display: flex;
+    flex-direction: row;
+    margin:25px;
+    box-shadow: 0px 3px 15px rgba(0, 67, 101, 0.15);
+    border-radius: 10px;
     position: relative;
-    left: 80px;
-    top: 120px;
+
+}
+
+.user_data{
+    position:absolute;
+    padding: 10px;
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-left: 20px;
+    bottom:0%;
+    width: 100%;
+    box-shadow: 0px 3px 15px rgba(0, 67, 101, 0.2);
+    backdrop-filter: blur(6px);
+    border-radius: 10px 10px 10px 10px;
+}
+
+
+#name{
+    font-family: 'AppleSDGothicNeoB00', 'Roboto-bold';
+    font-weight: 400;
+    font-size: 40px;
+    color: #ffffff;
+    position: relative;
+    margin: 5px;
 }
 
 #intro{
-    font-family: AppleSDGothicNeoB00;
+    font-family: '"AppleSDGothicNeoM00"', 'Roboto';
+    font-weight: 400;
+    font-size: 18px;
+    color: #ffffff;
+    position: relative;
+    margin: 5px;
+}
+
+#type{
+    font-family: 'AppleSDGothicNeoB00', 'Roboto-bold';
     font-weight: 400;
     font-size: 14px;
-    color: #FFFFFF;
+    color: #ffffff;
     position: relative;
-    left: -20px;
-    top: 180px;
-    text-align: left;
+    margin: 5px;
+    margin-top: 15px;
 }
 
 #feed_persona{
-    font-family: Roboto;
+    font-family: 'Roboto';
     font-weight: 600;
     font-size: 15px;
     margin-bottom: 5px;
@@ -79,18 +131,13 @@
 
 
 #feed_title{
-    font-family: AppleSDGothicNeoB00;
+    font-family: 'AppleSDGothicNeoB00','Roboto-bold';
     font-weight: 400;
     font-size: 22px;
 }
 
-#feed_date_time{
-    font-family: Roboto;
-    font-weight: 400;
-    font-size: 11px;
-}
 
-#user_id{
+.user_id{
     font-family: 'Roboto';
     font-weight: 400;
     font-size: 16px;
@@ -99,7 +146,8 @@
     margin:20px;
 }
 
-.fill_the_feelings{
+
+/* .fill_the_feelings{
     display:flex;
     flex-wrap: wrap;
-}
+} */
