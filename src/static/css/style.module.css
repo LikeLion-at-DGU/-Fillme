@@ -1,0 +1,14 @@
+.wrap {
+    margin: 100px 170px;
+}
+
+.wrap2 {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.title {
+    font-family: Elsie;
+    font-size: 2.2vw;
+    margin-bottom: 0;
+}
