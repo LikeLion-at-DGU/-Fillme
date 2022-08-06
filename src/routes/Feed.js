@@ -11,6 +11,11 @@ function Feed() {
         <>
             <Header />
             <Navbar />
+            <style>
+                {`#home {
+                    filter: invert(67%) sepia(37%) saturate(660%) hue-rotate(106deg)
+                    brightness(120%) contrast(95%);}`}
+            </style>
             <div className={styles.wrap}>
                 <br />
                 <h1 className={styles.title}>New Feelings</h1>
