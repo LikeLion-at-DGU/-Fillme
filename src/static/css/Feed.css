@@ -31,6 +31,7 @@
 
 .title {
     font-family: Elsie;
+    font-size: 2.2vw;
 }
 
 .feelings,
@@ -46,7 +47,7 @@
     cursor: pointer;
 }
 .feelings2 {
-    top: -10px;
+    top: -30px;
 }
 .feelings_content,
 .feelings_content2 {
@@ -55,7 +56,7 @@
     flex-direction: column;
     justify-content: center;
     left: -3.5%;
-    bottom: -2%;
+    bottom: -10px;
     padding-left: 7%;
     background: rgba(255, 255, 255, 0.85);
     width: 100%;
@@ -70,6 +71,7 @@
 
 .feelings_content2 {
     height: 50%;
+    bottom: -40px;
 }
 
 #feed_persona {
