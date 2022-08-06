@@ -25,13 +25,9 @@
     src: url("../font/AppleSDGothicNeoM.ttf");
 }
 
-.Feed {
-    margin: 100px 170px;
-}
-
-.title {
-    font-family: Elsie;
-    font-size: 2.2vw;
+.fill_the_feelings {
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .feelings,
@@ -141,11 +137,6 @@
     font-family: "AppleSDGothicNeoM00";
     font-size: 0.7vw;
     cursor: pointer;
-}
-
-.fill_the_feelings {
-    display: flex;
-    flex-wrap: wrap;
 }
 
 /* New Feelings */

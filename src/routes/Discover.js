@@ -3,14 +3,16 @@ import "../static/css/Discover.css";
 import render_Discover_feelings from "../components/Discover_Feelings";
 // import Discover from './Discover';
 import { Footer } from "../components/Footer";
+import styles from "../static/css/style.module.css";
 function Discover() {
     return (
         <>
             <Header />
-            <div className="Discover">
-                <h1 className="title">Discover Feelings</h1>
+            <div className={styles.wrap}>
+                <br />
+                <h1 className={styles.title}>Discover Feelings</h1>
 
-                <div className="Discover_feelings">
+                <div className={styles.wrap2}>
                     {feed.map(render_Discover_feelings)}
                 </div>
             </div>

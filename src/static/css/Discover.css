@@ -38,20 +38,6 @@
     unicode-range: U+AC00-D7A3;
 }
 
-.Discover {
-    margin: 100px 170px;
-}
-
-.Discover_feelings {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.title {
-    font-family: Elsie;
-    margin-bottom: 30px;
-}
-
 .card {
     width: 100%;
     display: flex;
