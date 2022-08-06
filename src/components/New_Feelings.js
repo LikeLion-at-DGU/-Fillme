@@ -1,20 +1,19 @@
-import newStyle from "./Newfeeling.module.css";
+import newStyle from "../static/css/Newfeeling.module.css";
 
 function New_Feelings({ id, user_id, persona_id, name, persona_name, image }) {
     const newfeeling_style = {
         backgroundImage: `url(${image})`,
-        backgroundSize: 'cover',
+        backgroundSize: "cover",
         backgroundRepeat: `no-repeat`,
-        backgroundPosition: `center`
-
-    }
+        backgroundPosition: `center`,
+    };
     return (
         <div
             className={newStyle.newfeeling}
             id={"feelings" + id}
-            style={newfeeling_style}>
-        </div>
+            style={newfeeling_style}
+        ></div>
     );
 }
 
-export default New_Feelings
+export default New_Feelings;
