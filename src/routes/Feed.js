@@ -1,16 +1,26 @@
 
 import Header from "../components/Header"
 import "../static/css/Feed.css"
-import Fill_feelings from "../components/Fill_Feelings"
+// import Fill_feelings from "../components/Fill_Feelings"
+import New_Feelings from './../components/New_Feelings';
 import render_fill_feelings from "../components/Fill_Feelings"
+import render_new_feelings from "../components/New_Feelings"
+
 function Feed() {
     return (
         <>
             <Header />
             <div className="Feed">
+                <br />
                 <h1 className="title">New Feelings</h1>
                 <div className="new_feelings">
-                    <img src="static/images/ImgSample1.jfif" alt="pic" />
+                    {persona.map((per) => <New_Feelings
+                        key={per.id}
+                        user_id={per.user_id}
+                        persona_id={per.persona_id}
+                        persona_name={per.persona_name}
+                        image={per.image}
+                    />)}
                 </div>
 
                 <h1 className="title">Fill the Feelings</h1>
@@ -28,11 +38,53 @@ const persona = [
         id: 10,
         user_id: "taeoh94",
         persona_id: "actor94",
-        image: "Fillme_Front\src\static\image\ImgSample1.jfif",
+        name: "시니영",
+        persona_name: "감정을 나누는 배우",
+        image: "images/ImgSample1.jfif",
+        // <img src="images/ImgSample1.jfif" />
+    },
+    {
+        id: 11,
+        user_id: "rommy",
+        persona_id: "rommy_hap",
+        name: "로미",
+        persona_name: "행복한 강아지 로미",
+        image: "images/ImgSample2.jfif",
+    },
+    {
+        id: 12,
+        user_id: "jamy",
+        persona_id: "jamy_kids",
+        name: "제이미",
+        persona_name: "노는게 좋은 뽀로로",
+        image: "images/ImgSample3.jfif",
+    },
+    {
+        id: 13,
+        user_id: "foodlover",
+        persona_id: "foodlife",
+        name: "고기맨",
+        persona_name: "고기를 주지 마세요",
+        image: "images/ImgSample4.jfif",
+    },
+    {
+        id: 14,
+        user_id: "sammy",
+        persona_id: "sammy_dad",
+        name: "세미",
+        persona_name: "세미 아빠",
+        image: "images/ImgSample5.jfif",
+    },
+    {
+        id: 15,
+        user_id: "wnstj701",
+        persona_id: "photo",
+        name: "Junseo",
+        persona_name: "Asher",
+        image: "images/ImgSample4.jfif",
+    },
 
-    }
 ]
-
 
 // json 데이터베이스 예시
 
