@@ -30,7 +30,7 @@ function Fill_feelings({
     if (hover) {
         return (
             <div
-                className="feelings"
+                className="feelings2"
                 id={"feelings" + id}
                 style={feelings_style}
                 onMouseLeave={OnmouseLeave}
@@ -41,6 +41,7 @@ function Fill_feelings({
                     <section id="feed_title">{title}</section>
                     <p id="feed_body">{body}</p>
                     <section id="feed_date_time">{date_time}</section>
+                    <button id="btn">자세히 보기</button>
                 </div>
             </div>
         );
@@ -56,8 +57,8 @@ function Fill_feelings({
                 <div className="feelings_content">
                     <section id="feed_persona">{persona}</section>
                     <section id="feed_title">{title}</section>
-
                     <section id="feed_date_time">{date_time}</section>
+                    <button id="btn">자세히 보기</button>
                 </div>
             </div>
         );
