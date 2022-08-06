@@ -83,7 +83,22 @@ const persona = [
         persona_name: "Asher",
         image: "images/ImgSample4.jfif",
     },
-
+    {
+        id: 15,
+        user_id: "wnstj701",
+        persona_id: "photo",
+        name: "Junseo",
+        persona_name: "Asher",
+        image: "images/ImgSample4.jfif",
+    },
+    {
+        id: 15,
+        user_id: "wnstj701",
+        persona_id: "photo",
+        name: "Junseo",
+        persona_name: "Asher",
+        image: "images/ImgSample4.jfif",
+    },
 ]
 
 // json 데이터베이스 예시
