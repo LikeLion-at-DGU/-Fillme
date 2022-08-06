@@ -25,11 +25,6 @@
     src: url("../font/AppleSDGothicNeoM.ttf");
 }
 
-.fill_the_feelings {
-    display: flex;
-    flex-wrap: wrap;
-}
-
 .feelings,
 .feelings2 {
     width: 30%;
