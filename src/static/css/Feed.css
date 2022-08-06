@@ -26,7 +26,7 @@
 }
 
 .Feed {
-    margin: 100px 140px;
+    margin: 100px 170px;
 }
 
 .title {
@@ -45,7 +45,8 @@
     cursor: pointer;
 }
 
-.feelings_content {
+.feelings_content,
+.feelings_content2 {
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -53,15 +54,24 @@
     left: -3.5%;
     bottom: -2%;
     padding-left: 5%;
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.85);
     width: 102%;
-    height: 25%;
     box-shadow: 0px 3px 15px rgba(0, 67, 101, 0.2);
     backdrop-filter: blur(6px);
     border-radius: 0px 0px 10px 10px;
 }
 
+.feelings_content {
+    height: 25%;
+}
+
+.feelings_content2 {
+    height: 50%;
+}
+
 #feed_persona {
+    position: absolute;
+    top: 20px;
     font-family: Roboto, AppleSDGothicNeoM00;
     font-weight: 600;
     font-size: 0.8vw;
@@ -69,6 +79,8 @@
 }
 
 #feed_title {
+    position: absolute;
+    top: 45px;
     font-family: Roboto, AppleSDGothicNeoB00;
     font-weight: 400;
     font-size: 1.2vw;
@@ -76,13 +88,19 @@
 }
 
 #feed_body {
+    position: absolute;
+    top: 70px;
     font-family: AppleSDGothicNeoM00;
     font-weight: 400;
     font-size: 0.9vw;
     line-height: 150%;
+    padding-right: 5%;
+    text-align: justify;
 }
 
 #feed_date_time {
+    position: absolute;
+    bottom: 10px;
     font-family: Roboto;
     font-weight: 400;
     font-size: 0.6vw;
