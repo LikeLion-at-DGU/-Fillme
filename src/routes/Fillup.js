@@ -2,7 +2,7 @@ import Header from "../components/Header";
 import { Footer2 } from "../components/Footer";
 import styles from "../static/css/style.module.css";
 import Navbar from "../components/Navbar";
-function Mainpage() {
+function Fillup() {
     return (
         <>
             <Header />
@@ -12,4 +12,4 @@ function Mainpage() {
         </>
     );
 }
-export default Mainpage;
+export default Fillup;

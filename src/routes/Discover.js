@@ -4,10 +4,12 @@ import render_Discover_feelings from "../components/Discover_Feelings";
 // import Discover from './Discover';
 import { Footer } from "../components/Footer";
 import styles from "../static/css/style.module.css";
+import Navbar from "../components/Navbar";
 function Discover() {
     return (
         <>
             <Header />
+            <Navbar />
             <div className={styles.wrap}>
                 <br />
                 <h1 className={styles.title}>Discover Feelings</h1>
