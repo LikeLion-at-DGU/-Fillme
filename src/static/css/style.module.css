@@ -1,5 +1,6 @@
+/* 공통 속성 */
 .wrap {
-    margin: 100px 170px;
+    margin: 100px 180px;
 }
 
 .wrap2 {
@@ -11,4 +12,19 @@
     font-family: Elsie;
     font-size: 2.2vw;
     margin-bottom: 0;
+}
+
+/* Navbar */
+.icon {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    padding: 20px;
+    cursor: pointer;
+}
+
+.navbar {
+    position: fixed;
+    top: 40%;
+    right: 2%;
 }

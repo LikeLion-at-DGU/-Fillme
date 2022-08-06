@@ -3,10 +3,12 @@ import { Footer } from "../components/Footer";
 import Fill_feelings from "../components/Fill_Feelings";
 import "../static/css/Profile2.module.css";
 import styles from "../static/css/style.module.css";
+import Navbar from "../components/Navbar";
 function Profile2() {
     return (
         <>
             <Header />
+            <Navbar />
             <div className={styles.wrap}>
                 <div className={styles.wrap2}>
                     {feed.map(render_fill_feelings)}

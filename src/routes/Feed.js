@@ -5,10 +5,12 @@ import New_Feelings from "./../components/New_Feelings";
 import Fill_feelings from "../components/Fill_Feelings";
 import { Footer } from "../components/Footer";
 import styles from "../static/css/style.module.css";
+import Navbar from "../components/Navbar";
 function Feed() {
     return (
         <>
             <Header />
+            <Navbar />
             <div className={styles.wrap}>
                 <br />
                 <h1 className={styles.title}>New Feelings</h1>
