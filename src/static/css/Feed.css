@@ -40,14 +40,14 @@
     padding-bottom: 25%;
     display: flex;
     flex-direction: column;
-    margin: 1.5%;
+    margin: 2.5% 1.5%;
     box-shadow: 0px 3px 15px rgba(0, 67, 101, 0.15);
     border-radius: 10px;
     position: relative;
     cursor: pointer;
 }
 .feelings2 {
-    top: -30px;
+    top: -3vh;
 }
 .feelings_content,
 .feelings_content2 {
@@ -56,7 +56,7 @@
     flex-direction: column;
     justify-content: center;
     left: -3.5%;
-    bottom: -10px;
+    bottom: -1vh;
     padding-left: 7%;
     background: rgba(255, 255, 255, 0.85);
     width: 100%;
@@ -71,7 +71,7 @@
 
 .feelings_content2 {
     height: 50%;
-    bottom: -40px;
+    bottom: -4vh;
 }
 
 #feed_persona {
