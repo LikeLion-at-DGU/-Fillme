@@ -39,11 +39,7 @@ function Fill_feelings({
                 <div className="feelings_content2">
                     <section id="feed_persona">{persona}</section>
                     <section id="feed_title">{title}</section>
-                    <p id="feed_body">
-                        {body.length > 130
-                            ? `${body.slice(0, 130)}` + "..."
-                            : body}
-                    </p>
+                    <p id="feed_body">{body}</p>
                     <section id="feed_date_time">{date_time}</section>
                 </div>
             </div>

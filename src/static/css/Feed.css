@@ -71,7 +71,7 @@
 
 #feed_persona {
     position: absolute;
-    top: 20px;
+    top: 1vw;
     font-family: Roboto, AppleSDGothicNeoM00;
     font-weight: 600;
     font-size: 0.8vw;
@@ -80,7 +80,7 @@
 
 #feed_title {
     position: absolute;
-    top: 45px;
+    top: 2.5vw;
     font-family: Roboto, AppleSDGothicNeoB00;
     font-weight: 400;
     font-size: 1.2vw;
@@ -89,18 +89,23 @@
 
 #feed_body {
     position: absolute;
-    top: 70px;
+    top: 4vw;
     font-family: AppleSDGothicNeoM00;
     font-weight: 400;
     font-size: 0.9vw;
     line-height: 150%;
     padding-right: 5%;
     text-align: justify;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
 }
 
 #feed_date_time {
     position: absolute;
-    bottom: 10px;
+    bottom: 0.7vw;
     font-family: Roboto;
     font-weight: 400;
     font-size: 0.6vw;
