@@ -1,0 +1,77 @@
+@font-face {
+    font-family: "Shrikhand";
+    src: url("../font/Shrikhand-Regular.otf");
+}
+
+@font-face {
+    font-family: "AppleSDGothicNeoB00";
+    src: url("../font/AppleSDGothicNeoB.ttf");
+}
+
+@font-face {
+    font-family: "AppleSDGothicNeoM00";
+    src: url("../font/AppleSDGothicNeoM.ttf");
+}
+#footer_left {
+    display: flex;
+    flex-direction: column;
+    justify-content: middle;
+    margin-left: 100px;
+}
+#footer_logo {
+    font-family: "Shrikhand";
+    font-size: 43px;
+    line-height: 110%;
+    color: #ffffff;
+    margin-bottom: 0;
+    font-style: italic;
+}
+
+#footer_detail {
+    margin-top: 0;
+    font-family: "Shrikhand";
+    font-style: italic;
+    font-weight: 400;
+    font-size: 24px;
+    color: #ffffff;
+}
+
+#copyright {
+    font-family: "AppleSDGothicNeoM00";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+}
+#contribute p {
+    display: flex;
+    flex-direction: column;
+    font-family: "AppleSDGothicNeoM00";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 110%;
+    color: #ffffff;
+    justify-content: center;
+    margin: 10px;
+}
+
+#role p {
+    display: flex;
+    flex-direction: column;
+    font-family: "AppleSDGothicNeoM00";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 110%;
+    color: #ffffff;
+    justify-content: center;
+    margin: 10px;
+}
+
+#created {
+    align-items: center;
+}

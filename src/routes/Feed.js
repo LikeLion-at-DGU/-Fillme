@@ -3,7 +3,7 @@ import "../static/css/Feed.css";
 // import Fill_feelings from "../components/Fill_Feelings"
 import New_Feelings from "./../components/New_Feelings";
 import Fill_feelings from "../components/Fill_Feelings";
-
+import { Footer } from "../components/Footer";
 function Feed() {
     return (
         <>
@@ -28,6 +28,7 @@ function Feed() {
                     {feed.map(render_fill_feelings)}
                 </div>
             </div>
+            <Footer />
         </>
     );
 }

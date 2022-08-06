@@ -2,7 +2,7 @@ import Header from "../components/Header";
 import "../static/css/Discover.css";
 import render_Discover_feelings from "../components/Discover_Feelings";
 // import Discover from './Discover';
-
+import { Footer } from "../components/Footer";
 function Discover() {
     return (
         <>
@@ -14,6 +14,7 @@ function Discover() {
                     {feed.map(render_Discover_feelings)}
                 </div>
             </div>
+            <Footer />
         </>
     );
 }
