@@ -1,4 +1,5 @@
-.newfeeling {
+.newfeeling1,
+.newfeeling2 {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -7,7 +8,12 @@
     border-radius: 10px;
     height: 20px;
     padding-bottom: 25%;
-    margin: 25px;
+    margin: 12px;
+}
+
+.newfeeling1 {
+    width: 1000px;
+    flex-basis: 300px;
 }
 
 .title {
@@ -15,6 +21,9 @@
     position: absolute;
     bottom: 6%;
     margin-left: 6%;
+    font-family: "AppleSDGothicNeoEB";
+    font-weight: 900;
+    font-size: 30px;
 }
 
 .sub {
@@ -26,7 +35,7 @@
 
 .button {
     position: absolute;
-    bottom: 1%;
+    bottom: 4%;
     right: 6%;
     border: 1px solid #3cda9f;
     border-radius: 5px;

@@ -1,5 +1,5 @@
 import newStyle from "../static/css/Newfeeling.module.css";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function New_Feelings({ id, user_id, user_name, persona_id, persona_name, image }) {
     const newfeeling_style = {
@@ -7,23 +7,24 @@ function New_Feelings({ id, user_id, user_name, persona_id, persona_name, image 
         backgroundSize: "cover",
         backgroundRepeat: `no-repeat`,
         backgroundPosition: `center`
-    }
+    };
 
-    const [hover, setHover] = useState(true);
-    const mouseOn = () => {
+    const [hover, setHover] = useState(false);
+    const OnMouseOver = () => {
         setHover(true);
-    }
-    const mouseOut = () => {
+    };
+    const OnMouseOut = () => {
         setHover(false);
-    }
+    };
 
     if (hover) {
         return (
             <div
-                className={newStyle.newfeeling}
+                className={newStyle.newfeeling1}
                 id={"feelings" + id}
                 style={newfeeling_style}
-                mouseOn={mouseOn}
+                onMouseOver={OnMouseOver}
+                onMouseLeave={OnMouseOut}
             >
                 <section id="user_id">@{user_id}</section>
                 <section>
@@ -36,17 +37,17 @@ function New_Feelings({ id, user_id, user_name, persona_id, persona_name, image 
     } else {
         return (
             <div
-                className={newStyle.newfeeling}
+                className={newStyle.newfeeling2}
                 id={"feelings" + id}
                 style={newfeeling_style}
-                mouseOut={mouseOut}
+                onMouseOver={OnMouseOver}
+                onMouseLeave={OnMouseOut}
             >
                 <section id="user_id">@{user_id}</section>
                 <section className={newStyle.subUnhover}><p>{persona_name}</p></section>
             </div>
         );
     }
-
 }
 
 export default New_Feelings;
