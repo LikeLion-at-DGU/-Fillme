@@ -1,12 +1,19 @@
 import newStyle from "../static/css/Newfeeling.module.css";
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
-function New_Feelings({ id, user_id, user_name, persona_id, persona_name, image }) {
+function New_Feelings({
+    id,
+    user_id,
+    user_name,
+    persona_id,
+    persona_name,
+    image,
+}) {
     const newfeeling_style = {
         backgroundImage: `url(${image})`,
         backgroundSize: "cover",
         backgroundRepeat: `no-repeat`,
-        backgroundPosition: `center`
+        backgroundPosition: `center`,
     };
 
     const [hover, setHover] = useState(false);
@@ -44,7 +51,9 @@ function New_Feelings({ id, user_id, user_name, persona_id, persona_name, image 
                 onMouseLeave={OnMouseOut}
             >
                 <section id="user_id">@{user_id}</section>
-                <section className={newStyle.subUnhover}><p>{persona_name}</p></section>
+                <section className={newStyle.subUnhover}>
+                    <p>{persona_name}</p>
+                </section>
             </div>
         );
     }

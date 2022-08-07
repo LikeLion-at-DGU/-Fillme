@@ -2,15 +2,13 @@ import "../static/css/Footer.css";
 function Footer() {
     return (
         <div className="Footer" style={footer_style}>
-            <div id="footer_left" style={{ width: `33%` }}>
+            <div id="footer_left">
                 <p id="footer_logo">Fill Me</p>
                 <p id="footer_detail">What is your Multi-Persona</p>
             </div>
-            <div id="copyright" style={{ width: `33%` }}>
-                ⓒ 2022 WHO YOU All Rights Reserved
-            </div>
-            <div id="created" style={{ width: `33%`, display: `flex` }}>
-                <div id="role" style={{ width: `50%`, textAlign: `right` }}>
+            <div id="copyright">ⓒ 2022 WHO YOU All Rights Reserved</div>
+            <div id="created">
+                <div id="role">
                     <p>Planner & Designer </p>
                     <p>Frontend Developer</p>
                     <p>Backend Developer</p>
@@ -58,7 +56,7 @@ const footer_style = {
     display: `flex`,
     width: `100%`,
     background: `#3CDA9F`,
-    height: `150px`,
+    height: `20vh`,
 };
 
 const footer_style2 = {
@@ -68,5 +66,5 @@ const footer_style2 = {
     width: `100%`,
     display: `flex`,
     background: `#3CDA9F`,
-    height: `150px`,
+    height: `20vh`,
 };
