@@ -3,17 +3,15 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    flex-basis: 220px;
+    flex-basis: 12vw;
     flex-shrink: 0;
     border-radius: 10px;
-    height: 20px;
     padding-bottom: 25%;
-    margin: 12px;
+    margin: 0.5%;
 }
 
 .newfeeling1 {
-    width: 1000px;
-    flex-basis: 300px;
+    flex-basis: 15vw;
 }
 
 .title {
@@ -23,7 +21,7 @@
     margin-left: 6%;
     font-family: "AppleSDGothicNeoEB";
     font-weight: 900;
-    font-size: 30px;
+    font-size: 170%;
 }
 
 .sub {
