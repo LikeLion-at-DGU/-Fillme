@@ -1,7 +1,7 @@
 import Header from "../components/Header";
 import "../static/css/Discover.css";
 import render_Discover_feelings from "../components/Discover_Feelings";
-import render_persona from "../components/Discover_Feelings"
+import render_persona from "../components/Discover_Feelings";
 // import Discover from './Discover';
 import { Footer } from "../components/Footer";
 import styles from "../static/css/style.module.css";
@@ -11,7 +11,7 @@ function Discover() {
     return (
         <>
             <Header />
-            <Navbar />
+
             <style>
                 {`#discover {
                     filter: invert(67%) sepia(37%) saturate(660%) hue-rotate(106deg)
@@ -30,6 +30,7 @@ function Discover() {
                 </div> */}
             </div>
             <Footer />
+            <Navbar />
         </>
     );
 }
@@ -43,12 +44,7 @@ const feed = [
         name: "Isabella Harper",
         image: "https://t1.daumcdn.net/cfile/tistory/994827455F1187B004",
         intro: "dance your life, dance the moment",
-        persona: [
-            "glisade",
-            "이사벨라 하퍼",
-            "JACK",
-            "태오꺼",
-        ],
+        persona: ["glisade", "이사벨라 하퍼", "JACK", "태오꺼"],
         type: [
             "발레리나",
             "동국대학교 연극영화과 20",
@@ -65,12 +61,7 @@ const feed = [
         image: "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/golden-retriever-royalty-free-image-506756303-1560962726.jpg?crop=1.00xw:0.756xh;0,0.0756xh&resize=768:*",
         intro: "인생은 한 번뿐 이 순간을 즐기자",
         type: [],
-        persona: [
-            "glisade",
-            "이사벨라 하퍼",
-            "JACK",
-            "태오꺼",
-        ],
+        persona: ["glisade", "이사벨라 하퍼", "JACK", "태오꺼"],
         type: [
             "발레리나",
             "동국대학교 연극영화과 20",
@@ -86,12 +77,7 @@ const feed = [
         name: "조승연",
         image: "http://itimg.chosun.com/sitedata/image/201810/02/2018100200110_0.jpg",
         intro: "식물을 사랑하는 실내 환경 디자이너",
-        persona: [
-            "glisade",
-            "이사벨라 하퍼",
-            "JACK",
-            "태오꺼",
-        ],
+        persona: ["glisade", "이사벨라 하퍼", "JACK", "태오꺼"],
         type: [
             "발레리나",
             "동국대학교 연극영화과 20",
@@ -106,12 +92,7 @@ const feed = [
         name: "Kate Mayson",
         image: "http://media.fastcampus.co.kr/wp-content/uploads/2021/03/fastcampus-media-coding-img-1-1030x539.png",
         intro: "Find my Apollo 11, sulf my ocean",
-        persona: [
-            "glisade",
-            "이사벨라 하퍼",
-            "JACK",
-            "태오꺼",
-        ],
+        persona: ["glisade", "이사벨라 하퍼", "JACK", "태오꺼"],
         type: [
             "발레리나",
             "동국대학교 연극영화과 20",
@@ -126,12 +107,7 @@ const feed = [
         name: "Irene Jackson",
         image: "http://media.fastcampus.co.kr/wp-content/uploads/2021/03/fastcampus-media-coding-img-1-1030x539.png",
         intro: "It's me because, it's me",
-        persona: [
-            "glisade",
-            "이사벨라 하퍼",
-            "JACK",
-            "태오꺼",
-        ],
+        persona: ["glisade", "이사벨라 하퍼", "JACK", "태오꺼"],
         type: [
             "발레리나",
             "동국대학교 연극영화과 20",
