@@ -16,10 +16,10 @@
 
 /* Navbar */    
 .icon {
-    width: 30px;
-    height: 30px;   
+    width: 1.5vw;
+    height: 1.5vw;
     display: flex;
-    padding: 20px;
+    padding: 0.7vw;
     cursor: pointer;
 }
 
