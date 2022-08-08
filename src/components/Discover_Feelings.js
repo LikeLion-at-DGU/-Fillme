@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Discover_feelings({ id, user_id, image, name, intro, persona, type, card_persona }) {
+function Discover_feelings({ id, user_id, image, name, intro, persona, type, card_persona, color }) {
     const [hover, setHover] = useState(false)
     const feelings_style = {
         backgroundImage: `url(${image})`,
@@ -8,21 +8,26 @@ function Discover_feelings({ id, user_id, image, name, intro, persona, type, car
         backgroundRepeat: `no-repeat`,
         backgroundPosition: `center`
     };
+    const colorstyle = {
+    
+    };
+    
 
     return (
         <div className="card" id={"discover" + id}>
             <div className="image" style={feelings_style}>
                 <p id="user_id">@{user_id}</p>
             </div>
-            <div className="user_data">
+            <div className="user_data" style={colorstyle}>
                 <p id="name">{name}</p>
                 <p id="intro">{intro}</p> 
                 <button id="btn_profile">프로필 보기</button>
                 <button id="btn_following">팔로잉</button>
                 <div id="persona">{persona}</div>
                 <p id="type">{type}</p>
-                <div id="card_persona">{card_persona}</div>
-                <div id="card_persona_2">{card_persona}</div>
+                <div className="image_per" style={feelings_style}>
+                    <div id="card_persona"><p>{card_persona}</p></div>
+                </div>
             </div>
         </div>
     )
