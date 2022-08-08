@@ -1,0 +1,134 @@
+/* Fillup */
+
+.select {
+    background: #ffffff;
+    border: 1px solid #a2a2a6;
+    border-radius: 5px;
+    width: 20vw;
+    height: 5vh;
+    font-family: "AppleSDGothicNeoM00";
+    padding-left: 1vw;
+    font-size: 0.9vw;
+    letter-spacing: 0.2px;
+    color: #bdbdbd;
+}
+
+option {
+    color: black;
+}
+
+.button_active {
+    background: #3cda9f;
+    border: 1px solid #3cda9f;
+    border-radius: 5px;
+    color: white;
+    font-family: "AppleSDGothicNeoB00";
+    padding: 0.8vh 6vw;
+    margin: 0 0.4vw;
+    cursor: pointer;
+}
+
+.button_inactive {
+    background: #ffffff;
+    border: 1px solid #3cda9f;
+    border-radius: 5px;
+    color: #3cda9f;
+    font-family: "AppleSDGothicNeoB00";
+    padding: 0.8vh 6vw;
+    margin: 0 0.4vw;
+    cursor: pointer;
+}
+
+.plus_button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0.8vw 0;
+    margin-left: 1vw;
+    width: 1.4vmax;
+    height: 1.4vmax;
+    cursor: pointer;
+}
+.text {
+    margin-left: 10px;
+    display: flex;
+    font-family: "AppleSDGothicNeoM00";
+    font-style: normal;
+    font-weight: 400;
+    justify-content: center;
+    align-items: center;
+    color: rgba(70, 70, 72, 0.5);
+    font-size: 0.9vw;
+}
+
+.form {
+    font-family: "AppleSDGothicNeoM00";
+    font-weight: 600;
+    font-size: 1.2vw;
+    margin: 0.8vw 0;
+}
+
+.random {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+    background: rgba(60, 218, 159, 0.3);
+    border-radius: 5px;
+    width: 100%;
+    height: 7vw;
+    padding: 1vw;
+}
+
+input::placeholder {
+    color: #bdbdbd;
+}
+
+.textarea {
+    box-sizing: border-box;
+    width: 100%;
+    background: #ffffff;
+    border: 1px solid #a2a2a6;
+    border-radius: 5px;
+    font-family: "AppleSDGothicNeoM00";
+    padding: 1vw;
+    font-size: 0.9vw;
+    height: 20vw;
+    resize: none;
+}
+
+.random_text {
+    font-family: "AppleSDGothicNeoB00";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 2vh;
+    display: flex;
+    align-items: center;
+    color: #3c3c3f;
+}
+
+.random_question {
+    font-family: "AppleSDGothicNeoM00";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.9vw;
+}
+
+.reload_button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0.5vw;
+    width: 1.4vmax;
+    height: 1.4vmax;
+    cursor: pointer;
+    background: #3cda9f;
+    background-image: url("../../../public/images/refresh.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 0;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+}

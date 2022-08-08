@@ -1,3 +1,12 @@
+@font-face {
+    font-family: "AppleSDGothicNeoB00";
+    src: url("../font/AppleSDGothicNeoB.ttf");
+}
+@font-face {
+    font-family: "AppleSDGothicNeoM00";
+    src: url("../font/AppleSDGothicNeoM.ttf");
+}
+
 /* 공통 속성 */
 .wrap {
     margin: 5vw 8vw;
@@ -21,6 +30,7 @@
     background-color: black;
     border-radius: 10px;
 }
+
 /* Navbar */
 .icon {
     width: 1.5vw;
