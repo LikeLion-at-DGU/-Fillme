@@ -6,6 +6,7 @@ import render_persona from "../components/Discover_Feelings";
 import { Footer } from "../components/Footer";
 import styles from "../static/css/style.module.css";
 import Navbar from "../components/Navbar";
+import { red } from "@mui/material/colors";
 function Discover() {
     return (
         <>
@@ -51,6 +52,7 @@ const feed = [
             "태오 여자친구",
         ],
         card_persona: "asdfasdfdfk",
+
     },
     {
         id: 2,
@@ -59,13 +61,6 @@ const feed = [
         image: "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/golden-retriever-royalty-free-image-506756303-1560962726.jpg?crop=1.00xw:0.756xh;0,0.0756xh&resize=768:*",
         intro: "인생은 한 번뿐 이 순간을 즐기자",
         type: [],
-        persona: ["glisade", "이사벨라 하퍼", "JACK", "태오꺼"],
-        type: [
-            "발레리나",
-            "동국대학교 연극영화과 20",
-            "사랑받는 강아지",
-            "태오 여자친구",
-        ],
         persona: ["glisade", "이사벨라 하퍼", "JACK", "태오꺼"],
         type: [
             "발레리나",
@@ -89,7 +84,7 @@ const feed = [
             "사랑받는 강아지",
             "태오 여자친구",
         ],
-        card_persona: "asdfasdfdfk",
+        
     },
     {
         id: 4,

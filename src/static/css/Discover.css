@@ -51,7 +51,7 @@
 }
 
 #card_persona {
-    width: 12vw;
+    /* width: 12vw;
     height: 22vw;
     display: flex;
     flex-direction: row;
@@ -60,11 +60,11 @@
     margin: 3vw;
     margin-top: 0;
     border-radius: 10px;
-    position: relative;
-    background-color: #3cda9f;
+    position: relative; */
     box-shadow: 0px 3px 15px rgba(0, 67, 101, 0.2);
     border-radius: 10px 10px 10px 10px;
 }
+
 #card_persona_2 {
     width: 12vw;
     height: 22vw;
@@ -89,6 +89,18 @@
     border: #ffffff;
     background-size: cover;
     border-radius: 10px 0px 0px 10px;
+}
+
+.image_per {
+    width: 15%;
+    top: -1vw;
+    right: 1vw;
+    height: 22vw;
+    margin-right: 0;
+    display: flex;
+    border: #ffffff;
+    background-size: cover;
+    border-radius: 10px 10px 10px 10px;
 }
 
 .user_data {
