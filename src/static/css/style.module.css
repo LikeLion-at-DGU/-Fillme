@@ -1,6 +1,6 @@
 /* 공통 속성 */
 .wrap {
-    margin: 100px 180px;
+    margin: 5vw 8vw;
 }
 
 .wrap2 {
@@ -14,7 +14,7 @@
     margin-bottom: 0;
 }
 
-/* Navbar */
+/* Navbar */    
 .icon {
     width: 1.5vw;
     height: 1.5vw;
