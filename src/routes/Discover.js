@@ -10,7 +10,7 @@ function Discover() {
     return (
         <>
             <Header />
-            <Navbar />
+
             <style>
                 {`#discover {
                     filter: invert(67%) sepia(37%) saturate(660%) hue-rotate(106deg)
@@ -29,6 +29,7 @@ function Discover() {
                 </div> */}
             </div>
             <Footer />
+            <Navbar />
         </>
     );
 }
