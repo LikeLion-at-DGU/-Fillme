@@ -4,13 +4,17 @@ import Fill_feelings from "../components/Fill_Feelings";
 import "../static/css/Profile2.module.css";
 import styles from "../static/css/style.module.css";
 import Navbar from "../components/Navbar";
+import Persona_Card from "../components/Persona_Card";
 function Profile2() {
     return (
         <>
             <Header />
             <Navbar />
             <div className={styles.wrap}>
+                <br />
+
                 <div className={styles.wrap2}>
+                    <Persona_Card />
                     {feed.map(render_fill_feelings)}
                 </div>
             </div>

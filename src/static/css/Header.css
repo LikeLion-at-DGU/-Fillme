@@ -1,33 +1,29 @@
-@font-face{
-    font-family:"Shrikhand";
-    src : url("../font/Shrikhand-Regular.otf")
+@font-face {
+    font-family: "Shrikhand";
+    src: url("../font/Shrikhand-Regular.otf");
 }
-body{
-    margin:0;
+body {
+    margin: 0;
 }
-.header{
-    display:block;
-    position:fixed;
+.header {
+    display: block;
+    position: fixed;
     width: 100%;
     text-align: center;
-    height: 80px;
-    top: 0; left: 0;
-    background: #FFFFFF;
+    height: 8vh;
+    top: 0;
+    left: 0;
+    background: #ffffff;
     box-shadow: 0px 2px 15px rgba(0, 67, 101, 0.1);
     z-index: 100;
-
-
-
-
 }
-#header_logo{
-    margin:0;
-    vertical-align: middle;
-    color : #3CDA9F;
-    line-height: 80px;
+#header_logo {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    color: #3cda9f;
     font-weight: 400;
-    font-family: 'Shrikhand';
-    font-size: 4vw;
-
+    font-family: "Shrikhand";
+    font-size: 4.5vmin;
+    left: 50%;
 }
-
