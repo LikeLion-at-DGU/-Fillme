@@ -39,44 +39,59 @@ function Mainpage() {
                             component="h1"
                             variant="h5"
                             sx={{ mb: 5 }}
+                            fontFamily="AppleSDGothicNeoB00"
                         >
                             로그인하여 친구들의 멀티 페르소나를 만나보세요
                         </Typography>
                         <TextField
-                            label="Email Address"
-                            name="email"
+                            label="아이디을 입력해주세요"
+                            name="id"
+                            fontFamily="AppleSDGothicNeoM00"
                             required
                             fullWidth
-                            autoComplete="email"
+                            autoComplete="id"
                             autoFocus
                             sx={{ mb: 3 }}
                         />
                         <TextField
-                            label="password"
+                            label="비밀번호를 입력해주세요"
                             name="password"
                             type="password"
+                            fontFamily="AppleSDGothicNeoM00"
                             required
                             fullWidth
                             autoComplete="current-password"
                         />
                         <FormControlLabel
                             control={<Checkbox value="remember" color="primary" />}
-                            label="Remember me"
+                            label="자동 로그인"
+                            fontFamily="AppleSDGothicNeoM00"
                         />
                         <Button
                             type="submit"
                             variant="contained"
                             fullWidth
+                            fontFamily="AppleSDGothicNeoB00"
                             sx={{ mt: 3, mb: 2, bgcolor: '#3CDA9F' }}
                         >로그인하기</Button>
                         <Grid container>
                             <Grid item xs>
-                                <Link href="#" variant="body2">
+                                <Link
+                                    href="#"
+                                    variant="body2"
+                                    fontFamily="AppleSDGothicNeoB00"
+                                    sx={{ color: '#3CDA9F' }}
+                                >
                                     비밀번호 찾기
                                 </Link>
                             </Grid>
                             <Grid item>
-                                <Link href="#" variant="body2">
+                                <Link
+                                    href="#"
+                                    variant="body2"
+                                    fontFamily="AppleSDGothicNeoB00"
+                                    sx={{ color: '#3CDA9F' }}
+                                >
                                     회원가입
                                 </Link>
                             </Grid>
