@@ -14,7 +14,14 @@
     margin-bottom: 0;
 }
 
-/* Navbar */    
+.card {
+    width: 96%;
+    margin: 2.5% 1.5%;
+    height: 25vw;
+    background-color: black;
+    border-radius: 10px;
+}
+/* Navbar */
 .icon {
     width: 1.5vw;
     height: 1.5vw;
