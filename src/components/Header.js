@@ -1,9 +1,14 @@
-
-import "../static/css/Header.css"
+import "../static/css/Header.css";
+import { NavLink } from "react-router-dom";
 function Header() {
     return (
-        <div className="header">
-            <section id="header_logo">Fill Me</section>
-        </div>
-    )
-} export default Header;
+        <>
+            <div className="header">
+                <NavLink to="/Feed">
+                    <section id="header_logo">Fill Me</section>
+                </NavLink>
+            </div>
+        </>
+    );
+}
+export default Header;
