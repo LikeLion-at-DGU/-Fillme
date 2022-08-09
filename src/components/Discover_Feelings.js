@@ -1,9 +1,9 @@
 import { useState } from "react";
-import feed from "../routes/Discover"
-import styled, { css } from "styled-components";
+import feed from "../routes/Discover";
+import render_Discover_card from "../components/Discover_card";
+import Discover_card from "../components/Discover_card";
 
-function Discover_feelings({ id, user_id, image, persona_image, name, intro, persona, type, card_persona, deg, color1, colo2}) {
-    const [hover, setHover] = useState(false)
+function Discover_feelings({ id, user_id, image, persona_image, name, intro, persona, type, card_persona }) {
     const feelings_style = {
         backgroundImage: `url(${image})`,
         backgroundSize: 'cover',
@@ -35,9 +35,13 @@ function Discover_feelings({ id, user_id, image, persona_image, name, intro, per
                     <div id="persona">{persona}</div>
                     <p id="type">{type}</p>
                 </div>
-            <div className="image_per" style={persona_style}>
+            {/* <div className="image_per" style={persona_style}>
                 <div className="card_persona" id={"card_persona"+id}><p>{card_persona}</p></div>
-            </div>
+            </div> */}
+            {/* <div className="image_per" style={persona_style}>
+                <Discover_card {feed.map(render_Discover_card)}/>
+            </div> */}
+            
         </div>
         
     )
