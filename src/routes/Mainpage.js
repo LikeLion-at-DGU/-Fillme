@@ -2,37 +2,75 @@ import Header from "../components/Header";
 import { Footer2 } from "../components/Footer";
 import styles from "../static/css/style.module.css";
 import Navbar from "../components/Navbar";
-import TextField from '@mui/material/TextField';
-import Checkbox from '@mui/material/Checkbox';
-import Button from '@mui/material/Button';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import Link from '@mui/material/Link';
-import Grid from '@mui/material/Grid';
-import Typography from '@mui/material/Typography';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import Avatar from '@mui/material/Avatar';
-import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { useState } from 'react';
 
+// For MUI
+import {
+    TextField,
+    Checkbox,
+    Button,
+    FormControlLabel,
+    Link,
+    Grid,
+    Typography,
+    Box,
+    Container,
+} from '@mui/material/';
+import { useState, useEffect } from 'react';
+
+// For Axios
+import Axios from 'axios';
+import { Input } from 'antd';
+import styled from 'styled-components';
 
 function Mainpage() {
+    const [id, setId] = useState('');
+    const [password, setPassword] = useState('');
+    const [errors, setErrors] = useState(false);
+
+    const onSubmit = (e) => {
+        e.preventDefault();
+
+        const user = {
+            id: id,
+            password: password
+        };
+
+        Axios.post('/accounts/', user)
+            .then(res => {
+                if (res.data.key) {
+                    localStorage.clear()
+                    localStorage.setItem('token', res.data.key)
+                    // 사용하려면 App.js에서 /로 라우팅해야 한다
+                    window.location.replace('/')
+                } else {
+                    setId('')
+                    setPassword('')
+                    localStorage.clear()
+                    setErrors(true)
+                }
+            })
+            .catch(err => {
+                console.clear()
+                alert('아이디 또는 비밀번호가 일치하지 않습니다')
+                setId('')
+                setPassword('')
+            })
+    };
+
     return (
         <>
+            {errors === true && <h2>Cannot log in with provided credentials</h2>}
             <div className={styles.wrap}>
                 <Container component="main" maxWidth="sm">
                     <Box
                         sx={{
-                            marginTop: 25,
+                            marginTop: 10,
                             display: "flex",
                             flexDirection: "column",
                             alignItems: "center",
                         }}
                     >
-                        {/* <Avatar sx={{ m: 1, bgcolor: 'success.light' }}>
-                            <LockOutlinedIcon />
-                        </Avatar> */}
+
                         <Typography
                             component="h1"
                             variant="h5"
@@ -43,6 +81,7 @@ function Mainpage() {
                         </Typography>
                         <TextField
                             label="아이디을 입력해주세요"
+                            onChange={e => setId(e.target.value)}
                             name="id"
                             fontFamily="AppleSDGothicNeoM00"
                             required
@@ -53,6 +92,7 @@ function Mainpage() {
                         />
                         <TextField
                             label="비밀번호를 입력해주세요"
+                            onChange={e => setPassword(e.target.value)}
                             name="password"
                             type="password"
                             fontFamily="AppleSDGothicNeoM00"
@@ -89,7 +129,7 @@ function Mainpage() {
                             </Grid>
                             <Grid item>
                                 <Link
-                                    href="#"
+                                    href="/SignupPage"
                                     variant="body2"
                                     fontFamily="AppleSDGothicNeoB00"
                                     sx={{ color: "#3CDA9F" }}
