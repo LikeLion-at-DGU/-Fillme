@@ -1,5 +1,4 @@
 /* Fillup */
-
 .select {
     background: #ffffff;
     border: 1px solid #a2a2a6;
@@ -11,6 +10,11 @@
     font-size: 0.9vw;
     letter-spacing: 0.2px;
     color: #bdbdbd;
+    appearance: none;
+    background-image: url(../../../public/images/arrow.png);
+    background-position: 95%;
+    background-repeat: no-repeat;
+    background-size: 0.7vw;
 }
 
 option {
@@ -131,4 +135,44 @@ input::placeholder {
     border: 0;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 5px;
+}
+
+.input_box {
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 13vw;
+    height: 13vw;
+    border: 1px solid #a2a2a6;
+    border-radius: 5px;
+    border-color: #a2a2a6;
+    color: #a2a2a6;
+    background-image: url("../../../public/images/video.png");
+    background-repeat: no-repeat;
+    background-position: 50% 40%;
+    cursor: pointer;
+    font-family: AppleSDGothicNeoM00;
+    padding-top: 2vw;
+    font-size: 0.9vw;
+}
+
+.input_box2 {
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 13vw;
+    height: 13vw;
+    border: 1px solid #a2a2a6;
+    border-radius: 5px;
+    border-color: #a2a2a6;
+    color: #a2a2a6;
+    background-image: url("../../../public/images/image.svg");
+    background-repeat: no-repeat;
+    background-position: 50% 40%;
+    cursor: pointer;
+    font-family: AppleSDGothicNeoM00;
+    padding-top: 2vw;
+    font-size: 0.9vw;
 }

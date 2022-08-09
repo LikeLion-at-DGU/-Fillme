@@ -1,6 +1,6 @@
 import styles from "../static/css/Fillup.module.css";
 import { useState } from "react";
-import { Url } from "url";
+
 function Fillup_component() {
     const persona = ["페르소나1", "페르소나2", "페르소나3"];
     const [button1, setbutton1] = useState(true);
@@ -58,22 +58,57 @@ function Fillup_component() {
             <br />
             <br />
             {button1 ? (
-                <div style={{ display: `flex`, flexDirection: `row` }}>
-                    <p className={styles.form}>사진을 선택해주세요 *</p>
-                    <img
-                        src="images/plus_button.png"
-                        className={styles.plus_button}
-                    />
-                    <p className={styles.text}> (최대 10장) </p>
-                </div>
+                <>
+                    <div style={{ display: `flex`, flexDirection: `row` }}>
+                        <p className={styles.form}>사진을 선택해주세요 *</p>
+
+                        {/* input 커스터마이징 */}
+                        <label for="image">
+                            <img
+                                src="images/plus_button.png"
+                                className={styles.plus_button}
+                            />
+                        </label>
+                        <input
+                            type="file"
+                            accept="image/*"
+                            id="image"
+                            style={{ display: `none` }}
+                            multiple
+                        ></input>
+
+                        <p className={styles.text}> (최대 10장) </p>
+                    </div>
+                    <label for="image">
+                        <div className={styles.input_box2}>
+                            사진을 선택해주세요
+                        </div>
+                    </label>
+                </>
             ) : (
-                <div style={{ display: `flex`, flexDirection: `row` }}>
-                    <p className={styles.form}>영상을 선택해주세요 *</p>
-                    <img
-                        src="images/plus_button.png"
-                        className={styles.plus_button}
-                    />
-                </div>
+                <>
+                    <div style={{ display: `flex`, flexDirection: `row` }}>
+                        <p className={styles.form}>영상을 선택해주세요 *</p>
+                        {/* input 커스터마이징 */}
+                        <label for="video">
+                            <img
+                                src="images/plus_button.png"
+                                className={styles.plus_button}
+                            />
+                        </label>
+                        <input
+                            type="file"
+                            accept="video/*"
+                            id="video"
+                            style={{ display: `none` }}
+                        ></input>
+                    </div>
+                    <label for="video">
+                        <div className={styles.input_box}>
+                            영상을 선택해주세요
+                        </div>
+                    </label>
+                </>
             )}
             <br />
             <br />
@@ -93,7 +128,7 @@ function Fillup_component() {
                 <input
                     className={styles.select}
                     placeholder="제목을 입력해주세요 (띄어쓰기 포함 최대 20자)"
-                    style={{ color: "black" }}
+                    style={{ color: "black", backgroundImage: `none` }}
                 ></input>
             </section>
             <br /> <br />
