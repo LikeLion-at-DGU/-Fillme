@@ -7,8 +7,6 @@ import Persona_Card from "../components/Persona_Card";
 function Profile2() {
     return (
         <>
-            <Header />
-            <Navbar />
             <div className={styles.wrap}>
                 <br />
 

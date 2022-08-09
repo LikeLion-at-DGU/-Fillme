@@ -21,119 +21,124 @@ function Fillup_component() {
     };
     return (
         <>
-            <p className={styles.form}>
-                게시글을 작성할 페르소나를 선택해주세요 *
-            </p>
-            <select className={styles.select}>
-                <option style={{ display: `none` }} value="selected">
-                    페르소나 선택
-                </option>
-                {persona.map((p) => (
-                    <option value={p} key={p}>
-                        {p}
+            <form>
+                <p className={styles.form}>
+                    게시글을 작성할 페르소나를 선택해주세요 *
+                </p>
+                <select className={styles.select}>
+                    <option style={{ display: `none` }} value="selected">
+                        페르소나 선택
                     </option>
-                ))}
-            </select>
-            <br />
-            <br />
-            <br />
-            <p className={styles.form}>게시글의 유형을 선택해주세요 *</p>
-            <button
-                onClick={onclick1}
-                className={
-                    button1 ? styles.button_active : styles.button_inactive
-                }
-            >
-                사진
-            </button>
-            <button
-                onClick={onclick2}
-                className={
-                    button2 ? styles.button_active : styles.button_inactive
-                }
-            >
-                영상
-            </button>{" "}
-            <br />
-            <br />
-            <br />
-            {button1 ? (
-                <>
-                    <div style={{ display: `flex`, flexDirection: `row` }}>
-                        <p className={styles.form}>사진을 선택해주세요 *</p>
+                    {persona.map((p) => (
+                        <option value={p} key={p}>
+                            {p}
+                        </option>
+                    ))}
+                </select>
+                <br />
+                <br />
+                <br />
+                <p className={styles.form}>게시글의 유형을 선택해주세요 *</p>
+                <button
+                    onClick={onclick1}
+                    className={
+                        button1 ? styles.button_active : styles.button_inactive
+                    }
+                >
+                    사진
+                </button>
+                <button
+                    onClick={onclick2}
+                    className={
+                        button2 ? styles.button_active : styles.button_inactive
+                    }
+                >
+                    영상
+                </button>{" "}
+                <br />
+                <br />
+                <br />
+                {/* 사진, 영상 조건문 -> 사진 버튼 눌렸으면 사진 관련, 영상 버튼 눌렸으면 영상 관련 */}
+                {button1 ? (
+                    <>
+                        <div style={{ display: `flex`, flexDirection: `row` }}>
+                            <p className={styles.form}>사진을 선택해주세요 *</p>
 
-                        {/* input 커스터마이징 */}
-                        <label for="image">
-                            <img
-                                src="images/plus_button.png"
-                                className={styles.plus_button}
-                            />
-                        </label>
-                        <input
-                            type="file"
-                            accept="image/*"
-                            id="image"
-                            style={{ display: `none` }}
-                            multiple
-                        ></input>
+                            {/* input 커스터마이징 */}
+                            <label htmlFor="image">
+                                <img
+                                    src="images/plus_button.png"
+                                    className={styles.plus_button}
+                                />
+                            </label>
+                            <input
+                                type="file"
+                                accept="image/*"
+                                id="image"
+                                style={{ display: `none` }}
+                                multiple
+                            ></input>
 
-                        <p className={styles.text}> (최대 10장) </p>
-                    </div>
-                    <label for="image">
-                        <div className={styles.input_box2}>
-                            사진을 선택해주세요
+                            <p className={styles.text}> (최대 10장) </p>
                         </div>
-                    </label>
-                </>
-            ) : (
-                <>
-                    <div style={{ display: `flex`, flexDirection: `row` }}>
-                        <p className={styles.form}>영상을 선택해주세요 *</p>
-                        {/* input 커스터마이징 */}
-                        <label for="video">
-                            <img
-                                src="images/plus_button.png"
-                                className={styles.plus_button}
-                            />
+                        <label htmlFor="image">
+                            <div className={styles.input_box2}>
+                                사진을 선택해주세요
+                            </div>
                         </label>
-                        <input
-                            type="file"
-                            accept="video/*"
-                            id="video"
-                            style={{ display: `none` }}
-                        ></input>
-                    </div>
-                    <label for="video">
-                        <div className={styles.input_box}>
-                            영상을 선택해주세요
+                    </>
+                ) : (
+                    <>
+                        <div style={{ display: `flex`, flexDirection: `row` }}>
+                            <p className={styles.form}>영상을 선택해주세요 *</p>
+                            {/* input 커스터마이징 */}
+                            <label htmlFor="video">
+                                <img
+                                    src="images/plus_button.png"
+                                    className={styles.plus_button}
+                                />
+                            </label>
+                            <input
+                                type="file"
+                                accept="video/*"
+                                id="video"
+                                style={{ display: `none` }}
+                            ></input>
                         </div>
-                    </label>
-                </>
-            )}
-            <br />
-            <br />
-            <div className={styles.random} id="random_question">
-                <section className={styles.random_text}>
-                    어떤 글을 써야할지 모르겠다면 이런 주제는 어때요?
-                    <button
-                        onClick={reload_btn}
-                        className={styles.reload_button}
-                    ></button>
+                        <label htmlFor="video">
+                            <div className={styles.input_box}>
+                                영상을 선택해주세요
+                            </div>
+                        </label>
+                    </>
+                )}
+                <br />
+                <br />
+                <div className={styles.random} id="random_question">
+                    <section className={styles.random_text}>
+                        어떤 글을 써야할지 모르겠다면 이런 주제는 어때요?
+                        <button
+                            onClick={reload_btn}
+                            className={styles.reload_button}
+                        ></button>
+                    </section>
+                    <section className={styles.random_question}>
+                        {reload}
+                    </section>
+                </div>
+                <br /> <br />
+                <p className={styles.form}>제목을 입력해주세요 *</p>
+                <section>
+                    <input
+                        className={styles.select}
+                        placeholder="제목을 입력해주세요 (띄어쓰기 포함 최대 20자)"
+                        style={{ color: "black", backgroundImage: `none` }}
+                    ></input>
                 </section>
-                <section className={styles.random_question}>{reload}</section>
-            </div>
-            <br /> <br />
-            <p className={styles.form}>제목을 입력해주세요 *</p>
-            <section>
-                <input
-                    className={styles.select}
-                    placeholder="제목을 입력해주세요 (띄어쓰기 포함 최대 20자)"
-                    style={{ color: "black", backgroundImage: `none` }}
-                ></input>
-            </section>
-            <br /> <br />
-            <p className={styles.form}>본문을 입력해주세요 *</p>
-            <textarea className={styles.textarea}></textarea>
+                <br /> <br />
+                <p className={styles.form}>본문을 입력해주세요 *</p>
+                <textarea className={styles.textarea}></textarea>
+            </form>
         </>
     );
 }
