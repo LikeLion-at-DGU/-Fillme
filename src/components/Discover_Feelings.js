@@ -3,7 +3,7 @@ import feed from "../routes/Discover";
 import render_Discover_card from "../components/Discover_card";
 import Discover_card from "../components/Discover_card";
 
-function Discover_feelings({ id, user_id, image, persona_image, name, intro, persona, type, card_persona }) {
+function Discover_feelings({ id, user_id, image, persona_image, name, intro, persona, type }) {
     const feelings_style = {
         backgroundImage: `url(${image})`,
         backgroundSize: 'cover',
@@ -16,10 +16,6 @@ function Discover_feelings({ id, user_id, image, persona_image, name, intro, per
         backgroundRepeat: `no-repeat`,
         backgroundPosition: `center`
     };
-    // const colorstyle = {
-    //     backgroundColor: `${color1}`,
-    // };
-
     
 
     return (

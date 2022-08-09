@@ -8,6 +8,7 @@ function Discover_card({
     persona_image,
     persona,
 }) {
+    // const src = feed[1][1];
     const [hover, setHover] = useState(false);
     const OnmouseEnter = () => {
         setHover(true);
