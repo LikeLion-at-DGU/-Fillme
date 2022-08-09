@@ -39,7 +39,7 @@
 }
 
 .card {
-    width: 80vw;
+    width: 100vw;
     display: flex;
     flex-direction: row;
     left: -1vw;
@@ -50,36 +50,20 @@
     border-radius: 10px 10px 10px 10px;
 }
 
-#card_persona {
+.card_persona {
+    font-style: "AppleSDGothicNeoM00", "Roboto";
     width: 12vw;
     height: 22vw;
     display: flex;
     flex-direction: row;
-    left: 52vw;
-    top: -12vw;
+    top: 3vw;
+    left: 13vw;
     margin: 3vw;
-    margin-top: 0;
     border-radius: 10px;
     position: relative;
-    background-color: #3cda9f;
-    box-shadow: 0px 3px 15px rgba(0, 67, 101, 0.2);
+    color: #ffffff;
     border-radius: 10px 10px 10px 10px;
-}
-#card_persona_2 {
-    width: 12vw;
-    height: 22vw;
-    display: flex;
-    flex-direction: row;
-    left: 48vw;
-    top: -37vw;
-    margin: 3vw;
-    margin-top: 0;
-    border-radius: 10px;
-    position: relative;
-    background-color: #2146be;
-    box-shadow: 0px 3px 15px rgba(0, 67, 101, 0.2);
-    border-radius: 10px 10px 10px 10px;
-    /* z-index: 1000; */
+    transform: rotate(270deg);
 }
 
 .image {
@@ -91,8 +75,20 @@
     border-radius: 10px 0px 0px 10px;
 }
 
+.image_per {
+    width: 15%;
+    height: 21.5vw;
+    top: 1.7vw;
+    left: 68vw;
+    display: flex;
+    border: #ffffff;
+    background-size: cover;
+    border-radius: 10px 10px 10px 10px;
+    position: absolute;
+}
+
 .user_data {
-    width: 85%;
+    width: 81.2%;
     height: 23.5vw;
     text-align: left;
     position: absolute;
@@ -101,11 +97,11 @@
     flex-direction: column;
     /* justify-content: center; */
     left: 17%;
-    background: linear-gradient(
+    /* background: linear-gradient(
         to left,
         rgb(1, 122, 228) 85%,
         rgba(0, 86, 161, 0)
-    );
+    ); */
     border-radius: 0px 10px 10px 0px;
 }
 
@@ -199,4 +195,41 @@
     color: #ffffff;
     text-shadow: 0px 2px 10px rgba(0, 0, 0, 0.8);
     margin: 20px;
+}
+
+
+/* 개별 색상 */
+#data1 {
+    background: linear-gradient(
+    to left,
+    rgb(1, 1, 1) 85%,
+    rgba(0, 1, 1, 0))
+}
+
+#data2 {
+    background: linear-gradient(
+    to left,
+    rgb(72, 111, 187) 85%,
+    rgba(72, 110, 187, 0))
+}
+
+#data3 {
+    background: linear-gradient(
+    to left,
+    rgb(21, 61, 46) 85%,
+    rgb(21, 61, 46, 0))
+}
+
+#data4 {
+    background: linear-gradient(
+    to left,
+    rgb(142, 32, 38) 85%,
+    rgba(142, 32, 38, 0))
+}
+
+#data5 {
+    background: linear-gradient(
+    to left,
+    rgb(77, 46, 102) 85%,
+    rgb(77, 46, 102, 0))
 }

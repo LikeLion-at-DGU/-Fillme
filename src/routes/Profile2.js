@@ -1,15 +1,12 @@
 import Header from "../components/Header";
 import { Footer } from "../components/Footer";
 import Fill_feelings from "../components/Fill_Feelings";
-import "../static/css/Profile2.module.css";
 import styles from "../static/css/style.module.css";
 import Navbar from "../components/Navbar";
 import Persona_Card from "../components/Persona_Card";
 function Profile2() {
     return (
         <>
-            <Header />
-            <Navbar />
             <div className={styles.wrap}>
                 <br />
 

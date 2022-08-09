@@ -5,8 +5,6 @@ import Navbar from "../components/Navbar";
 function Profile() {
     return (
         <>
-            <Header />
-            <Navbar />
             <style>
                 {`#profile {
                     filter: invert(67%) sepia(37%) saturate(660%) hue-rotate(106deg)

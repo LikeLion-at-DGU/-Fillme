@@ -18,55 +18,16 @@ import { useState } from 'react';
 
 
 function Mainpage() {
-    // const [id, setId] = useState("");
-    // const [pwd, setPwd] = useState("");
-
-    // const login = () => {
-    //     // 입력 값 정합성 체크 후 login API 요청
-    //     if (id === "" || pwd === "") {
-    //         window.alert("아이디와 비밀번호를 입력해주세요.");
-    //         return;
-    //     }
-    //     dispatch(userActions.loginDB(id, pwd));
-    // }
-
-    // // API 통신을 통해 서버에 id, pwd제공하고 유저 정보와 토큰 받아 저장
-    // const loginDB = (id, password) => {
-    //     return function (dispatch, getState, { history }) {
-    //         axios({
-    //             method: "post",
-    //             url: "#",
-    //             data: {
-    //                 email: id,
-    //                 password: password,
-    //             },
-    //         })
-    //             .then((res) => {
-    //                 console.log(res);
-    //                 dispatch(
-    //                     setUser({
-    //                         email: res.data.email,
-    //                         nickname: res.data.nickname,
-    //                     })
-    //                 );
-    //                 const accssToken = res.data.token;
-    //                 // 쿠키에 토큰 저장
-    //         })
-    //     }
-    // }
-
     return (
         <>
-            <Header />
-            <Navbar />
             <div className={styles.wrap}>
                 <Container component="main" maxWidth="sm">
                     <Box
                         sx={{
                             marginTop: 25,
-                            display: 'flex',
-                            flexDirection: 'column',
-                            alignItems: 'center',
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "center",
                         }}
                     >
                         {/* <Avatar sx={{ m: 1, bgcolor: 'success.light' }}>
@@ -100,7 +61,9 @@ function Mainpage() {
                             autoComplete="current-password"
                         />
                         <FormControlLabel
-                            control={<Checkbox value="remember" color="primary" />}
+                            control={
+                                <Checkbox value="remember" color="primary" />
+                            }
                             label="자동 로그인"
                             fontFamily="AppleSDGothicNeoM00"
                         />
@@ -109,15 +72,17 @@ function Mainpage() {
                             variant="contained"
                             fullWidth
                             fontFamily="AppleSDGothicNeoB00"
-                            sx={{ mt: 3, mb: 2, bgcolor: '#3CDA9F' }}
-                        >로그인하기</Button>
+                            sx={{ mt: 3, mb: 2, bgcolor: "#3CDA9F" }}
+                        >
+                            로그인하기
+                        </Button>
                         <Grid container>
                             <Grid item xs>
                                 <Link
                                     href="#"
                                     variant="body2"
                                     fontFamily="AppleSDGothicNeoB00"
-                                    sx={{ color: '#3CDA9F' }}
+                                    sx={{ color: "#3CDA9F" }}
                                 >
                                     비밀번호 찾기
                                 </Link>
@@ -127,7 +92,7 @@ function Mainpage() {
                                     href="#"
                                     variant="body2"
                                     fontFamily="AppleSDGothicNeoB00"
-                                    sx={{ color: '#3CDA9F' }}
+                                    sx={{ color: "#3CDA9F" }}
                                 >
                                     회원가입
                                 </Link>
