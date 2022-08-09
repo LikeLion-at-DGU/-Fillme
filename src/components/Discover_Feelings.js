@@ -3,7 +3,7 @@ import feed from "../routes/Discover";
 import render_Discover_card from "../components/Discover_card";
 import Discover_card from "../components/Discover_card";
 
-function Discover_feelings({ id, user_id, image, persona_image, name, intro, persona, type }) {
+function Discover_feelings({ id, user_id, image, persona_image, name, intro, persona_name, type, card}) {
     const feelings_style = {
         backgroundImage: `url(${image})`,
         backgroundSize: 'cover',
@@ -11,7 +11,7 @@ function Discover_feelings({ id, user_id, image, persona_image, name, intro, per
         backgroundPosition: `center`
     };
     const persona_style = {
-        backgroundImage: `url(${persona_image})`,
+        backgroundImage: `url(${card.persona_image})`,
         backgroundSize: 'cover',
         backgroundRepeat: `no-repeat`,
         backgroundPosition: `center`
@@ -28,7 +28,7 @@ function Discover_feelings({ id, user_id, image, persona_image, name, intro, per
                     <p id="intro">{intro}</p> 
                     <button id="btn_profile">프로필 보기</button>
                     <button id="btn_following">팔로잉</button>
-                    <div id="persona">{persona}</div>
+                    <div id="persona">{card.persona_name}</div>
                     <p id="type">{type}</p>
                 </div>
             {/* <div className="image_per" style={persona_style}>

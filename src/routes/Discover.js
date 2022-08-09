@@ -57,7 +57,7 @@ const feed = [
         card : [
         {
             id : 1,
-            persona_image: "url",
+            persona_image: "https://i.ibb.co/zVhqdX9/unsplash-7s-GOde9y-SYw.png",
             persona_name: "glisade",
             type: "발레리나"
         },

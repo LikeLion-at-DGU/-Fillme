@@ -6,9 +6,15 @@ import React from "react";
 function Discover_card({
     id,
     persona_image,
-    persona,
+    persona_name,
+    card,
 }) {
-    // const src = feed[1][1];
+    const persona_style = {
+        backgroundImage: `url(${card.persona_image})`,
+        backgroundSize: 'cover',
+        backgroundRepeat: `no-repeat`,
+        backgroundPosition: `center`
+    };
     const [hover, setHover] = useState(false);
     const OnmouseEnter = () => {
         setHover(true);
@@ -34,7 +40,7 @@ function Discover_card({
                 style={feelings_style}
                 onMouseLeave={OnmouseLeave}
             >
-                    <section id="persona_name">{persona}</section>
+                    <section id="persona_name">{persona_name}</section>
             </div>
         );
     } else {
@@ -45,18 +51,18 @@ function Discover_card({
                 style={feelings_style}
                 onMouseEnter={OnmouseEnter}
             >
-                    <section id="persona_name">{persona}</section>
+                    <section id="persona_name">{persona_name}</section>
             </div>
         );
     }
 }
 export default Discover_card;
 
-function render_Discover_card(fill) {
+function render_Discover_card(card) {
     return (
-        feed.map(<Discover_card key={fill.id}
-            user_id={fill.user_id}
-            persona={fill.persona}
-            persona_image={fill.persona_image}/>)
+        feed.map(<Discover_card key={card.id}
+            user_id={card.user_id}
+            persona={card.persona}
+            persona_image={card.persona_image}/>)
     )
 }
