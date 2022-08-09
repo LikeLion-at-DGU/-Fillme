@@ -9,8 +9,6 @@ import Navbar from "../components/Navbar";
 function Feed() {
     return (
         <>
-            <Header />
-            <Navbar />
             <style>
                 {`#home {
                     filter: invert(67%) sepia(37%) saturate(660%) hue-rotate(106deg)

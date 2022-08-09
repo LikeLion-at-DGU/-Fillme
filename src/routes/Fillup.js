@@ -7,8 +7,6 @@ import Fillup_component from "../components/Fillup_component";
 function Fillup() {
     return (
         <>
-            <Header />
-            <Navbar />
             <style>
                 {`#fillup {
                     filter: invert(67%) sepia(37%) saturate(660%) hue-rotate(106deg)
