@@ -43,7 +43,7 @@ const feed = [
         id: 1,
         user_id: "is_bell.harper",
         name: "Isabella Harper",
-        image: "https://t1.daumcdn.net/cfile/tistory/994827455F1187B004",
+        image: "https://i.ibb.co/xz2H9vn/unsplash-XUT7-V-md7sc-1.png",
         intro: "dance your life, dance the moment",
         persona: ["glisade", "이사벨라 하퍼", "JACK", "태오꺼"],
         type: [
@@ -53,14 +53,16 @@ const feed = [
             "태오 여자친구",
         ],
         card_persona: "세부카드 1",
-        // color: "#000428, #004e92",
+        persona_image: ["http://itimg.chosun.com/sitedata/image/201810/02/2018100200110_0.jpg"],
+        // color1: "rgba(52, 52, 52, 0.8)",
+        color1: '#010101',
 
     },
     {
         id: 2,
         user_id: "kto940620",
         name: "강태오",
-        image: "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/golden-retriever-royalty-free-image-506756303-1560962726.jpg?crop=1.00xw:0.756xh;0,0.0756xh&resize=768:*",
+        image: "https://i.ibb.co/zVhqdX9/unsplash-7s-GOde9y-SYw.png",
         intro: "인생은 한 번뿐 이 순간을 즐기자",
         type: [],
         persona: ["glisade", "이사벨라 하퍼", "JACK", "태오꺼"],
@@ -77,7 +79,7 @@ const feed = [
         id: 3,
         user_id: "woodz_dwnm",
         name: "조승연",
-        image: "http://itimg.chosun.com/sitedata/image/201810/02/2018100200110_0.jpg",
+        image: "https://i.ibb.co/DMZSChX/unsplash-XUT7-V-md7sc.png",
         intro: "식물을 사랑하는 실내 환경 디자이너",
         persona: ["glisade", "이사벨라 하퍼", "JACK", "태오꺼"],
         type: [
@@ -92,7 +94,7 @@ const feed = [
         id: 4,
         user_id: "kt.mayson_lifelog",
         name: "Kate Mayson",
-        image: "http://media.fastcampus.co.kr/wp-content/uploads/2021/03/fastcampus-media-coding-img-1-1030x539.png",
+        image: "https://i.ibb.co/yFKjnyJ/unsplash-7s-GOde9y-SYw-1.png",
         intro: "Find my Apollo 11, sulf my ocean",
         persona: ["glisade", "이사벨라 하퍼", "JACK", "태오꺼"],
         type: [
@@ -108,7 +110,7 @@ const feed = [
         id: 5,
         user_id: "irene_is_good",
         name: "Irene Jackson",
-        image: "http://media.fastcampus.co.kr/wp-content/uploads/2021/03/fastcampus-media-coding-img-1-1030x539.png",
+        image: "https://i.ibb.co/swCS9yS/unsplash-7s-GOde9y-SYw-2.png",
         intro: "It's me because, it's me",
         persona: ["glisade", "이사벨라 하퍼", "JACK", "태오꺼"],
         type: [

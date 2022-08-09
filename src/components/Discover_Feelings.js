@@ -1,7 +1,8 @@
 import { useState } from "react";
 import feed from "../routes/Discover"
+import styled, { css } from "styled-components";
 
-function Discover_feelings({ id, user_id, image, persona_image, name, intro, persona, type, card_persona, color }) {
+function Discover_feelings({ id, user_id, image, persona_image, name, intro, persona, type, card_persona, deg, color1, colo2}) {
     const [hover, setHover] = useState(false)
     const feelings_style = {
         backgroundImage: `url(${image})`,
@@ -15,9 +16,10 @@ function Discover_feelings({ id, user_id, image, persona_image, name, intro, per
         backgroundRepeat: `no-repeat`,
         backgroundPosition: `center`
     };
-    const colorstyle = {
-        backgroundColor: `${color}`,
-    };
+    // const colorstyle = {
+    //     backgroundColor: `${color1}`,
+    // };
+
     
 
     return (
@@ -25,14 +27,14 @@ function Discover_feelings({ id, user_id, image, persona_image, name, intro, per
             <div className="image" style={feelings_style}>
                 <p id="user_id">@{user_id}</p>
             </div>
-            <div className="user_data" style={colorstyle}>
-                <p id="name">{name}</p>
-                <p id="intro">{intro}</p> 
-                <button id="btn_profile">프로필 보기</button>
-                <button id="btn_following">팔로잉</button>
-                <div id="persona">{persona}</div>
-                <p id="type">{type}</p>
-            </div>
+                <div className="user_data" id={"data"+id}>
+                    <p id="name">{name}</p>
+                    <p id="intro">{intro}</p> 
+                    <button id="btn_profile">프로필 보기</button>
+                    <button id="btn_following">팔로잉</button>
+                    <div id="persona">{persona}</div>
+                    <p id="type">{type}</p>
+                </div>
             <div className="image_per" style={persona_style}>
                 <div className="card_persona" id={"card_persona"+id}><p>{card_persona}</p></div>
             </div>
