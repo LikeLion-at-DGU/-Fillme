@@ -3,6 +3,7 @@ import "../static/css/Discover.css";
 import render_Discover_feelings from "../components/Discover_Feelings";
 import render_persona from "../components/Discover_Feelings";
 // import Discover from './Discover';
+import Discover_feelings from "../components/Discover_Feelings";
 import { Footer } from "../components/Footer";
 import styles from "../static/css/style.module.css";
 import Navbar from "../components/Navbar";
@@ -51,7 +52,8 @@ const feed = [
             "사랑받는 강아지",
             "태오 여자친구",
         ],
-        card_persona: "asdfasdfdfk",
+        card_persona: "세부카드 1",
+        // color: "#000428, #004e92",
 
     },
     {
@@ -100,6 +102,7 @@ const feed = [
             "태오 여자친구",
         ],
         card_persona: "asdfasdfdfk",
+        persona_image: ["http://itimg.chosun.com/sitedata/image/201810/02/2018100200110_0.jpg"]
     },
     {
         id: 5,

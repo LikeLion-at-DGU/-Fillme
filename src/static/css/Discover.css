@@ -39,7 +39,7 @@
 }
 
 .card {
-    width: 80vw;
+    width: 100vw;
     display: flex;
     flex-direction: row;
     left: -1vw;
@@ -50,22 +50,23 @@
     border-radius: 10px 10px 10px 10px;
 }
 
-#card_persona {
-    /* width: 12vw;
+.card_persona {
+    font-style: "AppleSDGothicNeoM00", "Roboto";
+    width: 12vw;
     height: 22vw;
     display: flex;
     flex-direction: row;
-    left: 52vw;
-    top: -12vw;
+    top: 3vw;
+    left: 13vw;
     margin: 3vw;
-    margin-top: 0;
     border-radius: 10px;
-    position: relative; */
-    box-shadow: 0px 3px 15px rgba(0, 67, 101, 0.2);
+    position: relative;
+    color: #ffffff;
     border-radius: 10px 10px 10px 10px;
+    transform: rotate(270deg);
 }
 
-#card_persona_2 {
+/* #card_persona_2 {
     width: 12vw;
     height: 22vw;
     display: flex;
@@ -79,8 +80,7 @@
     background-color: #2146be;
     box-shadow: 0px 3px 15px rgba(0, 67, 101, 0.2);
     border-radius: 10px 10px 10px 10px;
-    /* z-index: 1000; */
-}
+} */
 
 .image {
     width: 30%;
@@ -93,18 +93,18 @@
 
 .image_per {
     width: 15%;
-    top: -1vw;
-    right: 1vw;
-    height: 22vw;
-    margin-right: 0;
+    height: 21.5vw;
+    top: 1.7vw;
+    left: 68vw;
     display: flex;
     border: #ffffff;
     background-size: cover;
     border-radius: 10px 10px 10px 10px;
+    position: absolute;
 }
 
 .user_data {
-    width: 85%;
+    width: 81.2%;
     height: 23.5vw;
     text-align: left;
     position: absolute;
@@ -113,11 +113,11 @@
     flex-direction: column;
     /* justify-content: center; */
     left: 17%;
-    background: linear-gradient(
+    /* background: linear-gradient(
         to left,
         rgb(1, 122, 228) 85%,
         rgba(0, 86, 161, 0)
-    );
+    ); */
     border-radius: 0px 10px 10px 0px;
 }
 
