@@ -14,9 +14,46 @@ import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { useState } from 'react';
 
 
 function Mainpage() {
+    // const [id, setId] = useState("");
+    // const [pwd, setPwd] = useState("");
+
+    // const login = () => {
+    //     // 입력 값 정합성 체크 후 login API 요청
+    //     if (id === "" || pwd === "") {
+    //         window.alert("아이디와 비밀번호를 입력해주세요.");
+    //         return;
+    //     }
+    //     dispatch(userActions.loginDB(id, pwd));
+    // }
+
+    // // API 통신을 통해 서버에 id, pwd제공하고 유저 정보와 토큰 받아 저장
+    // const loginDB = (id, password) => {
+    //     return function (dispatch, getState, { history }) {
+    //         axios({
+    //             method: "post",
+    //             url: "#",
+    //             data: {
+    //                 email: id,
+    //                 password: password,
+    //             },
+    //         })
+    //             .then((res) => {
+    //                 console.log(res);
+    //                 dispatch(
+    //                     setUser({
+    //                         email: res.data.email,
+    //                         nickname: res.data.nickname,
+    //                     })
+    //                 );
+    //                 const accssToken = res.data.token;
+    //                 // 쿠키에 토큰 저장
+    //         })
+    //     }
+    // }
 
     return (
         <>
