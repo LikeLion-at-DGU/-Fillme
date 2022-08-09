@@ -46,7 +46,7 @@ const feed = [
         name: "Isabella Harper",
         image: "https://i.ibb.co/xz2H9vn/unsplash-XUT7-V-md7sc-1.png",
         intro: "dance your life, dance the moment",
-        persona: ["glisade", "이사벨라 하퍼", "JACK", "태오꺼"],
+        persona: "프로필 1",
         persona_image: ["http://itimg.chosun.com/sitedata/image/201810/02/2018100200110_0.jpg"],
         type: [
             "발레리나",
@@ -90,6 +90,7 @@ const feed = [
         image: "https://i.ibb.co/zVhqdX9/unsplash-7s-GOde9y-SYw.png",
         intro: "인생은 한 번뿐 이 순간을 즐기자",
         persona_image: ["http://itimg.chosun.com/sitedata/image/201810/02/2018100200110_0.jpg"],
+        persona:"gkgk",
         card : [
         {
             id : 1,
@@ -178,7 +179,7 @@ const feed = [
         name: "Irene Jackson",
         image: "https://i.ibb.co/swCS9yS/unsplash-7s-GOde9y-SYw-2.png",
         intro: "It's me because, it's me",
-        persona_image: ["http://itimg.chosun.com/sitedata/image/201810/02/2018100200110_0.jpg"],
+        // persona_image: ["http://itimg.chosun.com/sitedata/image/201810/02/2018100200110_0.jpg"],
         card : [
             {
                 id : 1,
