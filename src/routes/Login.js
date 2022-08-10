@@ -46,7 +46,7 @@ function Login({ isLoggedIn, setIsLoggedIn }) {
                 localStorage.setItem("auth", true); // 로그인 설정
                 setIsLoggedIn(true);
                 console.log(JSON.parse(localStorage.getItem("auth")));
-                window.location.replace("/");
+                window.location.replace("/feed");
                 //     if (res.data.access_token) {
                 //         localStorage.clear();
                 //         localStorage.setItem("token", res.data.access_token);
