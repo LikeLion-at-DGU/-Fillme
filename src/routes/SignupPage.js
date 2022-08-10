@@ -18,7 +18,7 @@ import {
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import styled from "styled-components";
 
-// mui의 css 우선순위가 높기때문에 important를 설정 - 실무하다 보면 종종 발생 우선순위 문제
+// mui의 css 우선순위가 높기때문에 important를 설정 - 실무 종종 발생 우선순위 문제
 const FormHelperTexts = styled(FormHelperText)`
     width: 100%;
     padding-left: 16px;
@@ -42,44 +42,6 @@ const Register = () => {
 
     const handleAgree = (event) => {
         setChecked(event.target.checked);
-    };
-
-    const onhandlePost = async (data) => {
-        const { id, email, password, rePassword } = data;
-        data = {
-            username: id,
-            email: email,
-            password1: password,
-            password2: rePassword,
-        };
-        // post
-        await axios
-            .post("http://127.0.0.1:8000/accounts/", data)
-            .then(function (response) {
-                console.log(response, "성공");
-            })
-
-            .catch(function (err) {
-                console.log(err);
-                const message = err.request.responseText;
-                let error_message = [];
-                if (
-                    message.includes(
-                        `username":["User의 username은/는 이미 존재합니다.`
-                    )
-                )
-                    setIdError("이미 존재하는 아이디입니다");
-                if (
-                    message.includes(
-                        `이미 이 이메일 주소로 등록된 사용자가 있습니다.`
-                    )
-                )
-                    setEmailError(
-                        "이미 이 이메일 주소로 등록된 사용자가 있습니다."
-                    );
-
-                // console.log(error_message);
-            });
     };
 
     const handleSubmit = (e) => {
@@ -133,6 +95,44 @@ const Register = () => {
         ) {
             onhandlePost(joinData);
         }
+    };
+
+    const onhandlePost = async (data) => {
+        const { id, email, password, rePassword } = data;
+        data = {
+            username: id,
+            email: email,
+            password1: password,
+            password2: rePassword,
+        };
+        // post
+        await axios
+            .post("http://127.0.0.1:8000/accounts/", data)
+            .then(function (response) {
+                console.log(response, "성공");
+            })
+
+            .catch(function (err) {
+                console.log(err);
+                const message = err.request.responseText;
+                let error_message = [];
+                if (
+                    message.includes(
+                        `username":["User의 username은/는 이미 존재합니다.`
+                    )
+                )
+                    setIdError("이미 존재하는 아이디입니다");
+                if (
+                    message.includes(
+                        `이미 이 이메일 주소로 등록된 사용자가 있습니다.`
+                    )
+                )
+                    setEmailError(
+                        "이미 이 이메일 주소로 등록된 사용자가 있습니다."
+                    );
+
+                // console.log(error_message);
+            });
     };
 
     return (
