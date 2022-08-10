@@ -1,34 +1,26 @@
-import Mainpage from "./routes/Mainpage";
-import SignupPage from "./routes/SignupPage";
-import Discover from "./routes/Discover";
-import Feed from "./routes/Feed";
-import Profile from "./routes/Profile";
-import Profile2 from "./routes/Profile2";
-import Fillup from "./routes/Fillup";
-
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import Navbar from "./components/Navbar";
+import { useState, useEffect } from "react";
+import AppRouter from "./components/Router";
 
 function App() {
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+    useEffect(() => {
+        console.log("로그인 여부");
+        console.log(localStorage.getItem("auth"));
+        if (localStorage.getItem("auth") === true) {
+            setIsLoggedIn(true);
+        }
+    }, [isLoggedIn]);
+
+    useEffect(() => {
+        console.log("로그인한 유저(없으면 0, 있으면 pk 번호");
+        console.log(localStorage.getItem("logInUserId"));
+    }, []);
+
     return (
-        <>
-            <Router>
-                <Routes>
-                    <Route path="/" element={<Navbar />}>
-                        <Route path="/" element={<Mainpage />}></Route>
-                        <Route
-                            path="/SignupPage"
-                            element={<SignupPage />}
-                        ></Route>
-                        <Route path="/Feed" element={<Feed />}></Route>
-                        <Route path="/Discover" element={<Discover />}></Route>
-                        <Route path="/Profile" element={<Profile />}></Route>
-                        <Route path="/Profile2" element={<Profile2 />}></Route>
-                        <Route path="/Fillup" element={<Fillup />}></Route>
-                    </Route>
-                </Routes>
-            </Router>
-        </>
+        <div className="app">
+            <AppRouter isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+        </div>
     );
 }
 
