@@ -13,9 +13,9 @@ const AppRouter = ({ isLoggedIn, setIsLoggedIn }) => {
         <>
             <Router>
                 <Routes>
-                    <Route path="/login" element={<Login isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />}></Route>
+                    <Route path="/" element={<Login isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />}></Route>
                     <Route path="/SignupPage" element={<SignupPage />}></Route>
-                    <Route path="/Logout" element={<Logout isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />}></Route>
+                    <Route path="/logout" element={<Logout isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />}></Route>
                     <Route path="/" element={<Navbar />}>
                         <Route path="/Feed" element={<Feed />}></Route>
                         <Route path="/Discover" element={<Discover />}></Route>

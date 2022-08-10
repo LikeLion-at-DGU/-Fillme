@@ -15,11 +15,11 @@ const Logout = ({ isLoggedIn, setIsLoggedIn }) => {
             .post(`http://127.0.0.1:8000/accounts/logout/`, null)
             .then(function (response) {
                 console.log(response);
-                window.location.replace("/login");
+                window.location.replace("/");
             })
             .catch(function (error) {
                 console.log(error);
-                window.location.replace("/login");
+                window.location.replace("/");
             });
     };
     return (
