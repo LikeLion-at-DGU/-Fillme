@@ -7,8 +7,8 @@ const Logout = ({ isLoggedIn, setIsLoggedIn }) => {
         localStorage.setItem("auth", false);
         localStorage.setItem("logInUserId", 0);
         console.log("로그아웃됨");
-        console.log(localStorage.getItem("auth"));
-        console.log(localStorage.getItem("logInUserId"));
+        console.log(JSON.parse(localStorage.getItem("auth")));
+        console.log(JSON.parse(localStorage.getItem("logInUserId")));
         setIsLoggedIn(false);
 
         axios
@@ -19,7 +19,7 @@ const Logout = ({ isLoggedIn, setIsLoggedIn }) => {
             })
             .catch(function (error) {
                 console.log(error);
-                window.location.replace("/");
+                // window.location.replace("/");
             });
     };
     return (

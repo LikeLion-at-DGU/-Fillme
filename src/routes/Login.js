@@ -4,7 +4,17 @@ import styles from "../static/css/style.module.css";
 import Navbar from "../components/Navbar";
 
 // For MUI
-import { TextField, Checkbox, Button, FormControlLabel, Link, Grid, Typography, Box, Container } from "@mui/material/";
+import {
+    TextField,
+    Checkbox,
+    Button,
+    FormControlLabel,
+    Link,
+    Grid,
+    Typography,
+    Box,
+    Container,
+} from "@mui/material/";
 import { useState, useEffect } from "react";
 
 // For Axios
@@ -45,8 +55,7 @@ function Login({ isLoggedIn, setIsLoggedIn }) {
                 console.log(axios.defaults.headers.common);
                 localStorage.setItem("auth", true); // 로그인 설정
                 setIsLoggedIn(true);
-                console.log(JSON.parse(localStorage.getItem("auth")));
-                window.location.replace("/feed");
+
                 //     if (res.data.access_token) {
                 //         localStorage.clear();
                 //         localStorage.setItem("token", res.data.access_token);
@@ -81,23 +90,68 @@ function Login({ isLoggedIn, setIsLoggedIn }) {
                             alignItems: "center",
                         }}
                     >
-                        <Typography component="h1" variant="h5" sx={{ mb: 5 }} fontFamily="AppleSDGothicNeoB00">
+                        <Typography
+                            component="h1"
+                            variant="h5"
+                            sx={{ mb: 5 }}
+                            fontFamily="AppleSDGothicNeoB00"
+                        >
                             로그인하여 친구들의 멀티 페르소나를 만나보세요
                         </Typography>
-                        <TextField label="아이디을 입력해주세요" name="id" fontFamily="AppleSDGothicNeoM00" required fullWidth autoComplete="id" autoFocus sx={{ mb: 3 }} onChange={onNameHandler} />
-                        <TextField label="비밀번호를 입력해주세요" name="password" type="password" fontFamily="AppleSDGothicNeoM00" required fullWidth autoComplete="current-password" onChange={onPasswordHandler} />
-                        <FormControlLabel control={<Checkbox value="remember" color="primary" />} label="자동 로그인" fontFamily="AppleSDGothicNeoM00" />
-                        <Button type="submit" variant="contained" fullWidth fontFamily="AppleSDGothicNeoB00" sx={{ mt: 3, mb: 2, bgcolor: "#3CDA9F" }} onClick={onSubmit}>
+                        <TextField
+                            label="아이디을 입력해주세요"
+                            name="id"
+                            fontFamily="AppleSDGothicNeoM00"
+                            required
+                            fullWidth
+                            autoComplete="id"
+                            autoFocus
+                            sx={{ mb: 3 }}
+                            onChange={onNameHandler}
+                        />
+                        <TextField
+                            label="비밀번호를 입력해주세요"
+                            name="password"
+                            type="password"
+                            fontFamily="AppleSDGothicNeoM00"
+                            required
+                            fullWidth
+                            autoComplete="current-password"
+                            onChange={onPasswordHandler}
+                        />
+                        <FormControlLabel
+                            control={<Checkbox value="remember" color="primary" />}
+                            label="자동 로그인"
+                            fontFamily="AppleSDGothicNeoM00"
+                        />
+                        <Button
+                            type="submit"
+                            variant="contained"
+                            fullWidth
+                            fontFamily="AppleSDGothicNeoB00"
+                            sx={{ mt: 3, mb: 2, bgcolor: "#3CDA9F" }}
+                            onClick={onSubmit}
+                        >
                             로그인하기
                         </Button>
                         <Grid container>
                             <Grid item xs>
-                                <Link href="#" variant="body2" fontFamily="AppleSDGothicNeoB00" sx={{ color: "#3CDA9F" }}>
+                                <Link
+                                    href="#"
+                                    variant="body2"
+                                    fontFamily="AppleSDGothicNeoB00"
+                                    sx={{ color: "#3CDA9F" }}
+                                >
                                     비밀번호 찾기
                                 </Link>
                             </Grid>
                             <Grid item>
-                                <Link href="/SignupPage" variant="body2" fontFamily="AppleSDGothicNeoB00" sx={{ color: "#3CDA9F" }}>
+                                <Link
+                                    href="/SignupPage"
+                                    variant="body2"
+                                    fontFamily="AppleSDGothicNeoB00"
+                                    sx={{ color: "#3CDA9F" }}
+                                >
                                     회원가입
                                 </Link>
                             </Grid>
