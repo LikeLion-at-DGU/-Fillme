@@ -6,7 +6,14 @@
     font-family: "AppleSDGothicNeoM00";
     src: url("../font/AppleSDGothicNeoM.ttf");
 }
-
+@font-face {
+    font-family: "Roboto";
+    src: url("../font/Roboto-Regular.ttf");
+}
+@font-face {
+    font-family: "AppleSDGothicNeoEB00";
+    src: url("../font/AppleSDGothicNeoEB.ttf");
+}
 /* 공통 속성 */
 .wrap {
     margin: 5vw 8vw;
@@ -23,13 +30,43 @@
     margin-bottom: 0;
 }
 
+/* Mypage card */
 .card {
+    box-sizing: border-box;
+    padding: 3vw;
     position: relative;
     width: 96%;
     margin: 2.5% 1.5%;
     height: 25vw;
     background-color: black;
     border-radius: 10px;
+    color: white;
+}
+
+.user_id {
+    font-family: Roboto;
+    font-weight: 500;
+    font-style: normal;
+
+    font-size: 1vw;
+    text-shadow: 0px 3px 15px rgba(0, 67, 101, 0.15);
+}
+
+.user_name {
+    font-family: "AppleSDGothicNeoEB00";
+    font-size: 3vw;
+}
+
+.user_memo {
+    font-family: "AppleSDGothicNeoM00";
+}
+
+.br_style {
+    background: white;
+    width: 50%;
+    margin-left: 0;
+    border: 0;
+    height: 1.5px;
 }
 
 /* Navbar */
@@ -50,7 +87,7 @@
 /* Logout */
 .logout {
     position: relative;
-    top: 13vw;
+    top: 12vw;
     left: 30vw;
     z-index: 1;
     background: #3cda9f;
