@@ -86,7 +86,7 @@ const Register = () => {
             .post("http://127.0.0.1:8000/accounts/", data)
             .then(function (response) {
                 console.log(response, "성공");
-                navigate('/', { replace: true });
+                navigate('/SignupProfile', { replace: true });
             })
 
             .catch(function (err) {
