@@ -9,6 +9,7 @@ import Navbar from "../components/Navbar";
 function Feed() {
     return (
         <>
+            <Navbar />
             <style>
                 {`#home {
                     filter: invert(67%) sepia(37%) saturate(660%) hue-rotate(106deg)
@@ -32,9 +33,7 @@ function Feed() {
                 <br />
                 <br />
                 <h1 className={styles.title}>Fill the Feelings</h1>
-                <div className={styles.wrap2}>
-                    {feed.map(render_fill_feelings)}
-                </div>
+                <div className={styles.wrap2}>{feed.map(render_fill_feelings)}</div>
             </div>
             <Footer />
         </>

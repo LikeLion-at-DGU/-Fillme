@@ -29,12 +29,12 @@ function Login({ isLoggedIn, setIsLoggedIn }) {
 
     const onNameHandler = (event) => {
         setId(event.currentTarget.value);
-        console.log(id);
+        // console.log(id);
     };
 
     const onPasswordHandler = (event) => {
         setPassword(event.currentTarget.value);
-        console.log(password);
+        // console.log(password);
     };
 
     const onSubmit = (e) => {
@@ -54,6 +54,8 @@ function Login({ isLoggedIn, setIsLoggedIn }) {
                 console.log(res);
                 console.log(axios.defaults.headers.common);
                 localStorage.setItem("auth", true); // 로그인 설정
+                localStorage.setItem("token", res.data.access_token);
+                localStorage.setItem("refresh_token", res.data.refresh_token);
                 setIsLoggedIn(true);
 
                 //     if (res.data.access_token) {

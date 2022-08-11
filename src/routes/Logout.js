@@ -6,6 +6,8 @@ const Logout = ({ isLoggedIn, setIsLoggedIn }) => {
     const logOut = () => {
         localStorage.setItem("auth", false);
         localStorage.setItem("logInUserId", 0);
+        localStorage.setItem("token", "");
+        localStorage.setItem("refresh_token", "");
         console.log("로그아웃됨");
         console.log(JSON.parse(localStorage.getItem("auth")));
         console.log(JSON.parse(localStorage.getItem("logInUserId")));
