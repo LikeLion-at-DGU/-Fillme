@@ -6,7 +6,9 @@ import Fill_feelings from "../components/Fill_Feelings";
 import { Footer } from "../components/Footer";
 import styles from "../static/css/style.module.css";
 import Navbar from "../components/Navbar";
+import axios from "axios";
 function Feed() {
+    console.log("axios", axios.defaults.headers);
     return (
         <>
             <Navbar />
@@ -15,6 +17,7 @@ function Feed() {
                     filter: invert(67%) sepia(37%) saturate(660%) hue-rotate(106deg)
                     brightness(120%) contrast(95%);}`}
             </style>
+
             <div className={styles.wrap}>
                 <br />
                 <h1 className={styles.title}>New Feelings</h1>

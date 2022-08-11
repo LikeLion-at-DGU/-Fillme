@@ -49,10 +49,9 @@ function Login({ isLoggedIn, setIsLoggedIn }) {
             .post("http://127.0.0.1:8000/accounts/login/", user)
             .then((res) => {
                 localStorage.setItem("logInUserId", res.data.user.pk);
-                const { accesToken } = res.data.access_token;
-                axios.defaults.headers.common["Authorization"] = `Bearer ${accesToken}`;
-                console.log(res);
-                console.log(axios.defaults.headers.common);
+                const accesstoken = res.data.access_token;
+                axios.defaults.headers.common["Authorization"] = "Bearer " + accesstoken;
+
                 localStorage.setItem("auth", true); // 로그인 설정
                 localStorage.setItem("token", res.data.access_token);
                 localStorage.setItem("refresh_token", res.data.refresh_token);
