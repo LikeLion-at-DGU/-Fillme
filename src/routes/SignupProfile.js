@@ -5,6 +5,7 @@ import styled from "styled-components";
 import axios from "axios";
 import { Typography, TextField, Button, Box, Container, FormControlLabel, Radio, RadioGroup } from "@mui/material/";
 import signStyle from "../static/css/Sign.module.css";
+import SkeletonImage from 'antd/lib/skeleton/Image';
 
 //     "user": 3,
 //     "fullname": "",
@@ -16,6 +17,21 @@ function SignupProfile() {
     const [fullname, setFullname] = useState("");
     const [memo, setMemo] = useState("");
     const [mainprofile, setMainprofile] = useState(null);
+
+    const nameChange = (e) => {
+        setFullname(e.target.value);
+        console.log(e.target.value);
+    }
+
+    const memoChange = (e) => {
+        setMemo(e.target.value);
+        console.log(e.target.value);
+    }
+
+    const imageChange = (e) => {
+        setMainprofile(e.target.value);
+        console.log(e.target.value);
+    }
 
     // 컬러 라디오박스
     const [color, setColor] = useState();
@@ -55,7 +71,7 @@ function SignupProfile() {
                         autoComplete="name"
                         autoFocus
                         sx={{ mb: 3 }}
-                        onChange={setFullname}
+                        onChange={nameChange}
                     />
                     <TextField
                         label="한 줄 소개를 입력해주세요 (띄어쓰기 포함 최대 30자)"
@@ -63,6 +79,7 @@ function SignupProfile() {
                         fontFamily="AppleSDGothicNeoM00"
                         fullWidth
                         sx={{ mb: 5 }}
+                        onChange={memoChange}
                     />
                     <Typography
                         component="h3"
@@ -83,9 +100,8 @@ function SignupProfile() {
                         className="imgInput"
                         id="mainProfile"
                         style={{ display: `none` }}
-                    // onChange={}
+                        onChange={imageChange}
                     />
-                    {/* {mainprofile !== null ? "uploaded" : "Failed"} */}
                     <Typography
                         component="h3"
                         variant="h6"
