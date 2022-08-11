@@ -1,5 +1,5 @@
 import React from "react";
-
+import styles from "../static/css/style.module.css";
 import axios from "axios";
 import Header from "../components/Header";
 const Logout = ({ isLoggedIn, setIsLoggedIn }) => {
@@ -16,25 +16,19 @@ const Logout = ({ isLoggedIn, setIsLoggedIn }) => {
         axios
             .post(`http://127.0.0.1:8000/accounts/logout/`, null)
             .then(function (response) {
-                console.log(response);
+                console.log("로그아웃", response);
                 window.location.replace("/");
             })
             .catch(function (error) {
-                console.log(error);
-                // window.location.replace("/");
+                console.log("로그아웃", error);
+                window.location.replace("/");
             });
     };
     return (
         <>
-            <Header />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <button onClick={logOut}>logout</button>
+            <button className={styles.logout} onClick={logOut}>
+                로그아웃
+            </button>
         </>
     );
 };

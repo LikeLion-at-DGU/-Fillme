@@ -3,7 +3,9 @@ import { Footer } from "../components/Footer";
 import styles from "../static/css/style.module.css";
 import Navbar from "../components/Navbar";
 import Persona_Card from "../components/Persona_Card";
-function Profile() {
+import Logout from "./Logout";
+
+function Profile({ isLoggedIn, setIsLoggedIn }) {
     return (
         <>
             <style>
@@ -14,7 +16,11 @@ function Profile() {
 
             <div className={styles.wrap}>
                 <br />
-                <Persona_Card />
+                <div>
+                    <Logout isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+                    <Persona_Card />
+                </div>
+                <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />
             </div>
             <Footer />
         </>
