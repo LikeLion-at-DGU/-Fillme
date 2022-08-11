@@ -136,7 +136,7 @@ const Register = () => {
                                 </Grid>
                                 <FormHelperTexts>{passwordError}</FormHelperTexts>
                                 <Grid item xs={12}>
-                                    <FormControlLabel control={<Checkbox onChange={handleAgree} color="primary" />} label="회원가입 약관에 동의합니다." />
+                                    <FormControlLabel control={<Checkbox onChange={handleAgree} color="primary" />} label="Fill Me 회원가입에 동의합니다." />
                                 </Grid>
                             </Grid>
                             <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2, bgcolor: "#3CDA9F" }} size="large">

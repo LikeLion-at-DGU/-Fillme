@@ -1,41 +1,35 @@
 import Header from "../components/Header";
 import { Footer2 } from "../components/Footer";
 import styles from "../static/css/style.module.css";
-import Navbar from "../components/Navbar";
-
 // For MUI
-import {
-    TextField,
-    Checkbox,
-    Button,
-    FormControlLabel,
-    Link,
-    Grid,
-    Typography,
-    Box,
-    Container,
-} from "@mui/material/";
+import { TextField, Checkbox, Button, FormControl, FormControlLabel, Link, Grid, Typography, Box, Container } from "@mui/material/";
 import { useState, useEffect } from "react";
-
 // For Axios
 import axios from "axios";
-import { Input } from "antd";
 import styled from "styled-components";
+import { Input } from "antd";
 
 function Login({ isLoggedIn, setIsLoggedIn }) {
     const [id, setId] = useState("");
     const [password, setPassword] = useState("");
     const [errors, setErrors] = useState(false);
 
-    const onNameHandler = (event) => {
-        setId(event.currentTarget.value);
+    const onNameHandler = (e) => {
+        setId(e.currentTarget.value);
         // console.log(id);
     };
 
-    const onPasswordHandler = (event) => {
-        setPassword(event.currentTarget.value);
+    const onPasswordHandler = (e) => {
+        setPassword(e.currentTarget.value);
         // console.log(password);
     };
+
+    // const onCheckEnter = (e) => {
+    //     // Enter 키 Keycode 13
+    //     if (e.keykode === 13) {
+    //         onsubmit();
+    //     }
+    // };
 
     const onSubmit = (e) => {
         e.preventDefault();
@@ -48,31 +42,19 @@ function Login({ isLoggedIn, setIsLoggedIn }) {
         axios
             .post("http://127.0.0.1:8000/accounts/login/", user)
             .then((res) => {
-                localStorage.setItem("logInUserId", res.data.user.pk);
-                const accesstoken = res.data.access_token;
+                localStorage.setItem("logInUserId", res.data.user.pk); // 현재 로그인한 유저 누군지 설정
+                const accesstoken = res.data.access_token; // API 요청 콜마다 헤더에 accessToken 담아 보내도록 설정
                 axios.defaults.headers.common["Authorization"] = "Bearer " + accesstoken;
 
                 localStorage.setItem("auth", true); // 로그인 설정
                 localStorage.setItem("token", res.data.access_token);
                 localStorage.setItem("refresh_token", res.data.refresh_token);
                 setIsLoggedIn(true);
-
-                //     if (res.data.access_token) {
-                //         localStorage.clear();
-                //         localStorage.setItem("token", res.data.access_token);
-                //         //window.location.replace("/feed");
-                //         console.log(localStorage.getItem("token"));
-                //         // 사용하려면 App.js에서 /로 라우팅해야 한다
-                //     } else {
-                //         localStorage.clear();
-                //         setErrors(true);
-                //     }
             })
             .catch((err) => {
                 console.clear();
                 console.log(user);
                 alert("아이디 또는 비밀번호가 일치하지 않습니다");
-
                 console.log(err);
             });
     };
@@ -84,6 +66,7 @@ function Login({ isLoggedIn, setIsLoggedIn }) {
             <div className={styles.wrap}>
                 <Container component="main" maxWidth="sm">
                     <Box
+                        component="form"
                         sx={{
                             marginTop: 10,
                             display: "flex",

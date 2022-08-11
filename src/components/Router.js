@@ -1,5 +1,6 @@
 import Login from "../routes/Login";
 import SignupPage from "../routes/SignupPage";
+import SignupProfile from "../routes/SignupProfile";
 import Discover from "../routes/Discover";
 import Feed from "../routes/Feed";
 import Profile from "../routes/Profile";
@@ -8,6 +9,7 @@ import Fillup from "../routes/Fillup";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Logout from "../routes/Logout";
+
 const AppRouter = ({ isLoggedIn, setIsLoggedIn }) => {
     return (
         <>
@@ -24,6 +26,7 @@ const AppRouter = ({ isLoggedIn, setIsLoggedIn }) => {
                         }
                     ></Route>
                     <Route path="/SignupPage" element={<SignupPage />}></Route>
+                    <Route path="/SignupProfile" element={<SignupProfile />}></Route>
                     <Route
                         path="/logout"
                         element={<Logout isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />}
