@@ -6,6 +6,7 @@ import axios from "axios";
 import { Typography, TextField, Button, Box, Container, FormControlLabel, Radio, RadioGroup } from "@mui/material/";
 import signStyle from "../static/css/Sign.module.css";
 import SkeletonImage from 'antd/lib/skeleton/Image';
+import { useNavigate } from 'react-router-dom';
 
 //     "user": 3,
 //     "fullname": "",
@@ -16,7 +17,8 @@ import SkeletonImage from 'antd/lib/skeleton/Image';
 function SignupProfile() {
     const [fullname, setFullname] = useState("");
     const [memo, setMemo] = useState("");
-    const [mainprofile, setMainprofile] = useState(null);
+    const [image, setImage] = useState(null);
+    const navigate = useNavigate();
 
     const nameChange = (e) => {
         setFullname(e.target.value);
@@ -29,7 +31,7 @@ function SignupProfile() {
     }
 
     const imageChange = (e) => {
-        setMainprofile(e.target.value);
+        setImage(e.target.value);
         console.log(e.target.value);
     }
 
@@ -41,14 +43,38 @@ function SignupProfile() {
     };
     //
 
+    // for axios
+    const profileSubmit = async (e) => {
+        e.preventDefault();
+
+        const data = new FormData(e.currentTarget);
+        const profile = {
+            fullname: data.get("name"),
+            memo: data.get("memo"),
+            color: data.get("color"),
+            image: data.get("image"),
+        }
+
+        await axios.post("http://127.0.0.1:8000/mypage/", profile)
+            .then((res) => {
+                console.log(res, "프로필 설정 성공");
+                navigate('/', { replace: true });
+                // replace: true로 로그인 페이지 이동 후 뒤로가기 불가능
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    }
+
     return (
         <>
             <Header />
             <Container component="main" maxWidth="md">
                 <Box
                     component="form"
+                    onSubmit={profileSubmit}
                     sx={{
-                        marginTop: 10,
+                        marginTop: 2,
                         display: "flex",
                         flexDirection: "column",
                         alignItems: "center",
@@ -97,7 +123,7 @@ function SignupProfile() {
                     <input
                         type="file"
                         accept="image/*"
-                        className="imgInput"
+                        name="image"
                         id="mainProfile"
                         style={{ display: `none` }}
                         onChange={imageChange}
@@ -110,7 +136,7 @@ function SignupProfile() {
                     >
                         배경색상 *
                     </Typography>
-                    <div id="color_select">
+                    <form id="color">
                         <label htmlFor="cl1"><input type="radio" className={signStyle.cl1} id="cl1" value="#FEBCC0" checked={color === "#FEBCC0"} onChange={colorChange} /></label>
                         <label htmlFor="cl2"><input type="radio" className={signStyle.cl2} id="cl2" value="#83333E" checked={color === "#83333E"} onChange={colorChange} /></label>
                         <label htmlFor="cl3"><input type="radio" className={signStyle.cl3} id="cl3" value="#FFB37C" checked={color === "#FFB37C"} onChange={colorChange} /></label>
@@ -126,7 +152,7 @@ function SignupProfile() {
                         <label htmlFor="cl13"><input type="radio" className={signStyle.cl13} id="cl13" value="#231810" checked={color === "#231810"} onChange={colorChange} /></label>
                         <label htmlFor="cl14"><input type="radio" className={signStyle.cl14} id="cl14" value="#464648" checked={color === "#464648"} onChange={colorChange} /></label>
                         <label htmlFor="cl15"><input type="radio" className={signStyle.cl15} id="cl15" value="#010101" checked={color === "#010101"} onChange={colorChange} /></label>
-                    </div>
+                    </form>
                     <Button
                         type="submit"
                         variant="contained"

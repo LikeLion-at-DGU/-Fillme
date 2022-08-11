@@ -87,6 +87,7 @@ const Register = () => {
             .then(function (response) {
                 console.log(response, "성공");
                 navigate('/SignupProfile', { replace: true });
+                // replace: true로 페이지 이동 후 뒤로가기 불가능
             })
 
             .catch(function (err) {
