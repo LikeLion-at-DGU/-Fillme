@@ -1,15 +1,7 @@
 import { useEffect, useState } from "react";
 
 import React from "react";
-function Fill_feelings({
-    id,
-    user_id,
-    image,
-    persona,
-    title,
-    body,
-    date_time,
-}) {
+function Fill_feelings({ id, user_id, image, persona, title, body, date_time }) {
     const [hover, setHover] = useState(false);
     const OnmouseEnter = () => {
         setHover(true);
@@ -18,7 +10,7 @@ function Fill_feelings({
         setHover(false);
     };
     useEffect(() => {
-        console.log("hover change");
+        // console.log("hover change");
     }, [hover]);
 
     const feelings_style = {
@@ -30,7 +22,7 @@ function Fill_feelings({
     if (hover) {
         return (
             <div
-                className="feelings2"
+                className="feelings"
                 id={"feelings" + id}
                 style={feelings_style}
                 onMouseLeave={OnmouseLeave}

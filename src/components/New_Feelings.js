@@ -1,14 +1,7 @@
 import newStyle from "../static/css/Newfeeling.module.css";
 import { useState, useEffect } from "react";
 
-function New_Feelings({
-    id,
-    user_id,
-    user_name,
-    persona_id,
-    persona_name,
-    image,
-}) {
+function New_Feelings({ id, user_id, user_name, persona_id, persona_name, image }) {
     const newfeeling_style = {
         backgroundImage: `url(${image})`,
         backgroundSize: "cover",

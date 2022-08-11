@@ -6,7 +6,7 @@ function App() {
 
     useEffect(() => {
         console.log("로그인 여부");
-
+        console.log(localStorage);
         if (JSON.parse(localStorage.getItem("auth")) === true) {
             setIsLoggedIn(true);
             console.log(JSON.parse(localStorage.getItem("auth")));
