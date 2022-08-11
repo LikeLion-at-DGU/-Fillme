@@ -50,12 +50,13 @@ function Login({ isLoggedIn, setIsLoggedIn }) {
             .then((res) => {
                 localStorage.setItem("logInUserId", res.data.user.pk);
                 const accesstoken = res.data.access_token;
-                axios.defaults.headers.common["Authorization"] = "Bearer " + accesstoken;
 
                 localStorage.setItem("auth", true); // 로그인 설정
                 localStorage.setItem("token", res.data.access_token);
                 localStorage.setItem("refresh_token", res.data.refresh_token);
+                localStorage.setItem("loginUserName", res.data.user.username);
                 setIsLoggedIn(true);
+                console.log(res);
 
                 //     if (res.data.access_token) {
                 //         localStorage.clear();
