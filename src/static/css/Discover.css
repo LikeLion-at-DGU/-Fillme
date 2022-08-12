@@ -93,27 +93,21 @@
     text-align: left;
     position: absolute;
     padding: 0.75vw;
-    /* display: flex; */
     flex-direction: column;
-    /* justify-content: center; */
     left: 17%;
-    /* background: linear-gradient(
-        to left,
-        rgb(1, 122, 228) 85%,
-        rgba(0, 86, 161, 0)
-    ); */
     border-radius: 0px 10px 10px 0px;
 }
 
 #btn_following {
     font-family: "AppleSDGothicNeoM00";
-    font-size: 0.6vw;
+    font-size: 0.8vw;
     position: absolute;
     bottom: 11.3vw;
     left: 30vw;
     border: 1px solid #3cda9f;
     border-radius: 5px;
-    width: 5.5vw;
+    width: 8%;
+    height: 6%;
     text-align: center;
     background-color: #3cda9f;
     color: #ffffff;
@@ -122,13 +116,14 @@
 
 #btn_profile {
     font-family: "AppleSDGothicNeoM00";
-    font-size: 0.6vw;
+    font-size: 0.8vw;
     position: absolute;
     bottom: 11.3vw;
     left: 24vw;
     border: 1px solid #3cda9f;
     border-radius: 5px;
-    width: 5.5vw;
+    width: 8%;
+    height: 6%;
     text-align: center;
     background-color: #ffffff00;
     color: #3cda9f;
