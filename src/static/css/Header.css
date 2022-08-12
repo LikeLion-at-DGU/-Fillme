@@ -91,9 +91,10 @@ button {
     border-right-color: #b1b0b1;
     border-bottom-color: #b1b0b1;
     font-size: 1vw;
-    width: 18vw;
-    border-radius: 15px;
-    border-width: 1px;
+    width: 18%;
+    height: 40%;
+    border-radius: 2vw;
+    border-width: 0.2vh;
     margin: 0vw;
     padding-left: 30px;
     padding: 5px;
@@ -105,9 +106,9 @@ button {
 
 .searchicon {
     z-index: 2000;
-    top: -23%; 
-    position: relative;
+    top: 2.9vh; 
+    position: absolute;
     display: flex;
-    width: 1.3%;
-    left: 66%;
+    width: 1.1%;
+    left: 65.8%;
 }
