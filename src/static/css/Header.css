@@ -54,7 +54,7 @@ body {
 #bell {
     position: absolute;
     right: 10vw;
-    top: 0.3vw;
+    top: 8%;
 }
 
 button {
@@ -85,3 +85,29 @@ button {
     border-color: rgb(230, 228, 228);
     border-width: 0.1px;
 } */
+
+.nav__input {
+    font-style: "AppleSDGothicNeoM00", "Roboto";
+    border-right-color: #b1b0b1;
+    border-bottom-color: #b1b0b1;
+    font-size: 1vw;
+    width: 18vw;
+    border-radius: 15px;
+    border-width: 1px;
+    margin: 0vw;
+    padding-left: 30px;
+    padding: 5px;
+    display: flex;
+    position:relative;
+    left: 65%;
+    top: 22%;
+}
+
+.searchicon {
+    z-index: 2000;
+    top: -23%; 
+    position: relative;
+    display: flex;
+    width: 1.3%;
+    left: 66%;
+}
