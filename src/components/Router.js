@@ -9,6 +9,7 @@ import Fillup from "../routes/Fillup";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Logout from "../routes/Logout";
+import Search from "../routes/Search";
 
 const AppRouter = ({ isLoggedIn, setIsLoggedIn }) => {
     return (
@@ -42,6 +43,7 @@ const AppRouter = ({ isLoggedIn, setIsLoggedIn }) => {
                         ></Route>
                         <Route path="/Profile2" element={<Profile2 />}></Route>
                         <Route path="/Fillup" element={<Fillup />}></Route>
+                        {/* <Route path="/Search" element={<Search />}></Route> */}
                     </Route>
                 </Routes>
             </Router>

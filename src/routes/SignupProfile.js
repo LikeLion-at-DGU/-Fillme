@@ -3,11 +3,12 @@ import Header from "../components/Header";
 import { Footer2 } from "../components/Footer";
 import styled from "styled-components";
 import axios from "axios";
-import { Typography, TextField, Button, Box, Container, FormControlLabel, Radio, RadioGroup } from "@mui/material/";
+import { Typography, TextField, Button, Box, Container, FormControlLabel } from "@mui/material/";
 import signStyle from "../static/css/Sign.module.css";
 import SkeletonImage from 'antd/lib/skeleton/Image';
 import { useNavigate } from 'react-router-dom';
 
+//     /mypage/ json 형식
 //     "user": 3,
 //     "fullname": "",
 //     "memo": "",
@@ -15,48 +16,56 @@ import { useNavigate } from 'react-router-dom';
 //     "image": null
 
 function SignupProfile() {
+    const navigate = useNavigate();
+
     const [fullname, setFullname] = useState("");
     const [memo, setMemo] = useState("");
+    const [color, setColor] = useState("");
     const [image, setImage] = useState(null);
-    const navigate = useNavigate();
 
     const nameChange = (e) => {
         setFullname(e.target.value);
-        console.log(e.target.value);
-    }
+        // console.log(e.target.value);
+    };
 
     const memoChange = (e) => {
         setMemo(e.target.value);
-        console.log(e.target.value);
-    }
+        // console.log(e.target.value);
+    };
 
-    const imageChange = (e) => {
-        setImage(e.target.value);
-        console.log(e.target.value);
-    }
-
-    // 컬러 라디오박스
-    const [color, setColor] = useState();
     const colorChange = (e) => {
         setColor(e.target.value);
         console.log(e.target.value);
     };
-    //
+
+    const imageChange = (e) => {
+        setImage(e.target.files[0]);
+        console.log(e.target.files[0]);
+    }
 
     // for axios
     const profileSubmit = async (e) => {
         e.preventDefault();
 
-        const data = new FormData(e.currentTarget);
         const profile = {
-            fullname: data.get("name"),
-            memo: data.get("memo"),
-            color: data.get("color"),
-            image: data.get("image"),
+            fullname: fullname,
+            memo: memo,
+            color: color,
         }
 
-        await axios.post("http://127.0.0.1:8000/mypage/", profile)
+        // const imageData = new FormData();
+
+
+        await axios
+            .patch("http://127.0.0.1:8000/mypage/profile_update/", profile, {
+                headers: {
+                    "content-type": "multipart/form-data",
+                }
+            })
             .then((res) => {
+                // localStorage.setItem("logInUserId", res.data.user.pk); // 현재 로그인한 유저 누군지 설정
+                const accesstoken = res.data.access_token; // API 요청 콜마다 헤더에 accessToken 담아 보내도록 설정
+                axios.defaults.headers.common["Authorization"] = "Bearer " + accesstoken;
                 console.log(res, "프로필 설정 성공");
                 navigate('/', { replace: true });
                 // replace: true로 로그인 페이지 이동 후 뒤로가기 불가능
@@ -101,7 +110,7 @@ function SignupProfile() {
                     />
                     <TextField
                         label="한 줄 소개를 입력해주세요 (띄어쓰기 포함 최대 30자)"
-                        name="introduction"
+                        name="memo"
                         fontFamily="AppleSDGothicNeoM00"
                         fullWidth
                         sx={{ mb: 5 }}
@@ -136,30 +145,30 @@ function SignupProfile() {
                     >
                         배경색상 *
                     </Typography>
-                    <form id="color">
-                        <label htmlFor="cl1"><input type="radio" className={signStyle.cl1} id="cl1" value="#FEBCC0" checked={color === "#FEBCC0"} onChange={colorChange} /></label>
-                        <label htmlFor="cl2"><input type="radio" className={signStyle.cl2} id="cl2" value="#83333E" checked={color === "#83333E"} onChange={colorChange} /></label>
-                        <label htmlFor="cl3"><input type="radio" className={signStyle.cl3} id="cl3" value="#FFB37C" checked={color === "#FFB37C"} onChange={colorChange} /></label>
-                        <label htmlFor="cl4"><input type="radio" className={signStyle.cl4} id="cl4" value="#FF9A50" checked={color === "#FF9A50"} onChange={colorChange} /></label>
-                        <label htmlFor="cl5"><input type="radio" className={signStyle.cl5} id="cl5" value="#FFE886" checked={color === "#FFE886"} onChange={colorChange} /></label>
-                        <label htmlFor="cl6"><input type="radio" className={signStyle.cl6} id="cl6" value="#153d2e" checked={color === "#153d2e"} onChange={colorChange} /></label>
-                        <label htmlFor="cl7"><input type="radio" className={signStyle.cl7} id="cl7" value="#8692cc" checked={color === "#8692cc"} onChange={colorChange} /></label>
-                        <label htmlFor="cl8"><input type="radio" className={signStyle.cl8} id="cl8" value="#486fbb" checked={color === "#486fbb"} onChange={colorChange} /></label>
-                        <label htmlFor="cl9"><input type="radio" className={signStyle.cl9} id="cl9" value="#1c0f67" checked={color === "#1c0f67"} onChange={colorChange} /></label>
-                        <label htmlFor="cl10"><input type="radio" className={signStyle.cl10} id="cl10" value="#8878e1" checked={color === "#8878e1"} onChange={colorChange} /></label>
-                        <label htmlFor="cl11"><input type="radio" className={signStyle.cl11} id="cl11" value="#4d2e66" checked={color === "#4d2e66"} onChange={colorChange} /></label>
-                        <label htmlFor="cl12"><input type="radio" className={signStyle.cl12} id="cl12" value="#827165" checked={color === "#827165"} onChange={colorChange} /></label>
-                        <label htmlFor="cl13"><input type="radio" className={signStyle.cl13} id="cl13" value="#231810" checked={color === "#231810"} onChange={colorChange} /></label>
-                        <label htmlFor="cl14"><input type="radio" className={signStyle.cl14} id="cl14" value="#464648" checked={color === "#464648"} onChange={colorChange} /></label>
-                        <label htmlFor="cl15"><input type="radio" className={signStyle.cl15} id="cl15" value="#010101" checked={color === "#010101"} onChange={colorChange} /></label>
-                    </form>
+                    <section id="color">
+                        <label htmlFor="cl1"><input type="radio" className={signStyle.cl1} id="cl1" name="color" value="pink" checked={color === "pink"} onChange={colorChange} /></label>
+                        <label htmlFor="cl2"><input type="radio" className={signStyle.cl2} id="cl2" name="color" value="red" checked={color === "red"} onChange={colorChange} /></label>
+                        <label htmlFor="cl3"><input type="radio" className={signStyle.cl3} id="cl3" name="color" value="lorange" checked={color === "lorange"} onChange={colorChange} /></label>
+                        <label htmlFor="cl4"><input type="radio" className={signStyle.cl4} id="cl4" name="color" value="orrange" checked={color === "orrange"} onChange={colorChange} /></label>
+                        <label htmlFor="cl5"><input type="radio" className={signStyle.cl5} id="cl5" name="color" value="yellow" checked={color === "yellow"} onChange={colorChange} /></label>
+                        <label htmlFor="cl6"><input type="radio" className={signStyle.cl6} id="cl6" name="color" value="green" checked={color === "green"} onChange={colorChange} /></label>
+                        <label htmlFor="cl7"><input type="radio" className={signStyle.cl7} id="cl7" name="color" value="lblue" checked={color === "lblue"} onChange={colorChange} /></label>
+                        <label htmlFor="cl8"><input type="radio" className={signStyle.cl8} id="cl8" name="color" value="blue" checked={color === "blue"} onChange={colorChange} /></label>
+                        <label htmlFor="cl9"><input type="radio" className={signStyle.cl9} id="cl9" name="color" value="navy" checked={color === "navy"} onChange={colorChange} /></label>
+                        <label htmlFor="cl10"><input type="radio" className={signStyle.cl10} id="cl10" name="color" value="lpurple" checked={color === "lpurple"} onChange={colorChange} /></label>
+                        <label htmlFor="cl11"><input type="radio" className={signStyle.cl11} id="cl11" name="color" value="purple" checked={color === "purple"} onChange={colorChange} /></label>
+                        <label htmlFor="cl12"><input type="radio" className={signStyle.cl12} id="cl12" name="color" value="etoffe" checked={color === "etoffe"} onChange={colorChange} /></label>
+                        <label htmlFor="cl13"><input type="radio" className={signStyle.cl13} id="cl13" name="color" value="brown" checked={color === "brown"} onChange={colorChange} /></label>
+                        <label htmlFor="cl14"><input type="radio" className={signStyle.cl14} id="cl14" name="color" value="gray" checked={color === "gray"} onChange={colorChange} /></label>
+                        <label htmlFor="cl15"><input type="radio" className={signStyle.cl15} id="cl15" name="color" value="black" checked={color === "black"} onChange={colorChange} /></label>
+                    </section>
                     <Button
                         type="submit"
                         variant="contained"
                         fullWidth
                         fontFamily="AppleSDGothicNeoB00"
                         sx={{ mt: 3, mb: 2, bgcolor: "#3CDA9F" }}
-                    // onClick={onSubmit}
+                        onClick={profileSubmit}
                     >
                         다음 단계
                     </Button>
