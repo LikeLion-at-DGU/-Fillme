@@ -11,6 +11,7 @@ function Feed() {
     console.log("axios", axios.defaults.headers);
     return (
         <>
+            <Navbar />
             <style>
                 {`#home {
                     filter: invert(67%) sepia(37%) saturate(660%) hue-rotate(106deg)
