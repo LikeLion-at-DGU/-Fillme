@@ -6,6 +6,7 @@ import Persona_Card from "../components/Persona_Card";
 import Logout from "./Logout";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import My_persona_card from "../components/My_persona_card";
 
 function Profile({ isLoggedIn, setIsLoggedIn }) {
     const [user, setUser] = useState();
@@ -13,26 +14,50 @@ function Profile({ isLoggedIn, setIsLoggedIn }) {
     const [image, setimage] = useState();
     const [fullname, setfullname] = useState();
     const [color, setcolor] = useState();
-    const [persona, setPersona] = useState();
+    const [persona_data, setPersona_data] = useState();
+    const local_persona_data = JSON.parse(localStorage.getItem("local_persona_data"));
+    // const local_persona_data = localStorage.getItem(JSON.parse("local_persona_data"));
+    // const persona_load = () => {
+    //     switch (persona) {
+    //         case 0:
+    //             return <div className={styles.no_persona}></div>;
+    //         case 1:
+    //             return <div className={styles.yes_persona}></div>;
+    //     }
+    // };
     useEffect(() => {
         fetchData();
     }, []);
 
     const fetchData = async () => {
         try {
-            const request = await axios.get("http://127.0.0.1:8000/mypage/");
+            const request = await axios.get("http://127.0.0.1:8000/mypage/profile_persona/");
             console.log("get 성공", request);
             setUser(request.data.user);
             setmemo(request.data.memo);
             setimage(request.data.image);
             setfullname(request.data.fullname);
             setcolor(request.data.color);
+            // setPersona_data(request.data.personas);
+            // console.log(request.data.personas);
+            // console.log("데이터라라", persona_data);
+            localStorage.setItem("local_persona_data", JSON.stringify(request.data.personas));
         } catch (err) {
             console.log(err);
         }
     };
 
-    console.log(user, memo, image, fullname, color);
+    // const persona_list = () => {
+    //     persona_data.map((per) => (
+    //         <>
+    //             <section>{per.name}</section>
+    //             <section>{per.cathegory}</section>
+    //         </>
+    //     ));
+    // };
+    // console.log(user, memo, image, fullname, color);
+    // console.log(persona1, persona2, persona3, persona4);
+    // console.log(local_persona_data);
     return (
         <>
             <style>
@@ -54,18 +79,21 @@ function Profile({ isLoggedIn, setIsLoggedIn }) {
                         image={image}
                     />
                 </div>
+                <div className={styles.persona_card}>
+                    {local_persona_data == null ? (
+                        <div className={styles.one_persona_card}></div>
+                    ) : (
+                        local_persona_data.map((per) => (
+                            <My_persona_card
+                                key={per.id}
+                                name={per.name}
+                                category={per.category}
+                                image={per.image}
+                            />
+                        ))
+                    )}
+                </div>
                 <div className={styles.persona}></div>
-                {function () {
-                    switch (persona === 0) {
-                        case 0:
-                            <div className={styles.no_persona}>
-                                페르소나
-                                <br />
-                                추가하기
-                            </div>;
-                    }
-                }}
-                <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />
             </div>
             <Footer />
         </>
