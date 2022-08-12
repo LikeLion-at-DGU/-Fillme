@@ -1,8 +1,10 @@
 import "../static/css/Header.css";
 import styles from "../static/css/style.module.css";
 import { NavLink } from "react-router-dom";
-import React, {useState} from "react";
+import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 import Modal from "react-modal";
+import { borderRight, borderRightColor } from "@mui/system";
 
 Modal.setAppElement('#root')
 
@@ -32,6 +34,13 @@ const Modal_style = {
 
 function Header() {
     const [modalOpen, setModalOpen] = useState(false);
+    const [searchValue, setsearchValue] = useState("");
+    const navigate = useNavigate();
+
+    const handleChange = (e) => {
+        setsearchValue(e.target.value); //바로 검색가능하다.
+        navigate(`/search?q=${e.target.value}`);
+    };
 
     return (
         <>
@@ -39,6 +48,20 @@ function Header() {
                 <NavLink to="/Feed">
                     <section id="header_logo">Fill Me</section>
                 </NavLink>
+
+                <input
+                value={searchValue}
+                onChange={handleChange}
+                className="nav__input"
+                type="text"
+                style={{borderLeftColor: "white",
+                        borderTopColor: "white",
+                        paddingLeft: "3%",}}
+                />
+
+                <img className="searchicon"
+                src="images/search.png"></img>
+
 
                 <div className="modal">
                     <button type="button" onClick={() => setModalOpen(!modalOpen)}>
