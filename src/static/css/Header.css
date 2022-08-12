@@ -102,6 +102,7 @@ button {
     position:relative;
     left: 65%;
     top: 0.7vw;
+    outline: none;
 }
 
 .searchicon {
