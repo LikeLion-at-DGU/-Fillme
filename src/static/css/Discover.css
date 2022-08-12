@@ -194,7 +194,7 @@
 
 
 /* 개별 색상 */
-#data1 {
+/* #data1 {
     background: linear-gradient(
     to left,
     rgb(1, 1, 1) 85%,
@@ -227,4 +227,4 @@
     to left,
     rgb(77, 46, 102) 85%,
     rgb(77, 46, 102, 0))
-}
+} */

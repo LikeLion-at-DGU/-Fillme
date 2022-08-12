@@ -1,12 +1,18 @@
 import Header from "../components/Header";
 import "../static/css/Discover.css";
-import render_Discover_feelings from "../components/Discover_Feelings";
+import Mainprofile from "../components/Discover_Feelings";
 import render_Discover_card from "../components/Discover_card";
 import { Footer } from "../components/Footer";
 import styles from "../static/css/style.module.css";
 import Navbar from "../components/Navbar";
-import Discover_card from "../components/Discover_card";
+import Detail_card from "../components/Discover_card";
 import { red } from "@mui/material/colors";
+import dummy from "../data.json"
+import Zero from "../components/new_discover_0"
+import First from "../components/new_discover_1"
+import Second from "../components/new_discover_2"
+import Third from "../components/new_discover_3"
+import Fourth from "../components/new_discover_4"
 
 function Discover() {
     return (
@@ -21,8 +27,12 @@ function Discover() {
                 <h1 className={styles.title}>Discover Feelings</h1>
 
                 <div className={styles.wrap2}>
-                    {feed.map(render_Discover_feelings)}
-                    {feed.map(render_Discover_card)}
+                    {dummy.map(Mainprofile)}
+                    <Zero />
+                    <First />
+                    <Second />
+                    <Third />
+                    <Fourth />
                 </div>
             </div>
 
