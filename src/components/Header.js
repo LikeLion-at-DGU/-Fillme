@@ -56,7 +56,7 @@ function Header() {
                 type="text"
                 style={{borderLeftColor: "white",
                         borderTopColor: "white",
-                        paddingLeft: "3%",}}
+                        paddingLeft: "2.5%",}}
                 />
 
                 <img className="searchicon"
