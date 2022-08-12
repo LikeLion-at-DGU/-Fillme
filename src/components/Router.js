@@ -26,9 +26,8 @@ const AppRouter = ({ isLoggedIn, setIsLoggedIn }) => {
                         }
                     ></Route>
                     <Route path="/SignupPage" element={<SignupPage />}></Route>
-
+                    <Route path="/Feed" element={<Feed />}></Route>
                     <Route path="/" element={<Navbar />}>
-                        <Route path="/Feed" element={<Feed />}></Route>
                         <Route path="/Discover" element={<Discover />}></Route>
                         <Route
                             path="/Profile"

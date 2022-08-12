@@ -13,6 +13,7 @@ function Profile({ isLoggedIn, setIsLoggedIn }) {
     const [image, setimage] = useState();
     const [fullname, setfullname] = useState();
     const [color, setcolor] = useState();
+    const [persona, setPersona] = useState();
     useEffect(() => {
         fetchData();
     }, []);
@@ -53,6 +54,17 @@ function Profile({ isLoggedIn, setIsLoggedIn }) {
                         image={image}
                     />
                 </div>
+                <div className={styles.persona}></div>
+                {function () {
+                    switch (persona === 0) {
+                        case 0:
+                            <div className={styles.no_persona}>
+                                페르소나
+                                <br />
+                                추가하기
+                            </div>;
+                    }
+                }}
                 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />
             </div>
             <Footer />

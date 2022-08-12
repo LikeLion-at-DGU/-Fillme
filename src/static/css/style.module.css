@@ -69,6 +69,10 @@
     height: 1.5px;
 }
 
+.no_persona {
+    height: 100px;
+    width: 100px;
+}
 /* Navbar */
 .icon {
     width: 1.5vw;
