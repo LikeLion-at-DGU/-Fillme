@@ -1,65 +1,27 @@
 import { useState } from "react";
-import feed from "../routes/Discover";
-import render_Discover_card from "../components/Discover_card";
-import Discover_card from "../components/Discover_card";
+import dummy from "../data.json"
 
-function Discover_feelings({ id, user_id, image, persona_image, name, intro, persona_name, type, card}) {
+function Mainprofile(dummy) {
     const feelings_style = {
-        backgroundImage: `url(${image})`,
+        backgroundImage: `url(${dummy.image})`,
         backgroundSize: 'cover',
         backgroundRepeat: `no-repeat`,
-        backgroundPosition: `center`
+        backgroundPosition: `center`,
+        backgroundColor:` (${dummy.color})`,
     };
-    const persona_style = {
-        backgroundImage: `url(${card.persona_image})`,
-        backgroundSize: 'cover',
-        backgroundRepeat: `no-repeat`,
-        backgroundPosition: `center`
-    };
-    
 
     return (
-        <div className="card" id={"discover" + id}>
+        <div className="card" id={"discover" + dummy.id}>
             <div className="image" style={feelings_style}>
-                <p id="user_id">@{user_id}</p>
+                <p id="user_id">@{dummy.userId}</p>
             </div>
-                <div className="user_data" id={"data"+id}>
-                    <p id="name">{name}</p>
-                    <p id="intro">{intro}</p> 
-                    <button id="btn_profile">프로필 보기</button>
-                    <button id="btn_following">팔로잉</button>
-                    <div id="persona">{card.persona_name}</div>
-                    <p id="type">{type}</p>
-                </div>
-            {/* <div className="image_per" style={persona_style}>
-                <div className="card_persona" id={"card_persona"+id}><p>{card_persona}</p></div>
-            </div> */}
-            {/* <div className="image_per" style={persona_style}>
-                <Discover_card {feed.map(render_Discover_card)}/>
-            </div> */}
-            
+            <div className="user_data" id={"data"+ dummy.id}>
+                <p id="name">{dummy.userName}</p>
+                <p id="intro">{dummy.intro}</p> 
+                <button id="btn_profile">프로필 보기</button>
+                <button id="btn_following">팔로잉</button>
+            </div>
         </div>
-        
     )
 
-} export default Discover_feelings;
-
-
-// function render_persona({id, persona}) {
-//     return (
-//         <div className="card_persona" id={"persona" + id}>
-//             <p id="user_persona">{persona}</p>
-//         </div>
-//     )
-// }
-
-
-function render_Discover_feelings(fill) {
-    return (
-        <Discover_feelings key={fill.id}
-            user_id={fill.user_id} index={fill.index}
-            image={fill.image} persona={fill.persona}
-            title={fill.title} persona_image={fill.persona_image}
-            color={fill.color}/>
-    )
-}
+} export default Mainprofile;
