@@ -11,7 +11,19 @@
 @font-face {
     font-family: "Roboto";
     src: url("../font/Roboto-Regular.ttf");
-    unicode-range: U+0041-005A, U+0061-007A;
+    unicode-range: 
+        /* 영어 대문자, 영어 소문자 */ U+0041-005A,
+        U+0061-007A, /* 숫자, 특수문자 */ U+0030-0039, U+0020-002F, U+003A-0040,
+        U+005B-0060, U+007B-007E;
+}
+
+@font-face {
+    font-family: "Roboto-bold";
+    src: url("../font/Roboto-Bold.ttf");
+    unicode-range: 
+        /* 한글, 영어 대문자, 영어 소문자 */ U+0041-005A,
+        U+0061-007A, /* 숫자, 특수문자 */ U+0030-0039, U+0020-002F, U+003A-0040,
+        U+005B-0060, U+007B-007E;
 }
 
 @font-face {
@@ -23,6 +35,12 @@
 @font-face {
     font-family: "AppleSDGothicNeoM00";
     src: url("../font/AppleSDGothicNeoM.ttf");
+    unicode-range: U+AC00-D7A3;
+}
+
+.persona_data_0_data_in{
+    font-style: "AppleSDGothicNeoM00", "Roboto";
+    color: white;
 }
 
 .persona_data_0_img_in {
@@ -42,7 +60,7 @@
     object-fit: cover;
     display: inline;
     top:-132.5vw;
-    left: 35vw;
+    left: 50vw;
 }
 
 .detailPersona0-2 {
@@ -55,7 +73,7 @@
     object-fit: cover;
     display: inline;
     top:-132.5vw;
-    left: 40vw;
+    left: 45vw;
 }
 
 .detailPersona0-3 {
@@ -68,7 +86,7 @@
     object-fit: cover;
     display: inline;
     top:-154.5vw;
-    left: 45vw;
+    left: 40vw;
 }
 
 .detailPersona0-4 {
@@ -81,7 +99,7 @@
     object-fit: cover;
     display: inline;
     top:-176.5vw;
-    left: 50vw;
+    left: 35vw;
 }
 
 .row_image0{
@@ -97,7 +115,7 @@
 }
 
 #persona0-1{
-    z-index: 4;
+    z-index: 1;
     width: 13.5vw;
 }
 #persona0-1:hover{
@@ -107,7 +125,7 @@
 
 
 #persona0-2{
-    z-index: 3;
+    z-index: 2;
     width: 13.5vw;
 }
 #persona0-2:hover{
@@ -117,7 +135,7 @@
 
 
 #persona0-3{
-    z-index: 2;
+    z-index: 3;
     width: 13.5vw;
 }
 #persona0-3:hover{
@@ -127,10 +145,32 @@
 
 
 #persona0-4{
-    z-index: 1;
+    z-index: 4;
     width: 13.5vw;
 }
 #persona0-4:hover{
     transition: 400ms all ease-in-out;
     transform: translateY(-3vh);
+}
+
+#personaName0-1 {
+    color: white;
+    position:relative;
+    font-style: "AppleSDGothicNeoB00", "Roboto-bold";
+    z-index: 100;
+}
+
+#personaName0-2 {
+    color: white;
+    position:relative;
+    font-style: "AppleSDGothicNeoB00", "Roboto-bold";
+    z-index: 100;
+}
+
+#personaName0-3 {
+    color: white;
+}
+
+#personaName0-4 {
+    color: white;
 }

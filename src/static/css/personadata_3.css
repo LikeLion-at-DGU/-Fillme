@@ -25,6 +25,11 @@
     src: url("../font/AppleSDGothicNeoM.ttf");
 }
 
+.persona_data_3_data_in{
+    font-style: "AppleSDGothicNeoM00", "Roboto";
+    color: white;
+}
+
 .persona_data_3_img_in {
     margin-right: -20%;
     position: relative;
@@ -42,7 +47,7 @@
     object-fit: cover;
     display: inline;
     top:-51.5vw;
-    left: -2.2vw;
+    left: 13.2vw;
 }
 
 .detailPersona3-2 {
@@ -55,7 +60,7 @@
     object-fit: cover;
     display: inline;
     top:-51.5vw;
-    left: 3.2vw;
+    left: 8.2vw;
 }
 
 .detailPersona3-3 {
@@ -68,7 +73,7 @@
     object-fit: cover;
     display: inline;
     top:-73.5vw;
-    left: 8.2vw;
+    left: 3.2vw;
 }
 
 .detailPersona3-4 {
@@ -81,7 +86,7 @@
     object-fit: cover;
     display: inline;
     top: -95.5vw;
-    left: 13.2vw;
+    left: -2.2vw;
 }
 
 .row_image3{
@@ -91,7 +96,7 @@
 }
 
 #persona3-1{
-    z-index: 4;
+    z-index: 1;
     width: 13.5vw;
 }
 #persona3-1:hover{
@@ -101,7 +106,7 @@
 
 
 #persona3-2{
-    z-index: 3;
+    z-index: 2;
     width: 13.5vw;
 }
 #persona3-2:hover{
@@ -111,7 +116,7 @@
 
 
 #persona3-3{
-    z-index: 2;
+    z-index: 3;
     width: 13.5vw;
 }
 #persona3-3:hover{
@@ -121,7 +126,7 @@
 
 
 #persona3-4{
-    z-index: 1;
+    z-index: 4;
     width: 13.5vw;
 }
 #persona3-4:hover{
