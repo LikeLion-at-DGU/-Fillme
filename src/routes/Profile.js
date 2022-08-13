@@ -38,6 +38,7 @@ function Profile({ isLoggedIn, setIsLoggedIn }) {
             setimage(request.data.image);
             setfullname(request.data.fullname);
             setcolor(request.data.color);
+            setcolor(request.data.color_hex);
             console.log(request.data);
             // setPersona_data(request.data.personas);
             // console.log(request.data.personas);
