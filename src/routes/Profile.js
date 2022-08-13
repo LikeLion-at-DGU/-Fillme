@@ -37,7 +37,7 @@ function Profile({ isLoggedIn, setIsLoggedIn }) {
             setmemo(request.data.memo);
             setimage(request.data.image);
             setfullname(request.data.fullname);
-            setcolor(request.data.color);
+            setcolor(request.data.color_hex);
             // setPersona_data(request.data.personas);
             // console.log(request.data.personas);
             // console.log("데이터라라", persona_data);
