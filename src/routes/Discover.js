@@ -1,10 +1,7 @@
-import Header from "../components/Header";
 import "../static/css/Discover.css";
 import Mainprofile from "../components/Discover_Feelings";
 import { Footer } from "../components/Footer";
 import styles from "../static/css/style.module.css";
-import Navbar from "../components/Navbar";
-import { red } from "@mui/material/colors";
 import dummy from "../data.json"
 import Zero from "../components/new_discover_0"
 import First from "../components/new_discover_1"

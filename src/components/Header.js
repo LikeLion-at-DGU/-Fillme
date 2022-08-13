@@ -59,9 +59,8 @@ function Header() {
                         paddingLeft: "2.5%",}}
                 />
 
-                <img className="searchicon"
-                src="images/search.png"></img>
-
+                    <img className="searchicon"
+                    src="images/search.png"></img>
 
                 <div className="modal">
                     <button type="button" onClick={() => setModalOpen(!modalOpen)}>

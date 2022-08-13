@@ -19,7 +19,9 @@ function PicFirst() {
         const persona_f = [];
             persona_f.push(dummy[1].persona.map(detail => (
             <div className="persona_data_1_img_in">
-                <img id={"persona1-"+detail.persona_id} className={"detailPersona1-"+detail.persona_id} src={detail.persona_image}/>
+                <img id={"persona1-"+detail.persona_id} 
+                className={"detailPersona1-"+detail.persona_id} 
+                src={detail.persona_image}/>
             </div>)))
             
         return persona_f;
