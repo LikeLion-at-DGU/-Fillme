@@ -16,21 +16,20 @@ function PicZero() {
         console.log("hover change");
     }, [hover]);
 
-    const Per_img = styled.div`{
-        background-image: url(${dummy[0].persona.persona_image});
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-    }`;
-
     const rend = (dummy => {
 
         const persona_f = [];
             persona_f.push(dummy[0].persona.map(detail => (
             <div className="persona_data_0_img_in">
                 <div id={"persona0-"+detail.persona_id}  
-                    className={"detailPersona0-"+detail.persona_id}>
-                    <Per_img id={"personaName0-"+detail.persona_id}>{detail.persona_name}</Per_img>
+                    className={"detailPersona0-"+detail.persona_id}
+                    style={{
+                        backgroundImage: `url(${detail.persona_image})`,
+                        backgroundSize: `cover`,
+                        backgroundRepeat: `no-repeat`,
+                        backgroundPosition: `center`
+                        }}>
+                        <div className={"persona_card"+detail.persona_id}>{detail.persona_name}</div>
                 </div>
             </div>)))
             
