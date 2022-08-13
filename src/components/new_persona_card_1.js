@@ -16,12 +16,20 @@ function PicFirst() {
     }, [hover]);
 
     const rend = (dummy => {
+
         const persona_f = [];
             persona_f.push(dummy[1].persona.map(detail => (
             <div className="persona_data_1_img_in">
-                <img id={"persona1-"+detail.persona_id} 
-                className={"detailPersona1-"+detail.persona_id} 
-                src={detail.persona_image}/>
+                <div id={"persona1-"+detail.persona_id}  
+                    className={"detailPersona1-"+detail.persona_id}
+                    style={{
+                        backgroundImage: `url(${detail.persona_image})`,
+                        backgroundSize: `cover`,
+                        backgroundRepeat: `no-repeat`,
+                        backgroundPosition: `center`
+                        }}>
+                        <div className={"persona_card"+detail.persona_id}>{detail.persona_name}</div>
+                </div>
             </div>)))
             
         return persona_f;
