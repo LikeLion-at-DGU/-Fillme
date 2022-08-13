@@ -19,7 +19,6 @@ function Feed() {
             </style>
 
             <div className={styles.wrap}>
-                <br />
                 <h1 className={styles.title}>New Feelings</h1>
                 <div className="new_feelings">
                     {persona.map((per) => (

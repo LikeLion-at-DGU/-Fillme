@@ -5,12 +5,12 @@ import { Footer } from "../components/Footer";
 import styles from "../static/css/style.module.css";
 import Navbar from "../components/Navbar";
 import { red } from "@mui/material/colors";
-import dummy from "../data.json"
-import Zero from "../components/new_discover_0"
-import First from "../components/new_discover_1"
-import Second from "../components/new_discover_2"
-import Third from "../components/new_discover_3"
-import Fourth from "../components/new_discover_4"
+import dummy from "../data.json";
+import Zero from "../components/new_discover_0";
+import First from "../components/new_discover_1";
+import Second from "../components/new_discover_2";
+import Third from "../components/new_discover_3";
+import Fourth from "../components/new_discover_4";
 import PicZero from "../components/new_persona_card_0";
 import PicFirst from "../components/new_persona_card_1";
 import PicSecond from "../components/new_persona_card_2";
@@ -26,7 +26,6 @@ function Discover() {
                     brightness(120%) contrast(95%);}`}
             </style>
             <div className={styles.wrap}>
-                <br />
                 <h1 className={styles.title}>Discover Feelings</h1>
 
                 <div className={styles.wrap2}>

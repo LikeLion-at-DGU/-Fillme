@@ -67,7 +67,6 @@ function Profile({ isLoggedIn, setIsLoggedIn }) {
             </style>
 
             <div className={styles.wrap}>
-                <br />
                 <div>
                     <Logout isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
                     <Persona_Card
