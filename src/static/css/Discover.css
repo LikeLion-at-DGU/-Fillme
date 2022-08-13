@@ -112,6 +112,7 @@
     background-color: #3cda9f;
     color: #ffffff;
     padding: 1px 5px 3px;
+    cursor: pointer;
 }
 
 #btn_profile {
@@ -128,6 +129,7 @@
     background-color: #ffffff00;
     color: #3cda9f;
     padding: 1px 5px 3px;
+    cursor: pointer;
 }
 
 #name {
