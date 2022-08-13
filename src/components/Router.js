@@ -32,8 +32,8 @@ const AppRouter = ({ isLoggedIn, setIsLoggedIn }) => {
                         path="/logout"
                         element={<Logout isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />}
                     ></Route>
+                    <Route path="/Feed" element={<Feed />}></Route>
                     <Route path="/" element={<Navbar />}>
-                        <Route path="/Feed" element={<Feed />}></Route>
                         <Route path="/Discover" element={<Discover />}></Route>
                         <Route
                             path="/Profile"

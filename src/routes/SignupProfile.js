@@ -54,16 +54,22 @@ function SignupProfile() {
         }
 
         // const imageData = new FormData();
+        // if (imageData?.image) {
+        //     imageData.append("image",
+        //         imageData.image,
+        //     );
+        // }
 
-
+        let user = JSON.parse(sessionStorage.getItem('data'));
+        const token = user.data.id;
         await axios
             .patch("http://127.0.0.1:8000/mypage/profile_update/", profile, {
                 headers: {
                     "content-type": "multipart/form-data",
+                    Authorization: `Bearer ${token}`,
                 }
             })
             .then((res) => {
-                // localStorage.setItem("logInUserId", res.data.user.pk); // 현재 로그인한 유저 누군지 설정
                 const accesstoken = res.data.access_token; // API 요청 콜마다 헤더에 accessToken 담아 보내도록 설정
                 axios.defaults.headers.common["Authorization"] = "Bearer " + accesstoken;
                 console.log(res, "프로필 설정 성공");

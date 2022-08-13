@@ -1,3 +1,5 @@
+/* 공통 속성, 마이페이지, 로그아웃 css */
+
 @font-face {
     font-family: "AppleSDGothicNeoB00";
     src: url("../font/AppleSDGothicNeoB.ttf");
@@ -30,6 +32,20 @@
     margin-bottom: 0;
 }
 
+/* Navbar */
+.icon {
+    width: 1.5vw;
+    height: 1.5vw;
+    display: flex;
+    padding: 0.7vw;
+    cursor: pointer;
+}
+
+.navbar {
+    position: fixed;
+    top: 40%;
+    right: 2%;
+}
 /* Mypage card */
 .card {
     box-sizing: border-box;
@@ -41,6 +57,15 @@
     background-color: black;
     border-radius: 10px;
     color: white;
+}
+.image_box {
+    position: absolute;
+    right: 2vw;
+    width: 21vw;
+    height: 21vw;
+    top: 2vw;
+    object-fit: cover;
+    border-radius: 10px;
 }
 
 .user_id {
@@ -69,19 +94,56 @@
     height: 1.5px;
 }
 
-/* Navbar */
-.icon {
-    width: 1.5vw;
-    height: 1.5vw;
-    display: flex;
-    padding: 0.7vw;
-    cursor: pointer;
+.no_persona {
+    height: 100px;
+    width: 100px;
+
+    background-color: #3cda9f;
 }
 
-.navbar {
-    position: fixed;
-    top: 40%;
-    right: 2%;
+/* Mypage persona Card */
+.persona_card {
+    display: flex;
+    box-sizing: border-box;
+    position: relative;
+    width: 96%;
+    margin: 2.5% 1.5%;
+    height: 25vw;
+    border-radius: 10px;
+}
+.one_persona_card {
+    box-sizing: border-box;
+    margin-right: 1vw;
+    width: 25%;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.shadow {
+    margin-top: 65%;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(180deg, rgba(70, 70, 72, 0) 0%, #414141 100%);
+    border-radius: 0px 0px 10px 10px;
+}
+.persona_card_name {
+    position: absolute;
+    color: #3cda9f;
+    top: 80%;
+    font-family: "AppleSDGothicNeoEB00";
+    font-size: 2vw;
+    margin-left: 1.5vw;
+}
+
+.persona_card_category {
+    font-family: "AppleSDGothicNeoM00";
+    position: absolute;
+    color: white;
+    font-size: 1vw;
+    top: 92%;
+    margin-left: 1.5vw;
 }
 
 /* Logout */
