@@ -45,7 +45,7 @@
 
 .persona_data_0_img_in {
     margin-right: -20%;
-    position: relative;
+    position: absolute;
     display: flex;
     flex-direction: row;
 }
@@ -85,7 +85,7 @@
     cursor: pointer;
     object-fit: cover;
     display: inline;
-    top:-154.5vw;
+    top:-132.5vw;
     left: 40vw;
 }
 
@@ -98,7 +98,7 @@
     cursor: pointer;
     object-fit: cover;
     display: inline;
-    top:-176.5vw;
+    top:-132.5vw;
     left: 35vw;
 }
 
@@ -153,24 +153,46 @@
     transform: translateY(-3vh);
 }
 
-#personaName0-1 {
+#persona_card1 {
     color: white;
-    position:relative;
     font-style: "AppleSDGothicNeoB00", "Roboto-bold";
+    font-size: 1.3vw;
     z-index: 100;
+    transform: rotate(270deg);
+    position: relative;
+    left: 5vw;
+    top: 13vw;
 }
 
-#personaName0-2 {
+#persona_card2 {
     color: white;
-    position:relative;
     font-style: "AppleSDGothicNeoB00", "Roboto-bold";
+    font-size: 1.3vw;
     z-index: 100;
+    transform: rotate(270deg);
+    position: relative;
+    left: 5vw;
+    top: 13vw;
 }
 
-#personaName0-3 {
+#persona_card3 {
     color: white;
+    font-style: "AppleSDGothicNeoB00", "Roboto-bold";
+    font-size: 1.3vw;
+    z-index: 100;
+    transform: rotate(270deg);
+    position: relative;
+    left: 5vw;
+    top: 13vw;
 }
 
-#personaName0-4 {
+#persona_card4 {
     color: white;
+    font-style: "AppleSDGothicNeoB00", "Roboto-bold";
+    font-size: 1.3vw;
+    z-index: 100;
+    transform: rotate(270deg);
+    position: relative;
+    left: 5vw;
+    top: 13vw;
 }

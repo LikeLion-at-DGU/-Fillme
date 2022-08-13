@@ -28,7 +28,7 @@ function PicFirst() {
                         backgroundRepeat: `no-repeat`,
                         backgroundPosition: `center`
                         }}>
-                        <div className={"persona_card"+detail.persona_id}>{detail.persona_name}</div>
+                        <div id={"persona_card"+detail.persona_id}>{detail.persona_name}</div>
                 </div>
             </div>)))
             
