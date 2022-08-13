@@ -23,7 +23,6 @@ function Discover() {
                     brightness(120%) contrast(95%);}`}
             </style>
             <div className={styles.wrap}>
-                <br />
                 <h1 className={styles.title}>Discover Feelings</h1>
 
                 <div className={styles.wrap2}>

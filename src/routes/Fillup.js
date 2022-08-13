@@ -13,7 +13,6 @@ function Fillup() {
                     brightness(120%) contrast(95%);}`}
             </style>
             <div className={styles.wrap}>
-                <br />
                 <h1 className={styles.title}>Fill Up Yourself</h1>
                 <br />
                 <Fillup_component />

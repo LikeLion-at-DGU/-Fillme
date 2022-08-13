@@ -1,4 +1,5 @@
 
+
     [{
         "id" : 1,
         "userId" :"is_bell.harper",
@@ -14,22 +15,22 @@
                 "persona_image" : "https://i.ibb.co/xz2H9vn/unsplash-XUT7-V-md7sc-1.png"
             },
             {
-                "persona_id" : 2,
-                "persona_name" : "이사벨라 하퍼",
-                "persona_type" : "동국대학교 연극영화과 20",
-                "persona_image" : "https://i.ibb.co/zVhqdX9/unsplash-7s-GOde9y-SYw.png"
+                "persona_id": 2,
+                "persona_name": "이사벨라 하퍼",
+                "persona_type": "동국대학교 연극영화과 20",
+                "persona_image": "https://i.ibb.co/zVhqdX9/unsplash-7s-GOde9y-SYw.png"
             },
             {
-                "persona_id" : 3,
-                "persona_name" : "JACK",
-                "persona_type" : "사랑받는 강아지",
-                "persona_image" : "https://i.ibb.co/xz2H9vn/unsplash-XUT7-V-md7sc-1.png"
+                "persona_id": 3,
+                "persona_name": "JACK",
+                "persona_type": "사랑받는 강아지",
+                "persona_image": "https://i.ibb.co/xz2H9vn/unsplash-XUT7-V-md7sc-1.png"
             },
             {
-                "persona_id" : 4,
-                "persona_name" : "태오꺼",
-                "persona_type" : "태오 여자친구",
-                "persona_image" : "https://i.ibb.co/xz2H9vn/unsplash-XUT7-V-md7sc-1.png"
+                "persona_id": 4,
+                "persona_name": "태오꺼",
+                "persona_type": "태오 여자친구",
+                "persona_image": "https://i.ibb.co/xz2H9vn/unsplash-XUT7-V-md7sc-1.png"
             }
         ]
     },
@@ -48,22 +49,22 @@
                 "persona_image" : "https://i.ibb.co/xz2H9vn/unsplash-XUT7-V-md7sc-1.png"
             },
             {
-                "persona_id" : 2,
-                "persona_name" : "어푸어푸",
-                "persona_type" : "바다의 왕자 마린보이",
-                "persona_image" : "https://i.ibb.co/xz2H9vn/unsplash-XUT7-V-md7sc-1.png"
+                "persona_id": 2,
+                "persona_name": "어푸어푸",
+                "persona_type": "바다의 왕자 마린보이",
+                "persona_image": "https://i.ibb.co/xz2H9vn/unsplash-XUT7-V-md7sc-1.png"
             },
             {
-                "persona_id" : 3,
-                "persona_name" : "마음의 양식",
-                "persona_type" : "독서 클럽 회원",
-                "persona_image" : "https://i.ibb.co/zVhqdX9/unsplash-7s-GOde9y-SYw.png"
+                "persona_id": 3,
+                "persona_name": "마음의 양식",
+                "persona_type": "독서 클럽 회원",
+                "persona_image": "https://i.ibb.co/zVhqdX9/unsplash-7s-GOde9y-SYw.png"
             },
             {
-                "persona_id" : 4,
-                "persona_name" : "마음의 양식",
-                "persona_type" : "독서 클럽 회원",
-                "persona_image" : "https://i.ibb.co/zVhqdX9/unsplash-7s-GOde9y-SYw.png"
+                "persona_id": 4,
+                "persona_name": "마음의 양식",
+                "persona_type": "독서 클럽 회원",
+                "persona_image": "https://i.ibb.co/zVhqdX9/unsplash-7s-GOde9y-SYw.png"
             }
         ]
     },
@@ -82,22 +83,22 @@
                 "persona_image" : "https://i.ibb.co/zVhqdX9/unsplash-7s-GOde9y-SYw.png"
             },
             {
-                "persona_id" : 2,
-                "persona_name" : "Yeon Cho",
-                "persona_type" : "실내 건축 디자이너",
-                "persona_image" : "https://i.ibb.co/DMZSChX/unsplash-XUT7-V-md7sc.png"
+                "persona_id": 2,
+                "persona_name": "Yeon Cho",
+                "persona_type": "실내 건축 디자이너",
+                "persona_image": "https://i.ibb.co/DMZSChX/unsplash-XUT7-V-md7sc.png"
             },
             {
-                "persona_id" : 3,
-                "persona_name" : "WOODZ",
-                "persona_type" : "플랜테리어 디자이너",
-                "persona_image" : "https://i.ibb.co/zVhqdX9/unsplash-7s-GOde9y-SYw.png"
+                "persona_id": 3,
+                "persona_name": "WOODZ",
+                "persona_type": "플랜테리어 디자이너",
+                "persona_image": "https://i.ibb.co/zVhqdX9/unsplash-7s-GOde9y-SYw.png"
             },
             {
-                "persona_id" : 4,
-                "persona_name" : "준호 여자친구",
-                "persona_type" : "승연준호",
-                "persona_image" : "https://i.ibb.co/DMZSChX/unsplash-XUT7-V-md7sc.png"
+                "persona_id": 4,
+                "persona_name": "준호 여자친구",
+                "persona_type": "승연준호",
+                "persona_image": "https://i.ibb.co/DMZSChX/unsplash-XUT7-V-md7sc.png"
             }
         ]
     },
@@ -116,16 +117,16 @@
                 "persona_image" :"https://i.ibb.co/zVhqdX9/unsplash-7s-GOde9y-SYw.png"
             },
             {
-                "persona_id" : 2,
-                "persona_name" : "무제",
-                "persona_type" : "아티스트",
-                "persona_image" : "https://i.ibb.co/zVhqdX9/unsplash-7s-GOde9y-SYw.png"
+                "persona_id": 2,
+                "persona_name": "무제",
+                "persona_type": "아티스트",
+                "persona_image": "https://i.ibb.co/zVhqdX9/unsplash-7s-GOde9y-SYw.png"
             },
             {
-                "persona_id" : 3,
-                "persona_name" : "무제",
-                "persona_type" : "아티스트",
-                "persona_image" : "https://i.ibb.co/zVhqdX9/unsplash-7s-GOde9y-SYw.png"
+                "persona_id": 3,
+                "persona_name": "무제",
+                "persona_type": "아티스트",
+                "persona_image": "https://i.ibb.co/zVhqdX9/unsplash-7s-GOde9y-SYw.png"
             }
         ]
     },
@@ -144,22 +145,23 @@
                 "persona_image" : "http://itimg.chosun.com/sitedata/image/201810/02/2018100200110_0.jpg"
             },
             {
-                "persona_id" : 2,
-                "persona_name" : "the jackson",
-                "persona_type" : "패션 모델",
-                "persona_image" : "http://itimg.chosun.com/sitedata/image/201810/02/2018100200110_0.jpg"
+                "persona_id": 2,
+                "persona_name": "the jackson",
+                "persona_type": "패션 모델",
+                "persona_image": "http://itimg.chosun.com/sitedata/image/201810/02/2018100200110_0.jpg"
             },
             {
-                "persona_id" : 3,
-                "persona_name" : "irene nature",
-                "persona_type" : "조경 관리사",
-                "persona_image" : "http://itimg.chosun.com/sitedata/image/201810/02/2018100200110_0.jpg"
+                "persona_id": 3,
+                "persona_name": "irene nature",
+                "persona_type": "조경 관리사",
+                "persona_image": "http://itimg.chosun.com/sitedata/image/201810/02/2018100200110_0.jpg"
             },
             {
-                "persona_id" : 4,
-                "persona_name" : "irene nature",
-                "persona_type" : "조경 관리사",
-                "persona_image" : "http://itimg.chosun.com/sitedata/image/201810/02/2018100200110_0.jpg"
+                "persona_id": 4,
+                "persona_name": "irene nature",
+                "persona_type": "조경 관리사",
+                "persona_image": "http://itimg.chosun.com/sitedata/image/201810/02/2018100200110_0.jpg"
             }
         ]
-    }]
+    }
+]
