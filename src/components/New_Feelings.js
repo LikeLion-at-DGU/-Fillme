@@ -19,20 +19,26 @@ function New_Feelings({ id, user_id, user_name, persona_id, persona_name, image 
 
     if (hover) {
         return (
-            <div
-                className={newStyle.newfeeling1}
-                id={"feelings" + id}
-                style={newfeeling_style}
-                onMouseOver={OnMouseOver}
-                onMouseLeave={OnMouseOut}
-            >
-                <section id="user_id">@{user_id}</section>
-                <section>
-                    <h2 className={newStyle.title}>{user_name}</h2>
-                    <p className={newStyle.sub}>{persona_name}</p>
-                </section>
-                <buttton className={newStyle.button}>프로필 보기</buttton>
-            </div>
+            <>
+                <div
+                    className={newStyle.newfeeling1}
+                    id={"feelings" + id}
+                    style={newfeeling_style}
+                    onMouseOver={OnMouseOver}
+                    onMouseLeave={OnMouseOut}
+                >
+                    <div>
+                        <section id="user_id">@{user_id}</section>
+                        <section className={newStyle.content}></section>
+                        <section>
+                            <h2 className={newStyle.title}>{user_name}</h2>
+                            <p className={newStyle.sub}>{persona_name}</p>
+                        </section>
+
+                        <buttton className={newStyle.button}>프로필 보기</buttton>
+                    </div>
+                </div>
+            </>
         );
     } else {
         return (
