@@ -66,7 +66,7 @@ const Register = ({ isLoggedIn, setIsLoggedIn }) => {
         else setPasswordError("");
 
         // 회원가입 동의 체크
-        if (!checked) alert("회원가입 약관에 동의해주세요.");
+        if (!checked) alert("Fill Me 회원가입에 동의하셔야 서비스 이용이 가능합니다.");
 
         if (emailRegex.test(email) && idRegex.test(id) && passwordRegex.test(password) && password === rePassword && checked) {
             onhandlePost(joinData);

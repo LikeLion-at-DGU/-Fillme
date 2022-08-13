@@ -18,16 +18,11 @@ import { useNavigate, useLocation } from 'react-router-dom';
 function SignupProfile() {
     const navigate = useNavigate();
 
-    // const [fullname, setFullname] = useState("");
-    // const [memo, setMemo] = useState("");
-    // const [color, setColor] = useState(null);
-    const [image, setImage] = useState(null);
-
     const [profile, setProfile] = useState({
         fullname: "",
         memo: "",
         color: null,
-        // image: null,
+        image: null,
     });
 
     const onChange = (e) => {
@@ -38,57 +33,41 @@ function SignupProfile() {
         });
     };
 
-    // const nameChange = (e) => {
-    //     setFullname(e.target.value);
-    //     // console.log(e.target.value);
-    // };
-
-    // const memoChange = (e) => {
-    //     setMemo(e.target.value);
-    //     // console.log(e.target.value);
-    // };
-
-    // const onChange = (e) => {
-    //     setColor(e.target.value);
-    //     console.log(e.target.value);
-    // };
-
-    const imageChange = (e) => {
-        setImage(e.target.files[0]);
-        console.log(e.target.files[0]);
-    }
+    const onLoadFile = (e) => {
+        const file = e.target.files[0];
+        console.log(file);
+        setProfile({
+            ...profile,
+            image: file,
+        });
+    };
 
     // for axios
     const profileSubmit = async (e) => {
         e.preventDefault();
+        let formData = new FormData();
+        if (profile?.image) {
+            // ?. '앞'의 평가 대상이 undefined나 null이면 평가 멈추고 undefined 반환
+            formData.append(
+                "image",
+                profile.image,
+                profile.image.name
+            );
+        }
+        formData.append("fullname", profile.fullname);
+        formData.append("memo", profile.memo);
+        formData.append("color", profile.color);
 
-        // const profile = {
-        //     fullname: fullname,
-        //     memo: memo,
-        //     color: color,
-        // }
-
-        // const imageData = new FormData();
-        // if (imageData?.image) {
-        //     imageData.append("image",
-        //         imageData.image,
-        //     );
-        // }
-
-        // let user = JSON.parse(sessionStorage.getItem('data'));
-        // const token = user.data.id;
         await axios
-            .patch("http://127.0.0.1:8000/mypage/profile_update/", {
-                fullname: profile.fullname,
-                memo: profile.memo,
-                color: profile.color,
+            .patch("http://127.0.0.1:8000/mypage/profile_update/", formData, {
+                headers: {
+                    "Content-Type": "multipart/form-data",
+                },
             })
             .then((res) => {
-                // const accesstoken = res.data.access_token; // API 요청 콜마다 헤더에 accessToken 담아 보내도록 설정
-                // axios.defaults.headers.common["Authorization"] = "Bearer " + accesstoken;
                 console.log(res, "프로필 설정 성공");
                 navigate('/', { replace: true });
-                // replace: true로 로그인 페이지 이동 후 뒤로가기 불가능
+                // replace: true로 피드 페이지 이동 후 뒤로가기 불가능
             })
             .catch((error) => {
                 console.log(error);
@@ -157,7 +136,7 @@ function SignupProfile() {
                         name="image"
                         id="mainProfile"
                         style={{ display: `none` }}
-                        onChange={imageChange}
+                        onChange={onLoadFile}
                     />
                     <Typography
                         component="h3"
