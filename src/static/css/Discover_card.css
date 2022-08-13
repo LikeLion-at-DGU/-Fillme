@@ -11,7 +11,19 @@
 @font-face {
     font-family: "Roboto";
     src: url("../font/Roboto-Regular.ttf");
-    unicode-range: U+0041-005A, U+0061-007A;
+    unicode-range: 
+        /* 영어 대문자, 영어 소문자 */ U+0041-005A,
+        U+0061-007A, /* 숫자, 특수문자 */ U+0030-0039, U+0020-002F, U+003A-0040,
+        U+005B-0060, U+007B-007E;
+}
+
+@font-face {
+    font-family: "Roboto-bold";
+    src: url("../font/Roboto-Bold.ttf");
+    unicode-range: 
+        /* 한글, 영어 대문자, 영어 소문자 */ U+0041-005A,
+        U+0061-007A, /* 숫자, 특수문자 */ U+0030-0039, U+0020-002F, U+003A-0040,
+        U+005B-0060, U+007B-007E;
 }
 
 @font-face {
@@ -23,87 +35,45 @@
 @font-face {
     font-family: "AppleSDGothicNeoM00";
     src: url("../font/AppleSDGothicNeoM.ttf");
+    unicode-range: U+AC00-D7A3;
 }
 
-.per_card,
-.per_card2 {
-    width: 13%;
-    /* height: 21.5vw; */
-    padding-bottom: 25%;
-    display: flex;
-    flex-direction: row-reverse;
-    margin-right: -6vw;
-    box-shadow: 0px 3px 15px rgba(0, 67, 101, 0.15);
-    border-radius: 10px;
+.persona_data_0_data_in {
+    font-style: "AppleSDGothicNeoM00", "Roboto";
+    font-size: 1vw;
     position: relative;
-    cursor: pointer;
-}
-.per_card2 {
-    top: -3vh;
+    top: -120vw;
+    left: 21.5vw;
 }
 
-#card1 {
-    z-index: 5;
+.persona_data_1_data_in {
+    font-style: "AppleSDGothicNeoM00", "Roboto";
+    font-size: 1vw;
+    position: relative;
+    top: -93vw;
+    left: 5vw;
 }
 
-#card2 {
-    z-index: 4;
+.persona_data_2_data_in {
+    font-style: "AppleSDGothicNeoM00", "Roboto";
+    font-size: 1vw;
+    position: relative;
+    top: -66vw;
+    left: -7.5vw;
 }
 
-#card3 {
-    z-index: 3;
+.persona_data_3_data_in {
+    font-style: "AppleSDGothicNeoM00", "Roboto";
+    font-size: 1vw;
+    position: relative;
+    top: -39vw;
+    left: -20vw;
 }
 
-#card4 {
-    z-index: 2,
-}
-
-#card5 {
-    z-index: -1,
-}
-
-#persona_name {
-    position: absolute;
-    bottom: 11vw;
-    font-family: 'Roboto','AppleSDGothicNeoM00';
-    width: 200%;
-    font-weight: 600;
-    font-size: 1.5vw;
-    margin-bottom: 0.3%;
-    transform: rotate(270deg);
-    left: -15%;
-    color: white;
-}
-
-#feed_title {
-    position: absolute;
-    top: 2.5vw;
-    font-family: Roboto, AppleSDGothicNeoB00;
-    font-weight: 400;
-    font-size: 1.1vw;
-    margin-bottom: 0.5vw;
-}
-
-#feed_body {
-    position: absolute;
-    top: 4vw;
-    font-family: AppleSDGothicNeoM00;
-    font-weight: 400;
-    font-size: 0.7vw;
-    line-height: 150%;
-    padding-right: 7%;
-    text-align: justify;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-}
-
-#feed_date_time {
-    position: absolute;
-    bottom: 1.2vw;
-    font-family: Roboto;
-    font-weight: 400;
-    font-size: 0.6vw;
+.persona_data_4_data_in {
+    font-style: "AppleSDGothicNeoM00", "Roboto";
+    font-size: 1vw;
+    position: relative;
+    top: -12vw;
+    left: -32vw;
 }

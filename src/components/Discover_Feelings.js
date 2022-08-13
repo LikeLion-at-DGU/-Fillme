@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Discover_card from "../components/Discover_card";
 import dummy from "../data.json"
 
 function Mainprofile(dummy) {
@@ -10,13 +9,6 @@ function Mainprofile(dummy) {
         backgroundPosition: `center`,
         backgroundColor:` (${dummy.color})`,
     };
-    // const persona_style = {
-    //     backgroundImage: `url(${card.persona_image})`,
-    //     backgroundSize: 'cover',
-    //     backgroundRepeat: `no-repeat`,
-    //     backgroundPosition: `center`
-    // };
-    
 
     return (
         <div className="card" id={"discover" + dummy.id}>
@@ -33,23 +25,3 @@ function Mainprofile(dummy) {
     )
 
 } export default Mainprofile;
-
-
-// function render_persona({id, persona}) {
-//     return (
-//         <div className="card_persona" id={"persona" + id}>
-//             <p id="user_persona">{persona}</p>
-//         </div>
-//     )
-// }
-
-
-// function render_Discover_feelings(dummy) {
-//     return (
-//         <Discover_feelings key={dummy.id}
-//             user_id={fill.user_id} index={fill.index}
-//             image={fill.image} persona={fill.persona}
-//             title={fill.title} persona_image={fill.persona_image}
-//             color={fill.color}/>
-//     )
-// }

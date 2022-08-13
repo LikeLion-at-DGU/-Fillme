@@ -107,8 +107,8 @@ button {
 
 .searchicon {
     z-index: 2000;
-    top: 2.9vh; 
-    position: absolute;
+    top: -0.75vw; 
+    position: relative;
     display: flex;
     width: 1.1%;
     left: 65.8%;
