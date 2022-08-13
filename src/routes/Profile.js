@@ -10,9 +10,9 @@ import My_persona_card from "../components/My_persona_card";
 
 function Profile({ isLoggedIn, setIsLoggedIn }) {
     const [user, setUser] = useState();
+    const [fullname, setfullname] = useState();
     const [memo, setmemo] = useState();
     const [image, setimage] = useState();
-    const [fullname, setfullname] = useState();
     const [color, setcolor] = useState();
     const [persona_data, setPersona_data] = useState();
     const local_persona_data = JSON.parse(localStorage.getItem("local_persona_data"));
@@ -38,6 +38,7 @@ function Profile({ isLoggedIn, setIsLoggedIn }) {
             setimage(request.data.image);
             setfullname(request.data.fullname);
             setcolor(request.data.color);
+            console.log(request.data);
             // setPersona_data(request.data.personas);
             // console.log(request.data.personas);
             // console.log("데이터라라", persona_data);

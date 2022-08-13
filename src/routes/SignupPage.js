@@ -19,7 +19,7 @@ const Boxs = styled(Box)`
     padding-bottom: 40px !important;
 `;
 
-const Register = () => {
+const Register = ({ isLoggedIn, setIsLoggedIn }) => {
     const theme = createTheme();
     const [checked, setChecked] = useState(false);
     const [emailError, setEmailError] = useState("");
@@ -84,8 +84,16 @@ const Register = () => {
         // post
         await axios
             .post("http://127.0.0.1:8000/accounts/", data)
-            .then(function (response) {
-                console.log(response, "성공");
+            .then(function (res) {
+                localStorage.setItem("logInUserId", res.data.user.pk); // 현재 로그인한 유저 누군지 설정
+                const accesstoken = res.data.access_token; // API 요청 콜마다 헤더에 accessToken 담아 보내도록 설정
+                axios.defaults.headers.common["Authorization"] = "Bearer " + accesstoken;
+                localStorage.setItem("auth", true); // 로그인 설정
+                localStorage.setItem("token", res.data.access_token);
+                localStorage.setItem("refresh_token", res.data.refresh_token);
+                localStorage.setItem("loginUserName", res.data.user.username);
+                setIsLoggedIn(true);
+                console.log(res, "성공");
                 navigate('/SignupProfile', { replace: true });
                 // replace: true로 페이지 이동 후 뒤로가기 불가능
             })
