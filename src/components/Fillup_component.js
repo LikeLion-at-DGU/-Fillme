@@ -38,7 +38,7 @@ function Fillup_component() {
             )}
             <div id="fillup_page" className={persona_state ? null : styles.no_persona}>
                 <p className={styles.form}>게시글을 작성할 페르소나를 선택해주세요 *</p>
-                <select className={styles.select}>
+                <select className={styles.select} disabled={persona_state ? false : true}>
                     <option style={{ display: `none` }} value="selected">
                         페르소나 선택
                     </option>
@@ -56,12 +56,14 @@ function Fillup_component() {
                 <p className={styles.form}>게시글의 유형을 선택해주세요 *</p>
                 <button
                     onClick={onclick1}
+                    disabled={persona_state ? false : true}
                     className={button1 ? styles.button_active : styles.button_inactive}
                 >
                     사진
                 </button>
                 <button
                     onClick={onclick2}
+                    disabled={persona_state ? false : true}
                     className={button2 ? styles.button_active : styles.button_inactive}
                 >
                     영상
@@ -85,6 +87,7 @@ function Fillup_component() {
                                 id="image"
                                 style={{ display: `none` }}
                                 multiple
+                                disabled={persona_state ? false : true}
                             ></input>
 
                             <p className={styles.text}> (최대 10장) </p>
@@ -106,6 +109,7 @@ function Fillup_component() {
                                 accept="video/*"
                                 id="video"
                                 style={{ display: `none` }}
+                                disabled={persona_state ? false : true}
                             ></input>
                         </div>
                         <label htmlFor="video">
@@ -118,7 +122,11 @@ function Fillup_component() {
                 <div className={styles.random} id="random_question">
                     <section className={styles.random_text}>
                         어떤 글을 써야할지 모르겠다면 이런 주제는 어때요?
-                        <button onClick={reload_btn} className={styles.reload_button}></button>
+                        <button
+                            onClick={reload_btn}
+                            className={styles.reload_button}
+                            disabled={persona_state ? false : true}
+                        ></button>
                     </section>
                     <section className={styles.random_question}>{reload}</section>
                 </div>
@@ -129,14 +137,20 @@ function Fillup_component() {
                         className={styles.select}
                         placeholder="제목을 입력해주세요 (띄어쓰기 포함 최대 20자)"
                         style={{ color: "black", backgroundImage: `none` }}
+                        disabled={persona_state ? false : true}
                     ></input>
                 </section>
                 <br /> <br />
                 <p className={styles.form}>본문을 입력해주세요 *</p>
-                <textarea className={styles.textarea}></textarea>
+                <textarea
+                    className={styles.textarea}
+                    disabled={persona_state ? false : true}
+                ></textarea>
                 <br />
                 <br />
-                <button className={styles.submit_button}>업로드 하기</button>
+                <button className={styles.submit_button} disabled={persona_state ? false : true}>
+                    업로드 하기
+                </button>
             </div>
         </>
     );
