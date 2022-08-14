@@ -13,11 +13,37 @@ import PicFirst from "../components/new_persona_card_1";
 import PicSecond from "../components/new_persona_card_2";
 import PicThird from "../components/new_persona_card_3";
 import PicFourth from "../components/new_persona_card_4";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 function Discover() {
-    const dummy = JSON.parse(localStorage.getItem("discover_page"));
-    console.log("더미", dummy);
+    // useEffect(() => {
+    //     fetchData();
+    //     // window.location.reload();
+    // }, []);
 
+    // const fetchData = async () => {
+    //     try {
+    //         const request = await axios.get("http://127.0.0.1:8000/mypage/random_profile/");
+    //         console.log("get 성공", request.data);
+
+    //         // setUser(request.data.user);
+    //         // setUserName(request.data.userId);
+    //         // setmemo(request.data.memo);
+    //         // setimage(request.data.image);
+    //         // setfullname(request.data.fullname);
+    //         // setcolor(request.data.color);
+    //         // setcolor(request.data.color_hex);
+    //         // console.log(request.data.user);
+    //         // setPersona_data(request.data.personas);
+    //         // console.log(request.data.personas);
+    //         // console.log("데이터라라", persona_data);
+    //         localStorage.setItem("discover_page", JSON.stringify(request.data));
+
+    //         // setdummy(dummy);
+    //     } catch (err) {
+    //         console.log(err);
+    //     }
+    // };
     return (
         <>
             <style>
@@ -31,15 +57,21 @@ function Discover() {
                 <div className={styles.wrap2}>
                     {/* {dummy.map(Mainprofile)} */}
                     {/* image, color, user, username, fullname, memo  */}
-                    {dummy.map((per) => (
-                        <Mainprofile
-                            key={per.id}
-                            username={per.username}
-                            fullname={per.fullname}
-                            image={per.image}
-                            color={per.color_hex}
-                        />
-                    ))}
+                    {JSON.parse(localStorage.getItem("discover_page")) == null ? (
+                        <div></div>
+                    ) : (
+                        JSON.parse(localStorage.getItem("discover_page")).map((per) => (
+                            <Mainprofile
+                                key={per.id}
+                                user={per.id}
+                                username={per.username}
+                                fullname={per.fullname}
+                                memo={per.memo}
+                                image={per.image}
+                                color={per.color_hex}
+                            />
+                        ))
+                    )}
                     <Zero /> <PicZero />
                     <First /> <PicFirst />
                     <Second /> <PicSecond />
