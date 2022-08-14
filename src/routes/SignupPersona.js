@@ -4,6 +4,8 @@ import React from 'react';
 import signStyle from "../static/css/Sign.module.css";
 import { TextField, Checkbox, Button, FormControl, FormControlLabel, Link, Grid, Typography, Box, Container } from "@mui/material/";
 import { useState, useEffect } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 // 페르소나 생성 데이터 양식
 // "name" : "페르소나 이름",
@@ -11,16 +13,56 @@ import { useState, useEffect } from "react";
 // "image" : "페르소나 사진"
 
 const SignupPersona = () => {
+    const navigate = useNavigate();
     const [userPersona, setUserPersona] = useState({
         name: "",
         category: "",
         image: null,
     });
 
-    const addPersona = (e) => {
-        e.preventDefault();
-
+    const onChange = (e) => {
+        const { value, name } = e.target;
+        setUserPersona({
+            ...userPersona,
+            [name]: value,
+        });
     };
+
+    const onLoadFile = (e) => {
+        const file = e.target.files[0];
+        setUserPersona({
+            ...userPersona,
+            image: file,
+        });
+    };
+
+    const addPersona = async () => {
+        let formData = new FormData();
+        if (userPersona?.image) {
+            formData.append(
+                "image",
+                userPersona.image,
+                userPersona.image.name,
+            );
+        }
+        formData.append("name", userPersona.name);
+        formData.append("category", userPersona.category);
+
+        await axios
+            .post("http://127.0.0.1:8000/mypage/persona/", formData, {
+                headers: {
+                    "Content-Type": "multipart/form-data",
+                },
+            })
+            .then(function (res) {
+                console.log(res);
+                navigate('/Profile', { replace: true });
+            })
+            .catch(function (err) {
+                console.log(err);
+            });
+    };
+
     return (
         <>
             <Header />
@@ -53,14 +95,15 @@ const SignupPersona = () => {
                     </Typography>
                     <TextField
                         label="페르소나의 이름을 입력해주세요"
-                        name=""
+                        name="name"
+                        value={userPersona.name}
                         fontFamily="AppleSDGothicNeoM00"
                         required
                         fullWidth
                         autoComplete="name"
                         autoFocus
                         sx={{ mb: 3 }}
-                        onChange={setUserPersona}
+                        onChange={onChange}
                     />
                     <Typography
                         component="h1"
@@ -72,13 +115,14 @@ const SignupPersona = () => {
                     </Typography>
                     <TextField
                         label="페르소나의 카테고리를 입력해주세요"
-                        name=""
+                        name="category"
+                        value={userPersona.category}
                         fontFamily="AppleSDGothicNeoM00"
                         required
                         fullWidth
                         autoComplete="name"
                         sx={{ mb: 3 }}
-                        onChange={setUserPersona}
+                        onChange={onChange}
                     />
                     <Typography
                         component="h1"
@@ -100,7 +144,7 @@ const SignupPersona = () => {
                             name="image"
                             id="mainProfile"
                             style={{ display: `none` }}
-                            onChange
+                            onChange={onLoadFile}
                         />
                     </Button>
                     {/* <Typography

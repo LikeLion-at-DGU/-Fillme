@@ -16,6 +16,7 @@ function Profile({ isLoggedIn, setIsLoggedIn }) {
     const [image, setimage] = useState();
     const [color, setcolor] = useState();
     const [persona_data, setPersona_data] = useState();
+
     const local_persona_data = JSON.parse(localStorage.getItem("local_persona_data"));
 
     const navigate = useNavigate();
@@ -32,40 +33,27 @@ function Profile({ isLoggedIn, setIsLoggedIn }) {
     //     }
     // };
     useEffect(() => {
+
         fetchData();
     }, []);
 
     const fetchData = async () => {
         try {
             const request = await axios.get("http://127.0.0.1:8000/mypage/profile_persona/");
-            console.log("get 성공", request);
+            console.log("get 성공");
             setUser(request.data.user);
             setmemo(request.data.memo);
             setimage(request.data.image);
             setfullname(request.data.fullname);
             setcolor(request.data.color);
             setcolor(request.data.color_hex);
-            console.log(request.data);
-            // setPersona_data(request.data.personas);
-            // console.log(request.data.personas);
-            // console.log("데이터라라", persona_data);
+
             localStorage.setItem("local_persona_data", JSON.stringify(request.data.personas));
         } catch (err) {
             console.log(err);
         }
     };
 
-    // const persona_list = () => {
-    //     persona_data.map((per) => (
-    //         <>
-    //             <section>{per.name}</section>
-    //             <section>{per.cathegory}</section>
-    //         </>
-    //     ));
-    // };
-    // console.log(user, memo, image, fullname, color);
-    // console.log(persona1, persona2, persona3, persona4);
-    // console.log(local_persona_data);
     return (
         <>
             <style>
@@ -75,6 +63,7 @@ function Profile({ isLoggedIn, setIsLoggedIn }) {
             </style>
 
             <div className={styles.wrap}>
+                <h1 className={styles.title}>My Profile</h1>
                 <div>
                     <Logout isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
                     <Persona_Card

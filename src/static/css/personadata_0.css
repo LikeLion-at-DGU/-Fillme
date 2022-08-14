@@ -12,18 +12,16 @@
     font-family: "Roboto";
     src: url("../font/Roboto-Regular.ttf");
     unicode-range: 
-        /* 영어 대문자, 영어 소문자 */ U+0041-005A,
-        U+0061-007A, /* 숫자, 특수문자 */ U+0030-0039, U+0020-002F, U+003A-0040,
-        U+005B-0060, U+007B-007E;
+        /* 영어 대문자, 영어 소문자 */ U+0041-005A, U+0061-007A,
+        /* 숫자, 특수문자 */ U+0030-0039, U+0020-002F, U+003A-0040, U+005B-0060, U+007B-007E;
 }
 
 @font-face {
     font-family: "Roboto-bold";
     src: url("../font/Roboto-Bold.ttf");
     unicode-range: 
-        /* 한글, 영어 대문자, 영어 소문자 */ U+0041-005A,
-        U+0061-007A, /* 숫자, 특수문자 */ U+0030-0039, U+0020-002F, U+003A-0040,
-        U+005B-0060, U+007B-007E;
+        /* 한글, 영어 대문자, 영어 소문자 */ U+0041-005A, U+0061-007A,
+        /* 숫자, 특수문자 */ U+0030-0039, U+0020-002F, U+003A-0040, U+005B-0060, U+007B-007E;
 }
 
 @font-face {
@@ -38,7 +36,7 @@
     unicode-range: U+AC00-D7A3;
 }
 
-.persona_data_0_data_in{
+.persona_data_0_data_in {
     font-style: "AppleSDGothicNeoM00", "Roboto";
     color: white;
 }
@@ -59,8 +57,8 @@
     cursor: pointer;
     object-fit: cover;
     display: inline;
-    top:-132.5vw;
-    left: 50vw;
+    top: -132.5vw;
+    left: 48vw;
 }
 
 .detailPersona0-2 {
@@ -72,7 +70,7 @@
     cursor: pointer;
     object-fit: cover;
     display: inline;
-    top:-132.5vw;
+    top: -132.5vw;
     left: 45vw;
 }
 
@@ -85,7 +83,7 @@
     cursor: pointer;
     object-fit: cover;
     display: inline;
-    top:-132.5vw;
+    top: -132.5vw;
     left: 40vw;
 }
 
@@ -98,11 +96,11 @@
     cursor: pointer;
     object-fit: cover;
     display: inline;
-    top:-132.5vw;
+    top: -132.5vw;
     left: 35vw;
 }
 
-.row_image0{
+.row_image0 {
     display: flex;
     flex-direction: row;
     position: relative;
@@ -114,41 +112,38 @@
     /* position: relative; */
 }
 
-#persona0-1{
+#persona0-1 {
     z-index: 1;
     width: 13.5vw;
 }
-#persona0-1:hover{
+#persona0-1:hover {
     transition: 400ms all ease-in-out;
     transform: translateY(-3vh);
 }
 
-
-#persona0-2{
+#persona0-2 {
     z-index: 2;
     width: 13.5vw;
 }
-#persona0-2:hover{
+#persona0-2:hover {
     transition: 400ms all ease-in-out;
     transform: translateY(-3vh);
 }
 
-
-#persona0-3{
+#persona0-3 {
     z-index: 3;
     width: 13.5vw;
 }
-#persona0-3:hover{
+#persona0-3:hover {
     transition: 400ms all ease-in-out;
     transform: translateY(-3vh);
 }
 
-
-#persona0-4{
+#persona0-4 {
     z-index: 4;
     width: 13.5vw;
 }
-#persona0-4:hover{
+#persona0-4:hover {
     transition: 400ms all ease-in-out;
     transform: translateY(-3vh);
 }

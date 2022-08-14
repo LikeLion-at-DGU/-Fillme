@@ -2,7 +2,7 @@ import React from "react";
 import styles from "../static/css/style.module.css";
 function My_persona_card({ name, image, category }) {
     const imageUrl = "http://127.0.0.1:8000" + image;
-    console.log(imageUrl);
+    // console.log(imageUrl);
     return (
         <>
             <div
