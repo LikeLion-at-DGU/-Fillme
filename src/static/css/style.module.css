@@ -29,7 +29,11 @@
 .title {
     font-family: Elsie;
     font-size: 2.2vw;
-    margin-bottom: 0;
+    margin: 5vw 8vw 0 8vw;
+}
+
+.cardWrap {
+    margin: 0 8vw 5vw 8vw;
 }
 
 /* Navbar */
@@ -128,6 +132,17 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    border: 2px solid #3cda9f;
+    font-family: "AppleSDGothicNeoEB00";
+    color: #3cda9f;
+    font-size: 2vw;
+    cursor: pointer;
+}
+
+.one_persona_cardImg {
+    width: 3vw;
+    height: 3vw;
+    opacity: 75%;
 }
 .shadow {
     margin-top: 67%;
@@ -157,12 +172,36 @@
 /* Logout */
 .logout {
     position: relative;
+    display: inline-flex;
     top: 10vw;
-    left: 30vw;
+    left: 33vw;
     z-index: 1;
     background: #3cda9f;
     border: 1px solid #3cda9f;
-    padding: 0.3vw 1.5vw;
+    padding: 0.3vw 1.7vw;
+    box-shadow: 0px 2px 30px rgba(0, 67, 101, 0.08);
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: "AppleSDGothicNeoB00";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.9vw;
+    color: white;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+/* 페르소나 추가 버튼 */
+.addPersonaBtn {
+    position: relative;
+    display: inline-flex;
+    top: 9vw;
+    left: 33vw;
+    z-index: 1;
+    background: #3cda9f;
+    border: 1px solid #3cda9f;
+    padding: 0.3vw 0.8vw;
     box-shadow: 0px 2px 30px rgba(0, 67, 101, 0.08);
     border-radius: 5px;
     cursor: pointer;

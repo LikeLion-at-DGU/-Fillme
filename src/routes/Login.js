@@ -72,13 +72,14 @@ function Login({ isLoggedIn, setIsLoggedIn }) {
                             marginTop: 10,
                             display: "flex",
                             flexDirection: "column",
-                            alignItems: "center",
+
                         }}
                     >
                         <Typography
                             component="h1"
                             variant="h5"
                             sx={{ mb: 5 }}
+                            style={{ textAlign: 'center' }}
                             fontFamily="AppleSDGothicNeoB00"
                         >
                             로그인하여 친구들의 멀티 페르소나를 만나보세요
@@ -102,6 +103,7 @@ function Login({ isLoggedIn, setIsLoggedIn }) {
                             required
                             fullWidth
                             autoComplete="current-password"
+                            sx={{ mb: 2 }}
                             onChange={onPasswordHandler}
                         />
                         <FormControlLabel
@@ -114,7 +116,8 @@ function Login({ isLoggedIn, setIsLoggedIn }) {
                             variant="contained"
                             fullWidth
                             fontFamily="AppleSDGothicNeoB00"
-                            sx={{ mt: 3, mb: 2, bgcolor: "#3CDA9F" }}
+                            sx={{ mt: 2, mb: 2, bgcolor: "#3CDA9F" }}
+                            style={{ height: '5.5vh' }}
                             onClick={onSubmit}
                         >
                             로그인하기
