@@ -4,7 +4,6 @@ import styled from "styled-components";
 import axios from "axios";
 
 function Mainprofile({ image, color, user, username, fullname, memo }) {
-    const imageUrl = "http://127.0.0.1:8000" + image;
     // const [user, setUser] = useState();
     // const [username, setUserName] = useState();
     // const [fullname, setfullname] = useState();
@@ -14,33 +13,8 @@ function Mainprofile({ image, color, user, username, fullname, memo }) {
     // const [persona_data, setPersona_data] = useState();
     // const local_main_data = JSON.parse(localStorage.getItem("local_main_data"));
 
-    useEffect(() => {
-        fetchData();
-    }, []);
-
-    const fetchData = async () => {
-        try {
-            const request = await axios.get("http://127.0.0.1:8000/mypage/random_profile/");
-            console.log("get 성공", request.data);
-            // setUser(request.data.user);
-            // setUserName(request.data.userId);
-            // setmemo(request.data.memo);
-            // setimage(request.data.image);
-            // setfullname(request.data.fullname);
-            // setcolor(request.data.color);
-            // setcolor(request.data.color_hex);
-            // console.log(request.data.user);
-            // setPersona_data(request.data.personas);
-            // console.log(request.data.personas);
-            // console.log("데이터라라", persona_data);
-            // localStorage.setItem("local_main_data", JSON.stringify(request.data.personas));
-        } catch (err) {
-            console.log(err);
-        }
-    };
-
     const feelings_style = {
-        backgroundImage: `url(${imageUrl})`,
+        backgroundImage: `url(${image})`,
         backgroundSize: "cover",
         backgroundRepeat: `no-repeat`,
         backgroundPosition: `center`,
