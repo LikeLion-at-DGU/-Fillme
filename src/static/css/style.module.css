@@ -120,16 +120,17 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    font-family: "AppleSDGothicNeoB00";
+    border: 2px solid #3cda9f;
+    font-family: "AppleSDGothicNeoEB00";
     color: #3cda9f;
     font-size: 2vw;
     cursor: pointer;
 }
 
-.one_persona_card span {
-    font-size: 5vw;
-    font-weight: 100;
-    opacity: 50%;
+.one_persona_cardImg {
+    width: 3vw;
+    height: 3vw;
+    opacity: 75%;
 }
 .shadow {
     margin-top: 67%;

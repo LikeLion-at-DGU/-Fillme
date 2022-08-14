@@ -7,7 +7,7 @@ import Logout from "./Logout";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import My_persona_card from "../components/My_persona_card";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Profile({ isLoggedIn, setIsLoggedIn }) {
     const [user, setUser] = useState();
@@ -18,8 +18,9 @@ function Profile({ isLoggedIn, setIsLoggedIn }) {
     const [persona_data, setPersona_data] = useState();
     const local_persona_data = JSON.parse(localStorage.getItem("local_persona_data"));
 
+    const navigate = useNavigate();
     const onClick = () => {
-
+        navigate('/SignupPersona');
     };
     // const local_persona_data = localStorage.getItem(JSON.parse("local_persona_data"));
     // const persona_load = () => {
@@ -88,8 +89,11 @@ function Profile({ isLoggedIn, setIsLoggedIn }) {
                 <div className={styles.persona_card}>
                     {local_persona_data.length === 0 ? (
                         <button className={styles.one_persona_card} onClick={onClick}>
-                            <span>+</span>
-                            <br />
+                            <img
+                                src="images/plus_button2.png"
+                                className={styles.one_persona_cardImg}
+                            />
+                            <br /><br />
                             페르소나<br />추가하기
                         </button>
                     ) : (
