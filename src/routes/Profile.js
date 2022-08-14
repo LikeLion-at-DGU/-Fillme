@@ -15,7 +15,9 @@ function Profile({ isLoggedIn, setIsLoggedIn }) {
     const [image, setimage] = useState();
     const [color, setcolor] = useState();
     const [persona_data, setPersona_data] = useState();
+
     const local_persona_data = JSON.parse(localStorage.getItem("local_persona_data"));
+
     // const local_persona_data = localStorage.getItem(JSON.parse("local_persona_data"));
     // const persona_load = () => {
     //     switch (persona) {
