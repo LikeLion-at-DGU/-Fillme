@@ -6,6 +6,7 @@ import { TextField, Checkbox, Button, FormControl, FormControlLabel, Link, Grid,
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
 
 // 페르소나 생성 데이터 양식
 // "name" : "페르소나 이름",
@@ -14,6 +15,7 @@ import { useNavigate } from "react-router-dom";
 
 const SignupPersona = () => {
     const navigate = useNavigate();
+    const { formState: { isSubmitting } } = useForm(); // 중복 제출 방지
     const [userPersona, setUserPersona] = useState({
         name: "",
         category: "",
@@ -36,7 +38,8 @@ const SignupPersona = () => {
         });
     };
 
-    const addPersona = async () => {
+    const addPersona = async (e) => {
+        e.preventDefault();
         let formData = new FormData();
         if (userPersona?.image) {
             formData.append(
@@ -55,11 +58,11 @@ const SignupPersona = () => {
                 },
             })
             .then(function (res) {
-                console.log(res);
+                console.log(res, "페르소나 생성 성공");
                 navigate('/Profile', { replace: true });
             })
             .catch(function (err) {
-                console.log(err);
+                console.log(err, "생성 실패");
             });
     };
 
@@ -120,7 +123,7 @@ const SignupPersona = () => {
                         fontFamily="AppleSDGothicNeoM00"
                         required
                         fullWidth
-                        autoComplete="name"
+                        autoComplete="category"
                         sx={{ mb: 3 }}
                         onChange={onChange}
                     />
@@ -133,16 +136,16 @@ const SignupPersona = () => {
                         프로필 이미지
                     </Typography>
                     <Button style={{ justifyContent: "left", padding: "0" }}>
-                        <label htmlFor="mainProfile">
+                        <label htmlFor="subProfile">
                             <div className={signStyle.loadImgBtn}>
-                                프로필 이미지 파일 첨부하기
+                                페르소나 프로필 이미지 첨부
                             </div>
                         </label>
                         <input
                             type="file"
                             accept="image/*"
                             name="image"
-                            id="mainProfile"
+                            id="subProfile"
                             style={{ display: `none` }}
                             onChange={onLoadFile}
                         />
@@ -167,7 +170,7 @@ const SignupPersona = () => {
                         fontFamily="AppleSDGothicNeoB00"
                         style={{ height: '5.5vh' }}
                         sx={{ bgcolor: "#3CDA9F" }}
-                        onClick={addPersona}
+                        disabled={isSubmitting}
                     >
                         페르소나 추가 완료
                     </Button>
