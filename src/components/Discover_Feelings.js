@@ -3,17 +3,9 @@ import { useState, useEffect } from "react";
 import styled from "styled-components";
 import axios from "axios";
 
-function Mainprofile({ image, color, user, username, fullname, memo }) {
+function Mainprofile({ image, color, user, username, fullname, memo, personas }) {
     const imageUrl = "http://127.0.0.1:8000" + image;
-    // const [user, setUser] = useState();
-    // const [username, setUserName] = useState();
-    // const [fullname, setfullname] = useState();
-    // const [memo, setmemo] = useState();
-    // const [image, setimage] = useState();
-    // const [color, setcolor] = useState();
-    // const [persona_data, setPersona_data] = useState();
-    // const local_main_data = JSON.parse(localStorage.getItem("local_main_data"));
-
+    console.log("페르소나 리스트", personas[0]);
     const feelings_style = {
         backgroundImage: `url(${imageUrl})`,
         backgroundSize: "cover",
@@ -28,17 +20,20 @@ function Mainprofile({ image, color, user, username, fullname, memo }) {
     `;
 
     return (
-        <div className="card" id={"discover" + user}>
-            <div className="image" style={feelings_style}>
-                <p id="user_id">@{username}</p>
+        <>
+            <div className="card" id={"discover" + user}>
+                <div className="image" style={feelings_style}>
+                    <p id="user_id">@{username}</p>
+                </div>
+                <Color className="user_data" id={"data" + user}>
+                    <p id="name">{fullname}</p>
+
+                    <p id="intro">{memo}</p>
+                    <button id="btn_profile">프로필 보기</button>
+                    <button id="btn_following">팔로잉</button>
+                </Color>
             </div>
-            <Color className="user_data" id={"data" + user}>
-                <p id="name">{fullname}</p>
-                <p id="intro">{memo}</p>
-                <button id="btn_profile">프로필 보기</button>
-                <button id="btn_following">팔로잉</button>
-            </Color>
-        </div>
+        </>
     );
 }
 export default Mainprofile;

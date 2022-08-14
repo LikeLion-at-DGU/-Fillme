@@ -16,34 +16,7 @@ import PicFourth from "../components/new_persona_card_4";
 import { useState, useEffect } from "react";
 import axios from "axios";
 function Discover() {
-    // useEffect(() => {
-    //     fetchData();
-    //     // window.location.reload();
-    // }, []);
-
-    // const fetchData = async () => {
-    //     try {
-    //         const request = await axios.get("http://127.0.0.1:8000/mypage/random_profile/");
-    //         console.log("get 성공", request.data);
-
-    //         // setUser(request.data.user);
-    //         // setUserName(request.data.userId);
-    //         // setmemo(request.data.memo);
-    //         // setimage(request.data.image);
-    //         // setfullname(request.data.fullname);
-    //         // setcolor(request.data.color);
-    //         // setcolor(request.data.color_hex);
-    //         // console.log(request.data.user);
-    //         // setPersona_data(request.data.personas);
-    //         // console.log(request.data.personas);
-    //         // console.log("데이터라라", persona_data);
-    //         localStorage.setItem("discover_page", JSON.stringify(request.data));
-
-    //         // setdummy(dummy);
-    //     } catch (err) {
-    //         console.log(err);
-    //     }
-    // };
+    console.log(localStorage.getItem("discover_page"));
     return (
         <>
             <style>
@@ -69,6 +42,7 @@ function Discover() {
                                 memo={per.memo}
                                 image={per.image}
                                 color={per.color_hex}
+                                personas={per.personas}
                             />
                         ))
                     )}
