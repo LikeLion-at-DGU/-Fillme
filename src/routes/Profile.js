@@ -18,15 +18,6 @@ function Profile({ isLoggedIn, setIsLoggedIn }) {
 
     const local_persona_data = JSON.parse(localStorage.getItem("local_persona_data"));
 
-    // const local_persona_data = localStorage.getItem(JSON.parse("local_persona_data"));
-    // const persona_load = () => {
-    //     switch (persona) {
-    //         case 0:
-    //             return <div className={styles.no_persona}></div>;
-    //         case 1:
-    //             return <div className={styles.yes_persona}></div>;
-    //     }
-    // };
     useEffect(() => {
         fetchData();
     }, []);
@@ -42,26 +33,13 @@ function Profile({ isLoggedIn, setIsLoggedIn }) {
             setcolor(request.data.color);
             setcolor(request.data.color_hex);
             console.log(request.data);
-            // setPersona_data(request.data.personas);
-            // console.log(request.data.personas);
-            // console.log("데이터라라", persona_data);
+
             localStorage.setItem("local_persona_data", JSON.stringify(request.data.personas));
         } catch (err) {
             console.log(err);
         }
     };
 
-    // const persona_list = () => {
-    //     persona_data.map((per) => (
-    //         <>
-    //             <section>{per.name}</section>
-    //             <section>{per.cathegory}</section>
-    //         </>
-    //     ));
-    // };
-    // console.log(user, memo, image, fullname, color);
-    // console.log(persona1, persona2, persona3, persona4);
-    // console.log(local_persona_data);
     return (
         <>
             <style>
@@ -71,6 +49,7 @@ function Profile({ isLoggedIn, setIsLoggedIn }) {
             </style>
 
             <div className={styles.wrap}>
+                <h1 className={styles.title}>My Profile</h1>
                 <div>
                     <Logout isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
                     <Persona_Card

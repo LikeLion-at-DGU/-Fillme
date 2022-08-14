@@ -52,7 +52,7 @@
     padding: 3vw;
     position: relative;
     width: 96%;
-    margin: 2.5% 1.5%;
+
     height: 25vw;
     background-color: black;
     border-radius: 10px;
@@ -157,7 +157,7 @@
 /* Logout */
 .logout {
     position: relative;
-    top: 12vw;
+    top: 10vw;
     left: 30vw;
     z-index: 1;
     background: #3cda9f;

@@ -4,6 +4,7 @@ import styled from "styled-components";
 import axios from "axios";
 
 function Mainprofile({ image, color, user, username, fullname, memo }) {
+    const imageUrl = "http://127.0.0.1:8000" + image;
     // const [user, setUser] = useState();
     // const [username, setUserName] = useState();
     // const [fullname, setfullname] = useState();
@@ -14,7 +15,7 @@ function Mainprofile({ image, color, user, username, fullname, memo }) {
     // const local_main_data = JSON.parse(localStorage.getItem("local_main_data"));
 
     const feelings_style = {
-        backgroundImage: `url(${image})`,
+        backgroundImage: `url(${imageUrl})`,
         backgroundSize: "cover",
         backgroundRepeat: `no-repeat`,
         backgroundPosition: `center`,
