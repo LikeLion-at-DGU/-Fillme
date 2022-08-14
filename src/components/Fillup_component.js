@@ -1,11 +1,15 @@
 import styles from "../static/css/Fillup.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function Fillup_component() {
-    const persona = ["페르소나1", "페르소나2", "페르소나3"];
+    const [persona, setPersona] = useState();
+    // const persona = [0, 1, 2, 3];
     const [button1, setbutton1] = useState(true);
     const [button2, setbutton2] = useState(false);
     const [reload, setreload] = useState(random_qna[random_num]);
+
+    const local_persona_data = JSON.parse(localStorage.getItem("local_persona_data"));
+
     const onclick1 = () => {
         setbutton1(true);
         setbutton2(false);
@@ -15,22 +19,22 @@ function Fillup_component() {
         setbutton2(true);
         setbutton1(false);
     };
+
     const reload_btn = () => {
         setreload(random_qna[Math.floor(Math.random() * random_qna.length)]);
         console.log(reload);
     };
+
     return (
         <>
-            <p className={styles.form}>
-                게시글을 작성할 페르소나를 선택해주세요 *
-            </p>
+            <p className={styles.form}>게시글을 작성할 페르소나를 선택해주세요 *</p>
             <select className={styles.select}>
                 <option style={{ display: `none` }} value="selected">
                     페르소나 선택
                 </option>
-                {persona.map((p) => (
-                    <option value={p} key={p}>
-                        {p}
+                {local_persona_data.map((p) => (
+                    <option value={p.id} key={p.id}>
+                        {p.name}
                     </option>
                 ))}
             </select>
@@ -40,17 +44,13 @@ function Fillup_component() {
             <p className={styles.form}>게시글의 유형을 선택해주세요 *</p>
             <button
                 onClick={onclick1}
-                className={
-                    button1 ? styles.button_active : styles.button_inactive
-                }
+                className={button1 ? styles.button_active : styles.button_inactive}
             >
                 사진
             </button>
             <button
                 onClick={onclick2}
-                className={
-                    button2 ? styles.button_active : styles.button_inactive
-                }
+                className={button2 ? styles.button_active : styles.button_inactive}
             >
                 영상
             </button>{" "}
@@ -65,10 +65,7 @@ function Fillup_component() {
 
                         {/* input 커스터마이징 */}
                         <label htmlFor="image">
-                            <img
-                                src="images/plus_button.png"
-                                className={styles.plus_button}
-                            />
+                            <img src="images/plus_button.png" className={styles.plus_button} />
                         </label>
                         <input
                             type="file"
@@ -81,9 +78,7 @@ function Fillup_component() {
                         <p className={styles.text}> (최대 10장) </p>
                     </div>
                     <label htmlFor="image">
-                        <div className={styles.input_box2}>
-                            사진을 선택해주세요
-                        </div>
+                        <div className={styles.input_box2}>사진을 선택해주세요</div>
                     </label>
                 </>
             ) : (
@@ -92,10 +87,7 @@ function Fillup_component() {
                         <p className={styles.form}>영상을 선택해주세요 *</p>
                         {/* input 커스터마이징 */}
                         <label htmlFor="video">
-                            <img
-                                src="images/plus_button.png"
-                                className={styles.plus_button}
-                            />
+                            <img src="images/plus_button.png" className={styles.plus_button} />
                         </label>
                         <input
                             type="file"
@@ -105,9 +97,7 @@ function Fillup_component() {
                         ></input>
                     </div>
                     <label htmlFor="video">
-                        <div className={styles.input_box}>
-                            영상을 선택해주세요
-                        </div>
+                        <div className={styles.input_box}>영상을 선택해주세요</div>
                     </label>
                 </>
             )}
@@ -116,10 +106,7 @@ function Fillup_component() {
             <div className={styles.random} id="random_question">
                 <section className={styles.random_text}>
                     어떤 글을 써야할지 모르겠다면 이런 주제는 어때요?
-                    <button
-                        onClick={reload_btn}
-                        className={styles.reload_button}
-                    ></button>
+                    <button onClick={reload_btn} className={styles.reload_button}></button>
                 </section>
                 <section className={styles.random_question}>{reload}</section>
             </div>
@@ -135,6 +122,9 @@ function Fillup_component() {
             <br /> <br />
             <p className={styles.form}>본문을 입력해주세요 *</p>
             <textarea className={styles.textarea}></textarea>
+            <br />
+            <br />
+            <button className={styles.submit_button}>업로드 하기</button>
         </>
     );
 }

@@ -21,17 +21,23 @@ option {
     color: black;
 }
 
-.button_active {
+.button_active,
+.submit_button {
     background: #3cda9f;
     border: 1px solid #3cda9f;
     border-radius: 5px;
     color: white;
     font-family: "AppleSDGothicNeoB00";
     padding: 0.8vh 6vw;
-    margin: 0 0.4vw;
+    margin-right: 0.4vw;
     cursor: pointer;
 }
-
+.submit_button {
+    margin-left: 85.5%;
+    margin-right: 0;
+    padding: 0.8vh 2vw;
+    width: 12vw;
+}
 .button_inactive {
     background: #ffffff;
     border: 1px solid #3cda9f;
