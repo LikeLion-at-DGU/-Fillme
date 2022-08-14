@@ -7,6 +7,7 @@ import Logout from "./Logout";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import My_persona_card from "../components/My_persona_card";
+import { Link } from "react-router-dom";
 
 function Profile({ isLoggedIn, setIsLoggedIn }) {
     const [user, setUser] = useState();
@@ -16,6 +17,10 @@ function Profile({ isLoggedIn, setIsLoggedIn }) {
     const [color, setcolor] = useState();
     const [persona_data, setPersona_data] = useState();
     const local_persona_data = JSON.parse(localStorage.getItem("local_persona_data"));
+
+    const onClick = () => {
+
+    };
     // const local_persona_data = localStorage.getItem(JSON.parse("local_persona_data"));
     // const persona_load = () => {
     //     switch (persona) {
@@ -81,8 +86,12 @@ function Profile({ isLoggedIn, setIsLoggedIn }) {
                     />
                 </div>
                 <div className={styles.persona_card}>
-                    {local_persona_data == null ? (
-                        <div className={styles.one_persona_card}></div>
+                    {local_persona_data.length === 0 ? (
+                        <button className={styles.one_persona_card} onClick={onClick}>
+                            <span>+</span>
+                            <br />
+                            페르소나<br />추가하기
+                        </button>
                     ) : (
                         local_persona_data.map((per) => (
                             <My_persona_card
@@ -94,7 +103,6 @@ function Profile({ isLoggedIn, setIsLoggedIn }) {
                         ))
                     )}
                 </div>
-                <div className={styles.persona}></div>
             </div>
             <Footer />
         </>
