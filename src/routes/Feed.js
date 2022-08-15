@@ -8,6 +8,7 @@ import styles from "../static/css/style.module.css";
 import Navbar from "../components/Navbar";
 import axios from "axios";
 function Feed() {
+    console.log(localStorage);
     // console.log("axios", axios.defaults.headers);
     return (
         <>

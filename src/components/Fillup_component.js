@@ -72,17 +72,21 @@ function Fillup_component() {
     const [postImages, setPostImages] = useState([]);
     const addImage = (e) => {
         const selectedImageList = e.target.files;
+        const currentPostImageList = [...postImages];
         const currentImageList = [...imagelist];
-        setPostImages(Array.from(selectedImageList));
+
+        console.log(postImages);
 
         for (let i = 0; i < selectedImageList.length; i += 1) {
             const currentImageURL = URL.createObjectURL(selectedImageList[i]);
             currentImageList.push(currentImageURL);
+            currentPostImageList.push(selectedImageList[i]);
         }
         // if (currentImageList.length > 10) {
         //     currentImageList = currentImageList.slice(0, 10);
         // }
         setImagelist(currentImageList);
+        setPostImages(currentPostImageList);
     };
 
     const onChange_title = (e) => {
@@ -100,25 +104,43 @@ function Fillup_component() {
             content: content,
         });
     };
+
     const Submit = async (e) => {
         e.preventDefault();
         let formData = new FormData();
-        formData.append("image1", postImages[0]);
+
+        for (let i = 0; i < postImages.length; i += 1) {
+            if (postImages) {
+                formData.append(`image${i + 1}`, postImages[i], postImages[i].name);
+            }
+        }
+
+        // formData.append("image1", postImages[0], postImages[0].name);
+        // formData.append("image2", postImages[1], postImages[1].name);
+        // formData.append("image3", postImages[2], postImages[2].name);
+        // formData.append("image4", postImages[3], postImages[3].name);
+        // formData.append("image5", postImages[4], postImages[4].name);
+        // formData.append("image6", postImages[5], postImages[5].name);
+        // formData.append("image7", postImages[6], postImages[6].name);
+        // formData.append("image9", postImages[7], postImages[7].name);
+        // formData.append("image9", postImages[8], postImages[8].name);
+        // formData.append("image10", postImages[9], postImages[9].name);
+
         formData.append("persona", form.persona);
         formData.append("content", form.content);
         formData.append("title", form.title);
 
         await axios
-            .post("http://127.0.0.1:8000/mypage/persona/", formData, {
+            .post("http://127.0.0.1:8000/post/", formData, {
                 headers: {
                     "Content-Type": "multipart/form-data",
                 },
             })
             .then(function (res) {
-                console.log(res, "페르소나 생성 성공");
+                console.log(res, "post 성공");
             })
             .catch(function (err) {
-                console.log(err, "생성 실패");
+                console.log(err, "post 실패");
                 console.log("폼데이터", formData);
                 for (let key of formData.keys()) {
                     console.log(key);
@@ -132,7 +154,7 @@ function Fillup_component() {
     };
     //선택된 이미지 확인
     useEffect(() => {
-        console.log(imagelist);
+        // console.log(imagelist);
     }, [imagelist]);
 
     //이미지 삭제
