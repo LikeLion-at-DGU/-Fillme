@@ -28,10 +28,24 @@
 body {
     margin: 0;
 }
-.header {
+.visible_header {
     position: sticky;
     height: 8vh;
     top: 0;
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    box-shadow: 0px 2px 15px rgba(0, 67, 101, 0.1);
+    z-index: 100;
+    margin-bottom: 50px;
+    transition: top 0.8s ease-out;
+}
+
+.hidden_header {
+    position: sticky;
+    transition: top 0.8s ease-out;
+    height: 8vh;
+    top: -8vh;
     left: 0;
     right: 0;
     background: #ffffff;
