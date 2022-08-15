@@ -78,44 +78,45 @@ function Profile({ isLoggedIn, setIsLoggedIn }) {
             </style>
             <div className={styles.wrap}>
                 <h1 className={styles.title}>My Profile</h1>
-
                 <div>
-                    <button className={styles.addPersonaBtn} onClick={onClick}>
-                        페르소나 추가
-                    </button>
-                    <Logout isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
-                    <Persona_Card
-                        key={userProfile.user}
-                        user={userProfile.user}
-                        fullname={userProfile.fullname}
-                        memo={userProfile.memo}
-                        color={userProfile.color}
-                        image={userProfile.image}
-                    />
-                </div>
-                <div className={styles.persona_card}>
-                    {local_persona_data.length === 0 ? (
-                        <button className={styles.one_persona_card} onClick={onClick}>
-                            <img
-                                src="images/plus_button2.png"
-                                className={styles.one_persona_cardImg}
-                            />
-                            <br />
-                            <br />
-                            페르소나
-                            <br />
-                            추가하기
+                    <div>
+                        <button className={styles.addPersonaBtn} onClick={onClick}>
+                            페르소나 추가
                         </button>
-                    ) : (
-                        local_persona_data.map((per) => (
-                            <My_persona_card
-                                key={per.id}
-                                name={per.name}
-                                category={per.category}
-                                image={per.image}
-                            />
-                        ))
-                    )}
+                        <Logout isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+                        <Persona_Card
+                            key={userProfile.user}
+                            user={userProfile.user}
+                            fullname={userProfile.fullname}
+                            memo={userProfile.memo}
+                            color={userProfile.color}
+                            image={userProfile.image}
+                        />
+                    </div>
+                    <div className={styles.persona_card}>
+                        {local_persona_data.length === 0 ? (
+                            <button className={styles.one_persona_card} onClick={onClick}>
+                                <img
+                                    src="images/plus_button2.png"
+                                    className={styles.one_persona_cardImg}
+                                />
+                                <br />
+                                <br />
+                                페르소나
+                                <br />
+                                추가하기
+                            </button>
+                        ) : (
+                            local_persona_data.map((per) => (
+                                <My_persona_card
+                                    key={per.id}
+                                    name={per.name}
+                                    category={per.category}
+                                    image={per.image}
+                                />
+                            ))
+                        )}
+                    </div>
                 </div>
             </div>
             <Footer />
