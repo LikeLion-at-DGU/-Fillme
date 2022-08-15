@@ -62,10 +62,10 @@ function Profile({ isLoggedIn, setIsLoggedIn }) {
     const personaCard = [
         local_persona_data.map((per) => (
             <My_persona_card
-                key={per.id}
-                name={per.name}
-                category={per.category}
-                image={per.image}
+                Id={per.id}
+                Name={per.name}
+                Category={per.category}
+                Image={per.image}
             />
         ))
     ];

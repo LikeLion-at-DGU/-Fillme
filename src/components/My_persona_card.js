@@ -1,17 +1,20 @@
-import React from "react";
+import React, { memo } from "react";
 import styles from "../static/css/style.module.css";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-function My_persona_card({ name, category, image }) {
+function My_persona_card({ Id, Name, Category, Image }) {
+    console.log("Id 추출", Id, Name, Category);
     const navigate = useNavigate();
-    const imageUrl = "http://127.0.0.1:8000" + image;
+    const imageUrl = "http://127.0.0.1:8000" + Image;
     // console.log(imageUrl);
 
     // 버튼 상태 조절
-    const [hideState, setHideState] = useState(true);
-    const [hideBtnName, setHideBtnName] = useState("공개");
+    const [controlBtn, setControlBtn] = useState({
+        hideState: true,
+        hideBtnName: "공개",
+    });
 
     // fetch할 데이터 초기값 설정
     // id => Delete / name, category, image => Update
@@ -22,10 +25,10 @@ function My_persona_card({ name, category, image }) {
         image: null,
     });
 
-    // 첫 리렌더링 딱 한 번 필요한 데이터 추출
+    // 첫 리렌더링 딱 한 번 필요한 데이터 추출할 의도였으나 state 변화에 따른 추가 리렌더링 발생
     useEffect(() => {
         fetchPersona();
-        setUserProfile({
+        setUserProfile({ // 리렌더링1
             id: local_persona_data[0].id,
             name: local_persona_data[0].name,
             category: local_persona_data[0].category,
@@ -54,14 +57,18 @@ function My_persona_card({ name, category, image }) {
         }
     };
     console.log("id, name, category, image 요청", userProfile.id, userProfile.name, userProfile.category, userProfile.image);
+
+    // 공개 & 비공개 버튼
     const onHide = (e) => {
         e.preventDefault();
-        if (hideState) {
+        if (controlBtn.hideState) {
             axios.patch(`http://127.0.0.1:8000/mypage/persona/${userProfile.id}/openpublic`)
                 .then((res) => {
                     console.log(res, "페르소나 비공개 성공");
-                    setHideState(false);
-                    setHideBtnName("비공개");
+                    setControlBtn({ // 리렌더링2
+                        hideState: false,
+                        hideBtnName: "비공개",
+                    });
                     navigate("/Profile", { replace: true });
                 })
                 .catch((error) => {
@@ -71,8 +78,10 @@ function My_persona_card({ name, category, image }) {
             axios.patch(`http://127.0.0.1:8000/mypage/persona/${userProfile.id}/openpublic`)
                 .then((res) => {
                     console.log(res, "페르소나 공개 성공");
-                    setHideState(true);
-                    setHideBtnName("공개");
+                    setControlBtn({ // 리렌더링2
+                        hideState: true,
+                        hideBtnName: "공개",
+                    });
                     navigate("/Profile", { replace: true });
                 })
                 .catch((error) => {
@@ -80,10 +89,18 @@ function My_persona_card({ name, category, image }) {
                 })
         }
     };
+
+    // 페르소나 삭제 버튼
     const onDelete = (e) => {
         e.preventDefault();
-
-    }
+        axios.delete(`http://127.0.0.1:8000/mypage/persona/${userProfile.id}/`)
+            .then((res) => {
+                console.log(res, "페르소나 삭제 성공");
+            })
+            .catch((res) => {
+                console.log(res, "페르소나 삭제 실패");
+            })
+    };
     return (
         <>
             <div
@@ -93,9 +110,9 @@ function My_persona_card({ name, category, image }) {
                 <button className={styles.persona_card_update}>수정</button>
                 <button className={styles.persona_card_delete} onClick={onDelete}>삭제</button>
                 <section className={styles.shadow}></section>
-                <section className={styles.persona_card_name}>{name}</section>
-                <section className={styles.persona_card_category}>{category}</section>
-                <button className={styles.hideBtn} onClick={onHide}>{hideBtnName}</button>
+                <section className={styles.persona_card_name}>{Name}</section>
+                <section className={styles.persona_card_category}>{Category}</section>
+                <button className={styles.hideBtn} onClick={onHide}>{controlBtn.hideBtnName}</button>
             </div>
         </>
     );
