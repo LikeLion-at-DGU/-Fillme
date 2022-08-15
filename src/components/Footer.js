@@ -6,7 +6,7 @@ function Footer() {
                 <p id="footer_logo">Fill Me</p>
                 <p id="footer_detail">What is your Multi-Persona</p>
             </div>
-            <div id="copyright">ⓒ 2022 WHO YOU All Rights Reserved</div>
+            <div id="copyright">ⓒ 동국대학교 멋쟁이사자처럼 Team. 후유</div>
             <div id="created">
                 <div id="role">
                     <p>Planner & Designer </p>
@@ -31,7 +31,7 @@ function Footer2() {
                 <p id="footer_detail">What is your Multi-Persona</p>
             </div>
             <div id="copyright" style={{ width: `33%` }}>
-                ⓒ 2022 WHO YOU All Rights Reserved
+                ⓒ 동국대학교 멋쟁이사자처럼 Team. 후유
             </div>
             <div id="created" style={{ width: `33%`, display: `flex` }}>
                 <div id="role" style={{ width: `50%`, textAlign: `right` }}>

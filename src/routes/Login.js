@@ -1,8 +1,20 @@
 import Header from "../components/Header";
 import { Footer2 } from "../components/Footer";
 import styles from "../static/css/style.module.css";
+import { useNavigate } from "react-router-dom";
 // For MUI
-import { TextField, Checkbox, Button, FormControl, FormControlLabel, Link, Grid, Typography, Box, Container } from "@mui/material/";
+import {
+    TextField,
+    Checkbox,
+    Button,
+    FormControl,
+    FormControlLabel,
+    Link,
+    Grid,
+    Typography,
+    Box,
+    Container,
+} from "@mui/material/";
 import { useState, useEffect } from "react";
 // For Axios
 import axios from "axios";
@@ -10,6 +22,7 @@ import styled from "styled-components";
 import { Input } from "antd";
 
 function Login({ isLoggedIn, setIsLoggedIn }) {
+    const navigate = useNavigate();
     const [id, setId] = useState("");
     const [password, setPassword] = useState("");
     const [errors, setErrors] = useState(false);
@@ -51,6 +64,7 @@ function Login({ isLoggedIn, setIsLoggedIn }) {
                 localStorage.setItem("loginUserName", res.data.user.username);
                 setIsLoggedIn(true);
                 console.log(res);
+                navigate("/Feed", { replace: true });
             })
             .catch((err) => {
                 console.clear();
@@ -72,14 +86,13 @@ function Login({ isLoggedIn, setIsLoggedIn }) {
                             marginTop: 10,
                             display: "flex",
                             flexDirection: "column",
-
                         }}
                     >
                         <Typography
                             component="h1"
                             variant="h5"
                             sx={{ mb: 5 }}
-                            style={{ textAlign: 'center' }}
+                            style={{ textAlign: "center" }}
                             fontFamily="AppleSDGothicNeoB00"
                         >
                             로그인하여 친구들의 멀티 페르소나를 만나보세요
@@ -117,7 +130,7 @@ function Login({ isLoggedIn, setIsLoggedIn }) {
                             fullWidth
                             fontFamily="AppleSDGothicNeoB00"
                             sx={{ mt: 2, mb: 2, bgcolor: "#3CDA9F" }}
-                            style={{ height: '5.5vh' }}
+                            style={{ height: "5.5vh" }}
                             onClick={onSubmit}
                         >
                             로그인하기

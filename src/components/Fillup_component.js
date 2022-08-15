@@ -82,9 +82,11 @@ function Fillup_component() {
             currentImageList.push(currentImageURL);
             currentPostImageList.push(selectedImageList[i]);
         }
-        // if (currentImageList.length > 10) {
-        //     currentImageList = currentImageList.slice(0, 10);
-        // }
+        if (currentImageList.length > 10) {
+            alert("최대 10장만 선택이 가능합니다. 다시 선택해 주세요");
+            currentPostImageList = [...postImages];
+            currentImageList = [...imagelist];
+        }
         setImagelist(currentImageList);
         setPostImages(currentPostImageList);
     };
@@ -115,17 +117,6 @@ function Fillup_component() {
             }
         }
 
-        // formData.append("image1", postImages[0], postImages[0].name);
-        // formData.append("image2", postImages[1], postImages[1].name);
-        // formData.append("image3", postImages[2], postImages[2].name);
-        // formData.append("image4", postImages[3], postImages[3].name);
-        // formData.append("image5", postImages[4], postImages[4].name);
-        // formData.append("image6", postImages[5], postImages[5].name);
-        // formData.append("image7", postImages[6], postImages[6].name);
-        // formData.append("image9", postImages[7], postImages[7].name);
-        // formData.append("image9", postImages[8], postImages[8].name);
-        // formData.append("image10", postImages[9], postImages[9].name);
-
         formData.append("persona", form.persona);
         formData.append("content", form.content);
         formData.append("title", form.title);
@@ -142,6 +133,7 @@ function Fillup_component() {
             .catch(function (err) {
                 console.log(err, "post 실패");
                 console.log("폼데이터", formData);
+                alert("페르소나 선택, 사진, 제목, 본문 내용은 필수 입력란입니다");
                 for (let key of formData.keys()) {
                     console.log(key);
                 }
@@ -159,7 +151,9 @@ function Fillup_component() {
 
     //이미지 삭제
     const handleDeleteImage = (id) => {
+        console.log("삭제 id", id);
         setImagelist(imagelist.filter((_, index) => index !== id));
+        setPostImages(postImages.filter((_, index) => index !== id));
     };
 
     return (
@@ -251,7 +245,6 @@ function Fillup_component() {
                                     // navigation
                                     // pagination={{ clickable: true }}
                                     scrollbar={{ draggable: true }}
-                                    mousewheel={true}
                                     direction="horizontal"
                                 >
                                     {imagelist.map((image, id) => (
