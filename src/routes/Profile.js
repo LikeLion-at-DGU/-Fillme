@@ -66,6 +66,7 @@ function Profile({ isLoggedIn, setIsLoggedIn }) {
                 Name={per.name}
                 Category={per.category}
                 Image={per.image}
+                Count={local_persona_data.length}
             />
         ))
     ];
