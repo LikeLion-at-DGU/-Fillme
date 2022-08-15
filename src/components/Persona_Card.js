@@ -2,7 +2,6 @@ import styles from "../static/css/style.module.css";
 import { useEffect } from "react";
 import axios from "axios";
 import { useState } from "react";
-import Logout from "../routes/Logout";
 function Persona_Card({ user, fullname, memo, color, image }) {
     const loginusername = localStorage.getItem("loginUserName");
     const imageUrl = "http://127.0.0.1:8000" + image;

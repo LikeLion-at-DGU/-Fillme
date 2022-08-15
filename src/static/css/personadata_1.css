@@ -25,86 +25,129 @@
     src: url("../font/AppleSDGothicNeoM.ttf");
 }
 
-.persona_data_1_data_in {
-    font-style: "AppleSDGothicNeoM00", "Roboto";
-    color: white;
-}
-
 .persona_data_1_img_in {
-    margin-right: -20%;
     position: relative;
     display: flex;
     flex-direction: row;
+    width: 10%;
+    margin: 20%;
 }
 
-.detailPersona1-1 {
-    /* width: 50%; */
-    height: 22vw;
-    box-shadow: 0px 3px 15px rgba(0, 67, 101, 0.15);
-    border-radius: 10px;
-    position: absolute;
-    cursor: pointer;
-    object-fit: cover;
-    display: inline;
-    top: -105.5vw;
-    left: 37.3vw;
-}
-
-.detailPersona1-2 {
-    /* width: 50%; */
+/* 실제 카드 */
+/* #persona_detail {
+    width: 15vw;
     height: 22vw;
     box-shadow: 0px 3px 15px rgba(0, 67, 101, 0.15);
     border-radius: 10px;
     position: relative;
     cursor: pointer;
     object-fit: cover;
-    display: inline;
-    top: -105.5vw;
-    left: 32.3vw;
-}
-
-.detailPersona1-3 {
-    /* width: 50%; */
-    height: 22vw;
-    box-shadow: 0px 3px 15px rgba(0, 67, 101, 0.15);
-    border-radius: 10px;
-    position: relative;
-    cursor: pointer;
-    object-fit: cover;
-    display: inline;
-    top: -127.5vw;
-    left: 27.3vw;
-}
-
-.detailPersona1-4 {
-    /* width: 50%; */
-    height: 22vw;
-    box-shadow: 0px 3px 15px rgba(0, 67, 101, 0.15);
-    border-radius: 10px;
-    position: relative;
-    cursor: pointer;
-    object-fit: cover;
-    display: inline;
-    top: -149.5vw;
-    left: 22.3vw;
-}
-
-.row_image1 {
-    display: inline;
+    display: flex;
+    margin-left: 10%;
+    margin: 20%;
     flex-direction: row;
-    position: absolute;
 }
 
-#persona1-1 {
+#persona_detail:hover {
+    transition: 400ms all ease-in-out;
+    transform: translateY(-3vh);
+} */
+
+/* 사진 안 이름 */
+#persona_card {
+    color: rgb(0, 0, 0);
+    font-style: "AppleSDGothicNeoB00", "Roboto-bold";
+    font-size: 1.3vw;
+    z-index: 100;
+    transform: rotate(270deg);
+    transform-origin: left;
+    display: flex;
+    position: relative;
+    top:45%;
+    left:160%;
+}
+
+.row_image {
+    display: flex;
+    flex-direction: row-reverse;
+    position: relative;
+}
+
+.detailPersona0{
+    width:15vw;
+    height: 22vw;
+    box-shadow: 0px 3px 15px rgba(0, 67, 101, 0.15);
+    border-radius: 10px;
+    position: absolute;
+    cursor: pointer;
+    object-fit: cover;
+    display: flex;
+    z-index: 0;
+}
+.detailPersona0:hover {
+    transition: 400ms all ease-in-out;
+    transform: translateY(-3vh);
+} 
+
+.detailPersona1 {
+    width:15vw;
+    height: 22vw;
+    box-shadow: 0px 3px 15px rgba(0, 67, 101, 0.15);
+    border-radius: 10px;
+    position: absolute;
+    cursor: pointer;
+    object-fit: cover;
+    display: flex;
+    z-index: 1;
+}
+.detailPersona1:hover {
+    transition: 400ms all ease-in-out;
+    transform: translateY(-3vh);
+} 
+
+.detailPersona2 {
+    width:15vw;
+    height: 22vw;
+    box-shadow: 0px 3px 15px rgba(0, 67, 101, 0.15);
+    border-radius: 10px;
+    position: absolute;
+    cursor: pointer;
+    object-fit: cover;
+    display: flex;
+    z-index: 2;
+}
+.detailPersona2:hover {
+    transition: 400ms all ease-in-out;
+    transform: translateY(-3vh);
+} 
+
+.detailPersona3 {
+    width:15vw;
+    height: 22vw;
+    box-shadow: 0px 3px 15px rgba(0, 67, 101, 0.15);
+    border-radius: 10px;
+    position: absolute;
+    cursor: pointer;
+    object-fit: cover;
+    display: flex;
+    z-index: 3;
+}
+.detailPersona3:hover {
+    transition: 400ms all ease-in-out;
+    transform: translateY(-3vh);
+} 
+
+
+#persona{
     z-index: 1;
     width: 13.5vw;
 }
-#persona1-1:hover {
+/* #persona:hover {
     transition: 400ms all ease-in-out;
     transform: translateY(-3vh);
-}
+} */
 
-#persona1-2 {
+/* #persona1-2 {
     z-index: 2;
     width: 13.5vw;
 }
@@ -129,7 +172,8 @@
 #persona1-4:hover {
     transition: 400ms all ease-in-out;
     transform: translateY(-3vh);
-}
+} */
+
 
 #persona_card1 {
     color: white;
@@ -137,7 +181,7 @@
     font-size: 1.3vw;
     z-index: 100;
     transform: rotate(270deg);
-    position: relative;
+    position: absolute;
     left: 5vw;
     top: 13vw;
 }

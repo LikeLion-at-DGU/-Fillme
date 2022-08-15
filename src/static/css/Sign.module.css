@@ -16,41 +16,14 @@
     background-color: #fff;
     border: 1px solid #3cda9f;
     border-radius: 5px;
-    padding: 1.2vh 1.5vw;
+    padding: 1.5vh 1.5vw;
     cursor: pointer;
     margin-bottom: 4vh;
 }
 
-.loadImgBtn {
-    font-family: "AppleSDGothicNeoM00";
-    font-size: 1rem;
-
-    color: #3cda9f;
-    background-color: #fff;
-    border: 1px solid #3cda9f;
-    border-radius: 5px;
-    padding: 1.2vh 1.5vw;
-    cursor: pointer;
-    margin-bottom: 4vh;
-}
-
-.btn:hover,
-.loadImgBtn:hover,
-.addPersonaBtn:hover {
+.btn:hover {
     color: #fff;
     background-color: #3cda9f;
-}
-
-.addPersonaBtn {
-    font-family: "AppleSDGothicNeoM00";
-    font-size: 1rem;
-    color: #3cda9f;
-    background-color: #fff;
-    border: 1px solid #3cda9f;
-    border-radius: 5px;
-    padding: 1.2vh 3vw;
-    cursor: pointer;
-    margin-bottom: 4vh;
 }
 
 /* 메인 프로필 생성 라디오 버튼 */
