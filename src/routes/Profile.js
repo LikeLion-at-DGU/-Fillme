@@ -8,8 +8,12 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import My_persona_card from "../components/My_persona_card";
 import { Link, useNavigate } from "react-router-dom";
+import styled from "styled-components";
 
 function Profile({ isLoggedIn, setIsLoggedIn }) {
+    // styled(ImgCard)`
+    //     margin: 0 15px 0 0;
+    // `;
     const [userProfile, setUserProfile] = useState({
         user: "",
         fullname: "",
@@ -21,11 +25,11 @@ function Profile({ isLoggedIn, setIsLoggedIn }) {
 
     const navigate = useNavigate();
     const onClick = () => {
-        navigate('/SignupPersona');
+        navigate("/SignupPersona");
     };
 
     const local_persona_data = JSON.parse(localStorage.getItem("local_persona_data"));
-    console.log('local_persona_data', local_persona_data);
+    console.log("local_persona_data", local_persona_data);
     useEffect(() => {
         fetchData();
     }, []);
@@ -39,15 +43,9 @@ function Profile({ isLoggedIn, setIsLoggedIn }) {
                 fullname: request.data.fullname,
                 memo: request.data.memo,
                 color: request.data.color,
-                color_hex: request.data.color,
+                color_hex: request.data.color_hex,
                 image: request.data.image,
             });
-            // setUser(request.data.user);
-            // setmemo(request.data.memo);
-            // setimage(request.data.image);
-            // setfullname(request.data.fullname);
-            // setcolor(request.data.color);
-            // setcolor(request.data.color_hex);
             localStorage.setItem("local_persona_data", JSON.stringify(request.data.personas));
         } catch (err) {
             console.log(err);
@@ -61,7 +59,7 @@ function Profile({ isLoggedIn, setIsLoggedIn }) {
                 className={styles.one_persona_cardImg}
             />
             <br /><br />
-            페르소나 < br /> 추가하기
+            페르소나< br />추가하기
         </button >
     ];
     const personaCard = [
@@ -86,30 +84,20 @@ function Profile({ isLoggedIn, setIsLoggedIn }) {
             <h1 className={styles.personaTitle}>My Profile</h1>
             <div className={styles.cardWrap}>
                 <div>
-                    {/* <button className={styles.addPersonaBtn} onClick={onClick}>페르소나 추가</button> */}
                     <Logout isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
                     <Persona_Card
                         key={userProfile.user}
                         user={userProfile.user}
                         fullname={userProfile.fullname}
                         memo={userProfile.memo}
-                        color={userProfile.color}
+                        color={userProfile.color_hex}
                         image={userProfile.image}
                     />
                 </div>
                 <div className={styles.persona_card}>
-                    {local_persona_data.length === 0 ? (
-                        <button className={styles.one_persona_card} onClick={onClick}>
-                            <img
-                                src="images/plus_button2.png"
-                                className={styles.one_persona_cardImg}
-                            />
-                            <br /><br />
-                            페르소나<br />추가하기
-                        </button>
-                    ) : (
-                        [...personaCard, addCard]
-                    )}
+                    {local_persona_data.length === 0 ? [addCard]
+                        : local_persona_data.length >= 4 ? [personaCard]
+                            : [...personaCard, addCard]}
                 </div>
             </div>
             <Footer />

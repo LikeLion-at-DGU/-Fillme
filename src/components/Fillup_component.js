@@ -1,31 +1,81 @@
 import styles from "../static/css/Fillup.module.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
+import SwiperCore, { Navigation, Pagination, Mousewheel, Scrollbar, Keyboard } from "swiper";
+import "../static/css/fillup.css";
+
 function Fillup_component() {
+    SwiperCore.use([Navigation, Pagination, Mousewheel, Scrollbar, Keyboard]);
     const local_persona_data = JSON.parse(localStorage.getItem("local_persona_data"));
 
+    //사진 버튼 선택 여부
     const [button1, setbutton1] = useState(true);
+    //영상 버튼 선택 여부
     const [button2, setbutton2] = useState(false);
+
     const [reload, setreload] = useState(random_qna[random_num]);
 
+    //페르소나 여부 (하나도 없으면 false)
     const persona_state = local_persona_data.length == 0 ? false : true;
-    console.log(persona_state);
 
+    //선택된 페르소나
+    const [selected, setSelected] = useState("");
+
+    //페르소나 선택됐을 때, selected 값 갱신
+    const handleSelect = (e) => {
+        setSelected(e.target.value);
+    };
+    //선택된 페르소나 확인
+    useEffect(() => {
+        console.log(selected);
+    }, [selected]);
+
+    //사진 버튼 클릭했을 때
     const onclick1 = () => {
         setbutton1(true);
         setbutton2(false);
     };
 
+    //영상버튼 클릭했을 때
     const onclick2 = () => {
         setbutton2(true);
         setbutton1(false);
     };
 
+    // 새로고침 버튼 클릭했을 때, 질문 랜덤으로 뽑기
     const reload_btn = () => {
         setreload(random_qna[Math.floor(Math.random() * random_qna.length)]);
-        console.log(reload);
+        // console.log(reload);
     };
 
+    //이미지 목록
+    const [imagelist, setImagelist] = useState([]);
+
+    const addImage = (e) => {
+        const selectedImageList = e.target.files;
+        const currentImageList = [...imagelist];
+        for (let i = 0; i < selectedImageList.length; i += 1) {
+            const currentImageURL = URL.createObjectURL(selectedImageList[i]);
+            currentImageList.push(currentImageURL);
+        }
+        // if (currentImageList.length > 10) {
+        //     currentImageList = currentImageList.slice(0, 10);
+        // }
+        setImagelist(currentImageList);
+    };
+
+    //선택된 이미지 확인
+    useEffect(() => {
+        console.log(imagelist);
+    }, [imagelist]);
+    const handleDeleteImage = (id) => {
+        setImagelist(imagelist.filter((_, index) => index !== id));
+    };
     return (
         <>
             {persona_state ? null : (
@@ -38,7 +88,11 @@ function Fillup_component() {
             )}
             <div id="fillup_page" className={persona_state ? null : styles.no_persona}>
                 <p className={styles.form}>게시글을 작성할 페르소나를 선택해주세요 *</p>
-                <select className={styles.select} disabled={persona_state ? false : true}>
+                <select
+                    className={styles.select}
+                    disabled={persona_state ? false : true}
+                    onChange={handleSelect}
+                >
                     <option style={{ display: `none` }} value="selected">
                         페르소나 선택
                     </option>
@@ -82,6 +136,7 @@ function Fillup_component() {
                                 <img src="images/plus_button.png" className={styles.plus_button} />
                             </label>
                             <input
+                                onChange={addImage}
                                 type="file"
                                 accept="image/*"
                                 id="image"
@@ -92,9 +147,44 @@ function Fillup_component() {
 
                             <p className={styles.text}> (최대 10장) </p>
                         </div>
-                        <label htmlFor="image">
-                            <div className={styles.input_box2}>사진을 선택해주세요</div>
-                        </label>
+                        {imagelist.length === 0 ? (
+                            <label htmlFor="image">
+                                <div className={styles.input_box2}>사진을 선택해주세요</div>
+                            </label>
+                        ) : (
+                            <div className="image_list">
+                                <Swiper
+                                    className="swiper-container"
+                                    spaceBetween={0}
+                                    slidesPerView={6}
+                                    onSlideChange={() => console.log("slide change")}
+                                    // navigation
+                                    // pagination={{ clickable: true }}
+                                    scrollbar={{ draggable: true }}
+                                    mousewheel={true}
+                                    direction="horizontal"
+                                >
+                                    {imagelist.map((image, id) => (
+                                        <SwiperSlide key={id}>
+                                            <img
+                                                class="delete"
+                                                src="images/delete.png"
+                                                onClick={() => handleDeleteImage(id)}
+                                            />
+                                            <img
+                                                src={image}
+                                                alt={`${image}-${id}`}
+                                                className={styles.image_list}
+                                            />
+                                        </SwiperSlide>
+                                    ))}
+                                    <div
+                                        class="swiper-scrollbar"
+                                        style={{ marginTop: "50px" }}
+                                    ></div>
+                                </Swiper>
+                            </div>
+                        )}
                     </>
                 ) : (
                     <>

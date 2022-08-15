@@ -41,7 +41,9 @@ const SignupPersona = () => {
     const addPersona = async (e) => {
         e.preventDefault();
         let formData = new FormData();
-        if (userPersona?.image) {
+        if (userPersona.image === null) {
+            formData.append("image", null);
+        } else {
             formData.append(
                 "image",
                 userPersona.image,
@@ -58,7 +60,6 @@ const SignupPersona = () => {
                 },
             })
             .then(function (res) {
-                console.log(res, "페르소나 생성 성공");
                 navigate('/Profile', { replace: true });
             })
             .catch(function (err) {
@@ -135,7 +136,7 @@ const SignupPersona = () => {
                     >
                         프로필 이미지
                     </Typography>
-                    <Button style={{ justifyContent: "left", padding: "0" }}>
+                    <Button required style={{ justifyContent: "left", padding: "0" }}>
                         <label htmlFor="subProfile">
                             <div className={signStyle.loadImgBtn}>
                                 페르소나 프로필 이미지 첨부
