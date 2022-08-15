@@ -8,8 +8,12 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import My_persona_card from "../components/My_persona_card";
 import { Link, useNavigate } from "react-router-dom";
+import styled from "styled-components";
 
 function Profile({ isLoggedIn, setIsLoggedIn }) {
+    // styled(ImgCard)`
+    //     margin: 0 15px 0 0;
+    // `;
     const [userProfile, setUserProfile] = useState({
         user: "",
         fullname: "",
@@ -49,14 +53,14 @@ function Profile({ isLoggedIn, setIsLoggedIn }) {
     };
 
     const addCard = [
-        <button className={styles.one_persona_card} onClick={onClick}>
-            <img src="images/plus_button2.png" className={styles.one_persona_cardImg} />
-            <br />
-            <br />
-            페르소나
-            <br />
-            추가하기
-        </button>,
+        <button className={styles.one_persona_card} onClick={onClick} >
+            <img
+                src="images/plus_button2.png"
+                className={styles.one_persona_cardImg}
+            />
+            <br /><br />
+            페르소나< br />추가하기
+        </button >
     ];
     const personaCard = [
         local_persona_data.map((per) => (
@@ -66,8 +70,10 @@ function Profile({ isLoggedIn, setIsLoggedIn }) {
                 category={per.category}
                 image={per.image}
             />
-        )),
+        ))
     ];
+
+
     return (
         <>
             <style>
@@ -89,11 +95,9 @@ function Profile({ isLoggedIn, setIsLoggedIn }) {
                     />
                 </div>
                 <div className={styles.persona_card}>
-                    {local_persona_data.length === 0
-                        ? [addCard]
-                        : local_persona_data.length >= 3
-                        ? [personaCard]
-                        : [...personaCard, addCard]}
+                    {local_persona_data.length === 0 ? [addCard]
+                        : local_persona_data.length >= 4 ? [personaCard]
+                            : [...personaCard, addCard]}
                 </div>
             </div>
             <Footer />

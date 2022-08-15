@@ -120,7 +120,7 @@
     margin: 2.5% 0;
     height: 25vw;
     border-radius: 10px;
-    /* justify-content: space-between; */
+    column-gap: 1vw;
 }
 
 .one_persona_card {
@@ -142,16 +142,13 @@
     height: 3vw;
     opacity: 75%;
 }
-
 .shadow {
-    margin-top: 66%;
-    width: 100%;
+    top: 100%;
+    transform: translateY(-100%);
     box-sizing: border-box;
     display: flex;
-    justify-content: space-between;
-    position: absolute;
-    bottom: 0;
-    width: 24%;
+    position: relative;
+    width: 100%;
     height: 50%;
     background: linear-gradient(180deg, rgba(70, 70, 72, 0) 0%, #414141 100%);
     border-radius: 0px 0px 10px 10px;
