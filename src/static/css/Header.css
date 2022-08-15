@@ -28,17 +28,30 @@
 body {
     margin: 0;
 }
-.header {
-    display: block;
-    position: fixed;
-    width: 100%;
-    text-align: center;
+.visible_header {
+    position: sticky;
     height: 8vh;
     top: 0;
     left: 0;
+    right: 0;
     background: #ffffff;
     box-shadow: 0px 2px 15px rgba(0, 67, 101, 0.1);
     z-index: 100;
+    margin-bottom: 50px;
+    transition: top 0.8s ease-out;
+}
+
+.hidden_header {
+    position: sticky;
+    transition: top 0.8s ease-out;
+    height: 8vh;
+    top: -8vh;
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    box-shadow: 0px 2px 15px rgba(0, 67, 101, 0.1);
+    z-index: 100;
+    margin-bottom: 50px;
 }
 #header_logo {
     position: absolute;
@@ -58,7 +71,7 @@ body {
 }
 
 button {
-    border : none; 
+    border: none;
     background-color: white;
 }
 
@@ -72,13 +85,13 @@ button {
     padding-right: 20px;
     z-index: -1;
     background-color: #ffffff;
-    background-color:transparent;
+    background-color: transparent;
 }
 
 .News {
     position: relative;
     text-align: left;
-    width:100%;
+    width: 100%;
 }
 
 /* hr {
@@ -99,7 +112,7 @@ button {
     padding-left: 30px;
     padding: 5px;
     display: flex;
-    position:relative;
+    position: relative;
     left: 65%;
     top: 0.7vw;
     outline: none;
@@ -107,7 +120,7 @@ button {
 
 .searchicon {
     z-index: 2000;
-    top: -0.75vw; 
+    top: -0.75vw;
     position: relative;
     display: flex;
     width: 1.1%;
