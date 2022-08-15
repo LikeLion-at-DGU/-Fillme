@@ -2,7 +2,10 @@ import dummy from "../data.json"
 import { useState, useEffect } from "react";
 import "../static/css/personadata_1.css"
 
-function PicFirst() {
+function Pickpersona({card_personas}) {
+    
+    const CardimgUrl = ["http://127.0.0.1:8000" + card_personas.image]
+    console.log(card_personas)
 
     const [hover, setHover] = useState(false);
     const OnmouseEnter = () => {
@@ -15,20 +18,19 @@ function PicFirst() {
         console.log("hover change");
     }, [hover]);
 
-    const rend = (dummy => {
-
+    const rend = (card_personas => {
         const persona_f = [];
-            persona_f.push(dummy[1].persona.map(detail => (
+            persona_f.push(card_personas.map((detail, index) => (
             <div className="persona_data_1_img_in">
-                <div id={"persona1-"+detail.persona_id}  
-                    className={"detailPersona1-"+detail.persona_id}
+                <div id={"persona_detail"}  
+                    className={"detailPersona"+index}
                     style={{
-                        backgroundImage: `url(${detail.persona_image})`,
+                        backgroundImage: `url(${CardimgUrl})`,
                         backgroundSize: `cover`,
                         backgroundRepeat: `no-repeat`,
                         backgroundPosition: `center`
                         }}>
-                        <div id={"persona_card"+detail.persona_id}>{detail.persona_name}</div>
+                        <div id={"persona_card"}>{detail.name}</div>
                 </div>
             </div>)))
             
@@ -37,8 +39,8 @@ function PicFirst() {
     if (hover) {
         return (
             <div>
-                <div className={"row_image"+dummy[1].id} id={"persona0-"+dummy[1].persona.persona_id} onMouseLeave={OnmouseLeave}>
-                    {rend(dummy)}
+                <div className={"row_image"} id="persona" onMouseLeave={OnmouseLeave}>
+                    {rend(card_personas)}
                 </div>
             </div>
         )
@@ -46,10 +48,10 @@ function PicFirst() {
     else {
         return (
             <div>
-                <div className={"row_image"+dummy[1].id} id={"persona0-"+dummy[1].persona.persona_id} onMouseEnter={OnmouseEnter}>
-                    {rend(dummy)}
+                <div className={"row_image"} id="persona" onMouseEnter={OnmouseEnter}>
+                    {rend(card_personas)}
                 </div>
             </div>
         )
     }
-} export default PicFirst;
+} export default Pickpersona;
