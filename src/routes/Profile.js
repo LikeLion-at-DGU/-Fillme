@@ -33,15 +33,15 @@ function Profile({ isLoggedIn, setIsLoggedIn }) {
         color: null,
         color_hex: null,
         image: null,
-    })
+    });
 
     const navigate = useNavigate();
     const onClick = () => {
-        navigate('/SignupPersona');
+        navigate("/SignupPersona");
     };
 
     const local_persona_data = JSON.parse(localStorage.getItem("local_persona_data"));
-    console.log('local_persona_data', local_persona_data);
+    console.log("local_persona_data", local_persona_data);
     useEffect(() => {
         fetchData();
     }, []);
@@ -76,10 +76,13 @@ function Profile({ isLoggedIn, setIsLoggedIn }) {
                     filter: invert(67%) sepia(37%) saturate(660%) hue-rotate(106deg)
                     brightness(120%) contrast(95%);}`}
             </style>
-            <h1 className={styles.title}>My Profile</h1>
-            <div className={styles.cardWrap}>
+            <div className={styles.wrap}>
+                <h1 className={styles.title}>My Profile</h1>
+
                 <div>
-                    <button className={styles.addPersonaBtn} onClick={onClick}>페르소나 추가</button>
+                    <button className={styles.addPersonaBtn} onClick={onClick}>
+                        페르소나 추가
+                    </button>
                     <Logout isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
                     <Persona_Card
                         key={userProfile.user}
@@ -97,8 +100,11 @@ function Profile({ isLoggedIn, setIsLoggedIn }) {
                                 src="images/plus_button2.png"
                                 className={styles.one_persona_cardImg}
                             />
-                            <br /><br />
-                            페르소나<br />추가하기
+                            <br />
+                            <br />
+                            페르소나
+                            <br />
+                            추가하기
                         </button>
                     ) : (
                         local_persona_data.map((per) => (

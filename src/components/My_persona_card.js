@@ -10,9 +10,9 @@ function My_persona_card({ key, name, category, image }) {
                 className={styles.one_persona_card}
                 style={{ backgroundImage: `url(${imageUrl})` }}
             >
+                <section className={styles.shadow}></section>
                 <section className={styles.persona_card_name}>{name}</section>
                 <section className={styles.persona_card_category}>{category}</section>
-                <section className={styles.shadow}></section>
             </div>
         </>
     );

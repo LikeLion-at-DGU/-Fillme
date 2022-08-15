@@ -29,11 +29,7 @@
 .title {
     font-family: Elsie;
     font-size: 2.2vw;
-    margin: 5vw 8vw 0 8vw;
-}
-
-.cardWrap {
-    margin: 0 8vw 5vw 8vw;
+    margin-bottom: 0;
 }
 
 /* Navbar */
@@ -111,7 +107,7 @@
     box-sizing: border-box;
     position: relative;
     width: 96%;
-    margin: 2.5% 1.5%;
+    margin: 2.5% 0;
     height: 25vw;
     border-radius: 10px;
 }
@@ -127,12 +123,11 @@
     box-sizing: border-box;
     margin-right: 1vw;
     width: 25%;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 3px 15px rgba(0, 67, 101, 0.15);
     border-radius: 10px;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    border: 2px solid #3cda9f;
     font-family: "AppleSDGothicNeoEB00";
     color: #3cda9f;
     font-size: 2vw;
@@ -145,8 +140,9 @@
     opacity: 75%;
 }
 .shadow {
-    margin-top: 67%;
-    width: 100%;
+    position: absolute;
+    bottom: 0;
+    width: 25%;
     height: 50%;
     background: linear-gradient(180deg, rgba(70, 70, 72, 0) 0%, #414141 100%);
     border-radius: 0px 0px 10px 10px;
