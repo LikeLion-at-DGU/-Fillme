@@ -1,8 +1,7 @@
 import dummy from "../data.json";
 import "../static/css/Detail_image.css";
 
-function DetailImage({img}) {
-
+function DetailImage({ img }) {
     const BigImage = {
         backgroundImage: `url(${img})`,
         backgroundSize: "cover",
@@ -19,9 +18,8 @@ function DetailImage({img}) {
 
     return (
         <div className="Photo">
-            <div className="Big_image" style={BigImage}>
-            </div>
+            <div className="Big_image" style={BigImage}></div>
         </div>
-    )
-
-} export default DetailImage;
+    );
+}
+export default DetailImage;

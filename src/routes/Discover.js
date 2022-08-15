@@ -38,12 +38,10 @@ function Discover() {
                         <div></div>
                     ) : (
                         JSON.parse(localStorage.getItem("discover_page")).map((card) => (
-                            <Pickpersona
-                                card_personas={card.personas}
-                            />
+                            <Pickpersona card_personas={card.personas} />
                         ))
                     )}
-                    
+
                     {/* <Zero />  */}
                     {/* <PicZero /> */}
                     {/* <First /> */}

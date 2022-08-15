@@ -12,18 +12,16 @@
     font-family: "Roboto";
     src: url("../font/Roboto-Regular.ttf");
     unicode-range: 
-        /* 영어 대문자, 영어 소문자 */ U+0041-005A,
-        U+0061-007A, /* 숫자, 특수문자 */ U+0030-0039, U+0020-002F, U+003A-0040,
-        U+005B-0060, U+007B-007E;
+        /* 영어 대문자, 영어 소문자 */ U+0041-005A, U+0061-007A,
+        /* 숫자, 특수문자 */ U+0030-0039, U+0020-002F, U+003A-0040, U+005B-0060, U+007B-007E;
 }
 
 @font-face {
     font-family: "Roboto-bold";
     src: url("../font/Roboto-Bold.ttf");
     unicode-range: 
-        /* 한글, 영어 대문자, 영어 소문자 */ U+0041-005A,
-        U+0061-007A, /* 숫자, 특수문자 */ U+0030-0039, U+0020-002F, U+003A-0040,
-        U+005B-0060, U+007B-007E;
+        /* 한글, 영어 대문자, 영어 소문자 */ U+0041-005A, U+0061-007A,
+        /* 숫자, 특수문자 */ U+0030-0039, U+0020-002F, U+003A-0040, U+005B-0060, U+007B-007E;
 }
 
 @font-face {
@@ -194,7 +192,7 @@
     margin: 20px;
 }
 
-.Persona_name{
+.Persona_name {
     font-family: "AppleSDGothicNeoM00", "Roboto";
     font-size: 1vw;
     display: inline-block;
@@ -204,7 +202,7 @@
     left: 10%;
 }
 
-.Persona_category{
+.Persona_category {
     font-family: "AppleSDGothicNeoM00", "Roboto";
     font-size: 1vw;
     display: flex;

@@ -15,7 +15,7 @@ function Mainprofile({ image, color, user, username, fullname, memo, personas })
     };
 
     const Color = styled.div`
-        {
+         {
             background: linear-gradient(90deg, rgba(0, 0, 0, 0.01) 4%, ${color} 15%);
         }
     `;
@@ -29,18 +29,14 @@ function Mainprofile({ image, color, user, username, fullname, memo, personas })
                 <p id="name">{fullname}</p>
                 <p id="intro">{memo}</p>
                 <div>
-                    {personas.map((persona,index) => (
+                    {personas.map((persona, index) => (
                         <div>
-                            <div className="Persona_name">
-                                {persona.name}
-                            </div>
-                            <div className="Persona_category">
-                                {persona.category}
-                            </div>
+                            <div className="Persona_name">{persona.name}</div>
+                            <div className="Persona_category">{persona.category}</div>
                         </div>
                     ))}
                 </div>
-                
+
                 <button id="btn_profile">프로필 보기</button>
                 <button id="btn_following">팔로잉</button>
             </Color>
