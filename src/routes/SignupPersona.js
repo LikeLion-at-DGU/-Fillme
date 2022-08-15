@@ -54,14 +54,8 @@ const SignupPersona = () => {
     const addPersona = async (e) => {
         e.preventDefault();
         let formData = new FormData();
-        if (userPersona.image === null) {
-            formData.append("image", null);
-        } else {
-            formData.append(
-                "image",
-                userPersona.image,
-                userPersona.image.name,
-            );
+        if (userPersona?.image) {
+            formData.append("image", userPersona.image, userPersona.image.name);
         }
         formData.append("name", userPersona.name);
         formData.append("category", userPersona.category);
@@ -150,7 +144,7 @@ const SignupPersona = () => {
                     >
                         프로필 이미지
                     </Typography>
-                    <Button required style={{ justifyContent: "left", padding: "0" }}>
+                    <Button style={{ justifyContent: "left", padding: "0" }}>
                         <label htmlFor="subProfile">
                             <div className={signStyle.loadImgBtn}>페르소나 프로필 이미지 첨부</div>
                         </label>
