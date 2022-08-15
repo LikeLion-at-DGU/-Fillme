@@ -10,6 +10,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Logout from "../routes/Logout";
 import Search from "../routes/Search";
+import Detail from "../routes/Detail"
 
 const AppRouter = ({ isLoggedIn, setIsLoggedIn }) => {
     return (
@@ -35,6 +36,7 @@ const AppRouter = ({ isLoggedIn, setIsLoggedIn }) => {
                     <Route path="/Feed" element={<Feed />}></Route>
                     <Route path="/" element={<Navbar />}>
                         <Route path="/Discover" element={<Discover />}></Route>
+                        <Route path="/Detail" element={<Detail />}></Route>
                         <Route
                             path="/Profile"
                             element={

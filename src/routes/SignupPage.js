@@ -81,10 +81,12 @@ const Register = ({ isLoggedIn, setIsLoggedIn }) => {
             password1: password,
             password2: rePassword,
         };
+        console.log(data);
         // post
         await axios
             .post("http://127.0.0.1:8000/accounts/", data)
             .then(function (res) {
+                console.log(data);
                 localStorage.setItem("logInUserId", res.data.user.pk); // 현재 로그인한 유저 누군지 설정
                 const accesstoken = res.data.access_token; // API 요청 콜마다 헤더에 accessToken 담아 보내도록 설정
                 axios.defaults.headers.common["Authorization"] = "Bearer " + accesstoken;

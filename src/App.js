@@ -28,6 +28,7 @@ function App() {
             // console.log("데이터라라", persona_data);
             localStorage.setItem("discover_page", JSON.stringify(request.data));
 
+
             // setdummy(dummy);
         } catch (err) {
             console.log(err);
