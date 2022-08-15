@@ -1,19 +1,101 @@
 import React from "react";
 import styles from "../static/css/style.module.css";
+import axios from "axios";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 function My_persona_card({ name, category, image }) {
+    const navigate = useNavigate();
     const imageUrl = "http://127.0.0.1:8000" + image;
     // console.log(imageUrl);
+
+    // 버튼 상태 조절
+    const [hideState, setHideState] = useState(true);
+    const [hideBtnName, setHideBtnName] = useState("공개");
+
+    // fetch할 데이터 초기값 설정
+    // id => Delete / name, category, image => Update
+    const [userProfile, setUserProfile] = useState({
+        id: "",
+        name: "",
+        category: "",
+        image: null,
+    });
+
+    // 첫 리렌더링 딱 한 번 필요한 데이터 추출
+    useEffect(() => {
+        fetchPersona();
+        setUserProfile({
+            id: local_persona_data[0].id,
+            name: local_persona_data[0].name,
+            category: local_persona_data[0].category,
+            image: local_persona_data[0].image,
+        });
+    }, []);
+
+    // persona id값 가져오기 위해 personas.data.id 추출 과정
+    const local_persona_data = JSON.parse(localStorage.getItem("local_persona_data"));
+    console.log("local_persona_data", local_persona_data);
+
+    const fetchPersona = async () => {
+        try {
+            const request = await axios.get("http://127.0.0.1:8000/mypage/profile_persona/");
+            // for (let i = 0; i < local_persona_data.length; i++) {
+            //     setUserProfile({
+            //         id: request.data.personas[i].id,
+            //         name: request.data.personas[i].name,
+            //         category: request.data.personas[i].category,
+            //         image: request.data.personas[i].image,
+            //     });
+            // }
+            localStorage.setItem("local_persona_data", JSON.stringify(request.data.personas));
+        } catch (err) {
+            console.log(err);
+        }
+    };
+    console.log("id, name, category, image 요청", userProfile.id, userProfile.name, userProfile.category, userProfile.image);
+    const onHide = (e) => {
+        e.preventDefault();
+        if (hideState) {
+            axios.patch(`http://127.0.0.1:8000/mypage/persona/${userProfile.id}/openpublic`)
+                .then((res) => {
+                    console.log(res, "페르소나 비공개 성공");
+                    setHideState(false);
+                    setHideBtnName("비공개");
+                    navigate("/Profile", { replace: true });
+                })
+                .catch((error) => {
+                    console.log(error);
+                })
+        } else {
+            axios.patch(`http://127.0.0.1:8000/mypage/persona/${userProfile.id}/openpublic`)
+                .then((res) => {
+                    console.log(res, "페르소나 공개 성공");
+                    setHideState(true);
+                    setHideBtnName("공개");
+                    navigate("/Profile", { replace: true });
+                })
+                .catch((error) => {
+                    console.log(error);
+                })
+        }
+    };
+    const onDelete = (e) => {
+        e.preventDefault();
+
+    }
     return (
         <>
             <div
                 className={styles.one_persona_card}
                 style={{ backgroundImage: `url(${imageUrl})` }}
             >
+                <button className={styles.persona_card_update}>수정</button>
+                <button className={styles.persona_card_delete} onClick={onDelete}>삭제</button>
                 <section className={styles.shadow}></section>
                 <section className={styles.persona_card_name}>{name}</section>
                 <section className={styles.persona_card_category}>{category}</section>
-                {/* <section><button className={styles.persona_card_button}>수정</button></section> */}
+                <button className={styles.hideBtn} onClick={onHide}>{hideBtnName}</button>
             </div>
         </>
     );
