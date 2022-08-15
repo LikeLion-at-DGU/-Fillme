@@ -55,7 +55,7 @@ function Profile({ isLoggedIn, setIsLoggedIn }) {
                 fullname: request.data.fullname,
                 memo: request.data.memo,
                 color: request.data.color,
-                color_hex: request.data.color,
+                color_hex: request.data.color_hex,
                 image: request.data.image,
             });
             // setUser(request.data.user);
@@ -89,7 +89,7 @@ function Profile({ isLoggedIn, setIsLoggedIn }) {
                             user={userProfile.user}
                             fullname={userProfile.fullname}
                             memo={userProfile.memo}
-                            color={userProfile.color}
+                            color={userProfile.color_hex}
                             image={userProfile.image}
                         />
                     </div>

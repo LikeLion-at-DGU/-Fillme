@@ -8,10 +8,16 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import SwiperCore, { Navigation, Pagination, Mousewheel, Scrollbar, Keyboard } from "swiper";
 import "../static/css/fillup.css";
-
+import { useNavigate } from "react-router";
 function Fillup_component() {
     SwiperCore.use([Navigation, Pagination, Mousewheel, Scrollbar, Keyboard]);
     const local_persona_data = JSON.parse(localStorage.getItem("local_persona_data"));
+
+    //페르소나 만들기 버튼 클릭 시
+    const navigate = useNavigate();
+    const make_persona = () => {
+        navigate("/SignupPersona");
+    };
 
     //사진 버튼 선택 여부
     const [button1, setbutton1] = useState(true);
@@ -23,17 +29,25 @@ function Fillup_component() {
     //페르소나 여부 (하나도 없으면 false)
     const persona_state = local_persona_data.length == 0 ? false : true;
 
-    //선택된 페르소나
-    const [selected, setSelected] = useState("");
-
-    //페르소나 선택됐을 때, selected 값 갱신
-    const handleSelect = (e) => {
-        setSelected(e.target.value);
-    };
-    //선택된 페르소나 확인
+    const [form, setForm] = useState({
+        persona: "",
+        title: "",
+        content: "",
+    });
+    //폼 저장된 내용 확인
     useEffect(() => {
-        console.log(selected);
-    }, [selected]);
+        console.log(form);
+    }, [form]);
+
+    //페르소나 선택됐을 때, 값 갱신
+    const handleSelect = (e) => {
+        setForm((prevState) => {
+            return {
+                ...prevState,
+                persona: e.target.value,
+            };
+        });
+    };
 
     //사진 버튼 클릭했을 때
     const onclick1 = () => {
@@ -55,10 +69,12 @@ function Fillup_component() {
 
     //이미지 목록
     const [imagelist, setImagelist] = useState([]);
-
+    const [postImages, setPostImages] = useState([]);
     const addImage = (e) => {
         const selectedImageList = e.target.files;
         const currentImageList = [...imagelist];
+        setPostImages(Array.from(selectedImageList));
+
         for (let i = 0; i < selectedImageList.length; i += 1) {
             const currentImageURL = URL.createObjectURL(selectedImageList[i]);
             currentImageList.push(currentImageURL);
@@ -69,19 +85,71 @@ function Fillup_component() {
         setImagelist(currentImageList);
     };
 
+    const onChange_title = (e) => {
+        const title = e.target.value;
+        setForm({
+            ...form,
+            title: title,
+        });
+    };
+    const onChange_context = (e) => {
+        const content = e.target.value;
+
+        setForm({
+            ...form,
+            content: content,
+        });
+    };
+    const Submit = async (e) => {
+        e.preventDefault();
+        let formData = new FormData();
+        formData.append("image1", postImages[0]);
+        formData.append("persona", form.persona);
+        formData.append("content", form.content);
+        formData.append("title", form.title);
+
+        await axios
+            .post("http://127.0.0.1:8000/mypage/persona/", formData, {
+                headers: {
+                    "Content-Type": "multipart/form-data",
+                },
+            })
+            .then(function (res) {
+                console.log(res, "페르소나 생성 성공");
+            })
+            .catch(function (err) {
+                console.log(err, "생성 실패");
+                console.log("폼데이터", formData);
+                for (let key of formData.keys()) {
+                    console.log(key);
+                }
+
+                /* value 확인하기 */
+                for (let value of formData.values()) {
+                    console.log(value);
+                }
+            });
+    };
     //선택된 이미지 확인
     useEffect(() => {
         console.log(imagelist);
     }, [imagelist]);
+
+    //이미지 삭제
     const handleDeleteImage = (id) => {
         setImagelist(imagelist.filter((_, index) => index !== id));
     };
+
     return (
         <>
             {persona_state ? null : (
                 <>
                     <p className={styles.form}>먼저 페르소나를 추가해주세요</p>
-                    <button className={styles.button_inactive} style={{ marginBottom: "2.5vw" }}>
+                    <button
+                        className={styles.button_inactive}
+                        style={{ marginBottom: "2.5vw" }}
+                        onClick={make_persona}
+                    >
                         페르소나 추가하러 가기
                     </button>
                 </>
@@ -228,6 +296,8 @@ function Fillup_component() {
                         placeholder="제목을 입력해주세요 (띄어쓰기 포함 최대 20자)"
                         style={{ color: "black", backgroundImage: `none` }}
                         disabled={persona_state ? false : true}
+                        value={form.title}
+                        onChange={onChange_title}
                     ></input>
                 </section>
                 <br /> <br />
@@ -235,10 +305,16 @@ function Fillup_component() {
                 <textarea
                     className={styles.textarea}
                     disabled={persona_state ? false : true}
+                    value={form.content}
+                    onChange={onChange_context}
                 ></textarea>
                 <br />
                 <br />
-                <button className={styles.submit_button} disabled={persona_state ? false : true}>
+                <button
+                    className={styles.submit_button}
+                    disabled={persona_state ? false : true}
+                    onClick={Submit}
+                >
                     업로드 하기
                 </button>
             </div>
