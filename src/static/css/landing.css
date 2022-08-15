@@ -1,0 +1,69 @@
+@font-face {
+    font-family: "AppleSDGothicNeoB00";
+    src: url("../font/AppleSDGothicNeoB.ttf");
+    unicode-range: U+AC00-D7A3;
+}
+.landing {
+    width: 100vw;
+    position: relative;
+}
+.header2 {
+    position: sticky;
+    height: 8vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #ffffff;
+    box-shadow: 0px 2px 15px rgba(0, 67, 101, 0.1);
+    z-index: 100;
+    margin-bottom: 50px;
+}
+
+.header2_login_btn {
+    top: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    box-sizing: border-box;
+    border: 2px solid #3cda9f;
+    border-radius: 5px;
+    position: absolute;
+    right: 5%;
+    font-family: "AppleSDGothicNeoB00";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.8vmax;
+    align-items: center;
+    text-align: center;
+    color: #3cda9f;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 0.2vw 1vw;
+}
+
+.landing_login_btn,
+.landing_login_btn2 {
+    position: absolute;
+    box-sizing: border-box;
+    border: 2% solid #3cda9f;
+    font-family: "AppleSDGothicNeoM00";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 1.1vmax;
+    align-items: center;
+    text-align: center;
+    color: white;
+    background-color: #3cda9f;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 0.5vw 1.5vw;
+
+    border-radius: 5px;
+}
+.landing_login_btn {
+    top: 34vmax;
+    left: 10.5%;
+}
+
+.landing_login_btn2 {
+    left: 10.5%;
+    bottom: 0;
+}

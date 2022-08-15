@@ -11,25 +11,31 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Logout from "../routes/Logout";
 import Search from "../routes/Search";
-
+import LandingPage from "../routes/Landing_page";
 const AppRouter = ({ isLoggedIn, setIsLoggedIn }) => {
     return (
         <>
             <Router>
                 <Routes>
+                    <Route path="/" element={isLoggedIn ? <Feed /> : <LandingPage />}></Route>
                     <Route
-                        path="/"
+                        path="/Login"
+                        element={<Login isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />}
+                    ></Route>
+
+                    <Route
+                        path="/SignupPage"
                         element={
-                            isLoggedIn ? (
-                                <Feed />
-                            ) : (
-                                <Login isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
-                            )
+                            <SignupPage isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
                         }
                     ></Route>
-                    <Route path="/SignupPage" element={<SignupPage isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />}></Route>
                     <Route path="/SignupProfile" element={<SignupProfile />}></Route>
-                    <Route path="/SignupPersona" element={<SignupPersona isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />}></Route>
+                    <Route
+                        path="/SignupPersona"
+                        element={
+                            <SignupPersona isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+                        }
+                    ></Route>
                     <Route
                         path="/logout"
                         element={<Logout isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />}
