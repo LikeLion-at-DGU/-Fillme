@@ -171,7 +171,7 @@ function SignupProfile() {
                         sx={{ mt: 3, mb: 2, bgcolor: "#3CDA9F" }}
                         onClick={profileSubmit}
                     >
-                        메인 프로필 생성 완료
+                        다음 단계
                     </Button>
                 </Box>
             </Container>
