@@ -26,24 +26,24 @@ function App() {
         }
     };
 
-    console.log(axios.defaults.headers);
+    // console.log(axios.defaults.headers);
 
     useEffect(() => {
-        console.log("로그인 여부");
-        console.log(localStorage);
+        // console.log("로그인 여부");
+        // console.log(localStorage);
         if (JSON.parse(localStorage.getItem("auth")) === true) {
             setIsLoggedIn(true);
             fetchData();
             fetchData2();
-            console.log(JSON.parse(localStorage.getItem("auth")));
+            // console.log(JSON.parse(localStorage.getItem("auth")));
         } else {
             setIsLoggedIn(false);
         }
     }, [isLoggedIn]);
 
     useEffect(() => {
-        console.log("로그인한 유저(없으면 0, 있으면 pk 번호");
-        console.log(localStorage.getItem("logInUserId"));
+        // console.log("로그인한 유저(없으면 0, 있으면 pk 번호");
+        // console.log(localStorage.getItem("logInUserId"));
     }, []);
 
     return (
