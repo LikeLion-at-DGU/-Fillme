@@ -1,8 +1,19 @@
 import Header from "../components/Header";
 import { Footer2 } from "../components/Footer";
-import React from 'react';
+import React from "react";
 import signStyle from "../static/css/Sign.module.css";
-import { TextField, Checkbox, Button, FormControl, FormControlLabel, Link, Grid, Typography, Box, Container } from "@mui/material/";
+import {
+    TextField,
+    Checkbox,
+    Button,
+    FormControl,
+    FormControlLabel,
+    Link,
+    Grid,
+    Typography,
+    Box,
+    Container,
+} from "@mui/material/";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -15,7 +26,9 @@ import { useForm } from "react-hook-form";
 
 const SignupPersona = () => {
     const navigate = useNavigate();
-    const { formState: { isSubmitting } } = useForm(); // 중복 제출 방지
+    const {
+        formState: { isSubmitting },
+    } = useForm(); // 중복 제출 방지
     const [userPersona, setUserPersona] = useState({
         name: "",
         category: "",
@@ -60,7 +73,8 @@ const SignupPersona = () => {
                 },
             })
             .then(function (res) {
-                navigate('/Profile', { replace: true });
+                console.log(res, "페르소나 생성 성공");
+                navigate("/Profile", { replace: true });
             })
             .catch(function (err) {
                 console.log(err, "생성 실패");
@@ -84,7 +98,7 @@ const SignupPersona = () => {
                         component="h1"
                         variant="h5"
                         sx={{ mb: 3 }}
-                        style={{ textAlign: 'center' }}
+                        style={{ textAlign: "center" }}
                         fontFamily="AppleSDGothicNeoB00"
                     >
                         멀티 페르소나를 추가하세요
@@ -138,9 +152,7 @@ const SignupPersona = () => {
                     </Typography>
                     <Button required style={{ justifyContent: "left", padding: "0" }}>
                         <label htmlFor="subProfile">
-                            <div className={signStyle.loadImgBtn}>
-                                페르소나 프로필 이미지 첨부
-                            </div>
+                            <div className={signStyle.loadImgBtn}>페르소나 프로필 이미지 첨부</div>
                         </label>
                         <input
                             type="file"
@@ -169,7 +181,7 @@ const SignupPersona = () => {
                         variant="contained"
                         fullWidth
                         fontFamily="AppleSDGothicNeoB00"
-                        style={{ height: '5.5vh' }}
+                        style={{ height: "5.5vh" }}
                         sx={{ bgcolor: "#3CDA9F" }}
                         disabled={isSubmitting}
                     >

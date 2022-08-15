@@ -12,18 +12,16 @@
     font-family: "Roboto";
     src: url("../font/Roboto-Regular.ttf");
     unicode-range: 
-        /* 영어 대문자, 영어 소문자 */ U+0041-005A,
-        U+0061-007A, /* 숫자, 특수문자 */ U+0030-0039, U+0020-002F, U+003A-0040,
-        U+005B-0060, U+007B-007E;
+        /* 영어 대문자, 영어 소문자 */ U+0041-005A, U+0061-007A,
+        /* 숫자, 특수문자 */ U+0030-0039, U+0020-002F, U+003A-0040, U+005B-0060, U+007B-007E;
 }
 
 @font-face {
     font-family: "Roboto-bold";
     src: url("../font/Roboto-Bold.ttf");
     unicode-range: 
-        /* 한글, 영어 대문자, 영어 소문자 */ U+0041-005A,
-        U+0061-007A, /* 숫자, 특수문자 */ U+0030-0039, U+0020-002F, U+003A-0040,
-        U+005B-0060, U+007B-007E;
+        /* 한글, 영어 대문자, 영어 소문자 */ U+0041-005A, U+0061-007A,
+        /* 숫자, 특수문자 */ U+0030-0039, U+0020-002F, U+003A-0040, U+005B-0060, U+007B-007E;
 }
 
 @font-face {
@@ -138,7 +136,7 @@
     font-size: 2.5vw;
     color: #ffffff;
     position: relative;
-    margin: 0.5vw;
+    margin: 0vw;
     top: 30%;
     left: 10%;
 }
@@ -151,11 +149,11 @@
     color: #ffffff;
     position: relative;
     margin: 5px;
-    top: 30%;
-    left: 10%;
+    top: 28%;
+    left: 9.5%;
 }
 
-#persona {
+/* #persona {
     font-family: "AppleSDGothicNeoM00", "Roboto";
     font-weight: 400;
     font-size: 1vw;
@@ -168,7 +166,7 @@
     margin-top: 1vw;
     top: 32%;
     left: 9%;
-}
+} */
 
 #type {
     font-family: "AppleSDGothicNeoM00", "Roboto";
@@ -193,3 +191,33 @@
     text-shadow: 0px 2px 10px rgba(0, 0, 0, 0.8);
     margin: 20px;
 }
+
+.Persona_name {
+    font-family: "AppleSDGothicNeoM00", "Roboto";
+    font-size: 1vw;
+    display: inline-block;
+    color: #ffffff;
+    position: relative;
+    top: 7vw;
+    left: 10%;
+}
+
+.Persona_category {
+    font-family: "AppleSDGothicNeoM00", "Roboto";
+    font-size: 1vw;
+    display: flex;
+    color: #ffffff;
+    position: relative;
+    top: 5.5vw;
+    left: 21%;
+}
+/* 
+#persona_card {
+    color: white;
+    font-style: "AppleSDGothicNeoB00", "Roboto-bold";
+    font-size: 1.3vw;
+    z-index: 100;
+    transform: rotate(270deg);
+    position: absolute;
+    top: 30%;
+} */
