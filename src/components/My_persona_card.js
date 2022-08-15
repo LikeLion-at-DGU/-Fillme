@@ -13,6 +13,7 @@ function My_persona_card({ name, category, image }) {
                 <section className={styles.shadow}></section>
                 <section className={styles.persona_card_name}>{name}</section>
                 <section className={styles.persona_card_category}>{category}</section>
+                {/* <section><button className={styles.persona_card_button}>수정</button></section> */}
             </div>
         </>
     );

@@ -11,9 +11,6 @@ import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 function Profile({ isLoggedIn, setIsLoggedIn }) {
-    // styled(ImgCard)`
-    //     margin: 0 15px 0 0;
-    // `;
     const [userProfile, setUserProfile] = useState({
         user: "",
         fullname: "",
@@ -72,8 +69,6 @@ function Profile({ isLoggedIn, setIsLoggedIn }) {
             />
         ))
     ];
-
-
     return (
         <>
             <style>

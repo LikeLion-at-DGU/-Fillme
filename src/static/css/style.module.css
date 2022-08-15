@@ -154,6 +154,7 @@
     border-radius: 0px 0px 10px 10px;
 }
 
+/* My_persona_cards */
 .persona_card_name {
     position: absolute;
     color: #3cda9f;
@@ -170,6 +171,18 @@
     font-size: 1vw;
     top: 92%;
     margin-left: 1.5vw;
+}
+
+.persona_card_button {
+    font-family: "AppleSDGothicNeoM00";
+    position: absolute;
+    top: 90%;
+
+    border: 1px solid #3cda9f;
+    border-radius: 5px;
+    background-color: transparent;
+    color: #3cda9f;
+    min-width: 5vw;
 }
 
 /* Logout */
