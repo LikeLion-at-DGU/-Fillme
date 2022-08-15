@@ -45,6 +45,7 @@ const SignupPersona = () => {
 
     const onLoadFile = (e) => {
         const file = e.target.files[0];
+        // console.log(e.target);
         setUserPersona({
             ...userPersona,
             image: file,
@@ -68,7 +69,7 @@ const SignupPersona = () => {
             })
             .then(function (res) {
                 console.log(res, "페르소나 생성 성공");
-                navigate("/Profile", { replace: true });
+                // navigate("/Profile", { replace: true });
             })
             .catch(function (err) {
                 console.log(err, "생성 실패");
