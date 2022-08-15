@@ -81,12 +81,10 @@ const Register = ({ isLoggedIn, setIsLoggedIn }) => {
             password1: password,
             password2: rePassword,
         };
-        console.log(data);
         // post
         await axios
             .post("http://127.0.0.1:8000/accounts/", data)
             .then(function (res) {
-                console.log(data);
                 localStorage.setItem("logInUserId", res.data.user.pk); // 현재 로그인한 유저 누군지 설정
                 const accesstoken = res.data.access_token; // API 요청 콜마다 헤더에 accessToken 담아 보내도록 설정
                 axios.defaults.headers.common["Authorization"] = "Bearer " + accesstoken;
@@ -150,7 +148,7 @@ const Register = ({ isLoggedIn, setIsLoggedIn }) => {
                                     <FormControlLabel control={<Checkbox onChange={handleAgree} color="primary" />} label="Fill Me 회원가입에 동의합니다." />
                                 </Grid>
                             </Grid>
-                            <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2, bgcolor: "#3CDA9F" }} size="large">
+                            <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2, bgcolor: "#3CDA9F" }} size="large" style={{ height: '5.5vh' }}>
                                 다음 단계
                             </Button>
                         </FormControl>

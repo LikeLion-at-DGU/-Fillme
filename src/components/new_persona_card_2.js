@@ -1,8 +1,8 @@
 import dummy from "../data.json"
 import { useState, useEffect } from "react";
-import "../static/css/personadata_1.css"
+import "../static/css/personadata_2.css"
 
-function PicFirst() {
+function PicSecond() {
 
     const [hover, setHover] = useState(false);
     const OnmouseEnter = () => {
@@ -18,10 +18,10 @@ function PicFirst() {
     const rend = (dummy => {
 
         const persona_f = [];
-            persona_f.push(dummy[1].persona.map(detail => (
-            <div className="persona_data_1_img_in">
-                <div id={"persona1-"+detail.persona_id}  
-                    className={"detailPersona1-"+detail.persona_id}
+            persona_f.push(dummy[2].persona.map(detail => (
+            <div className="persona_data_2_img_in">
+                <div id={"persona2-"+detail.persona_id}  
+                    className={"detailPersona2-"+detail.persona_id}
                     style={{
                         backgroundImage: `url(${detail.persona_image})`,
                         backgroundSize: `cover`,
@@ -37,7 +37,7 @@ function PicFirst() {
     if (hover) {
         return (
             <div>
-                <div className={"row_image"+dummy[1].id} id={"persona0-"+dummy[1].persona.persona_id} onMouseLeave={OnmouseLeave}>
+                <div className={"row_image"+dummy[2].id} id={"persona2-"+dummy[2].persona.persona_id} onMouseLeave={OnmouseLeave}>
                     {rend(dummy)}
                 </div>
             </div>
@@ -46,10 +46,10 @@ function PicFirst() {
     else {
         return (
             <div>
-                <div className={"row_image"+dummy[1].id} id={"persona0-"+dummy[1].persona.persona_id} onMouseEnter={OnmouseEnter}>
+                <div className={"row_image"+dummy[2].id} id={"persona2-"+dummy[2].persona.persona_id} onMouseEnter={OnmouseEnter}>
                     {rend(dummy)}
                 </div>
             </div>
         )
     }
-} export default PicFirst;
+} export default PicSecond;
