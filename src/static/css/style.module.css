@@ -32,6 +32,16 @@
     margin-bottom: 0;
 }
 
+.personaTitle {
+    font-family: Elsie;
+    font-size: 2.2vw;
+    margin: 5vw 8vw 0 8vw;
+}
+
+.cardWrap {
+    margin: 0 8vw 5vw 8vw;
+}
+
 /* Navbar */
 .icon {
     width: 1.5vw;
@@ -102,15 +112,6 @@
 }
 
 /* Mypage persona Card */
-.persona_add_card {
-    display: flex;
-    box-sizing: border-box;
-    position: relative;
-    width: 96%;
-    margin: 2.5% 1.5%;
-    height: 25vw;
-    border-radius: 10px;
-}
 .persona_card {
     display: flex;
     box-sizing: border-box;
@@ -119,19 +120,12 @@
     margin: 2.5% 0;
     height: 25vw;
     border-radius: 10px;
-    column-gap: 15px;
+    /* justify-content: space-between; */
 }
-.no_persona_card {
-    box-sizing: border-box;
-    margin-right: 1vw;
-    width: 25%;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 10px;
-    background-color: black;
-}
+
 .one_persona_card {
     box-sizing: border-box;
-    width: 25%;
+    width: 24%;
     box-shadow: 0px 3px 15px rgba(0, 67, 101, 0.15);
     border-radius: 10px;
     background-size: cover;
@@ -148,17 +142,21 @@
     height: 3vw;
     opacity: 75%;
 }
+
 .shadow {
-    top: 100%;
-    transform: translateY(-100%);
+    margin-top: 66%;
+    width: 100%;
     box-sizing: border-box;
     display: flex;
-    position: relative;
-    width: 100%;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 0;
+    width: 24%;
     height: 50%;
     background: linear-gradient(180deg, rgba(70, 70, 72, 0) 0%, #414141 100%);
     border-radius: 0px 0px 10px 10px;
 }
+
 .persona_card_name {
     position: absolute;
     color: #3cda9f;
@@ -183,33 +181,10 @@
     display: inline-flex;
     top: 10vw;
     left: 33vw;
-    z-index: 100;
-    background: #3cda9f;
-    border: 1px solid #3cda9f;
-    padding: 0.3vw 1.7vw;
-    box-shadow: 0px 2px 30px rgba(0, 67, 101, 0.08);
-    border-radius: 5px;
-    cursor: pointer;
-    font-family: "AppleSDGothicNeoB00";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 0.9vw;
-    color: white;
-    display: flex;
-    align-items: center;
-    text-align: center;
-}
-
-/* 페르소나 추가 버튼 */
-.addPersonaBtn {
-    position: relative;
-    display: inline-flex;
-    top: 9vw;
-    left: 33vw;
     z-index: 1;
     background: #3cda9f;
     border: 1px solid #3cda9f;
-    padding: 0.3vw 0.8vw;
+    padding: 0.3vw 1.7vw;
     box-shadow: 0px 2px 30px rgba(0, 67, 101, 0.08);
     border-radius: 5px;
     cursor: pointer;

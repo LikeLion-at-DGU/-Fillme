@@ -1,9 +1,11 @@
 import dummy from "../data.json";
 import { useState, useEffect } from "react";
-import "../static/css/personadata_0.css";
-import styled from "styled-components";
+import "../static/css/personadata_1.css";
 
-function PicZero() {
+function Pickpersona({ card_personas }) {
+    const CardimgUrl = ["http://127.0.0.1:8000" + card_personas.image];
+    console.log(card_personas);
+
     const [hover, setHover] = useState(false);
     const OnmouseEnter = () => {
         setHover(true);
@@ -15,22 +17,22 @@ function PicZero() {
         console.log("hover change");
     }, [hover]);
 
-    const rend = (dummy) => {
+    const rend = (card_personas) => {
         const persona_f = [];
         persona_f.push(
-            dummy[0].persona.map((detail) => (
-                <div className="persona_data_0_img_in">
+            card_personas.map((detail, index) => (
+                <div className="persona_data_1_img_in">
                     <div
-                        id={"persona0-" + detail.persona_id}
-                        className={"detailPersona0-" + detail.persona_id}
+                        id={"persona_detail"}
+                        className={"detailPersona" + index}
                         style={{
-                            backgroundImage: `url(${detail.persona_image})`,
+                            backgroundImage: `url(${CardimgUrl})`,
                             backgroundSize: `cover`,
                             backgroundRepeat: `no-repeat`,
                             backgroundPosition: `center`,
                         }}
                     >
-                        <div id={"persona_card" + detail.persona_id}>{detail.persona_name}</div>
+                        <div id={"persona_card"}>{detail.name}</div>
                     </div>
                 </div>
             ))
@@ -40,28 +42,20 @@ function PicZero() {
     };
     if (hover) {
         return (
-            <div className="row">
-                <div
-                    className={"row_image" + dummy[0].id}
-                    id={"persona0-" + dummy[0].persona.persona_id}
-                    onMouseLeave={OnmouseLeave}
-                >
-                    {rend(dummy)}
+            <div>
+                <div className={"row_image"} id="persona" onMouseLeave={OnmouseLeave}>
+                    {rend(card_personas)}
                 </div>
             </div>
         );
     } else {
         return (
-            <div className="row">
-                <div
-                    className={"row_image" + dummy[0].id}
-                    id={"persona0-" + dummy[0].persona.persona_id}
-                    onMouseEnter={OnmouseEnter}
-                >
-                    {rend(dummy)}
+            <div>
+                <div className={"row_image"} id="persona" onMouseEnter={OnmouseEnter}>
+                    {rend(card_personas)}
                 </div>
             </div>
         );
     }
 }
-export default PicZero;
+export default Pickpersona;
