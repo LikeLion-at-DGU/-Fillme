@@ -2,6 +2,7 @@ import Login from "../routes/Login";
 import SignupPage from "../routes/SignupPage";
 import SignupProfile from "../routes/SignupProfile";
 import SignupPersona from "../routes/SignupPersona";
+import UpdatePersona from "../routes/UpdatePersona";
 import Discover from "../routes/Discover";
 import Feed from "../routes/Feed";
 import Profile from "../routes/Profile";
@@ -34,6 +35,12 @@ const AppRouter = ({ isLoggedIn, setIsLoggedIn }) => {
                         path="/SignupPersona"
                         element={
                             <SignupPersona isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+                        }
+                    ></Route>
+                    <Route
+                        path="/UpdatePersona"
+                        element={
+                            <UpdatePersona isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
                         }
                     ></Route>
                     <Route
