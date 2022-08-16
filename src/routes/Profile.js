@@ -8,7 +8,9 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import My_persona_card from "../components/My_persona_card";
 import { Link, useNavigate } from "react-router-dom";
-import styled from "styled-components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGear } from "@fortawesome/free-solid-svg-icons";
+
 
 function Profile({ isLoggedIn, setIsLoggedIn }) {
     const [userProfile, setUserProfile] = useState({
@@ -81,6 +83,7 @@ function Profile({ isLoggedIn, setIsLoggedIn }) {
             <div className={styles.cardWrap}>
                 <div>
                     <Logout isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+                    <button className={styles.settingBtn}><FontAwesomeIcon icon={faGear} size="2x" /></button>
                     <Persona_Card
                         key={userProfile.user}
                         user={userProfile.user}
