@@ -3,7 +3,8 @@ import { useState, useEffect } from "react";
 import "../static/css/personadata_1.css";
 
 function Pickpersona({ card_personas }) {
-    console.log("페르소나 카드", card_personas);
+    // const CardimgUrl = "http://127.0.0.1:8000" + card_personas.image
+    console.log(card_personas);
 
     const [hover, setHover] = useState(false);
     const OnmouseEnter = () => {

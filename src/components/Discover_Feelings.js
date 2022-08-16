@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import styled from "styled-components";
 import axios from "axios";
 import "../static/css/Discover.css";
+import Pickpersona from "./new_persona_card_1";
 
 function Mainprofile({ image, color, user, username, fullname, memo, personas }) {
     const imageUrl = "http://127.0.0.1:8000" + image;
@@ -14,11 +15,30 @@ function Mainprofile({ image, color, user, username, fullname, memo, personas })
         backgroundPosition: `center`,
     };
 
+    const cover_style = {
+        backgroundSize: "cover",
+        backgroundRepeat: `no-repeat`,
+        backgroundPosition: `center`,
+    };
+
     const Color = styled.div`
          {
             background: linear-gradient(90deg, rgba(0, 0, 0, 0.01) 4%, ${color} 15%);
         }
     `;
+
+    // const rend = (personas => {
+    //     const persona_f = [];
+    //         persona_f.push(personas.map((card, index) => (
+    //         <div className="persona_data_1_img_in">
+    //             <div>
+    //                 <img className={"Persona_image"+index} style={cover_style} src={"http://127.0.0.1:8000"+card.image}></img>
+    //             </div>
+    //             <div id={"persona_card"}>{card.name}</div>
+    //         </div>)))
+
+    //     return persona_f;
+    // })
 
     return (
         <div className="card" id={"discover" + user}>
@@ -31,10 +51,33 @@ function Mainprofile({ image, color, user, username, fullname, memo, personas })
                 <div>
                     {personas.map((persona, index) => (
                         <div>
-                            <div className="Persona_name">{persona.name}</div>
-                            <div className="Persona_category">{persona.category}</div>
+                            <div className={"Persona_name" + index}>{persona.name}</div>
                         </div>
                     ))}
+                    {personas.map((persona, index) => (
+                        <div>
+                            <div className={"Persona_category" + index}>{persona.category}</div>
+                        </div>
+                    ))}
+                </div>
+
+                <div>
+                    {/* {JSON.parse(localStorage.getItem("discover_page")) == null ? (
+                        <div></div>
+                    ) : (
+                        JSON.parse(localStorage.getItem("discover_page")).map((card) => (
+                            <Pickpersona card_personas={card.personas} />
+                        ))
+                    )} */}
+                    {/* {personas.map((persona, index) => (
+                        <div>
+                        <div>
+                            <img className={"Persona_image"+index} style={cover_style} src={"http://127.0.0.1:8000"+persona.image}></img>                      
+                        </div>
+                        <div>{persona.name}</div>
+                        </div>
+                    ))} */}
+                    <Pickpersona card_personas={personas} />
                 </div>
 
                 <button id="btn_profile">프로필 보기</button>

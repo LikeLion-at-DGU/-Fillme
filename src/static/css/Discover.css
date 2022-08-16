@@ -48,7 +48,7 @@
     border-radius: 10px 10px 10px 10px;
 }
 
-.card_persona {
+/* .card_persona {
     font-style: "AppleSDGothicNeoM00", "Roboto";
     width: 12vw;
     height: 22vw;
@@ -62,7 +62,7 @@
     color: #ffffff;
     border-radius: 10px 10px 10px 10px;
     transform: rotate(270deg);
-}
+} */
 
 .image {
     width: 30%;
@@ -73,7 +73,7 @@
     border-radius: 10px 0px 0px 10px;
 }
 
-.image_per {
+/* .image_per {
     width: 15%;
     height: 21.5vw;
     top: 1.7vw;
@@ -83,7 +83,7 @@
     background-size: cover;
     border-radius: 10px 10px 10px 10px;
     position: absolute;
-}
+} */
 
 .user_data {
     width: 81.2%;
@@ -100,7 +100,7 @@
     font-family: "AppleSDGothicNeoM00";
     font-size: 0.8vw;
     position: absolute;
-    bottom: 11.3vw;
+    bottom: 11.8vw;
     left: 30vw;
     border: 1px solid #3cda9f;
     border-radius: 5px;
@@ -117,7 +117,7 @@
     font-family: "AppleSDGothicNeoM00";
     font-size: 0.8vw;
     position: absolute;
-    bottom: 11.3vw;
+    bottom: 11.8vw;
     left: 24vw;
     border: 1px solid #3cda9f;
     border-radius: 5px;
@@ -149,8 +149,8 @@
     color: #ffffff;
     position: relative;
     margin: 5px;
-    top: 28%;
-    left: 9.5%;
+    top: 31%;
+    left: 9.8%;
 }
 
 /* #persona {
@@ -192,24 +192,96 @@
     margin: 20px;
 }
 
-.Persona_name {
-    font-family: "AppleSDGothicNeoM00", "Roboto";
-    font-size: 1vw;
-    display: inline-block;
-    color: #ffffff;
-    position: relative;
-    top: 7vw;
-    left: 10%;
-}
-
-.Persona_category {
+.Persona_name0 {
     font-family: "AppleSDGothicNeoM00", "Roboto";
     font-size: 1vw;
     display: flex;
     color: #ffffff;
-    position: relative;
-    top: 5.5vw;
-    left: 21%;
+    position: absolute;
+    margin-bottom: 1%;
+    top: 14.5vw;
+    left: 11%;
+}
+
+.Persona_name1 {
+    font-family: "AppleSDGothicNeoM00", "Roboto";
+    font-size: 1vw;
+    display: flex;
+    color: #ffffff;
+    position: absolute;
+    margin-bottom: 1%;
+    top: 16.5vw;
+    left: 11%;
+}
+
+.Persona_name2 {
+    font-family: "AppleSDGothicNeoM00", "Roboto";
+    font-size: 1vw;
+    display: flex;
+    color: #ffffff;
+    position: absolute;
+    margin-bottom: 1%;
+    top: 18.5vw;
+    left: 11%;
+}
+
+.Persona_name3 {
+    font-family: "AppleSDGothicNeoM00", "Roboto";
+    font-size: 1vw;
+    display: flex;
+    color: #ffffff;
+    position: absolute;
+    margin-bottom: 1%;
+    top: 20.5vw;
+    left: 11%;
+}
+
+.Persona_category0 {
+    font-family: "AppleSDGothicNeoM00", "Roboto";
+    font-size: 1vw;
+    display: flex;
+    color: #ffffff;
+    position: absolute;
+    margin-bottom: 1%;
+    top: 14.5vw;
+    left: 28%;
+    width: 18vw;
+}
+
+.Persona_category1 {
+    font-family: "AppleSDGothicNeoM00", "Roboto";
+    font-size: 1vw;
+    display: flex;
+    color: #ffffff;
+    position: absolute;
+    margin-bottom: 1%;
+    top: 16.5vw;
+    left: 28%;
+    width: 18vw;
+}
+
+.Persona_category2 {
+    font-family: "AppleSDGothicNeoM00", "Roboto";
+    font-size: 1vw;
+    display: flex;
+    color: #ffffff;
+    position: absolute;
+    margin-bottom: 1%;
+    top: 18.5vw;
+    left: 28%;
+    width: 18vw;
+}
+
+.Persona_category3 {
+    font-family: "AppleSDGothicNeoM00", "Roboto";
+    font-size: 1vw;
+    display: flex;
+    color: #ffffff;
+    position: absolute;
+    margin-bottom: 1%;
+    top: 20.5vw;
+    left: 28%;
+    width: 18vw;
 }
 /* 
 #persona_card {
@@ -221,3 +293,63 @@
     position: absolute;
     top: 30%;
 } */
+
+.Persona_image0 {
+    width: 13vw;
+    height: 22vw;
+    box-shadow: 0px 3px 15px rgba(0, 67, 101, 0.15);
+    border-radius: 10px;
+    position: relative;
+    cursor: pointer;
+    object-fit: cover;
+    display: flex;
+    z-index: 0;
+    flex-direction: row;
+    top: 6%;
+    left: 78.5%;
+}
+
+.Persona_image1 {
+    width: 13vw;
+    height: 22vw;
+    box-shadow: 0px 3px 15px rgba(0, 67, 101, 0.15);
+    border-radius: 10px;
+    position: absolute;
+    cursor: pointer;
+    object-fit: cover;
+    display: flex;
+    z-index: 0;
+    flex-direction: row;
+    top: 6%;
+    left: 72.5%;
+}
+
+.Persona_image2 {
+    width: 13vw;
+    height: 22vw;
+    box-shadow: 0px 3px 15px rgba(0, 67, 101, 0.15);
+    border-radius: 10px;
+    position: absolute;
+    cursor: pointer;
+    object-fit: cover;
+    display: flex;
+    z-index: 0;
+    flex-direction: row;
+    top: 6%;
+    left: 67.5%;
+}
+
+.Persona_image3 {
+    width: 13vw;
+    height: 22vw;
+    box-shadow: 0px 3px 15px rgba(0, 67, 101, 0.15);
+    border-radius: 10px;
+    position: absolute;
+    cursor: pointer;
+    object-fit: cover;
+    display: flex;
+    z-index: 0;
+    flex-direction: row;
+    top: 6%;
+    left: 62.5%;
+}
