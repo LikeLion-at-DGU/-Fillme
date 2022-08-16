@@ -74,7 +74,8 @@ function My_persona_card({ Id, Name, Category, Image, Openpublic }) {
             >
                 <Link
                     to="/UpdatePersona"
-                    state={{ personaId: `${Id}` }}>
+                    state={{ personaId: `${Id}` }}
+                >
                     <button className={styles.persona_card_update}>수정</button>
                 </Link>
                 <button className={styles.persona_card_delete} onClick={onDelete}>삭제</button>
