@@ -11,7 +11,7 @@ import Fillup from "../routes/Fillup";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Logout from "../routes/Logout";
-import Search from "../routes/Search";
+
 import LandingPage from "../routes/Landing_page";
 const AppRouter = ({ isLoggedIn, setIsLoggedIn }) => {
     return (

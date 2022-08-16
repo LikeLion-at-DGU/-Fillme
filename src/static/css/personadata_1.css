@@ -27,12 +27,16 @@
 
 .persona_data_1_img_in {
     position: relative;
-    display: flex;
+    display: inline;
     flex-direction: row;
-    width: 10%;
-    margin-right: 20%;
+    width: 1%;
+    height: 10%;
+    margin-right: 35%;
 }
 
+/* #persona_detail {
+    width: 100vw;
+} */
 /* 실제 카드 */
 /* #persona_detail {
     width: 15vw;
@@ -54,17 +58,19 @@
 
 /* 사진 안 이름 */
 #persona_card {
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     font-style: "AppleSDGothicNeoB00", "Roboto-bold";
     font-size: 1.3vw;
+    font-weight: 550;
     z-index: 100;
     transform: rotate(270deg);
     transform-origin: left;
     display: flex;
     position: relative;
     width: 100%;
-    top: 42%;
-    left: 165%;
+    height: 10%;
+    top: 85%;
+    left: 90%;
 }
 
 .row_image {
@@ -78,11 +84,13 @@
     height: 22vw;
     box-shadow: 0px 3px 15px rgba(0, 67, 101, 0.15);
     border-radius: 10px;
-    position: absolute;
+    position: relative;
     cursor: pointer;
     object-fit: cover;
     display: flex;
     z-index: 0;
+    left: 44vw;
+    top: -4.5vw;
 }
 .detailPersona0:hover {
     transition: 400ms all ease-in-out;
@@ -94,11 +102,13 @@
     height: 22vw;
     box-shadow: 0px 3px 15px rgba(0, 67, 101, 0.15);
     border-radius: 10px;
-    position: absolute;
+    position: relative;
     cursor: pointer;
     object-fit: cover;
     display: flex;
     z-index: 1;
+    left: 44vw;
+    top: -4.5vw;
 }
 .detailPersona1:hover {
     transition: 400ms all ease-in-out;
@@ -110,11 +120,13 @@
     height: 22vw;
     box-shadow: 0px 3px 15px rgba(0, 67, 101, 0.15);
     border-radius: 10px;
-    position: absolute;
+    position: relative;
     cursor: pointer;
     object-fit: cover;
     display: flex;
     z-index: 2;
+    left: 44vw;
+    top: -4.5vw;
 }
 .detailPersona2:hover {
     transition: 400ms all ease-in-out;
@@ -126,11 +138,13 @@
     height: 22vw;
     box-shadow: 0px 3px 15px rgba(0, 67, 101, 0.15);
     border-radius: 10px;
-    position: absolute;
+    position: relative;
     cursor: pointer;
     object-fit: cover;
     display: flex;
     z-index: 3;
+    left: 44vw;
+    top: -4.5vw;
 }
 .detailPersona3:hover {
     transition: 400ms all ease-in-out;
@@ -140,77 +154,4 @@
 #persona {
     z-index: 1;
     width: 13.5vw;
-}
-/* #persona:hover {
-    transition: 400ms all ease-in-out;
-    transform: translateY(-3vh);
-} */
-
-/* #persona1-2 {
-    z-index: 2;
-    width: 13.5vw;
-}
-#persona1-2:hover {
-    transition: 400ms all ease-in-out;
-    transform: translateY(-3vh);
-}
-#persona1-3 {
-    z-index: 3;
-    width: 13.5vw;
-}
-#persona1-3:hover {
-    transition: 400ms all ease-in-out;
-    transform: translateY(-3vh);
-}
-#persona1-4 {
-    z-index: 4;
-    width: 13.5vw;
-}
-#persona1-4:hover {
-    transition: 400ms all ease-in-out;
-    transform: translateY(-3vh);
-} */
-
-#persona_card1 {
-    color: white;
-    font-style: "AppleSDGothicNeoB00", "Roboto-bold";
-    font-size: 1.3vw;
-    z-index: 100;
-    transform: rotate(270deg);
-    position: absolute;
-    left: 5vw;
-    top: 13vw;
-}
-
-#persona_card2 {
-    color: white;
-    font-style: "AppleSDGothicNeoB00", "Roboto-bold";
-    font-size: 1.3vw;
-    z-index: 100;
-    transform: rotate(270deg);
-    position: relative;
-    left: 5vw;
-    top: 13vw;
-}
-
-#persona_card3 {
-    color: white;
-    font-style: "AppleSDGothicNeoB00", "Roboto-bold";
-    font-size: 1.3vw;
-    z-index: 100;
-    transform: rotate(270deg);
-    position: relative;
-    left: 5vw;
-    top: 13vw;
-}
-
-#persona_card4 {
-    color: white;
-    font-style: "AppleSDGothicNeoB00", "Roboto-bold";
-    font-size: 1.3vw;
-    z-index: 100;
-    transform: rotate(270deg);
-    position: relative;
-    left: 5vw;
-    top: 13vw;
 }
