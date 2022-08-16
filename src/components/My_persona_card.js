@@ -28,22 +28,22 @@ function My_persona_card({ Id, Name, Category, Image, Count }) {
     // 첫 리렌더링 딱 한 번 필요한 데이터 추출할 의도였으나 state 변화에 따른 추가 리렌더링 발생
     useEffect(() => {
         fetchPersona();
-        switch (Count) {
-            case '0':
-                return
-            case '1':
-                return
-            case '2':
-                return
-            case '3':
-                return
-        }
-        setUserPersona([
-            { id: local_persona_data[0].id, name: local_persona_data[0].name, category: local_persona_data[0].category, image: local_persona_data[0].image },
-            { id: local_persona_data[1].id, name: local_persona_data[1].name, category: local_persona_data[1].category, image: local_persona_data[1].image },
-            { id: local_persona_data[2].id, name: local_persona_data[2].name, category: local_persona_data[2].category, image: local_persona_data[2].image },
+        // switch (Count) {
+        //     case '0':
+        //         return
+        //     case '1':
+        //         return
+        //     case '2':
+        //         return
+        //     case '3':
+        //         return
+        // }
+        // setUserPersona([
+        //     { id: local_persona_data[0].id, name: local_persona_data[0].name, category: local_persona_data[0].category, image: local_persona_data[0].image },
+        //     { id: local_persona_data[1].id, name: local_persona_data[1].name, category: local_persona_data[1].category, image: local_persona_data[1].image },
+        //     { id: local_persona_data[2].id, name: local_persona_data[2].name, category: local_persona_data[2].category, image: local_persona_data[2].image },
 
-        ]); // 리렌더링++
+        // ]); // 리렌더링++
     }, []);
     // console.log("userPersona[0] 추출", userPersona[0]);
     // console.log("userPersona[1] 추출", userPersona[1]);
@@ -105,9 +105,10 @@ function My_persona_card({ Id, Name, Category, Image, Count }) {
     // 페르소나 삭제 버튼
     const onDelete = (e) => {
         e.preventDefault();
-        axios.delete(`http://127.0.0.1:8000/mypage/persona/${Id}/`, Id) //
+        axios.delete(`http://127.0.0.1:8000/mypage/persona/${Id}/`) //
             .then((res) => {
                 console.log(res, "페르소나 삭제 성공");
+                window.location.replace("/Profile");
             })
             .catch((res) => {
                 console.log(res, "페르소나 삭제 실패");
