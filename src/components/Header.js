@@ -3,11 +3,11 @@ import styles from "../static/css/style.module.css";
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import React, { useEffect, useState, useRef } from "react";
-import Modal from "react-modal";
+
 import { borderRight, borderRightColor } from "@mui/system";
 import axios from "axios";
 import search from "../static/css/Search.module.css";
-Modal.setAppElement("#root");
+
 function Header() {
     //헤더 마우스 스크롤 내리면 사라지고 올리면 생기게
     const [position, setPosition] = useState(window.pageYOffset);
@@ -26,7 +26,7 @@ function Header() {
     });
 
     const cls = visible ? "visible_header" : "hidden_header";
-
+    const [modalOpen, setModalOpen] = useState(false);
     //검색
 
     const [searchValue, setsearchValue] = useState("");
@@ -54,32 +54,41 @@ function Header() {
         setsearchValue(e.target.value);
     };
 
+    //검색 값이 바뀔 때마다 post
     useEffect(() => {
         post_word(searchValue);
     }, [searchValue]);
+
+    //post해서 받은 response확인
     useEffect(() => {
         console.log("받은 데이터", searchResult);
     }, [searchResult]);
+
     useEffect(() => {
         // console.log(searchOpen);
     }, [searchOpen]);
 
+    useEffect(() => {
+        console.log(modalOpen);
+    }, [modalOpen]);
+
+    //스크롤 내리면 header 사라질때, 검색창도 사라지도록
     useEffect(() => {
         if (!visible) {
             setsearchOpen(false);
         }
     }, [visible]);
 
-    //검색창 밖에 클릭하면꺼지도록
-    function useOutSideRef() {
+    //검색창, 모달창 밖에 클릭하면꺼지도록
+    function useOutSideRef(funct) {
         const ref = useRef(null);
 
         useEffect(() => {
             function handleClickOutside(event) {
                 if (ref.current && !ref.current.contains(event.target)) {
-                    setsearchOpen(false);
+                    funct(false);
                 } else {
-                    setsearchOpen(true);
+                    funct(true);
                 }
             }
             document.addEventListener("click", handleClickOutside);
@@ -91,10 +100,11 @@ function Header() {
 
         return ref;
     }
-    const outsideRef = useOutSideRef(null);
+    const outsideSearch = useOutSideRef(setsearchOpen);
 
     //알림
-    const [modalOpen, setModalOpen] = useState(false);
+
+    const outsideModal = useOutSideRef(setModalOpen);
 
     return (
         <>
@@ -103,7 +113,7 @@ function Header() {
                     <section id="header_logo">Fill Me</section>
                 </NavLink>
 
-                <div className="search" ref={outsideRef}>
+                <div className="search" ref={outsideSearch}>
                     {searchOpen ? (
                         <div>
                             <input
@@ -156,45 +166,21 @@ function Header() {
                     )}
                 </div>
 
-                <div className="modal">
-                    <button type="button" onClick={() => setModalOpen(!modalOpen)}>
+                <div className="modal" ref={outsideModal}>
+                    <button type="button">
                         <img className={styles.icon} id="bell" src="images/bell.png" alt="New" />
                     </button>
                     <div></div>
-                    <Modal isOpen={modalOpen} className="customModal" style={Modal_style}>
+                    {modalOpen && !searchOpen ? (
                         <div className="News">
                             <p id="Today">오늘</p>
                             <p id="ThisWeek">이번 주</p>
                             <p id="ThisMonth">이번 달</p>
                         </div>
-                    </Modal>
+                    ) : null}
                 </div>
             </div>
         </>
     );
 }
 export default Header;
-
-//css
-const Modal_style = {
-    overlay: {
-        position: "absolute",
-        top: "9%",
-        left: "64.5%",
-        right: "10%",
-        bottom: 0,
-        backgroundColor: "rgba(255, 255, 255, 0)",
-        zIndex: 10,
-    },
-    content: {
-        display: "flex",
-        background: "#ffffff",
-        overflow: "auto",
-        top: "9vh",
-        left: "60vw",
-        right: "100vw",
-        bottom: "42vh",
-        WebkitOverflowScrolling: "touch",
-        outline: "none",
-    },
-};
