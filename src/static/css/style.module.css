@@ -63,7 +63,6 @@
     padding: 3vw;
     position: relative;
     width: 96%;
-
     height: 25vw;
     background-color: black;
     border-radius: 10px;
@@ -105,11 +104,30 @@
     height: 1.5px;
 }
 
-.no_persona {
-    height: 100px;
-    width: 100px;
+.post {
+    font-family: "AppleSDGothicNeoM00";
+    font-size: 1vw;
+    text-align: center;
+    line-height: 2vw;
+    display: inline-flex;
+    padding: 1% 5% 0 1%;
+}
 
-    background-color: #3cda9f;
+.follower {
+    font-family: "AppleSDGothicNeoM00";
+    font-size: 1vw;
+    text-align: center;
+    line-height: 2vw;
+    display: inline-flex;
+    padding-right: 5%;
+}
+
+.following {
+    font-family: "AppleSDGothicNeoM00";
+    font-size: 1vw;
+    text-align: center;
+    line-height: 2vw;
+    display: inline-flex;
 }
 
 /* Mypage persona Card */
