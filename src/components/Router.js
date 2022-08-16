@@ -13,6 +13,7 @@ import Navbar from "../components/Navbar";
 import Logout from "../routes/Logout";
 
 import LandingPage from "../routes/Landing_page";
+import User_Profile from "../routes/User_Profile";
 const AppRouter = ({ isLoggedIn, setIsLoggedIn }) => {
     return (
         <>
@@ -48,6 +49,7 @@ const AppRouter = ({ isLoggedIn, setIsLoggedIn }) => {
                         element={<Logout isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />}
                     ></Route>
                     <Route path="/Feed" element={<Feed />}></Route>
+                    <Route path=":user_id" element={<User_Profile />}></Route>
                     <Route path="/" element={<Navbar />}>
                         <Route path="/Discover" element={<Discover />}></Route>
                         <Route
@@ -58,6 +60,7 @@ const AppRouter = ({ isLoggedIn, setIsLoggedIn }) => {
                         ></Route>
                         <Route path="/Profile2" element={<Profile2 />}></Route>
                         <Route path="/Fillup" element={<Fillup />}></Route>
+
                         {/* <Route path="/Search" element={<Search />}></Route> */}
                     </Route>
                 </Routes>

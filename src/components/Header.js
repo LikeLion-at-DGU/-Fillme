@@ -3,7 +3,7 @@ import styles from "../static/css/style.module.css";
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import React, { useEffect, useState, useRef } from "react";
-
+import { useParams } from "react-router-dom";
 import { borderRight, borderRightColor } from "@mui/system";
 import axios from "axios";
 import search from "../static/css/Search.module.css";
@@ -12,6 +12,7 @@ function Header() {
     //헤더 마우스 스크롤 내리면 사라지고 올리면 생기게
     const [position, setPosition] = useState(window.pageYOffset);
     const [visible, setVisible] = useState(true);
+    const navigate = useNavigate();
     useEffect(() => {
         const handleScroll = () => {
             let moving = window.pageYOffset;
@@ -27,6 +28,8 @@ function Header() {
 
     const cls = visible ? "visible_header" : "hidden_header";
     const [modalOpen, setModalOpen] = useState(false);
+    const [button_state, setbuttonState] = useState(false);
+    const [close_state, setCloseState] = useState(true);
     //검색
 
     const [searchValue, setsearchValue] = useState("");
@@ -65,27 +68,30 @@ function Header() {
     }, [searchResult]);
 
     useEffect(() => {
-        // console.log(searchOpen);
+        console.log(searchOpen);
     }, [searchOpen]);
 
     useEffect(() => {
-        console.log(modalOpen);
+        // console.log(modalOpen);
     }, [modalOpen]);
 
-    //스크롤 내리면 header 사라질때, 검색창도 사라지도록
+    //스크롤 내리면 header 사라질때, 검색창, 알림창도 사라지도록
     useEffect(() => {
         if (!visible) {
             setsearchOpen(false);
+            setModalOpen(false);
         }
     }, [visible]);
 
     //검색창, 모달창 밖에 클릭하면꺼지도록
-    function useOutSideRef(funct) {
+    function useOutSideRef(funct, close_button) {
         const ref = useRef(null);
 
         useEffect(() => {
             function handleClickOutside(event) {
                 if (ref.current && !ref.current.contains(event.target)) {
+                    funct(false);
+                } else if (!close_button) {
                     funct(false);
                 } else {
                     funct(true);
@@ -100,11 +106,11 @@ function Header() {
 
         return ref;
     }
-    const outsideSearch = useOutSideRef(setsearchOpen);
+    const outsideSearch = useOutSideRef(setsearchOpen, close_state);
 
     //알림
 
-    const outsideModal = useOutSideRef(setModalOpen);
+    const outsideModal = useOutSideRef(setModalOpen, button_state);
 
     return (
         <>
@@ -123,13 +129,41 @@ function Header() {
                                 className="open_search"
                                 type="text"
                             />
+                            <section
+                                className={search.close_button}
+                                onClick={() => {
+                                    setCloseState(false);
+                                }}
+                            />
                             <div className={search.search_list}>
                                 {searchValue.length == 0
                                     ? null
                                     : searchResult.map((data) => {
                                           return (
                                               <>
-                                                  <div className={search.one_user}>
+                                                  <div
+                                                      className={search.one_user}
+                                                      onClick={() => {
+                                                          navigate(`/${data.id}`, {
+                                                              replace: true,
+                                                          });
+                                                          const fetchData = async () => {
+                                                              try {
+                                                                  const request = await axios.get(
+                                                                      `http://127.0.0.1:8000/mypage/profile_persona/${data.id}/`
+                                                                  );
+
+                                                                  localStorage.setItem(
+                                                                      "user_profile_data",
+                                                                      JSON.stringify(request.data)
+                                                                  );
+                                                              } catch (err) {
+                                                                  console.log(err);
+                                                              }
+                                                          };
+                                                          fetchData();
+                                                      }}
+                                                  >
                                                       <section
                                                           style={{
                                                               backgroundImage: `url(
@@ -161,16 +195,30 @@ function Header() {
                                 onChange={handleChange}
                                 className="close_search"
                                 type="text"
+                                onClick={() => {
+                                    setCloseState(true);
+                                }}
                             />
                         </>
                     )}
                 </div>
 
                 <div className="modal" ref={outsideModal}>
-                    <button type="button">
+                    <button
+                        type="button"
+                        onClick={
+                            modalOpen
+                                ? () => {
+                                      setbuttonState(false);
+                                  }
+                                : () => {
+                                      setbuttonState(true);
+                                  }
+                        }
+                    >
                         <img className={styles.icon} id="bell" src="images/bell.png" alt="New" />
                     </button>
-                    <div></div>
+
                     {modalOpen && !searchOpen ? (
                         <div className="News">
                             <p id="Today">오늘</p>
