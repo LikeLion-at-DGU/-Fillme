@@ -6,7 +6,7 @@ import React, { useEffect, useState, useRef } from "react";
 import Modal from "react-modal";
 import { borderRight, borderRightColor } from "@mui/system";
 import axios from "axios";
-
+import search from "../static/css/Search.module.css";
 Modal.setAppElement("#root");
 function Header() {
     //헤더 마우스 스크롤 내리면 사라지고 올리면 생기게
@@ -113,20 +113,34 @@ function Header() {
                                 className="open_search"
                                 type="text"
                             />
-                            <div className="search_list">
-                                {/* 검색어가 없는 경우에는 get 해서 검색 히스토리를 보여줌 */}
-                                {/* {searchValue.length==0?:} */}
-                                {/* 검색어가 있는 경우에는 해당 검색어를 post해서 받아온 값을  보여줌 */}
-                                {/* 그리고 검색어를 클릭하면, history post가 일어나고, 해당 user의 id 정보를 받아와서 
-                                그 사람의 마에피이지로 들어갈 수 있또록...와 망해써 */}
-                                {/* <p>예나</p> */}
-                                {searchResult.map((data) => {
-                                    <p>{data.id}</p>;
-                                    <p>{data.userid}</p>;
-                                    <p>{data.fullname}</p>;
-                                    <p>{data.username}</p>;
-                                    <p>{data.image}</p>;
-                                })}
+                            <div className={search.search_list}>
+                                {searchValue.length == 0
+                                    ? null
+                                    : searchResult.map((data) => {
+                                          return (
+                                              <>
+                                                  <div className={search.one_user}>
+                                                      <section
+                                                          style={{
+                                                              backgroundImage: `url(
+                                                              http://127.0.0.1:8000${data.image}
+                                                          )`,
+                                                          }}
+                                                          className={search.image}
+                                                      ></section>
+
+                                                      <div className={search.text_part}>
+                                                          <section className={search.fullname}>
+                                                              {data.fullname}
+                                                          </section>
+                                                          <section className={search.username}>
+                                                              @{data.username}
+                                                          </section>
+                                                      </div>
+                                                  </div>
+                                              </>
+                                          );
+                                      })}
                             </div>
                         </div>
                     ) : (
