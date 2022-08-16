@@ -45,6 +45,8 @@ const UpdatePersona = () => {
         let formData = new FormData();
         if (userUpdatePersona?.image) {
             formData.append("image", userUpdatePersona.image, userUpdatePersona.image.name);
+        } else {
+            window.alert("이미지를 첨부해주세요.");
         }
         formData.append("name", userUpdatePersona.name);
         formData.append("category", userUpdatePersona.category);
