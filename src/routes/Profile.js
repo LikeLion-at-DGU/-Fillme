@@ -9,7 +9,7 @@ import axios from "axios";
 import My_persona_card from "../components/My_persona_card";
 import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGear } from "@fortawesome/free-solid-svg-icons";
+import { faGear, faRotate } from "@fortawesome/free-solid-svg-icons";
 
 
 function Profile({ isLoggedIn, setIsLoggedIn }) {
@@ -36,7 +36,6 @@ function Profile({ isLoggedIn, setIsLoggedIn }) {
     const fetchData = async () => {
         try {
             const request = await axios.get("http://127.0.0.1:8000/mypage/profile_persona/");
-            console.log("request", request);
             setUserProfile({
                 user: request.data.user,
                 fullname: request.data.fullname,
@@ -44,8 +43,9 @@ function Profile({ isLoggedIn, setIsLoggedIn }) {
                 color: request.data.color,
                 color_hex: request.data.color_hex,
                 image: request.data.image,
-            });
+            }); // 리렌더링++
             localStorage.setItem("local_persona_data", JSON.stringify(request.data.personas));
+            console.log("request.data 추출", request.data);
         } catch (err) {
             console.log(err);
         }
@@ -72,6 +72,7 @@ function Profile({ isLoggedIn, setIsLoggedIn }) {
             />
         ))
     ];
+
     return (
         <>
             <style>
@@ -83,7 +84,11 @@ function Profile({ isLoggedIn, setIsLoggedIn }) {
             <div className={styles.cardWrap}>
                 <div>
                     <Logout isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
-                    <button className={styles.settingBtn}><FontAwesomeIcon icon={faGear} size="2x" /></button>
+                    <Link to="/SettingProfile">
+                        <button className={styles.settingBtn} >
+                            <FontAwesomeIcon icon={faGear} size="2x" />
+                        </button>
+                    </Link>
                     <Persona_Card
                         key={userProfile.user}
                         user={userProfile.user}
