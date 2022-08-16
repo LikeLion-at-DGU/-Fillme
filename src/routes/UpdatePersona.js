@@ -1,76 +1,74 @@
+import React from 'react';
 import Header from "../components/Header";
-import { Footer2 } from "../components/Footer";
-import React from "react";
 import signStyle from "../static/css/Sign.module.css";
+import { Footer2 } from "../components/Footer";
 import { TextField, Button, Typography, Box, Container } from "@mui/material/";
-import { useState, useEffect } from "react";
-import axios from "axios";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useLocation } from 'react-router';
 import { useForm } from "react-hook-form";
+import axios from "axios";
 
-// 페르소나 생성 데이터 양식
-// "name" : "페르소나 이름",
-// "category" : "카테고리",
-// "image" : "페르소나 사진"
-
-const SignupPersona = () => {
-    const navigate = useNavigate();
-    const {
-        formState: { isSubmitting },
-    } = useForm(); // 중복 제출 방지
-    const [userPersona, setUserPersona] = useState({
+const UpdatePersona = () => {
+    const location = useLocation();
+    const prevId = location.state.personaId;
+    console.log("페르소나 Id 잘 넘어왔는지 확인", prevId);
+    const navigate = useNavigate()
+    const { formState: { isSubmitting } } = useForm(); // 중복 제출 방지
+    const [userUpdatePersona, setUserUpdatePersona] = useState({
         name: "",
         category: "",
         image: null,
     });
 
+    // 페르소나 명, 카테고리 변화 감지
     const onChange = (e) => {
         const { value, name } = e.target;
-        setUserPersona({
-            ...userPersona,
+        setUserUpdatePersona({
+            ...userUpdatePersona,
             [name]: value,
         });
     };
 
+    // 페르소나 프로필 변화 감지
     const onLoadFile = (e) => {
         const file = e.target.files[0];
-        setUserPersona({
-            ...userPersona,
+        setUserUpdatePersona({
+            ...userUpdatePersona,
             image: file,
         });
     };
 
-    const addPersona = async (e) => {
+    // 페르소나 수정 버튼
+    const onUpdate = async (e) => {
         e.preventDefault();
         let formData = new FormData();
-        if (userPersona?.image) {
-            formData.append("image", userPersona.image, userPersona.image.name);
+        if (userUpdatePersona?.image) {
+            formData.append("image", userUpdatePersona.image, userUpdatePersona.image.name);
         }
-        formData.append("name", userPersona.name);
-        formData.append("category", userPersona.category);
+        formData.append("name", userUpdatePersona.name);
+        formData.append("category", userUpdatePersona.category);
 
-        await axios
-            .post("http://127.0.0.1:8000/mypage/persona/", formData, {
-                headers: {
-                    "Content-Type": "multipart/form-data",
-                },
-            })
-            .then(function (res) {
-                console.log(res, "페르소나 생성 성공");
+        await axios.patch(`http://127.0.0.1:8000/mypage/persona/${prevId}/`, formData, {
+            headers: {
+                "Content-Type": "multipart/form-data",
+            },
+        })
+            .then((res) => {
+                console.log(res, "페르소나 수정 성공");
                 navigate("/Profile", { replace: true });
             })
-            .catch(function (err) {
-                console.log(err, "생성 실패");
-            });
+            .catch((res) => {
+                console.log(res, "페르소나 수정 실패");
+            })
     };
-
     return (
         <>
             <Header />
             <Container component="main" maxWidth="md">
                 <Box
                     component="form"
-                    onSubmit={addPersona}
+                    onSubmit={onUpdate}
                     sx={{
                         marginTop: 5,
                         display: "flex",
@@ -84,7 +82,7 @@ const SignupPersona = () => {
                         style={{ textAlign: "center" }}
                         fontFamily="AppleSDGothicNeoB00"
                     >
-                        멀티 페르소나를 추가하세요
+                        멀티 페르소나를 수정하세요
                     </Typography>
                     <Typography
                         component="h1"
@@ -95,9 +93,9 @@ const SignupPersona = () => {
                         페르소나 명 *
                     </Typography>
                     <TextField
-                        label="페르소나의 이름을 입력해주세요"
+                        label="수정할 페르소나의 이름을 입력해주세요"
                         name="name"
-                        value={userPersona.name}
+                        value={userUpdatePersona.name}
                         fontFamily="AppleSDGothicNeoM00"
                         required
                         fullWidth
@@ -115,9 +113,9 @@ const SignupPersona = () => {
                         페르소나 카테고리 *
                     </Typography>
                     <TextField
-                        label="페르소나의 카테고리를 입력해주세요"
+                        label="수정할 페르소나의 카테고리를 입력해주세요"
                         name="category"
-                        value={userPersona.category}
+                        value={userUpdatePersona.category}
                         fontFamily="AppleSDGothicNeoM00"
                         required
                         fullWidth
@@ -146,19 +144,6 @@ const SignupPersona = () => {
                             onChange={onLoadFile}
                         />
                     </Button>
-                    {/* <Typography
-                        component="h1"
-                        variant="h6"
-                        sx={{ mb: 1 }}
-                        fontFamily="AppleSDGothicNeoB00"
-                    >
-                        다른 페르소나를 추가하시겠습니까?
-                    </Typography>
-                    <label htmlFor="mainProfile">
-                        <div className={signStyle.addPersonaBtn}>
-                            페르소나 추가하기
-                        </div>
-                    </label> */}
                     <Button
                         type="submit"
                         variant="contained"
@@ -168,7 +153,7 @@ const SignupPersona = () => {
                         sx={{ bgcolor: "#3CDA9F" }}
                         disabled={isSubmitting}
                     >
-                        페르소나 추가 완료
+                        페르소나 수정 완료
                     </Button>
                 </Box>
             </Container>
@@ -177,4 +162,4 @@ const SignupPersona = () => {
     );
 };
 
-export default SignupPersona;
+export default UpdatePersona;
