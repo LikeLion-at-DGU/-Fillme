@@ -90,9 +90,26 @@ button {
 }
 
 .News {
-    position: relative;
-    text-align: left;
-    width: 100%;
+    box-sizing: border-box;
+
+    position: absolute;
+    right: 10vw;
+    top: 95%;
+    transform: translateY(-1vw);
+    border: 0.1vw solid #d9d9d9;
+    width: 30vw;
+    height: 22vw;
+    background-color: white;
+    border-radius: 0.6vw;
+    box-shadow: 0px 3px 15px rgba(0, 67, 101, 0.15);
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    padding-left: 0.5vw;
+}
+
+.News p {
+    font-family: "AppleSDGothicNeoB00";
 }
 
 /* hr {
