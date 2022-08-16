@@ -182,10 +182,10 @@ function Fillup_component() {
                     </option>
                     {persona_state
                         ? local_persona_data.map((p) => (
-                              <option value={p.id} key={p.id}>
-                                  {p.name}
-                              </option>
-                          ))
+                            <option value={p.id} key={p.id}>
+                                {p.name}
+                            </option>
+                        ))
                         : null}
                 </select>
                 <br />
