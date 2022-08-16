@@ -124,6 +124,7 @@
 }
 
 .one_persona_card {
+    position: relative;
     box-sizing: border-box;
     width: 24%;
     box-shadow: 0px 3px 15px rgba(0, 67, 101, 0.15);
@@ -136,12 +137,16 @@
     font-size: 2vw;
     cursor: pointer;
 }
+.one_persona_card:hover {
+    border: 2px solid #3cda9f;
+}
 
 .one_persona_cardImg {
     width: 3vw;
     height: 3vw;
     opacity: 75%;
 }
+
 .shadow {
     top: 100%;
     transform: translateY(-100%);
@@ -154,10 +159,57 @@
     border-radius: 0px 0px 10px 10px;
 }
 
+.persona_card_update {
+    font-family: "AppleSDGothicNeoB00";
+    position: absolute;
+    top: 1vh;
+    right: 3.5vw;
+    background-color: #3cda9f;
+    color: white;
+    border-radius: 5px;
+    width: 2.5vw;
+    height: 3.7vh;
+    cursor: pointer;
+}
+
+.persona_card_delete {
+    font-family: "AppleSDGothicNeoB00";
+    position: absolute;
+    top: 1vh;
+    right: 0.5vw;
+    background-color: #3cda9f;
+    color: white;
+    border-radius: 5px;
+    width: 2.5vw;
+    height: 3.7vh;
+    cursor: pointer;
+}
+
+.hideBtn:hover,
+.persona_card_update:hover,
+.persona_card_delete:hover {
+    background-color: transparent;
+    color: #3cda9f;
+    border: 1px solid #3cda9f;
+}
+
+.hideBtn {
+    font-family: "AppleSDGothicNeoM00";
+    position: absolute;
+    top: 90%;
+    right: 5%;
+    border-radius: 5px;
+    background-color: #3cda9f;
+    color: white;
+    width: 4vw;
+    height: 3vh;
+    cursor: pointer;
+}
+
 .persona_card_name {
     position: absolute;
     color: #3cda9f;
-    top: 80%;
+    top: 79%;
     font-family: "AppleSDGothicNeoEB00";
     font-size: 2vw;
     margin-left: 1.5vw;
@@ -168,8 +220,19 @@
     position: absolute;
     color: white;
     font-size: 1vw;
-    top: 92%;
-    margin-left: 1.5vw;
+    top: 90%;
+    margin-left: 1.6vw;
+}
+
+.persona_card_button {
+    font-family: "AppleSDGothicNeoM00";
+    position: absolute;
+    top: 90%;
+    border: 1px solid #3cda9f;
+    border-radius: 5px;
+    background-color: transparent;
+    color: #3cda9f;
+    min-width: 5vw;
 }
 
 /* Logout */
@@ -193,4 +256,10 @@
     display: flex;
     align-items: center;
     text-align: center;
+}
+.logout:hover {
+    background-color: transparent;
+    color: #3cda9f;
+    border: 1px solid #3cda9f;
+    border-radius: 5px;
 }

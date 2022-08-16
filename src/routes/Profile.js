@@ -11,9 +11,6 @@ import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 function Profile({ isLoggedIn, setIsLoggedIn }) {
-    // styled(ImgCard)`
-    //     margin: 0 15px 0 0;
-    // `;
     const [userProfile, setUserProfile] = useState({
         user: "",
         fullname: "",
@@ -65,15 +62,14 @@ function Profile({ isLoggedIn, setIsLoggedIn }) {
     const personaCard = [
         local_persona_data.map((per) => (
             <My_persona_card
-                key={per.id}
-                name={per.name}
-                category={per.category}
-                image={per.image}
+                Id={per.id}
+                Name={per.name}
+                Category={per.category}
+                Image={per.image}
+                Openpublic={per.openpublic}
             />
         ))
     ];
-
-
     return (
         <>
             <style>
