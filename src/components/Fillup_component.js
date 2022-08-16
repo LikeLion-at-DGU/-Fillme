@@ -129,6 +129,7 @@ function Fillup_component() {
             })
             .then(function (res) {
                 console.log(res, "post 성공");
+                navigate("/Feed");
             })
             .catch(function (err) {
                 console.log(err, "post 실패");
