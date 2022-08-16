@@ -20,6 +20,7 @@ function Profile({ isLoggedIn, setIsLoggedIn }) {
         color: null,
         color_hex: null,
         image: null,
+        followings: [],
     });
 
     const navigate = useNavigate();
