@@ -51,14 +51,20 @@ function My_persona_card({ Id, Name, Category, Image, Openpublic }) {
     // 페르소나 삭제 버튼
     const onDelete = (e) => {
         e.preventDefault();
-        axios.delete(`http://127.0.0.1:8000/mypage/persona/${Id}/`)
-            .then((res) => {
-                console.log(res, "페르소나 삭제 성공");
-                window.location.replace("/Profile");
-            })
-            .catch((res) => {
-                console.log(res, "페르소나 삭제 실패");
-            })
+        if (window.confirm("해당 페르소나를 삭제하시겠습니까?")) {
+            return (
+                axios.delete(`http://127.0.0.1:8000/mypage/persona/${Id}/`)
+                    .then((res) => {
+                        console.log(res, "페르소나 삭제 성공");
+                        window.location.replace("/Profile");
+                    })
+                    .catch((res) => {
+                        console.log(res, "페르소나 삭제 실패");
+                    })
+            );
+        } else {
+            return;
+        }
     };
     return (
         <>
