@@ -38,6 +38,11 @@
     cursor: pointer;
     padding: 0.2vw 1vw;
 }
+.header2_login_btn:hover {
+    background-color: #3cda9f;
+    color: white;
+    border-radius: 5px;
+}
 
 .landing_login_btn,
 .landing_login_btn2 {
@@ -55,9 +60,15 @@
     text-decoration: none;
     cursor: pointer;
     padding: 0.5vw 1.5vw;
-
     border-radius: 5px;
 }
+.landing_login_btn:hover {
+    background-color: transparent;
+    color: #3cda9f;
+    border: 1px solid #3cda9f;
+    border-radius: 5px;
+}
+
 .landing_login_btn {
     top: 34vmax;
     left: 10.5%;

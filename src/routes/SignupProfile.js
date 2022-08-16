@@ -49,6 +49,8 @@ function SignupProfile() {
         if (profile?.image) {
             // ?. '앞'의 평가 대상이 undefined나 null이면 평가 멈추고 undefined 반환
             formData.append("image", profile.image, profile.image.name);
+        } else {
+            window.alert("이미지를 첨부해주세요.");
         }
         formData.append("fullname", profile.fullname);
         formData.append("memo", profile.memo);

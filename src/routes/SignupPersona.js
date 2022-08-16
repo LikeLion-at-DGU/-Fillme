@@ -15,9 +15,7 @@ import { useForm } from "react-hook-form";
 
 const SignupPersona = () => {
     const navigate = useNavigate();
-    const {
-        formState: { isSubmitting },
-    } = useForm(); // 중복 제출 방지
+    const { formState: { isSubmitting } } = useForm(); // 중복 제출 방지
     const [userPersona, setUserPersona] = useState({
         name: "",
         category: "",
@@ -45,6 +43,8 @@ const SignupPersona = () => {
         let formData = new FormData();
         if (userPersona?.image) {
             formData.append("image", userPersona.image, userPersona.image.name);
+        } else {
+            window.alert("이미지를 첨부해주세요.");
         }
         formData.append("name", userPersona.name);
         formData.append("category", userPersona.category);
