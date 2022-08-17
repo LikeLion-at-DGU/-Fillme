@@ -11,7 +11,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGear, faRotate } from "@fortawesome/free-solid-svg-icons";
 
-
 function Profile({ isLoggedIn, setIsLoggedIn }) {
     const [userProfile, setUserProfile] = useState({
         user: "",
@@ -47,6 +46,7 @@ function Profile({ isLoggedIn, setIsLoggedIn }) {
                 image: request.data.image,
             }); // 리렌더링++
             localStorage.setItem("local_persona_data", JSON.stringify(request.data.personas));
+            console.log("request.data 추출", request.data);
         } catch (err) {
             console.log(err);
         }

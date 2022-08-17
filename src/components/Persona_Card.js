@@ -17,16 +17,16 @@ function Persona_Card({ user, username, fullname, memo, color, image }) {
                 <br />
                 <hr className={styles.br_style} />
                 <section className={styles.post}>
-                    게시글<br />
-                    0     {/* 임시 */}
+                    게시글
+                    <br />0 {/* 임시 */}
                 </section>
                 <section className={styles.follower}>
-                    팔로워<br />
-                    0
+                    팔로워
+                    <br />0
                 </section>
                 <section className={styles.following}>
-                    팔로잉<br />
-                    0
+                    팔로잉
+                    <br />0
                 </section>
             </div>
         </>

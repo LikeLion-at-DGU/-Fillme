@@ -27,11 +27,15 @@ function User_Profile() {
     // const [followBtnName, setFollowBtnName] = useState({
     //     followState: "",
     // });
-
     useEffect(() => {
         request = JSON.parse(localStorage.getItem("user_profile_data"));
+        console.log(request);
         fetchFollow(); // 로그인 유저 ID로 팔로우 리스트 가져오기
-    }, [user_id]);
+    }, [request]);
+
+    // useEffect(() => {
+    //     request = JSON.parse(localStorage.getItem("user_profile_data"));
+    // }, [user_id]);
 
     const fetchFollow = async () => {
         try {
@@ -84,7 +88,7 @@ function User_Profile() {
         };
     };
 
-    const userPersonaCard = [
+    const personaCard = [
         request.personas.map((per) => (
             <User_persona_card
                 Id={per.id}
