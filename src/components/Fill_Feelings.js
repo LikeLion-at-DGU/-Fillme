@@ -14,7 +14,7 @@ function Fill_feelings({ id, user_id, image, persona, title, body, date_time }) 
     }, [hover]);
 
     const feelings_style = {
-        backgroundImage: `url(${image})`,
+        backgroundImage: `url(http://127.0.0.1:8000${image})`,
         backgroundSize: "cover",
         backgroundRepeat: `no-repeat`,
         backgroundPosition: `center`,
