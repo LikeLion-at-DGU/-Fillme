@@ -36,6 +36,8 @@ function Profile({ isLoggedIn, setIsLoggedIn }) {
     const fetchData = async () => {
         try {
             const request = await axios.get("http://127.0.0.1:8000/mypage/profile_persona/");
+            const requestFollow = await axios.get("http://127.0.0.1:8000/mypage/following_list/");
+            localStorage.setItem("local_follow_data", JSON.stringify(requestFollow.data));
             setUserProfile({
                 user: request.data.user,
                 username: request.data.username,
@@ -51,6 +53,8 @@ function Profile({ isLoggedIn, setIsLoggedIn }) {
             console.log(err);
         }
     };
+    const followList = JSON.parse(localStorage.getItem("local_follow_data"));
+    console.log("followList 확인 ", followList);
 
     const addCard = [
         <button className={styles.one_persona_card} onClick={onClick} >
@@ -98,6 +102,10 @@ function Profile({ isLoggedIn, setIsLoggedIn }) {
                         memo={userProfile.memo}
                         color={userProfile.color_hex}
                         image={userProfile.image}
+                        // followId={user_id}
+                        followList={followList}
+                        follower={followList.followingnum}
+                        following={followList.followernum}
                     />
                 </div>
                 <div className={styles.persona_card}>
