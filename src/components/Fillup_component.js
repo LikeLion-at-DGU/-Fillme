@@ -92,13 +92,15 @@ function Fillup_component() {
     };
 
     const [video, setVideo] = useState([]);
+    const [video_url, setVideoUrl] = useState();
     const selectVideo = (e) => {
         setVideo(e.target.files);
+        setVideoUrl(URL.createObjectURL(e.target.files[0]));
     };
 
     // useEffect(() => {
-    //     console.log(video[0].name);
-    // }, [video]);
+    //     console.log(video_url);
+    // }, [video_url]);
 
     const onChange_title = (e) => {
         const title = e.target.value;
@@ -314,10 +316,13 @@ function Fillup_component() {
                     <>
                         <div style={{ display: `flex`, flexDirection: `row` }}>
                             <p className={styles.form}>영상을 선택해주세요 *</p>
+
                             {/* input 커스터마이징 */}
+
                             <label htmlFor="video">
                                 <img src="images/plus_button.png" className={styles.plus_button} />
                             </label>
+                            <p className={styles.text}> (90초 이하의 영상 1개) </p>
                             <input
                                 onChange={selectVideo}
                                 type="file"
@@ -327,9 +332,15 @@ function Fillup_component() {
                                 disabled={persona_state ? false : true}
                             ></input>
                         </div>
-                        <label htmlFor="video">
-                            <div className={styles.input_box}>영상을 선택해주세요</div>
-                        </label>
+                        {video.length === 0 ? (
+                            <label htmlFor="video">
+                                <div className={styles.input_box}>영상을 선택해주세요</div>
+                            </label>
+                        ) : (
+                            <div className="image_list">
+                                <video src={video_url} className={styles.image_list} />
+                            </div>
+                        )}
                     </>
                 )}
                 <br />
