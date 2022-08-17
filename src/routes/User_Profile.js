@@ -15,36 +15,40 @@ import User_persona_card from "../components/User_persona_card";
 function User_Profile() {
     const { user_id } = useParams();
     let request = JSON.parse(localStorage.getItem("user_profile_data"));
-    const Id = request.id; // 현재 url params 변수 저장
+    console.log("리퀘스트 출력 ", request);
+    console.log("유저 아이디 출력", user_id);
 
-    const [followData, setFollowData] = useState({
-        followings: [],
-        followingnum: "",
-        followernum: "",
-    });
+    // const [followData, setFollowData] = useState({
+    //     followings: [],
+    //     followingnum: "",
+    //     followernum: "",
+    // });
 
-    const [followBtnName, setFollowBtnName] = useState();
+    // const [followBtnName, setFollowBtnName] = useState({
+    //     followState: "",
+    // });
+
     useEffect(() => {
         request = JSON.parse(localStorage.getItem("user_profile_data"));
         fetchFollow(); // 로그인 유저 ID로 팔로우 리스트 가져오기
-        if (followData.followings[0] == Id) {
-            setFollowBtnName("팔로잉");
-        } else {
-            setFollowBtnName("팔로우");
-        }
     }, [user_id]);
 
     const fetchFollow = async () => {
         try {
+            const requestFollowState = await axios.get(`http://127.0.0.1:8000/mypage/follow/${user_id}/`);
+            localStorage.setItem("local_followstate_data", JSON.stringify(requestFollowState.data));
+            const followState = JSON.parse(localStorage.getItem("local_followstate_data"));
+            console.log("followState 확인해봐 ", followState); // followState 추가
+
             const requestFollow = await axios.get("http://127.0.0.1:8000/mypage/following_list/");
-            setFollowData({
-                followings: requestFollow.data.followings,
-                followingnum: requestFollow.data.followingnum,
-                followernum: requestFollow.data.followernum
-            }); // 리렌더링++
             localStorage.setItem("local_follow_data", JSON.stringify(requestFollow.data));
             const followList = JSON.parse(localStorage.getItem("local_follow_data"));
-            console.log("followList 출력시켜", followList);
+            console.log("followList 확인해봐 ", followList);
+            // setFollowData({
+            //     followings: requestFollow.data.followings,
+            //     followingnum: requestFollow.data.followingnum,
+            //     followernum: requestFollow.data.followernum
+            // }); // 리렌더링++
         } catch (err) {
             console.log(err);
         }
@@ -53,28 +57,26 @@ function User_Profile() {
     // 내가 팔로우한 followList.followings 배열 안에 팔로우한 유저 Id값 있으면 팔로잉 버튼 출력
     const onChange = async (e) => {
         e.preventDefault();
-        if (followBtnName === "팔로우") {
-            if (window.confirm("해당 유저를 팔로우하시겠습니까?")) {
-                setFollowBtnName("팔로잉");
-                await axios.post(`http://127.0.0.1:8000/mypage/follow/${Id}/`)
-                    .then((res) => {
-                        console.log(res, "팔로우 성공");
-                    })
-                    .catch((res) => {
-                        console.log(res, "팔로우 실패");
-                    })
-            } else {
-                return;
-            }
-        } else {
+        if (user_id) { // 팔로우 되어 있는 상태 조건 followList.followings[0] === 
             if (window.confirm("정말 언팔로우하시겠습니까?")) {
-                setFollowBtnName("팔로우");
-                await axios.post(`http://127.0.0.1:8000/mypage/follow/${Id}/`)
+                await axios.post(`http://127.0.0.1:8000/mypage/follow/${user_id}/`)
                     .then((res) => {
                         console.log(res, "팔로우 취소 성공");
                     })
                     .catch((res) => {
                         console.log(res, "팔로우 취소 실패");
+                    })
+            } else {
+                return;
+            }
+        } else {
+            if (window.confirm("해당 유저를 팔로우하시겠습니까?")) {
+                await axios.post(`http://127.0.0.1:8000/mypage/follow/${user_id}/`)
+                    .then((res) => {
+                        console.log(res, "팔로우 성공");
+                    })
+                    .catch((res) => {
+                        console.log(res, "팔로우 실패");
                     })
             } else {
                 return;
@@ -107,12 +109,12 @@ function User_Profile() {
                         image={request.image}
                     />
                 </div>
-                <button
-                    className={followBtnName === "팔로우" ? styles.followBtn : styles.beforeFollowBtn}
+                {/* <button
+                    className={followState.followState === "팔로우" ? styles.followBtn : styles.beforeFollowBtn}
                     onClick={onChange}
                 >
-                    {followBtnName}
-                </button>
+                    {followState.followState}
+                </button> */}
                 <div className={styles.persona_card}>{[userPersonaCard]}</div>
             </div>
             <Footer />
