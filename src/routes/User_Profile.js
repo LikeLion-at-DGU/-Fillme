@@ -16,11 +16,34 @@ function User_Profile() {
     const { user_id } = useParams();
     let request = JSON.parse(localStorage.getItem("user_profile_data"));
     const Id = request.id;
-    console.log("유저 프로필 request 추출", request.username);
+
+    const [followData, setFollowData] = useState({
+        followings: [],
+        followingnum: "",
+        followernum: "",
+    });
 
     useEffect(() => {
         request = JSON.parse(localStorage.getItem("user_profile_data"));
+        fetchFollow(); // 로그인 유저 ID로 팔로우 리스트 가져오기
     }, [user_id]);
+
+    const fetchFollow = async () => {
+        try {
+            const requestFollow = await axios.get("http://127.0.0.1:8000/mypage/following_list/");
+            setFollowData({
+                followings: requestFollow.data.followings,
+                followingnum: requestFollow.data.followingnum,
+                followernum: requestFollow.data.followernum
+            }); // 리렌더링++
+            localStorage.setItem("local_follow_data", JSON.stringify(requestFollow.data));
+            const followList = JSON.parse(localStorage.getItem("local_follow_data"));
+            console.log("followList 출력시켜", followList);
+        } catch (err) {
+            console.log(err);
+        }
+    };
+
     const userPersonaCard = [
         request.personas.map((per) => (
             <User_persona_card
