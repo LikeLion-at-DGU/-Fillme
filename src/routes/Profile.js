@@ -14,6 +14,7 @@ import { faGear, faRotate } from "@fortawesome/free-solid-svg-icons";
 function Profile({ isLoggedIn, setIsLoggedIn }) {
     const [userProfile, setUserProfile] = useState({
         user: "",
+        usrname: "",
         fullname: "",
         memo: "",
         color: null,
@@ -38,6 +39,7 @@ function Profile({ isLoggedIn, setIsLoggedIn }) {
             const request = await axios.get("http://127.0.0.1:8000/mypage/profile_persona/");
             setUserProfile({
                 user: request.data.user,
+                username: request.data.username,
                 fullname: request.data.fullname,
                 memo: request.data.memo,
                 color: request.data.color,
@@ -92,6 +94,7 @@ function Profile({ isLoggedIn, setIsLoggedIn }) {
                     <Persona_Card
                         key={userProfile.user}
                         user={userProfile.user}
+                        username={userProfile.username}
                         fullname={userProfile.fullname}
                         memo={userProfile.memo}
                         color={userProfile.color_hex}
