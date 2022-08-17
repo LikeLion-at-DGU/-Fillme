@@ -2,7 +2,7 @@ import dummy from "../data.json";
 import "../static/css/Detail_image.css";
 
 function DetailImage({ img }) {
-    const BigImage = {
+    const BigImage = {  
         backgroundImage: `url(${img})`,
         backgroundSize: "cover",
         backgroundRepeat: `no-repeat`,

@@ -6,7 +6,7 @@ function App() {
     const token = localStorage.getItem("token");
     axios.defaults.headers.common["Authorization"] = token ? `Bearer ${token}` : null;
 
-    const fetchData = async () => {
+    const fetchData = async () => { 
         try {
             const request = await axios.get("http://127.0.0.1:8000/mypage/random_profile/");
             console.log("get 성공", request.data);

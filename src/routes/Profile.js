@@ -14,13 +14,12 @@ import { faGear, faRotate } from "@fortawesome/free-solid-svg-icons";
 function Profile({ isLoggedIn, setIsLoggedIn }) {
     const [userProfile, setUserProfile] = useState({
         user: "",
-        usrname: "",
+        username: "",
         fullname: "",
         memo: "",
         color: null,
         color_hex: null,
         image: null,
-        followings: [],
     });
 
     const navigate = useNavigate();
@@ -37,6 +36,8 @@ function Profile({ isLoggedIn, setIsLoggedIn }) {
     const fetchData = async () => {
         try {
             const request = await axios.get("http://127.0.0.1:8000/mypage/profile_persona/");
+            const requestFollow = await axios.get("http://127.0.0.1:8000/mypage/following_list/");
+            localStorage.setItem("local_follow_data", JSON.stringify(requestFollow.data));
             setUserProfile({
                 user: request.data.user,
                 username: request.data.username,
@@ -52,16 +53,18 @@ function Profile({ isLoggedIn, setIsLoggedIn }) {
             console.log(err);
         }
     };
+    const followList = JSON.parse(localStorage.getItem("local_follow_data"));
+    console.log("followList 확인 ", followList);
 
     const addCard = [
-        <button className={styles.one_persona_card} onClick={onClick}>
-            <img src="images/plus_button2.png" className={styles.one_persona_cardImg} />
-            <br />
-            <br />
-            페르소나
-            <br />
-            추가하기
-        </button>,
+        <button className={styles.one_persona_card} onClick={onClick} >
+            <img
+                src="images/plus_button2.png"
+                className={styles.one_persona_cardImg}
+            />
+            <br /><br />
+            페르소나< br />추가하기
+        </button >
     ];
     const personaCard = [
         local_persona_data.map((per) => (
@@ -72,7 +75,7 @@ function Profile({ isLoggedIn, setIsLoggedIn }) {
                 Image={per.image}
                 Openpublic={per.openpublic}
             />
-        )),
+        ))
     ];
 
     return (
@@ -87,7 +90,7 @@ function Profile({ isLoggedIn, setIsLoggedIn }) {
                 <div>
                     <Logout isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
                     <Link to="/SettingProfile">
-                        <button className={styles.settingBtn}>
+                        <button className={styles.settingBtn} >
                             <FontAwesomeIcon icon={faGear} size="2x" />
                         </button>
                     </Link>
@@ -99,14 +102,16 @@ function Profile({ isLoggedIn, setIsLoggedIn }) {
                         memo={userProfile.memo}
                         color={userProfile.color_hex}
                         image={userProfile.image}
+                        // followId={user_id}
+                        followList={followList}
+                        follower={followList.followingnum}
+                        following={followList.followernum}
                     />
                 </div>
                 <div className={styles.persona_card}>
-                    {local_persona_data.length === 0
-                        ? [addCard]
-                        : local_persona_data.length >= 4
-                        ? [personaCard]
-                        : [...personaCard, addCard]}
+                    {local_persona_data.length === 0 ? [addCard]
+                        : local_persona_data.length >= 4 ? [personaCard]
+                            : [...personaCard, addCard]}
                 </div>
             </div>
             <Footer />
