@@ -151,7 +151,13 @@ function Header() {
     const fetchData = async (id) => {
         try {
             const request = await axios.get(`http://127.0.0.1:8000/mypage/profile_persona/${id}/`);
+            const requestFollow = await axios.get(
+                `http://127.0.0.1:8000/mypage/${id}/following_list/`
+            );
+            localStorage.setItem("local_follow_data", JSON.stringify(requestFollow.data));
 
+            const requestMyFollow = await axios.get("http://127.0.0.1:8000/mypage/following_list/");
+            localStorage.setItem("local_my_follow_data", JSON.stringify(requestMyFollow.data));
             localStorage.setItem("user_profile_data", JSON.stringify(request.data));
 
             navigate(`/${id}`, {
