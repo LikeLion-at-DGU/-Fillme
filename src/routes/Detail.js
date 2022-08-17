@@ -22,4 +22,4 @@ function Detail() {
     <Footer />
     </>
     );
-} export default Detail;
+} export default Detail;    
