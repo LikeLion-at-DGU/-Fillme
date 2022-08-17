@@ -16,11 +16,12 @@ function User_Profile() {
     const { user_id } = useParams();
     let request = JSON.parse(localStorage.getItem("user_profile_data"));
     const Id = request.id;
+    console.log("유저 프로필 request 추출", request.username);
 
     useEffect(() => {
         request = JSON.parse(localStorage.getItem("user_profile_data"));
     }, [user_id]);
-    const personaCard = [
+    const userPersonaCard = [
         request.personas.map((per) => (
             <User_persona_card
                 Id={per.id}
@@ -31,12 +32,13 @@ function User_Profile() {
         )),
     ];
 
-    let followState = useRef("팔로우");
+    let followState = useRef("팔로우"); // 리렌더링 X
+    const [followName, setFollowName] = useState(followState.current);
     const onChange = async (e) => {
         e.preventDefault();
         if (followState.current === "팔로우") {
             followState.current = "팔로잉";
-            console.log("팔로우 버튼 눌렀을 때", followState.current);
+            setFollowName(followState.current);
             await axios.post(`http://127.0.0.1:8000/mypage/follow/${Id}/`)
                 .then((res) => {
                     console.log(res, "팔로우 성공");
@@ -46,7 +48,7 @@ function User_Profile() {
                 })
         } else {
             followState.current = "팔로우";
-            console.log("팔로우 취소 눌렀을 때", followState.current);
+            setFollowName(followState.current);
             await axios.post(`http://127.0.0.1:8000/mypage/follow/${Id}/`)
                 .then((res) => {
                     console.log(res, "팔로우 취소 성공");
@@ -73,12 +75,12 @@ function User_Profile() {
                     />
                 </div>
                 <button
-                    className={followState.current === "팔로우" ? styles.followBtn : styles.beforeFollowBtn}
+                    className={followName === "팔로우" ? styles.followBtn : styles.beforeFollowBtn}
                     onClick={onChange}
                 >
-                    {followState.current}
+                    {followName}
                 </button>
-                <div className={styles.persona_card}>{[personaCard]}</div>
+                <div className={styles.persona_card}>{[userPersonaCard]}</div>
             </div>
             <Footer />
         </>
