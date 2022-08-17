@@ -35,7 +35,13 @@ function Header() {
     const [searchValue, setsearchValue] = useState("");
     const [searchResult, setsearchResult] = useState([]);
     const [searchOpen, setsearchOpen] = useState(false);
-    //api
+
+    //검색하는 단어 감지? 저장
+    const handleChange = (e) => {
+        setsearchValue(e.target.value);
+    };
+
+    //검색어가 생기면 검색어를 post하고 그 결과를 받아서 저장
     const post_word = (word) => {
         const data = {
             word: word,
@@ -53,13 +59,42 @@ function Header() {
                 console.log(error);
             });
     };
-    const handleChange = (e) => {
-        setsearchValue(e.target.value);
+
+    //검색 히스토리
+    const [history, setHistory] = useState();
+    // 히스토리 get
+    const get_history = async () => {
+        try {
+            const request = await axios.get("http://127.0.0.1:8000/search/history/");
+            setHistory(request.data);
+            console.log("히스토리 불러오기 성공!", history);
+        } catch (err) {
+            console.log(err);
+        }
     };
 
-    //검색 값이 바뀔 때마다 post
+    //히스토리 저장
+    const post_history = (history) => {
+        const data = {
+            resultprofile: history.userid,
+            image: history.image,
+        };
+
+        axios
+            .post("http://127.0.0.1:8000/search/history/", data)
+            .then((response) => {
+                console.log("검색 기록 생성 완료!", response);
+            })
+            .catch((error) => {
+                console.log(error);
+                console.log("이미지 형식", history.image);
+            });
+    };
+
+    //검색 값이 바뀔 때마다 post & 히스토리 저장
     useEffect(() => {
         post_word(searchValue);
+        get_history();
     }, [searchValue]);
 
     //post해서 받은 response확인
@@ -69,6 +104,7 @@ function Header() {
 
     useEffect(() => {
         console.log(searchOpen);
+        get_history();
     }, [searchOpen]);
 
     useEffect(() => {
@@ -108,20 +144,44 @@ function Header() {
     }
     const outsideSearch = useOutSideRef(setsearchOpen, close_state);
 
+    //검색한거 클릭하면 다른 사람 프로필 들어가지도록
+    const fetchData = async (id) => {
+        try {
+            const request = await axios.get(`http://127.0.0.1:8000/mypage/profile_persona/${id}/`);
+            const requestFollow = await axios.get(
+                `http://127.0.0.1:8000/mypage/${id}/following_list/`
+            );
+            localStorage.setItem("local_follow_data", JSON.stringify(requestFollow.data));
+
+            const requestMyFollow = await axios.get("http://127.0.0.1:8000/mypage/following_list/");
+            localStorage.setItem("local_my_follow_data", JSON.stringify(requestMyFollow.data));
+            localStorage.setItem("user_profile_data", JSON.stringify(request.data));
+
+            navigate(`/${id}`, {
+                replace: true,
+            });
+        } catch (err) {
+            console.log(err);
+        }
+    };
     //알림
 
     const outsideModal = useOutSideRef(setModalOpen, button_state);
 
     return (
         <>
+            {/* 상단 로고 */}
             <div className={cls}>
                 <NavLink to="/Feed">
                     <section id="header_logo">Fill Me</section>
                 </NavLink>
 
+                {/* 검색창 */}
                 <div className="search" ref={outsideSearch}>
+                    {/* 검색창 열려있으면 */}
                     {searchOpen ? (
                         <div>
+                            {/* 검색창(input) */}
                             <input
                                 id="search"
                                 value={searchValue}
@@ -129,63 +189,89 @@ function Header() {
                                 className="open_search"
                                 type="text"
                             />
+                            {/* x 버튼 */}
                             <section
                                 className={search.close_button}
                                 onClick={() => {
                                     setCloseState(false);
                                 }}
                             />
+                            {/* 검색 결과 나오는 부분 */}
                             <div className={search.search_list}>
-                                {searchValue.length == 0
-                                    ? null
-                                    : searchResult.map((data) => {
-                                          return (
-                                              <>
-                                                  <div
-                                                      className={search.one_user}
-                                                      onClick={() => {
-                                                          const fetchData = async () => {
-                                                              try {
-                                                                  const request = await axios.get(
-                                                                      `http://127.0.0.1:8000/mypage/profile_persona/${data.id}/`
-                                                                  );
+                                {/* 검색내용 있을때, 없을 때 다르게 */}
+                                {searchValue.length == 0 ? (
+                                    // 검색어 없으면, 히스토리 보여주기
+                                    <>
+                                        <p className={search.fullname}>최근 검색 기록</p>
+                                        {history.map((data) => {
+                                            return (
+                                                <>
+                                                    <div
+                                                        className={search.one_user}
+                                                        onClick={() => {
+                                                            console.log("받아온 데이터", data);
+                                                            fetchData(data.resultprofile);
+                                                        }}
+                                                    >
+                                                        <section
+                                                            style={{
+                                                                backgroundImage: `url(
+                                                            http://127.0.0.1:8000${data.image}
+                                                        )`,
+                                                            }}
+                                                            className={search.image}
+                                                        ></section>
 
-                                                                  localStorage.setItem(
-                                                                      "user_profile_data",
-                                                                      JSON.stringify(request.data)
-                                                                  );
-
-                                                                  navigate(`/${data.id}`, {
-                                                                      replace: true,
-                                                                  });
-                                                              } catch (err) {
-                                                                  console.log(err);
-                                                              }
-                                                          };
-                                                          fetchData();
-                                                      }}
-                                                  >
-                                                      <section
-                                                          style={{
-                                                              backgroundImage: `url(
+                                                        <div className={search.text_part}>
+                                                            <section className={search.fullname}>
+                                                                {data.fullname}
+                                                            </section>
+                                                            <section className={search.username}>
+                                                                @{data.username}
+                                                            </section>
+                                                        </div>
+                                                        <section
+                                                            className={search.delete_history}
+                                                        ></section>
+                                                    </div>
+                                                </>
+                                            );
+                                        })}
+                                    </>
+                                ) : (
+                                    searchResult.map((data) => {
+                                        return (
+                                            <>
+                                                <div
+                                                    className={search.one_user}
+                                                    // 검색어 클릭하면 해당 유저의 정보를 get해오고, 해당 유저의 프로필로 이동
+                                                    onClick={() => {
+                                                        fetchData(data.id);
+                                                        post_history(data);
+                                                    }}
+                                                >
+                                                    <section
+                                                        style={{
+                                                            backgroundImage: `url(
                                                               http://127.0.0.1:8000${data.image}
                                                           )`,
-                                                          }}
-                                                          className={search.image}
-                                                      ></section>
+                                                        }}
+                                                        className={search.image}
+                                                    ></section>
 
-                                                      <div className={search.text_part}>
-                                                          <section className={search.fullname}>
-                                                              {data.fullname}
-                                                          </section>
-                                                          <section className={search.username}>
-                                                              @{data.username}
-                                                          </section>
-                                                      </div>
-                                                  </div>
-                                              </>
-                                          );
-                                      })}
+                                                    <div className={search.text_part}>
+                                                        <section className={search.fullname}>
+                                                            {data.fullname}
+                                                        </section>
+                                                        <section className={search.username}>
+                                                            @{data.username}
+                                                        </section>
+                                                    </div>
+                                                </div>
+                                            </>
+                                        );
+                                    })
+                                )}
                             </div>
                         </div>
                     ) : (

@@ -62,3 +62,14 @@
     top: 50%;
     transform: translateY(-50%);
 }
+
+.delete_history {
+    position: absolute;
+    right: 5%;
+    width: 0.5vw;
+    height: 0.5vw;
+    background-image: url("../../../public/images/close_history.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: 0.8vw;
+}
