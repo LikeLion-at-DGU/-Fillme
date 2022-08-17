@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import AppRouter from "./components/Router";
 import axios from "axios";
-
 function App() {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const token = localStorage.getItem("token");

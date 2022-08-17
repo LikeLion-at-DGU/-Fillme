@@ -144,9 +144,6 @@ function Header() {
                                                   <div
                                                       className={search.one_user}
                                                       onClick={() => {
-                                                          navigate(`/${data.id}`, {
-                                                              replace: true,
-                                                          });
                                                           const fetchData = async () => {
                                                               try {
                                                                   const request = await axios.get(
@@ -157,6 +154,10 @@ function Header() {
                                                                       "user_profile_data",
                                                                       JSON.stringify(request.data)
                                                                   );
+
+                                                                  navigate(`/${data.id}`, {
+                                                                      replace: true,
+                                                                  });
                                                               } catch (err) {
                                                                   console.log(err);
                                                               }

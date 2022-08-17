@@ -14,10 +14,14 @@ import User_persona_card from "../components/User_persona_card";
 function User_Profile() {
     const { user_id } = useParams();
     let request = JSON.parse(localStorage.getItem("user_profile_data"));
-
     useEffect(() => {
         request = JSON.parse(localStorage.getItem("user_profile_data"));
-    }, [user_id]);
+        console.log(request);
+    }, []);
+    useEffect(() => {
+        request = JSON.parse(localStorage.getItem("user_profile_data"));
+        console.log(request);
+    }, [request]);
     const personaCard = [
         request.personas.map((per) => (
             <User_persona_card
