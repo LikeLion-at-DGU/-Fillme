@@ -76,10 +76,7 @@ function Header() {
     //히스토리 저장
     const post_history = (history) => {
         const data = {
-            resultprofileid: history.id,
-            resultuserid: history.userid,
-            resultusername: history.username,
-            resultfullname: history.fullname,
+            resultprofile: history.userid,
             image: history.image,
         };
 
@@ -212,7 +209,8 @@ function Header() {
                                                     <div
                                                         className={search.one_user}
                                                         onClick={() => {
-                                                            fetchData(data.resultprofileid);
+                                                            console.log("받아온 데이터", data);
+                                                            fetchData(data.resultprofile);
                                                         }}
                                                     >
                                                         <section
@@ -226,10 +224,10 @@ function Header() {
 
                                                         <div className={search.text_part}>
                                                             <section className={search.fullname}>
-                                                                {data.resultfullname}
+                                                                {data.fullname}
                                                             </section>
                                                             <section className={search.username}>
-                                                                @{data.resultusername}
+                                                                @{data.username}
                                                             </section>
                                                         </div>
                                                         <section

@@ -25,7 +25,7 @@ function User_Profile() {
 
     useEffect(() => {
         request = JSON.parse(localStorage.getItem("user_profile_data"));
-        fetchFollow(); // 로그인 유저 ID로 팔로우 리스트 가져오기
+        // fetchFollow(); // 로그인 유저 ID로 팔로우 리스트 가져오기
     }, [request]);
 
     // const fetchFollow = async () => {
