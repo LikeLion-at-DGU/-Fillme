@@ -53,7 +53,11 @@ function SignupProfile() {
             window.alert("이미지를 첨부해주세요.");
         }
         formData.append("fullname", profile.fullname);
-        formData.append("memo", profile.memo);
+        if (profile.memo.length > 30) {
+            window.alert("한 줄 소개는 띄어쓰기 포함 최대 30자입니다.");
+        } else {
+            formData.append("memo", profile.memo);
+        }
         formData.append("color", profile.color);
 
         await axios
