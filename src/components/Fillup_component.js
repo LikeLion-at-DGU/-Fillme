@@ -91,6 +91,17 @@ function Fillup_component() {
         setPostImages(currentPostImageList);
     };
 
+    const [video, setVideo] = useState([]);
+    const [video_url, setVideoUrl] = useState();
+    const selectVideo = (e) => {
+        setVideo(e.target.files);
+        setVideoUrl(URL.createObjectURL(e.target.files[0]));
+    };
+
+    // useEffect(() => {
+    //     console.log(video_url);
+    // }, [video_url]);
+
     const onChange_title = (e) => {
         const title = e.target.value;
         setForm({
@@ -106,8 +117,39 @@ function Fillup_component() {
             content: content,
         });
     };
+    const Submit_video = async (e) => {
+        e.preventDefault();
+        let formData = new FormData();
 
-    const Submit = async (e) => {
+        formData.append("persona", form.persona);
+        formData.append("content", form.content);
+        formData.append("title", form.title);
+        formData.append("video", video[0], video[0].name);
+        await axios
+            .post("http://127.0.0.1:8000/post/video_post_create/", formData, {
+                headers: {
+                    "Content-Type": "multipart/form-data",
+                },
+            })
+            .then(function (res) {
+                console.log(res, "post 성공");
+                navigate("/Feed");
+            })
+            .catch(function (err) {
+                console.log(err, "post 실패");
+                console.log("폼데이터", formData);
+                alert("페르소나 선택, 영상, 제목, 본문 내용은 필수 입력란입니다");
+                for (let key of formData.keys()) {
+                    console.log(key);
+                }
+
+                /* value 확인하기 */
+                for (let value of formData.values()) {
+                    console.log(value);
+                }
+            });
+    };
+    const Submit_image = async (e) => {
         e.preventDefault();
         let formData = new FormData();
 
@@ -183,10 +225,10 @@ function Fillup_component() {
                     </option>
                     {persona_state
                         ? local_persona_data.map((p) => (
-                            <option value={p.id} key={p.id}>
-                                {p.name}
-                            </option>
-                        ))
+                              <option value={p.id} key={p.id}>
+                                  {p.name}
+                              </option>
+                          ))
                         : null}
                 </select>
                 <br />
@@ -274,11 +316,15 @@ function Fillup_component() {
                     <>
                         <div style={{ display: `flex`, flexDirection: `row` }}>
                             <p className={styles.form}>영상을 선택해주세요 *</p>
+
                             {/* input 커스터마이징 */}
+
                             <label htmlFor="video">
                                 <img src="images/plus_button.png" className={styles.plus_button} />
                             </label>
+                            <p className={styles.text}> (90초 이하의 영상 1개) </p>
                             <input
+                                onChange={selectVideo}
                                 type="file"
                                 accept="video/*"
                                 id="video"
@@ -286,9 +332,15 @@ function Fillup_component() {
                                 disabled={persona_state ? false : true}
                             ></input>
                         </div>
-                        <label htmlFor="video">
-                            <div className={styles.input_box}>영상을 선택해주세요</div>
-                        </label>
+                        {video.length === 0 ? (
+                            <label htmlFor="video">
+                                <div className={styles.input_box}>영상을 선택해주세요</div>
+                            </label>
+                        ) : (
+                            <div className="image_list">
+                                <video src={video_url} className={styles.image_list} />
+                            </div>
+                        )}
                     </>
                 )}
                 <br />
@@ -329,7 +381,7 @@ function Fillup_component() {
                 <button
                     className={styles.submit_button}
                     disabled={persona_state ? false : true}
-                    onClick={Submit}
+                    onClick={button1 ? Submit_image : Submit_video}
                 >
                     업로드 하기
                 </button>
