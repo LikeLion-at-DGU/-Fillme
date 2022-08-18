@@ -7,7 +7,6 @@ import styles from "../static/css/style.module.css";
 // import DetailImage from "../components/Detail_image"
 
 function Detail() {
-
     return (
         <>
             <style>

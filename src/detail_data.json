@@ -1,14 +1,42 @@
-
-    {
-        "title": "test",    
-        "image1":"https://i.ibb.co/xz2H9vn/unsplash-XUT7-V-md7sc-1.png",
-        "image2":"https://i.ibb.co/zVhqdX9/unsplash-7s-GOde9y-SYw.png",
-        "image3": "https://i.ibb.co/DMZSChX/unsplash-XUT7-V-md7sc.png",
-        "image4": "https://picsum.photos/1920/1081",
-        "image5": "https://ifh.cc/g/AMXmCa.png",
-        "image6": "https://i.ibb.co/swCS9yS/unsplash-7s-GOde9y-SYw-2.png",
-        "image7": "http://itimg.chosun.com/sitedata/image/201810/02/2018100200110_0.jpg",
-        "image8": "https://picsum.photos/1920/1084",
-        "image9": "https://picsum.photos/1920/1083",
-        "image10": "https://picsum.photos/1920/1081"
-    }
+{
+    "title": "test",
+    "persona": "yoons",
+    "created_at": "30초 전",
+    "image1": "https://i.ibb.co/xz2H9vn/unsplash-XUT7-V-md7sc-1.png",
+    "image2": "https://i.ibb.co/zVhqdX9/unsplash-7s-GOde9y-SYw.png",
+    "image3": "https://i.ibb.co/DMZSChX/unsplash-XUT7-V-md7sc.png",
+    "image4": "https://picsum.photos/1920/1081",
+    "image5": "https://ifh.cc/g/AMXmCa.png",
+    "image6": "https://i.ibb.co/swCS9yS/unsplash-7s-GOde9y-SYw-2.png",
+    "image7": "http://itimg.chosun.com/sitedata/image/201810/02/2018100200110_0.jpg",
+    "image8": "https://picsum.photos/1920/1084",
+    "image9": "https://picsum.photos/1920/1083",
+    "image10": "https://picsum.photos/1920/1081",
+    "content": "test입니다.",
+    "comment_set": [
+        {
+            "id": "id1",
+            "comment": "comment test1"
+        },
+        {
+            "id": "id2",
+            "comment": "comment test2"
+        },
+        {
+            "id": "id3",
+            "comment": "comment test3"
+        },
+        {
+            "id": "id4",
+            "comment": "comment test4"
+        },
+        {
+            "id": "id5",
+            "comment": "comment test5"
+        },
+        {
+            "id": "id6",
+            "comment": "comment test6"
+        }
+    ]
+}
