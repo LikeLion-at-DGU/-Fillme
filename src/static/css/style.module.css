@@ -93,7 +93,11 @@
 
 .user_memo {
     font-family: "AppleSDGothicNeoM00";
-    font-size: 1vw;
+    font-size: 1.3vw;
+}
+
+.user_length {
+    font-family: "AppleSDGothicNeoM00";
 }
 
 .br_style {
