@@ -18,19 +18,14 @@ function App() {
     const fetchData2 = async () => {
         try {
             const request = await axios.get("http://127.0.0.1:8000/mypage/profile_persona/");
-            const requestFollow = await axios.get("http://127.0.0.1:8000/mypage/following_list/");
-
-            console.log("get 성공", request);
-
             localStorage.setItem("local_persona_data", JSON.stringify(request.data.personas));
-            localStorage.setItem("local_follow_data", JSON.stringify(requestFollow.data));
+            // console.log("get 성공", request);
         } catch (err) {
             console.log(err);
         }
     };
 
     // console.log(axios.defaults.headers);
-
     useEffect(() => {
         // console.log("로그인 여부");
         // console.log(localStorage);

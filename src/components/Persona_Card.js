@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import axios from "axios";
 import { useState } from "react";
 import Logout from "../routes/Logout";
-function Persona_Card({ user, username, fullname, memo, color, image, followId, followList, follower, following }) {
+function Persona_Card({ user, username, fullname, memo, color, image, followId, followList, followings, follower, following }) {
     const loginusername = localStorage.getItem("loginUserName");
     const imageUrl = "http://127.0.0.1:8000" + image;
 
@@ -23,12 +23,12 @@ function Persona_Card({ user, username, fullname, memo, color, image, followId, 
                 <section className={styles.follower}>
                     팔로워
                     <br />
-                    {followList.followernum}
+                    {follower}
                 </section>
                 <section className={styles.following}>
                     팔로잉
                     <br />
-                    {followList.followingnum}
+                    {following}
                 </section>
             </div>
         </>
