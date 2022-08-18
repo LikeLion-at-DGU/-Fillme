@@ -26,7 +26,9 @@ function User_Profile() {
 
     const fetchFollow = async () => {
         try {
-            const requestFollow = await axios.get(`http://127.0.0.1:8000/mypage/${user_id}/following_list/`);
+            const requestFollow = await axios.get(
+                `http://127.0.0.1:8000/mypage/${user_id}/following_list/`
+            );
             localStorage.setItem("local_follow_data", JSON.stringify(requestFollow.data));
 
             const requestMyFollow = await axios.get("http://127.0.0.1:8000/mypage/following_list/");
@@ -34,7 +36,7 @@ function User_Profile() {
             setFollowData({
                 followings: requestFollow.data.followings,
                 followingnum: requestFollow.data.followingnum,
-                followernum: requestFollow.data.followernum
+                followernum: requestFollow.data.followernum,
             }); // 리렌더링++
         } catch (err) {
             console.log(err);
@@ -98,8 +100,10 @@ function User_Profile() {
     return (
         <>
             <Navbar />
-            <h1 className={styles.personaTitle}>Profile</h1>
-            <div className={styles.cardWrap}>
+
+            <div className={styles.wrap}>
+                <h1 className={styles.title}>Profile</h1>
+                <br />
                 <div>
                     <Persona_Card
                         key={request.user}
