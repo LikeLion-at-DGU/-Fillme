@@ -16,8 +16,16 @@ function User_persona_card({ Id, Name, Category, Image }) {
                 style={{ backgroundImage: `url(${imageUrl})` }}
             >
                 <section className={styles.shadow}></section>
-                <section className={styles.persona_card_name}>{Name}</section>
-                <section className={styles.persona_card_category}>{Category}</section>
+                <div
+                    onClick={() => {
+                        navigate(`/user_profile/${Id}`, {
+                            replace: true,
+                        });
+                    }}
+                >
+                    <section className={styles.persona_card_name}>{Name}</section>
+                    <section className={styles.persona_card_category}>{Category}</section>
+                </div>
             </div>
         </>
     );
