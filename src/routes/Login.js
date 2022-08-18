@@ -20,6 +20,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import styled from "styled-components";
 import { Input } from "antd";
+import Header2 from "../components/Header2";
 
 function Login({ isLoggedIn, setIsLoggedIn }) {
     const navigate = useNavigate();
@@ -76,7 +77,7 @@ function Login({ isLoggedIn, setIsLoggedIn }) {
 
     return (
         <>
-            <Header />
+            <Header2 />
             {errors === true && <h2>Cannot log in with provided credentials</h2>}
             <div className={styles.wrap}>
                 <Container component="main" maxWidth="sm">
@@ -86,7 +87,7 @@ function Login({ isLoggedIn, setIsLoggedIn }) {
                             marginTop: 10,
                             display: "flex",
                             flexDirection: "column",
-                            minHeight: '50vh',
+                            minHeight: "50vh",
                         }}
                     >
                         <Typography

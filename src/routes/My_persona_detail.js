@@ -47,6 +47,7 @@ function Profile2() {
                     image={my_persona_info.image}
                     name={my_persona_info.name}
                     length={my_persona_post.length}
+                    Color_hex={my_persona_info.color_hex}
                 />
 
                 <div className={styles.wrap2}>{my_persona_post.map(render_fill_feelings)}</div>
@@ -65,7 +66,7 @@ function render_fill_feelings(fill) {
             user_id={fill.username}
             index={fill.id}
             image={fill.image1}
-            persona={fill.persona}
+            persona={fill.personaname}
             title={fill.title}
             body={fill.content}
             date_time={fill.updated_at}

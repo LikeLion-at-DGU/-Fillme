@@ -3,9 +3,22 @@ import { Footer } from "../components/Footer";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Header from "../components/Header";
-import { Button, CssBaseline, TextField, FormControl, FormControlLabel, Checkbox, FormHelperText, Grid, Box, Typography, Container } from "@mui/material/";
+import {
+    Button,
+    CssBaseline,
+    TextField,
+    FormControl,
+    FormControlLabel,
+    Checkbox,
+    FormHelperText,
+    Grid,
+    Box,
+    Typography,
+    Container,
+} from "@mui/material/";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import styled from "styled-components";
+import Header2 from "../components/Header2";
 
 // mui의 css 우선순위가 높기때문에 important를 설정 - 실무 종종 발생 우선순위 문제
 const FormHelperTexts = styled(FormHelperText)`
@@ -47,18 +60,21 @@ const Register = ({ isLoggedIn, setIsLoggedIn }) => {
         const { id, email, password, rePassword } = joinData;
         //console.log(joinData);
         // 이메일 유효성 체크
-        const emailRegex = /([\w-.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+        const emailRegex =
+            /([\w-.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
         if (!emailRegex.test(email)) setEmailError("올바른 이메일 형식이 아닙니다.");
         else setEmailError("");
 
         // 아이디 유효성 검사
         const idRegex = /^[a-zA-Z0-9]{4,12}$/;
-        if (!idRegex.test(id) || id.length < 1) setIdError("특수문자를 제외한 올바른 아이디를 입력해주세요.");
+        if (!idRegex.test(id) || id.length < 1)
+            setIdError("특수문자를 제외한 올바른 아이디를 입력해주세요.");
         else setIdError("");
 
         // 비밀번호 유효성 체크
         const passwordRegex = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/;
-        if (!passwordRegex.test(password)) setPasswordState("숫자+영문자+특수문자 조합으로 8자리 이상 입력해주세요!");
+        if (!passwordRegex.test(password))
+            setPasswordState("숫자+영문자+특수문자 조합으로 8자리 이상 입력해주세요!");
         else setPasswordState("");
 
         // 비밀번호 같은지 체크
@@ -68,7 +84,13 @@ const Register = ({ isLoggedIn, setIsLoggedIn }) => {
         // 회원가입 동의 체크
         if (!checked) alert("Fill Me 회원가입에 동의하셔야 서비스 이용이 가능합니다.");
 
-        if (emailRegex.test(email) && idRegex.test(id) && passwordRegex.test(password) && password === rePassword && checked) {
+        if (
+            emailRegex.test(email) &&
+            idRegex.test(id) &&
+            passwordRegex.test(password) &&
+            password === rePassword &&
+            checked
+        ) {
             onhandlePost(joinData);
         }
     };
@@ -94,7 +116,7 @@ const Register = ({ isLoggedIn, setIsLoggedIn }) => {
                 localStorage.setItem("loginUserName", res.data.user.username);
                 setIsLoggedIn(true);
                 console.log(res, "성공");
-                navigate('/SignupProfile', { replace: true });
+                navigate("/SignupProfile", { replace: true });
                 // replace: true로 페이지 이동 후 뒤로가기 불가능
             })
 
@@ -102,8 +124,10 @@ const Register = ({ isLoggedIn, setIsLoggedIn }) => {
                 console.log(err);
                 const message = err.request.responseText;
                 let error_message = [];
-                if (message.includes(`username":["User의 username은/는 이미 존재합니다.`)) setIdError("이미 존재하는 아이디입니다");
-                if (message.includes(`이미 이 이메일 주소로 등록된 사용자가 있습니다.`)) setEmailError("이미 이 이메일 주소로 등록된 사용자가 있습니다.");
+                if (message.includes(`username":["User의 username은/는 이미 존재합니다.`))
+                    setIdError("이미 존재하는 아이디입니다");
+                if (message.includes(`이미 이 이메일 주소로 등록된 사용자가 있습니다.`))
+                    setEmailError("이미 이 이메일 주소로 등록된 사용자가 있습니다.");
 
                 // console.log(error_message);
             });
@@ -111,7 +135,7 @@ const Register = ({ isLoggedIn, setIsLoggedIn }) => {
 
     return (
         <ThemeProvider theme={theme}>
-            <Header />
+            <Header2 />
             <Container component="main" maxWidth="md">
                 <CssBaseline />
                 <Box
@@ -120,7 +144,7 @@ const Register = ({ isLoggedIn, setIsLoggedIn }) => {
                         display: "flex",
                         flexDirection: "column",
                         alignItems: "center",
-                        minHeight: '70vh',
+                        minHeight: "70vh",
                     }}
                 >
                     <Typography component="h1" variant="h5" fontFamily="AppleSDGothicNeoB00">
@@ -130,26 +154,70 @@ const Register = ({ isLoggedIn, setIsLoggedIn }) => {
                         <FormControl component="fieldset" variant="standard">
                             <Grid container spacing={2}>
                                 <Grid item xs={12}>
-                                    <TextField required autoFocus fullWidth type="email" id="email" name="email" label="이메일 주소" error={emailError !== "" || false} />
+                                    <TextField
+                                        required
+                                        autoFocus
+                                        fullWidth
+                                        type="email"
+                                        id="email"
+                                        name="email"
+                                        label="이메일 주소"
+                                        error={emailError !== "" || false}
+                                    />
                                 </Grid>
                                 <FormHelperTexts>{emailError}</FormHelperTexts>
                                 <Grid item xs={12}>
-                                    <TextField required fullWidth id="id" name="id" label="아이디" error={idError !== "" || false} />
+                                    <TextField
+                                        required
+                                        fullWidth
+                                        id="id"
+                                        name="id"
+                                        label="아이디"
+                                        error={idError !== "" || false}
+                                    />
                                 </Grid>
                                 <FormHelperTexts>{idError}</FormHelperTexts>
                                 <Grid item xs={12}>
-                                    <TextField required fullWidth type="password" id="password" name="password" label="비밀번호 (숫자+영문자+특수문자 8자리 이상)" error={passwordState !== "" || false} />
+                                    <TextField
+                                        required
+                                        fullWidth
+                                        type="password"
+                                        id="password"
+                                        name="password"
+                                        label="비밀번호 (숫자+영문자+특수문자 8자리 이상)"
+                                        error={passwordState !== "" || false}
+                                    />
                                 </Grid>
                                 <FormHelperTexts>{passwordState}</FormHelperTexts>
                                 <Grid item xs={12}>
-                                    <TextField required fullWidth type="password" id="rePassword" name="rePassword" label="비밀번호 재입력" error={passwordError !== "" || false} />
+                                    <TextField
+                                        required
+                                        fullWidth
+                                        type="password"
+                                        id="rePassword"
+                                        name="rePassword"
+                                        label="비밀번호 재입력"
+                                        error={passwordError !== "" || false}
+                                    />
                                 </Grid>
                                 <FormHelperTexts>{passwordError}</FormHelperTexts>
                                 <Grid item xs={12}>
-                                    <FormControlLabel control={<Checkbox onChange={handleAgree} color="primary" />} label="Fill Me 회원가입에 동의합니다." />
+                                    <FormControlLabel
+                                        control={
+                                            <Checkbox onChange={handleAgree} color="primary" />
+                                        }
+                                        label="Fill Me 회원가입에 동의합니다."
+                                    />
                                 </Grid>
                             </Grid>
-                            <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2, bgcolor: "#3CDA9F" }} size="large" style={{ height: '5.5vh' }}>
+                            <Button
+                                type="submit"
+                                fullWidth
+                                variant="contained"
+                                sx={{ mt: 3, mb: 2, bgcolor: "#3CDA9F" }}
+                                size="large"
+                                style={{ height: "5.5vh" }}
+                            >
                                 다음 단계
                             </Button>
                         </FormControl>
