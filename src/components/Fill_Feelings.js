@@ -29,6 +29,7 @@ function Fill_feelings({ id, user_id, image, persona, title, body, date_time }) 
             >
                 <section id="user_id">@{user_id}</section>
                 <div className="feelings_content2">
+                    <section id="feed_image"></section>
                     <section id="feed_persona">{persona}</section>
                     <section id="feed_title">{title}</section>
                     <p id="feed_body">{body}</p>

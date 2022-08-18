@@ -10,8 +10,9 @@ import My_persona_card from "../components/My_persona_card";
 import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGear, faRotate } from "@fortawesome/free-solid-svg-icons";
-
+import { useParams } from "react-router-dom";
 function Profile({ isLoggedIn, setIsLoggedIn }) {
+    // const navigate = useNavigate();
     const [userProfile, setUserProfile] = useState({
         user: "",
         username: "",
@@ -33,6 +34,7 @@ function Profile({ isLoggedIn, setIsLoggedIn }) {
         fetchData();
     }, []);
 
+    const [clicked_persona, setClicked_persona] = useState([]);
     const fetchData = async () => {
         try {
             const request = await axios.get("http://127.0.0.1:8000/mypage/profile_persona/");
