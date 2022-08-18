@@ -1,0 +1,63 @@
+@font-face {
+    font-family: "Roboto";
+    src: url("../font/Roboto-Regular.ttf");
+    unicode-range: 
+      /* 영어 대문자, 영어 소문자 */ U+0041-005A, U+0061-007A,
+        /* 숫자, 특수문자 */ U+0030-0039, U+0020-002F, U+003A-0040, U+005B-0060,
+        U+007B-007E;
+}
+
+@font-face {
+    font-family: "Roboto-bold";
+    src: url("../font/Roboto-Bold.ttf");
+    unicode-range: 
+      /* 한글, 영어 대문자, 영어 소문자 */ U+0041-005A,
+        U+0061-007A, /* 숫자, 특수문자 */ U+0030-0039, U+0020-002F, U+003A-0040,
+        U+005B-0060, U+007B-007E;
+}
+
+@font-face {
+    font-family: "AppleSDGothicNeoB00";
+    src: url("../font/AppleSDGothicNeoB.ttf");
+    unicode-range: U+AC00-D7A3;
+}
+
+@font-face {
+    font-family: "AppleSDGothicNeoM00";
+    src: url("../font/AppleSDGothicNeoM.ttf");
+    unicode-range: U+AC00-D7A3;
+}
+
+.content {
+    position: absolute;
+    left: 33%;
+    width: 45vw;
+    height: 30%;
+    top: 7vw;
+}
+
+.comment {
+    position: relative;
+    left: 33%;
+    top: 10vw;
+    width: 45vw;
+}
+
+#user_id {
+    font-style: "AppleSDGothicNeoM00", "Roboto";
+    color: black;
+    text-shadow: none;
+    font-size: 14px;
+    margin: 0px;
+    position: relative;
+    width: 45vw;
+    margin-bottom: 5px;
+}
+
+#user_comment {
+    font-style: "AppleSDGothicNeoM00", "Roboto";
+    font-size: 14px;
+    left: 10%;
+    width: 45vw;
+    margin-bottom: 20px;
+}
