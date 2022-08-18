@@ -82,16 +82,19 @@ function My_persona_card({ Id, Name, Category, Image, Openpublic }) {
                     삭제
                 </button>
                 <section className={styles.shadow}></section>
-                <div
+                <button
+                    className={styles.show_persona_feed}
                     onClick={() => {
                         navigate(`user_profile/${Id}`, {
                             replace: true,
                         });
                     }}
                 >
-                    <section className={styles.persona_card_name}>{Name}</section>
-                    <section className={styles.persona_card_category}>{Category}</section>
-                </div>
+                    프로필 보기
+                </button>
+                <section className={styles.persona_card_name}>{Name}</section>
+                <section className={styles.persona_card_category}>{Category}</section>
+
                 <button className={styles.hideBtn} onClick={onHide}>
                     {controlBtn.hideBtnName}
                 </button>
