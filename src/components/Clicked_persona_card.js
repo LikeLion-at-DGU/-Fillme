@@ -3,13 +3,13 @@ import { useEffect } from "react";
 import axios from "axios";
 import { useState } from "react";
 import Logout from "../routes/Logout";
-function Clicked_persona_card({ category, image, name, length, username }) {
+function Clicked_persona_card({ category, image, name, length, username, Color_hex }) {
     const loginusername = localStorage.getItem("loginUserName");
     const imageUrl = "http://127.0.0.1:8000" + image;
 
     return (
         <>
-            <div className={styles.card}>
+            <div className={styles.card} style={{ backgroundColor: Color_hex }}>
                 <section className={styles.user_id}>{username}</section>
                 <br /> <br />
                 <br />

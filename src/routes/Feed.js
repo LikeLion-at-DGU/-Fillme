@@ -7,6 +7,13 @@ import { Footer } from "../components/Footer";
 import styles from "../static/css/style.module.css";
 import Navbar from "../components/Navbar";
 import axios from "axios";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
+import SwiperCore, { Navigation, Pagination, Mousewheel, Scrollbar, Keyboard } from "swiper";
 import { useEffect, useState } from "react";
 
 function Feed() {
