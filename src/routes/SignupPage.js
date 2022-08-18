@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Footer2 } from "../components/Footer";
+import { Footer } from "../components/Footer";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Header from "../components/Header";
@@ -120,6 +120,7 @@ const Register = ({ isLoggedIn, setIsLoggedIn }) => {
                         display: "flex",
                         flexDirection: "column",
                         alignItems: "center",
+                        minHeight: '70vh',
                     }}
                 >
                     <Typography component="h1" variant="h5" fontFamily="AppleSDGothicNeoB00">
@@ -156,7 +157,7 @@ const Register = ({ isLoggedIn, setIsLoggedIn }) => {
                     </Boxs>
                 </Box>
             </Container>
-            <Footer2 />
+            <Footer />
         </ThemeProvider>
     );
 };

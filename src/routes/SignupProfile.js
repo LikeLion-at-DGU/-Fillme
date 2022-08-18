@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Header from "../components/Header";
-import { Footer2 } from "../components/Footer";
+import { Footer } from "../components/Footer";
 import styled from "styled-components";
 import axios from "axios";
 import { Typography, TextField, Button, Box, Container, FormControlLabel } from "@mui/material/";
@@ -51,6 +51,7 @@ function SignupProfile() {
             formData.append("image", profile.image, profile.image.name);
         } else {
             window.alert("이미지를 첨부해주세요.");
+            return;
         }
         formData.append("fullname", profile.fullname);
         if (profile.memo.length > 30) {
@@ -88,6 +89,7 @@ function SignupProfile() {
                         display: "flex",
                         flexDirection: "column",
                         alignItems: "center",
+                        minHeight: '70vh',
                     }}
                 >
                     <Typography
@@ -325,7 +327,7 @@ function SignupProfile() {
                     </Button>
                 </Box>
             </Container>
-            <Footer2 />
+            <Footer />
         </>
     );
 }
