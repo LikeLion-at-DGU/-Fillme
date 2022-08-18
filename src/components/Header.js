@@ -148,9 +148,7 @@ function Header() {
     const fetchData = async (id) => {
         try {
             const request = await axios.get(`http://127.0.0.1:8000/mypage/profile_persona/${id}/`);
-            const requestFollow = await axios.get(
-                `http://127.0.0.1:8000/mypage/${id}/following_list/`
-            );
+            const requestFollow = await axios.get(`http://127.0.0.1:8000/mypage/${id}/following_list/`);
             localStorage.setItem("local_follow_data", JSON.stringify(requestFollow.data));
 
             const requestMyFollow = await axios.get("http://127.0.0.1:8000/mypage/following_list/");
@@ -296,11 +294,11 @@ function Header() {
                         onClick={
                             modalOpen
                                 ? () => {
-                                      setbuttonState(false);
-                                  }
+                                    setbuttonState(false);
+                                }
                                 : () => {
-                                      setbuttonState(true);
-                                  }
+                                    setbuttonState(true);
+                                }
                         }
                     >
                         <img className={styles.icon} id="bell" src="images/bell.png" alt="New" />

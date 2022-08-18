@@ -1,46 +1,136 @@
+@font-face {
+    font-family: "Roboto";
+    src: url("../font/Roboto-Regular.ttf");
+    unicode-range: 
+      /* 영어 대문자, 영어 소문자 */ U+0041-005A, U+0061-007A,
+        /* 숫자, 특수문자 */ U+0030-0039, U+0020-002F, U+003A-0040, U+005B-0060,
+        U+007B-007E;
+}
+
+@font-face {
+    font-family: "Roboto-bold";
+    src: url("../font/Roboto-Bold.ttf");
+    unicode-range: 
+      /* 한글, 영어 대문자, 영어 소문자 */ U+0041-005A,
+        U+0061-007A, /* 숫자, 특수문자 */ U+0030-0039, U+0020-002F, U+003A-0040,
+        U+005B-0060, U+007B-007E;
+}
+
+@font-face {
+    font-family: "AppleSDGothicNeoB00";
+    src: url("../font/AppleSDGothicNeoB.ttf");
+    unicode-range: U+AC00-D7A3;
+}
+
+@font-face {
+    font-family: "AppleSDGothicNeoM00";
+    src: url("../font/AppleSDGothicNeoM.ttf");
+    unicode-range: U+AC00-D7A3;
+}
+
 .App {
     font-family: sans-serif;
     text-align: center;
-  }
-  
-  body {
-    background: #ffffff;
-  }
-  .slider {
+}
+
+#title {
+    font-style: "AppleSDGothicNeoB00", "Roboto-bold";
+    position: absolute;
+    width: 25%;
+    font-size: 26px;
+    font-weight: 650;
+    margin-top: 0px;
+    margin-left: 10px;
+    margin-bottom: 20px;
+}
+
+#created_at {
+    font-style: "AppleSDGothicNeoB00", "Roboto-bold";
+    position: relative;
+    font-size: 14px;
+    font-weight: 350;
+    width: 60px;
+    margin: 10px;
+    left: 27%;
+    top: 0.5vw;
+}
+
+#persona_name {
+    font-style: "AppleSDGothicNeoB00", "Roboto-bold";
+    position: relative;
+    font-size: 14px;
+    font-weight: 350;
+    width: 300px;
+    margin-top: 0px;
+    margin-left: 10px;
+    margin-bottom: 7px;
+}
+
+:root {
+    --swiper-navigation-size: 20px;
+}
+
+.slider {
     padding: 10px;
     color: #fff;
-  }
+}
 
-  /* 세부 */
-  .slider .swiper-container1 {
-    width: 400%;
-    height: 170%;
-    position: relative;
-    top: -2.2vw;
-    left: 27vw;
+/* 세부 */
+.slider .swiper-container1 {
+    width: 5.5vw;
+    height: 27vw;
+    position: absolute;
+    top: 28%;
+    left: 37%;
+    /* top: -16%;
+  left: 26.5vw; */
     margin-bottom: 10px;
-  }
+}
 
-  /* 전체 */
-  .slider .swiper-container2 {
-    width: 30%;
-    height: 130%;
-    position: relative;
-    left: -31vw;
-  } 
+/* 전체 */
+.slider .swiper-container2 {
+    width: 27vw;
+    height: 27vw;
+    position: absolute;
+    top: 28%;
+    left: 8.8%;
+    margin-bottom: 10px;
+    padding-bottom: 40px;
+}
 
-  .slider__flex {
+/* 버튼 */
+.swiper-button-prev {
+    top: 95.5%;
+    left: 22%;
+    color: #3cda9f;
+    z-index: 100;
+}
+
+.swiper-button-next {
+    top: 95.5%;
+    left: 75%;
+    color: #3cda9f;
+    z-index: 100;
+}
+
+/* bullet */
+.swiper .swiper-pagination-bullet {
+    background-color: #3cda9f;
+    /* margin: 0 10px; */
+}
+
+.slider__flex {
     display: flex;
     align-items: flex-start;
-  }
-  .slider__col {
+}
+.slider__col {
     display: flex;
     flex-direction: column;
     width: 150px;
     margin-right: 32px;
-  }
-  .slider__prev,
-  .slider__next {
+}
+.slider__prev,
+.slider__next {
     cursor: pointer;
     text-align: center;
     font-size: 14px;
@@ -52,74 +142,69 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-  }
-  .slider__prev:focus,
-  .slider__next:focus {
+}
+.slider__prev:focus,
+.slider__next:focus {
     outline: none;
-  }
-  .slider__thumbs {
+}
+.slider__thumbs {
     height: calc(400px - 96px);
-  }
-  .slider__thumbs .slider__image {
+}
+.slider__thumbs .slider__image {
     transition: 0.25s;
-    -webkit-filter: grayscale(100%);
-    filter: grayscale(100%);
     opacity: 0.5;
-  }
-  .slider__thumbs .slider__image:hover {
+}
+.slider__thumbs .slider__image:hover {
     opacity: 1;
-  }
-  .slider__thumbs .swiper-slide-thumb-active .slider__image {
-    -webkit-filter: grayscale(0%);
-    filter: grayscale(0%);
+}
+.slider__thumbs .swiper-slide-thumb-active .slider__image {
     opacity: 1;
-  }
-  .slider__images {
+}
+.slider__images {
     height: 400px;
     width: 100%;
-  }
-  .slider__images .slider__image img {
-    transition: 3s;
-  }
-  .slider__images .slider__image:hover img {
-    transform: scale(1.1);
-  }
-  .slider__image {
+}
+/* .slider__images .slider__image img {
+  transition: 3s;
+}
+.slider__images .slider__image:hover img {
+  transform: scale(1.1);
+} */
+.slider__image {
     width: 100%;
     height: 100%;
     border-radius: 10px;
     overflow: hidden;
-  }
-  .slider__image img {
+}
+.slider__image img {
     display: block;
     width: 100%;
     height: 100%;
     -o-object-fit: cover;
     object-fit: cover;
-  }
-  @media (max-width: 767.98px) {
+}
+@media (max-width: 767.98px) {
     .slider__flex {
-      flex-direction: column-reverse;
+        flex-direction: column-reverse;
     }
     .slider__col {
-      flex-direction: row;
-      align-items: center;
-      margin-right: 0;
-      margin-top: 24px;
-      width: 100%;
+        flex-direction: row;
+        align-items: center;
+        margin-right: 0;
+        margin-top: 24px;
+        width: 100%;
     }
     .slider__images {
-      width: 100%;
+        width: 100%;
     }
     .slider__thumbs {
-      height: 100px;
-      width: calc(100% - 96px);
-      margin: 0 16px;
+        height: 100px;
+        width: calc(100% - 96px);
+        margin: 0 16px;
     }
     .slider__prev,
     .slider__next {
-      height: auto;
-      width: 32px;
+        height: auto;
+        width: 32px;
     }
-  }
-  
+}
