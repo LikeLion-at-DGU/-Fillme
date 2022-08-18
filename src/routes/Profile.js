@@ -33,6 +33,7 @@ function Profile({ isLoggedIn, setIsLoggedIn }) {
 
     const local_persona_data = JSON.parse(localStorage.getItem("local_persona_data"));
     console.log("local_persona_data", local_persona_data);
+
     useEffect(() => {
         fetchData();
     }, []);
