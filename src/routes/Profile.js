@@ -91,9 +91,11 @@ function Profile({ isLoggedIn, setIsLoggedIn }) {
                     filter: invert(67%) sepia(37%) saturate(660%) hue-rotate(106deg)
                     brightness(120%) contrast(95%);}`}
             </style>
-            <h1 className={styles.personaTitle}>My Profile</h1>
-            <div className={styles.cardWrap}>
-                <div>
+            <div className={styles.wrap}>
+                <h1 className={styles.title}>My Profile</h1>
+                <br />
+
+                <div className={styles.wrap2}>
                     <Logout isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
                     <Link to="/SettingProfile">
                         <button className={styles.settingBtn}>
@@ -113,13 +115,14 @@ function Profile({ isLoggedIn, setIsLoggedIn }) {
                         follower={followList.followingnum}
                         following={followList.followernum}
                     />
-                </div>
-                <div className={styles.persona_card}>
-                    {local_persona_data.length === 0
-                        ? [addCard]
-                        : local_persona_data.length >= 4
-                        ? [personaCard]
-                        : [...personaCard, addCard]}
+
+                    <div className={styles.persona_card}>
+                        {local_persona_data.length === 0
+                            ? [addCard]
+                            : local_persona_data.length >= 4
+                            ? [personaCard]
+                            : [...personaCard, addCard]}
+                    </div>
                 </div>
             </div>
             <Footer />

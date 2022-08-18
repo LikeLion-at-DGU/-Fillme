@@ -4,18 +4,9 @@ import styled from "styled-components";
 import axios from "axios";
 import "../static/css/Discover.css";
 import Pickpersona from "./new_persona_card_1";
-import { useNavigate } from 'react-router-dom';
 
 function Mainprofile({ image, color, user, username, fullname, memo, personas }) {
     const imageUrl = "http://127.0.0.1:8000" + image;
-
-    const navigate = useNavigate();
-    const clickMe = (user) => {
-        // const request = await axios.get(`http://127.0.0.1:8000/mypage/profile_persona/${id}/`);
-        // localStorage.setItem("user_profile_data", JSON.stringify(request.data));
-        navigate(`/${user}`);
-        console.log("change page");
-    }
 
     const feelings_style = {
         backgroundImage: `url(${imageUrl})`,
@@ -31,7 +22,7 @@ function Mainprofile({ image, color, user, username, fullname, memo, personas })
     };
 
     const Color = styled.div`
-        {
+         {
             background: linear-gradient(90deg, rgba(0, 0, 0, 0.01) 4%, ${color} 15%);
         }
     `;
@@ -89,7 +80,7 @@ function Mainprofile({ image, color, user, username, fullname, memo, personas })
                     <Pickpersona card_personas={personas} />
                 </div>
 
-                <button id="btn_profile" onClick={clickMe}>프로필 보기</button>
+                <button id="btn_profile">프로필 보기</button>
                 <button id="btn_following">팔로잉</button>
             </Color>
         </div>
