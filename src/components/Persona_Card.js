@@ -18,7 +18,6 @@ function Persona_Card({
     follower,
     following,
 }) {
-    const loginusername = localStorage.getItem("loginUserName");
     const imageUrl = "http://127.0.0.1:8000" + image;
 
     return (

@@ -77,7 +77,7 @@ function render_fill_feelings(fill) {
             index={fill.id}
             image={fill.image1}
             persona={fill.personaname}
-            // personaimage={fill.personaimage}
+            personaimage={fill.personaimage}
             title={fill.title}
             body={fill.content}
             date_time={fill.updated_at}

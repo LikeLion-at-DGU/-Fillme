@@ -109,6 +109,17 @@
     font-size: 0.6vw;
 }
 
+#feed_image {
+    position: absolute;
+    object-fit: cover;
+    border-radius: 50%;
+    width: 4.5vw;
+    height: 4.5vw;
+    z-index: 10;
+    right: 8%;
+    top: -2vw;
+    filter: drop-shadow(0px 5px 15px rgba(0, 0, 0, 0.05));
+}
 #user_id {
     font-family: "Roboto";
     font-weight: 400;
@@ -120,7 +131,7 @@
 
 #btn {
     position: absolute;
-    right: 5%;
+    right: 8%;
     bottom: 1.2vw;
     padding: 0.3vw 0.5vw;
     display: flex;
@@ -134,6 +145,7 @@
     font-family: "AppleSDGothicNeoM00";
     font-size: 0.7vw;
     cursor: pointer;
+    width: 20%;
 }
 
 /* New Feelings */

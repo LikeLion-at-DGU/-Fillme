@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 import React from "react";
-function Fill_feelings({ id, user_id, image, persona, title, body, date_time }) {
+function Fill_feelings({ id, user_id, image, persona, title, body, date_time, personaimage }) {
     //personaimage 추가해야함
     const [hover, setHover] = useState(false);
     const OnmouseEnter = () => {
@@ -20,6 +20,8 @@ function Fill_feelings({ id, user_id, image, persona, title, body, date_time }) 
         backgroundRepeat: `no-repeat`,
         backgroundPosition: `center`,
     };
+
+    const persona_image = {};
     if (hover) {
         return (
             <div
@@ -30,11 +32,10 @@ function Fill_feelings({ id, user_id, image, persona, title, body, date_time }) 
             >
                 <section id="user_id">@{user_id}</section>
                 <div className="feelings_content2">
-                    <section id="feed_image"></section>
                     <section id="feed_persona">{persona}</section>
                     <section id="feed_title">{title}</section>
                     <p id="feed_body">{body}</p>
-                    {/* <img src={`http://127.0.0.1:8000${personaimage}`} /> */}
+                    <img src={`http://127.0.0.1:8000${personaimage}`} id="feed_image" />
                     <section id="feed_date_time">{date_time}</section>
                     <button id="btn">자세히 보기</button>
                 </div>
@@ -52,6 +53,7 @@ function Fill_feelings({ id, user_id, image, persona, title, body, date_time }) 
                 <div className="feelings_content">
                     <section id="feed_persona">{persona}</section>
                     <section id="feed_title">{title}</section>
+                    <img src={`http://127.0.0.1:8000${personaimage}`} id="feed_image" />
                     <section id="feed_date_time">{date_time}</section>
                     <button id="btn">자세히 보기</button>
                 </div>
