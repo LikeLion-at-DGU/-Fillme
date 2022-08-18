@@ -37,7 +37,7 @@ function Fill_feelings({
             <div
                 className="feelings"
                 id={"feelings" + id}
-                style={video === null ? image_style : null}
+                style={image_style}
                 onMouseLeave={OnmouseLeave}
             >
                 {/* {image === null ? (
@@ -61,7 +61,7 @@ function Fill_feelings({
             <div
                 className="feelings"
                 id={"feelings" + id}
-                style={video === null ? image_style : null}
+                style={image_style}
                 onMouseEnter={OnmouseEnter}
             >
                 {/* {image === null ? (
