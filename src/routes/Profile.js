@@ -9,8 +9,11 @@ import axios from "axios";
 import My_persona_card from "../components/My_persona_card";
 import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGear, faRotate } from "@fortawesome/free-solid-svg-icons";
+
 import { useParams } from "react-router-dom";
+
+import { faGear } from "@fortawesome/free-solid-svg-icons";
+
 function Profile({ isLoggedIn, setIsLoggedIn }) {
     // const navigate = useNavigate();
     const [userProfile, setUserProfile] = useState({
@@ -93,7 +96,7 @@ function Profile({ isLoggedIn, setIsLoggedIn }) {
                     <Logout isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
                     <Link to="/SettingProfile">
                         <button className={styles.settingBtn}>
-                            <FontAwesomeIcon icon={faGear} size="2x" />
+                            <FontAwesomeIcon icon={faGear} size="2x" color="#fff" />
                         </button>
                     </Link>
                     <Persona_Card

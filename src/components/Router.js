@@ -12,6 +12,7 @@ import Fillup from "../routes/Fillup";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Logout from "../routes/Logout";
+import Detail from "../routes/Detail";
 
 import LandingPage from "../routes/Landing_page";
 import User_Profile from "../routes/User_Profile";
@@ -59,6 +60,7 @@ const AppRouter = ({ isLoggedIn, setIsLoggedIn }) => {
                     <Route path=":user_id" element={<User_Profile />}></Route>
                     <Route path="/" element={<Navbar />}>
                         <Route path="/Discover" element={<Discover />}></Route>
+                        <Route path="/Detail" element={<Detail />}></Route>
                         <Route
                             path="/Profile"
                             element={
