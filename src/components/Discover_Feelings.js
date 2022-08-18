@@ -10,10 +10,13 @@ function Mainprofile({ image, color, user, username, fullname, memo, personas })
     const imageUrl = "http://127.0.0.1:8000" + image;
 
     const navigate = useNavigate();
-    const clickMe = (user) => {
+    const clickMe = () => {
         // const request = await axios.get(`http://127.0.0.1:8000/mypage/profile_persona/${id}/`);
         // localStorage.setItem("user_profile_data", JSON.stringify(request.data));
-        navigate(`/${user}`);
+
+        navigate(`/Discover/${user}`, {
+            replace: true,
+        });
         console.log("change page");
     };
 
