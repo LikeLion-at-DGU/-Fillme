@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from "../components/Header";
 import signStyle from "../static/css/Sign.module.css";
-import { Footer2 } from "../components/Footer";
+import { Footer } from "../components/Footer";
 import { TextField, Button, Typography, Box, Container } from "@mui/material/";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -75,6 +75,7 @@ const UpdatePersona = () => {
                         marginTop: 5,
                         display: "flex",
                         flexDirection: "column",
+                        minHeight: '70vh',
                     }}
                 >
                     <Typography
@@ -159,7 +160,7 @@ const UpdatePersona = () => {
                     </Button>
                 </Box>
             </Container>
-            <Footer2 />
+            <Footer />
         </>
     );
 };

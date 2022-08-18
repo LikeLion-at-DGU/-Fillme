@@ -1,5 +1,5 @@
 import Header from "../components/Header";
-import { Footer2 } from "../components/Footer";
+import { Footer } from "../components/Footer";
 import styles from "../static/css/style.module.css";
 import { useNavigate } from "react-router-dom";
 // For MUI
@@ -86,6 +86,7 @@ function Login({ isLoggedIn, setIsLoggedIn }) {
                             marginTop: 10,
                             display: "flex",
                             flexDirection: "column",
+                            minHeight: '50vh',
                         }}
                     >
                         <Typography
@@ -160,7 +161,7 @@ function Login({ isLoggedIn, setIsLoggedIn }) {
                     </Box>
                 </Container>
             </div>
-            <Footer2 />
+            <Footer />
         </>
     );
 }

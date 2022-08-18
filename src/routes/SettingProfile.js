@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Header from "../components/Header";
-import { Footer2 } from "../components/Footer";
+import { Footer } from "../components/Footer";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import signStyle from "../static/css/Sign.module.css";
@@ -71,6 +71,7 @@ const SettingProfile = () => {
                         display: "flex",
                         flexDirection: "column",
                         alignItems: "center",
+                        minHeight: '70vh',
                     }}
                 >
                     <Typography
@@ -308,7 +309,7 @@ const SettingProfile = () => {
                     </Button>
                 </Box>
             </Container>
-            <Footer2 />
+            <Footer />
         </>
     );
 };
