@@ -9,13 +9,10 @@ import axios from "axios";
 import My_persona_card from "../components/My_persona_card";
 import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
 import { useParams } from "react-router-dom";
-
 import { faGear } from "@fortawesome/free-solid-svg-icons";
 
 function Profile({ isLoggedIn, setIsLoggedIn }) {
-    // const navigate = useNavigate();
     const [userProfile, setUserProfile] = useState({
         user: "",
         username: "",
@@ -24,6 +21,10 @@ function Profile({ isLoggedIn, setIsLoggedIn }) {
         color: null,
         color_hex: null,
         image: null,
+        followList: [],
+        followings: [],
+        followingnum: 0,
+        followernum: 0,
     });
 
     const navigate = useNavigate();
@@ -32,7 +33,7 @@ function Profile({ isLoggedIn, setIsLoggedIn }) {
     };
 
     const local_persona_data = JSON.parse(localStorage.getItem("local_persona_data"));
-    console.log("local_persona_data", local_persona_data);
+    // console.log("local_persona_data", local_persona_data);
 
     useEffect(() => {
         fetchData();
@@ -42,8 +43,10 @@ function Profile({ isLoggedIn, setIsLoggedIn }) {
     const fetchData = async () => {
         try {
             const request = await axios.get("http://127.0.0.1:8000/mypage/profile_persona/");
-            // const requestFollow = await axios.get("http://127.0.0.1:8000/mypage/following_list/");
-            // localStorage.setItem("local_follow_data", JSON.stringify(requestFollow.data));
+            localStorage.setItem("local_persona_data", JSON.stringify(request.data.personas));
+
+            const requestMyFollow = await axios.get("http://127.0.0.1:8000/mypage/following_list/");
+            localStorage.setItem("local_my_follow_data", JSON.stringify(requestMyFollow.data));
             setUserProfile({
                 user: request.data.user,
                 username: request.data.username,
@@ -52,15 +55,19 @@ function Profile({ isLoggedIn, setIsLoggedIn }) {
                 color: request.data.color,
                 color_hex: request.data.color_hex,
                 image: request.data.image,
+                followList: requestMyFollow.data,
+                followings: requestMyFollow.data.followings,
+                followingnum: requestMyFollow.data.followingnum,
+                followernum: requestMyFollow.data.followernum,
             }); // 리렌더링++
-            localStorage.setItem("local_persona_data", JSON.stringify(request.data.personas));
-            console.log("request.data 추출", request.data);
+            // console.log("request.data 추출", request.data);
+            console.log("requestMyFollow.data 추출", requestMyFollow.data);
         } catch (err) {
             console.log(err);
         }
     };
-    const followList = JSON.parse(localStorage.getItem("local_follow_data"));
-    console.log("followList 확인 ", followList);
+    const myFollowList = JSON.parse(localStorage.getItem("local_my_follow_data"));
+    console.log("myFollowList 확인 ", myFollowList);
 
     const addCard = [
         <button className={styles.one_persona_card} onClick={onClick}>
@@ -111,18 +118,17 @@ function Profile({ isLoggedIn, setIsLoggedIn }) {
                         color={userProfile.color_hex}
                         image={userProfile.image}
                         // followId={user_id}
-                        followList={followList}
-                        follower={followList.followingnum}
-                        following={followList.followernum}
+                        followList={userProfile.followList}
+                        follower={userProfile.followernum}
+                        following={userProfile.followingnum}
                     />
-
-                    <div className={styles.persona_card}>
-                        {local_persona_data.length === 0
-                            ? [addCard]
-                            : local_persona_data.length >= 4
-                            ? [personaCard]
-                            : [...personaCard, addCard]}
-                    </div>
+                </div>
+                <div className={styles.persona_card}>
+                    {local_persona_data.length === 0
+                        ? [addCard]
+                        : local_persona_data.length >= 4
+                        ? [personaCard]
+                        : [...personaCard, addCard]}
                 </div>
             </div>
             <Footer />

@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import axios from "axios";
 import { useState } from "react";
 import Logout from "../routes/Logout";
+
 function Persona_Card({
     user,
     username,
@@ -12,6 +13,7 @@ function Persona_Card({
     image,
     followId,
     followList,
+    followings,
     follower,
     following,
 }) {
@@ -34,12 +36,12 @@ function Persona_Card({
                 <section className={styles.follower}>
                     팔로워
                     <br />
-                    {followList.followernum}
+                    {follower}
                 </section>
                 <section className={styles.following}>
                     팔로잉
                     <br />
-                    {followList.followingnum}
+                    {following}
                 </section>
             </div>
         </>
