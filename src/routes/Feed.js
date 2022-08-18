@@ -22,7 +22,7 @@ function Feed() {
     // console.log("axios", axios.defaults.headers);
     const get_post = async () => {
         try {
-            const request = await axios.get(`http://127.0.0.1:8000/post/myfollow/`);
+            const request = await axios.get(`http://127.0.0.1:8000/post/follow_persona/`);
             console.log("팔로우 하는 사람들 게시물 받기", request);
             setFollowing_post(request.data);
         } catch (err) {
@@ -73,10 +73,11 @@ function render_fill_feelings(fill) {
     return (
         <Fill_feelings
             key={fill.id}
-            user_id={fill.fullname}
+            user_id={fill.username}
             index={fill.id}
             image={fill.image1}
             persona={fill.personaname}
+            // personaimage={fill.personaimage}
             title={fill.title}
             body={fill.content}
             date_time={fill.updated_at}
