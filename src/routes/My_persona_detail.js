@@ -17,7 +17,7 @@ function Profile2() {
 
     const get_post = async () => {
         try {
-            const request = await axios.get(`http://127.0.0.1:8000/post/mypost/${Id}`);
+            const request = await axios.get(`http://127.0.0.1:8000/post/mypost/${Id}/`);
             console.log("페르소나 글 정보", request);
             setmy_persona_post(request.data);
         } catch (err) {

@@ -83,6 +83,7 @@ function Profile({ isLoggedIn, setIsLoggedIn }) {
         local_persona_data.map((per) => (
             <My_persona_card
                 Id={per.id}
+                Color_hex={per.color_hex}
                 Name={per.name}
                 Category={per.category}
                 Image={per.image}

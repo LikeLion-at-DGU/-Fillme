@@ -17,7 +17,7 @@ function User_persona_detail() {
 
     const get_post = async () => {
         try {
-            const request = await axios.get(`http://127.0.0.1:8000/post/mypost/${Id}`);
+            const request = await axios.get(`http://127.0.0.1:8000/post/mypost/${Id}/`);
             console.log("페르소나 글 정보", request);
             setmy_persona_post(request.data);
         } catch (err) {
@@ -47,6 +47,7 @@ function User_persona_detail() {
                     image={my_persona_info.image}
                     name={my_persona_info.name}
                     length={my_persona_post.length}
+                    Color_hex={my_persona_info.color_hex}
                 />
 
                 <div className={styles.wrap2}>{my_persona_post.map(render_fill_feelings)}</div>

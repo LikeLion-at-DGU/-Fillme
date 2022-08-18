@@ -10,6 +10,7 @@ function Persona_Card({
     fullname,
     memo,
     color,
+    Color_hex,
     image,
     followId,
     followList,
@@ -24,9 +25,12 @@ function Persona_Card({
         <>
             <div className={styles.card} style={{ backgroundColor: color }}>
                 <section className={styles.user_id}>@{username}</section>
+                <br />
+                <br />
                 <section className={styles.user_name}>{fullname}</section>
                 <section className={styles.user_memo}>{memo}</section>
                 <img src={imageUrl} className={styles.image_box} />
+
                 <br />
                 <hr className={styles.br_style} />
                 <section className={styles.post}>
