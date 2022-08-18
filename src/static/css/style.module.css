@@ -18,7 +18,7 @@
 }
 /* 공통 속성 */
 .wrap {
-    margin: 5vw 8vw;
+    margin: 5vw 9vw;
 }
 
 .wrap2 {
@@ -57,12 +57,13 @@
     top: 40%;
     right: 2%;
 }
+
 /* Mypage card */
 .card {
     box-sizing: border-box;
     padding: 3vw;
     position: relative;
-    width: 96%;
+    width: 97.5%;
     height: 25vw;
     background-color: black;
     border-radius: 10px;
@@ -139,7 +140,7 @@
     display: flex;
     box-sizing: border-box;
     position: relative;
-    width: 96%;
+    width: 97.5%;
     margin: 2.5% 0;
     height: 25vw;
     border-radius: 10px;
@@ -286,8 +287,8 @@
 /* follow button */
 .followingBtn {
     position: absolute;
-    top: 14.5vw;
-    left: 34.3vw;
+    top: 21vw;
+    left: 42vw;
     font-family: "AppleSDGothicNeoB00";
     z-index: 1;
     background: #3cda9f;
@@ -300,8 +301,8 @@
 }
 .followBtn {
     position: absolute;
-    top: 14.5vw;
-    left: 34.3vw;
+    top: 21vw;
+    left: 42vw;
     font-family: "AppleSDGothicNeoB00";
     z-index: 1;
     background-color: transparent;
@@ -317,8 +318,8 @@
 .logout {
     position: absolute;
     display: inline-flex;
-    top: 8vw;
-    left: 33vw;
+    top: 22vw;
+    left: 42vw;
     z-index: 1;
     background: #3cda9f;
     border: 1px solid #3cda9f;

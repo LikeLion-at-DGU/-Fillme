@@ -89,7 +89,7 @@
     object-fit: cover;
     display: flex;
     z-index: 0;
-    left: 44vw;
+    left: 42.3vw;
     top: -4.5vw;
 }
 .detailPersona0:hover {
@@ -107,7 +107,7 @@
     object-fit: cover;
     display: flex;
     z-index: 1;
-    left: 44vw;
+    left: 42.3vw;
     top: -4.5vw;
 }
 .detailPersona1:hover {
@@ -125,7 +125,7 @@
     object-fit: cover;
     display: flex;
     z-index: 2;
-    left: 44vw;
+    left: 42.3vw;
     top: -4.5vw;
 }
 .detailPersona2:hover {
@@ -143,7 +143,7 @@
     object-fit: cover;
     display: flex;
     z-index: 3;
-    left: 44vw;
+    left: 42.3vw;
     top: -4.5vw;
 }
 .detailPersona3:hover {

@@ -138,11 +138,12 @@
 
 /* New Feelings */
 .new_feelings {
+    box-sizing: border-box;
     display: flex;
     flex-wrap: nowrap;
     white-space: nowrap;
     overflow-x: scroll;
-    width: 100%;
+    width: 97.5%;
     margin-bottom: 4%;
     /* border: 1px solid rgb(105, 105, 105); */
 }
