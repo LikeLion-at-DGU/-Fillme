@@ -12,7 +12,7 @@ export default function DetailContent({ content, comment_set }) {
             <div className="comment">
                 {comment_set.map((per) => (
                     <div>
-                        <div id="user_id">@{per.id}</div>
+                        <div id="userComment_id">@{per.id}</div>
                         <div id="user_comment">{per.comment}</div>
                     </div>
                 ))}
