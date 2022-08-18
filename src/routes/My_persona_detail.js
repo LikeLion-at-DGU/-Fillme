@@ -39,7 +39,7 @@ function Profile2() {
 
     return (
         <>
-            <div className={styles.wrap} style={{ minHeight: "55vh" }}>
+            <div className={styles.wrap}>
                 <br />
                 <Clicked_persona_card
                     username={my_persona_info.username}

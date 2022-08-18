@@ -35,7 +35,7 @@ function Header() {
     const [searchValue, setsearchValue] = useState("");
     const [searchResult, setsearchResult] = useState([]);
     const [searchOpen, setsearchOpen] = useState(false);
-
+    const [delete_hist_list, set_delete_hist_list] = useState([]);
     //검색하는 단어 감지? 저장
     const handleChange = (e) => {
         setsearchValue(e.target.value);
@@ -90,6 +90,26 @@ function Header() {
                 console.log("이미지 형식", history.image);
             });
     };
+
+    //히스토리 삭제
+    const delete_history = (id) => {
+        axios
+            .delete(`http://127.0.0.1:8000/search/history/${id}/`)
+            .then((response) => {
+                // console.log(response);
+
+                set_delete_hist_list(response);
+                console.log("히스토리 삭제 성공");
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    };
+
+    //히스토리 삭제 될 때마다 history 다시 불러오기
+    useEffect(() => {
+        get_history();
+    }, [delete_hist_list]);
 
     //검색 값이 바뀔 때마다 post & 히스토리 저장
     useEffect(() => {
@@ -148,7 +168,9 @@ function Header() {
     const fetchData = async (id) => {
         try {
             const request = await axios.get(`http://127.0.0.1:8000/mypage/profile_persona/${id}/`);
-            const requestFollow = await axios.get(`http://127.0.0.1:8000/mypage/${id}/following_list/`);
+            const requestFollow = await axios.get(
+                `http://127.0.0.1:8000/mypage/${id}/following_list/`
+            );
             localStorage.setItem("local_follow_data", JSON.stringify(requestFollow.data));
 
             const requestMyFollow = await axios.get("http://127.0.0.1:8000/mypage/following_list/");
@@ -204,31 +226,40 @@ function Header() {
                                         {history.map((data) => {
                                             return (
                                                 <>
-                                                    <div
-                                                        className={search.one_user}
-                                                        onClick={() => {
-                                                            console.log("받아온 데이터", data);
-                                                            fetchData(data.resultprofile);
-                                                        }}
-                                                    >
-                                                        <section
-                                                            style={{
-                                                                backgroundImage: `url(
+                                                    <div className={search.one_user}>
+                                                        <div
+                                                            className={search.left}
+                                                            onClick={() => {
+                                                                console.log("받아온 데이터", data);
+                                                                fetchData(data.resultprofile);
+                                                            }}
+                                                        >
+                                                            <section
+                                                                style={{
+                                                                    backgroundImage: `url(
                                                             http://127.0.0.1:8000${data.image}
                                                         )`,
-                                                            }}
-                                                            className={search.image}
-                                                        ></section>
+                                                                }}
+                                                                className={search.image}
+                                                            ></section>
 
-                                                        <div className={search.text_part}>
-                                                            <section className={search.fullname}>
-                                                                {data.fullname}
-                                                            </section>
-                                                            <section className={search.username}>
-                                                                @{data.username}
-                                                            </section>
+                                                            <div className={search.text_part}>
+                                                                <section
+                                                                    className={search.fullname}
+                                                                >
+                                                                    {data.fullname}
+                                                                </section>
+                                                                <section
+                                                                    className={search.username}
+                                                                >
+                                                                    @{data.username}
+                                                                </section>
+                                                            </div>
                                                         </div>
                                                         <section
+                                                            onClick={() => {
+                                                                delete_history(data.id);
+                                                            }}
                                                             className={search.delete_history}
                                                         ></section>
                                                     </div>
@@ -294,11 +325,11 @@ function Header() {
                         onClick={
                             modalOpen
                                 ? () => {
-                                    setbuttonState(false);
-                                }
+                                      setbuttonState(false);
+                                  }
                                 : () => {
-                                    setbuttonState(true);
-                                }
+                                      setbuttonState(true);
+                                  }
                         }
                     >
                         <img className={styles.icon} id="bell" src="images/bell.png" alt="New" />
