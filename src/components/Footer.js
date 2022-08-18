@@ -4,7 +4,7 @@ function Footer() {
         <div className="Footer" style={footer_style}>
             <div id="footer_left">
                 <p id="footer_logo">Fill Me</p>
-                <p id="footer_detail">What is your Multi-Persona</p>
+                <p id="footer_detail">What is your Multi-Persona?</p>
             </div>
             <div id="copyright">ⓒ 동국대학교 멋쟁이사자처럼 Team. 후유</div>
             <div id="created">
@@ -26,15 +26,13 @@ function Footer() {
 function Footer2() {
     return (
         <div className="Footer2" style={footer_style2}>
-            <div id="footer_left" style={{ width: `33%` }}>
+            <div id="footer_left">
                 <p id="footer_logo">Fill Me</p>
-                <p id="footer_detail">What is your Multi-Persona</p>
+                <p id="footer_detail">What is your Multi-Persona?</p>
             </div>
-            <div id="copyright" style={{ width: `33%` }}>
-                ⓒ 동국대학교 멋쟁이사자처럼 Team. 후유
-            </div>
-            <div id="created" style={{ width: `33%`, display: `flex` }}>
-                <div id="role" style={{ width: `50%`, textAlign: `right` }}>
+            <div id="copyright">ⓒ 동국대학교 멋쟁이사자처럼 Team. 후유</div>
+            <div id="created">
+                <div id="role">
                     <p>Planner & Designer </p>
                     <p>Frontend Developer</p>
                     <p>Backend Developer</p>

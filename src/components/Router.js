@@ -69,7 +69,7 @@ const AppRouter = ({ isLoggedIn, setIsLoggedIn }) => {
                         ></Route>
                         <Route path="/Profile2" element={<Profile2 />}></Route>
                         <Route path="/Fillup" element={<Fillup />}></Route>
-
+                        <Route path="Profile/user_profile/:Id" element={<Profile2 />} />
                         {/* <Route path="/Search" element={<Search />}></Route> */}
                     </Route>
                 </Routes>
