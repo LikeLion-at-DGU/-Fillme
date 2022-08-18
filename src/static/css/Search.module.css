@@ -81,3 +81,31 @@
     display: flex;
     width: 85%;
 }
+
+.notice {
+    font-family: "AppleSDGothicNeoM00";
+    font-size: 0.8vw;
+}
+
+.username {
+    font-family: "AppleSDGothicNeoEB00";
+    display: inline-block;
+    font-size: 0.8vw;
+    margin: 0 0.3vw;
+}
+
+.notice_comment {
+    display: inline-block;
+    letter-spacing: 0.015em;
+    font-size: 0.7vw;
+    color: #464648;
+}
+
+.date {
+    letter-spacing: 0.015em;
+    font-family: "AppleSDGothicNeoM00";
+    color: rgba(70, 70, 72, 0.5);
+    font-size: 0.8vw;
+    margin-left: 0.3vw;
+    display: inline-block;
+}

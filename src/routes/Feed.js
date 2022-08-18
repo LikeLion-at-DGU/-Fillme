@@ -76,6 +76,7 @@ function render_fill_feelings(fill) {
             user_id={fill.username}
             index={fill.id}
             image={fill.image1}
+            video={fill.video}
             persona={fill.personaname}
             personaimage={fill.personaimage}
             title={fill.title}
