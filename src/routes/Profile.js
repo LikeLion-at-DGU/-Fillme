@@ -9,7 +9,7 @@ import axios from "axios";
 import My_persona_card from "../components/My_persona_card";
 import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGear, faRotate } from "@fortawesome/free-solid-svg-icons";
+import { faGear } from "@fortawesome/free-solid-svg-icons";
 
 function Profile({ isLoggedIn, setIsLoggedIn }) {
     const [userProfile, setUserProfile] = useState({
@@ -91,7 +91,7 @@ function Profile({ isLoggedIn, setIsLoggedIn }) {
                     <Logout isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
                     <Link to="/SettingProfile">
                         <button className={styles.settingBtn}>
-                            <FontAwesomeIcon icon={faGear} size="2x" />
+                            <FontAwesomeIcon icon={faGear} size="2x" color="#fff" />
                         </button>
                     </Link>
                     <Persona_Card
@@ -112,8 +112,8 @@ function Profile({ isLoggedIn, setIsLoggedIn }) {
                     {local_persona_data.length === 0
                         ? [addCard]
                         : local_persona_data.length >= 4
-                        ? [personaCard]
-                        : [...personaCard, addCard]}
+                            ? [personaCard]
+                            : [...personaCard, addCard]}
                 </div>
             </div>
             <Footer />

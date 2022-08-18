@@ -1,5 +1,5 @@
 import Header from "../components/Header";
-import { Footer2 } from "../components/Footer";
+import { Footer } from "../components/Footer";
 import React from "react";
 import signStyle from "../static/css/Sign.module.css";
 import { TextField, Button, Typography, Box, Container } from "@mui/material/";
@@ -75,6 +75,7 @@ const SignupPersona = () => {
                         marginTop: 5,
                         display: "flex",
                         flexDirection: "column",
+                        minHeight: '85vh',
                     }}
                 >
                     <Typography
@@ -172,7 +173,7 @@ const SignupPersona = () => {
                     </Button>
                 </Box>
             </Container>
-            <Footer2 />
+            <Footer />
         </>
     );
 };
