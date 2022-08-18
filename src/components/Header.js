@@ -128,7 +128,7 @@ function Header() {
     }, [searchOpen]);
 
     useEffect(() => {
-        // console.log(modalOpen);
+        get_notice();
     }, [modalOpen]);
 
     //스크롤 내리면 header 사라질때, 검색창, 알림창도 사라지도록
@@ -187,6 +187,16 @@ function Header() {
     //알림
 
     const outsideModal = useOutSideRef(setModalOpen, button_state);
+    const [notice, setNotice] = useState([]);
+    const get_notice = async () => {
+        try {
+            const request = await axios.get("http://127.0.0.1:8000/notice/");
+            setNotice(request.data);
+            console.log("알림 불러오기 성공!", notice);
+        } catch (err) {
+            console.log(err);
+        }
+    };
 
     return (
         <>
@@ -337,9 +347,33 @@ function Header() {
 
                     {modalOpen && !searchOpen ? (
                         <div className="News">
-                            <p id="Today">오늘</p>
-                            <p id="ThisWeek">이번 주</p>
-                            <p id="ThisMonth">이번 달</p>
+                            {notice.length > 0 ? (
+                                notice.map((data) => {
+                                    return (
+                                        <p className={search.notice}>
+                                            <section className={search.username}>
+                                                @{data.userfrom}
+                                            </section>
+                                            님이
+                                            <section className={search.username}>
+                                                {data.userto}
+                                            </section>
+                                            {data.text}
+                                            <br />
+                                            <section className={search.notice_comment}>
+                                                {data.content === "null"
+                                                    ? null
+                                                    : data.content.slice(0, 20) + "..."}
+                                                <section className={search.date}>
+                                                    {data.calculatedtime}
+                                                </section>
+                                            </section>
+                                        </p>
+                                    );
+                                })
+                            ) : (
+                                <p className={search.notice}>새로운 알림이 없습니다.</p>
+                            )}
                         </div>
                     ) : null}
                 </div>

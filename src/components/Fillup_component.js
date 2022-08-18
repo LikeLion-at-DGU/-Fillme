@@ -287,7 +287,7 @@ function Fillup_component() {
                                     onSlideChange={() => console.log("slide change")}
                                     // navigation
                                     // pagination={{ clickable: true }}
-                                    mousewheel={true}
+                                    // mousewheel={true}
                                     scrollbar={{ draggable: true }}
                                     direction="horizontal"
                                 >

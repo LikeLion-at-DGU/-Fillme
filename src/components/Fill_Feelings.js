@@ -1,7 +1,17 @@
 import { useEffect, useState } from "react";
 
 import React from "react";
-function Fill_feelings({ id, user_id, image, persona, title, body, date_time, personaimage }) {
+function Fill_feelings({
+    id,
+    user_id,
+    image,
+    persona,
+    title,
+    body,
+    date_time,
+    personaimage,
+    video,
+}) {
     //personaimage 추가해야함
     const [hover, setHover] = useState(false);
     const OnmouseEnter = () => {
@@ -14,7 +24,7 @@ function Fill_feelings({ id, user_id, image, persona, title, body, date_time, pe
         // console.log("hover change");
     }, [hover]);
 
-    const feelings_style = {
+    const image_style = {
         backgroundImage: `url(http://127.0.0.1:8000${image})`,
         backgroundSize: "cover",
         backgroundRepeat: `no-repeat`,
@@ -27,16 +37,21 @@ function Fill_feelings({ id, user_id, image, persona, title, body, date_time, pe
             <div
                 className="feelings"
                 id={"feelings" + id}
-                style={feelings_style}
+                style={video === null ? image_style : null}
                 onMouseLeave={OnmouseLeave}
             >
+                {/* {image === null ? (
+                    <video src={`http://127.0.0.1:8000${video}`} type="video/mp4">
+                        대체 텍스트
+                    </video>
+                ) : null} */}
                 <section id="user_id">@{user_id}</section>
                 <div className="feelings_content2">
                     <section id="feed_persona">{persona}</section>
                     <section id="feed_title">{title}</section>
                     <p id="feed_body">{body}</p>
                     <img src={`http://127.0.0.1:8000${personaimage}`} id="feed_image" />
-                    <section id="feed_date_time">{date_time}</section>
+                    <section id="feed_date_time">{date_time.slice(0, 10)}</section>
                     <button id="btn">자세히 보기</button>
                 </div>
             </div>
@@ -46,15 +61,21 @@ function Fill_feelings({ id, user_id, image, persona, title, body, date_time, pe
             <div
                 className="feelings"
                 id={"feelings" + id}
-                style={feelings_style}
+                style={video === null ? image_style : null}
                 onMouseEnter={OnmouseEnter}
             >
+                {/* {image === null ? (
+                    <video src={`http://127.0.0.1:8000${video}`} type="video/mp4">
+                        대체 텍스트
+                    </video>
+                ) : null} */}
+
                 <section id="user_id">@{user_id}</section>
                 <div className="feelings_content">
                     <section id="feed_persona">{persona}</section>
                     <section id="feed_title">{title}</section>
                     <img src={`http://127.0.0.1:8000${personaimage}`} id="feed_image" />
-                    <section id="feed_date_time">{date_time}</section>
+                    <section id="feed_date_time">{date_time.slice(0, 10)}</section>
                     <button id="btn">자세히 보기</button>
                 </div>
             </div>
