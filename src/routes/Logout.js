@@ -12,7 +12,7 @@ const Logout = ({ isLoggedIn, setIsLoggedIn }) => {
             setIsLoggedIn(false);
             localStorage.clear();
             axios
-                .post(`http://127.0.0.1:8000/accounts/logout/`, null)
+                .post(`http://13.124.66.197/accounts/logout/`, null)
                 .then(function (response) {
                     console.log("로그아웃", response);
                     window.location.replace("/");
@@ -23,8 +23,7 @@ const Logout = ({ isLoggedIn, setIsLoggedIn }) => {
                 });
         } else {
             return;
-        };
-
+        }
     };
     return (
         <>

@@ -43,10 +43,10 @@ function Profile({ isLoggedIn, setIsLoggedIn }) {
     const [clicked_persona, setClicked_persona] = useState([]);
     const fetchData = async () => {
         try {
-            const request = await axios.get("http://127.0.0.1:8000/mypage/profile_persona/");
+            const request = await axios.get("http://13.124.66.197/mypage/profile_persona/");
             localStorage.setItem("local_persona_data", JSON.stringify(request.data.personas));
-            const request_my_post = await axios.get("http://127.0.0.1:8000/post/mypost/");
-            const requestMyFollow = await axios.get("http://127.0.0.1:8000/mypage/following_list/");
+            const request_my_post = await axios.get("http://13.124.66.197/post/mypost/");
+            const requestMyFollow = await axios.get("http://13.124.66.197/mypage/following_list/");
             localStorage.setItem("local_my_follow_data", JSON.stringify(requestMyFollow.data));
             setUserProfile({
                 user: request.data.user,

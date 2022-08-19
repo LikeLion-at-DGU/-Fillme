@@ -1,11 +1,11 @@
-import React from 'react';
+import React from "react";
 import Header from "../components/Header";
 import signStyle from "../static/css/Sign.module.css";
 import { Footer } from "../components/Footer";
 import { TextField, Button, Typography, Box, Container } from "@mui/material/";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useLocation } from 'react-router';
+import { useLocation } from "react-router";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 
@@ -13,8 +13,10 @@ const UpdatePersona = () => {
     const location = useLocation();
     const prevId = location.state.personaId;
     console.log("페르소나 Id 잘 넘어왔는지 확인", prevId);
-    const navigate = useNavigate()
-    const { formState: { isSubmitting } } = useForm(); // 중복 제출 방지
+    const navigate = useNavigate();
+    const {
+        formState: { isSubmitting },
+    } = useForm(); // 중복 제출 방지
     const [userUpdatePersona, setUserUpdatePersona] = useState({
         name: "",
         category: "",
@@ -51,18 +53,19 @@ const UpdatePersona = () => {
         formData.append("name", userUpdatePersona.name);
         formData.append("category", userUpdatePersona.category);
 
-        await axios.patch(`http://127.0.0.1:8000/mypage/persona/${prevId}/`, formData, {
-            headers: {
-                "Content-Type": "multipart/form-data",
-            },
-        })
+        await axios
+            .patch(`http://13.124.66.197/mypage/persona/${prevId}/`, formData, {
+                headers: {
+                    "Content-Type": "multipart/form-data",
+                },
+            })
             .then((res) => {
                 console.log(res, "페르소나 수정 성공");
                 navigate("/Profile", { replace: true });
             })
             .catch((res) => {
                 console.log(res, "페르소나 수정 실패");
-            })
+            });
     };
     return (
         <>
@@ -75,7 +78,7 @@ const UpdatePersona = () => {
                         marginTop: 5,
                         display: "flex",
                         flexDirection: "column",
-                        minHeight: '70vh',
+                        minHeight: "70vh",
                     }}
                 >
                     <Typography
