@@ -66,7 +66,7 @@ const Register = ({ isLoggedIn, setIsLoggedIn }) => {
         else setEmailError("");
 
         // 아이디 유효성 검사
-        const idRegex = /^[a-zA-Z0-9]{4,30}$/;
+        const idRegex = /^[a-zA-Z0-9]{4,12}$/;
         if (!idRegex.test(id) || id.length < 1)
             setIdError("특수문자를 제외한 올바른 아이디를 입력해주세요.");
         else setIdError("");

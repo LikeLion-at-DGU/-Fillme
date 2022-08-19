@@ -27,7 +27,7 @@ function Pickpersona({ card_personas }) {
                     <div
                         id={"persona_detail"}
                         className={"detailPersona" + index}
-                        onClick={() => navigate(`/Detail/${detail.name}/`)}
+                        // onClick={() => navigate(`/Detail/${detail.name}/`)}
                         style={{
                             backgroundImage: `url(http://13.124.66.197${detail.image})`,
                             backgroundSize: `cover`,

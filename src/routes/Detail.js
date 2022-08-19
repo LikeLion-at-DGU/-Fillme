@@ -234,9 +234,9 @@ function Detail() {
                                     flexDirection: "row",
                                 }}
                             >
-                                <button onClick={clickHeart}>
+                                {/* <button onClick={clickHeart}>
                                     <FontAwesomeIcon icon={faHeart} size="3x" color="#3cda9f" />
-                                </button>
+                                </button> */}
                                 <TextField
                                     label="댓글을 입력해주세요"
                                     name="content"
