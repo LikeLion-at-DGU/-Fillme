@@ -60,10 +60,10 @@ export default function App({
                             >
                                 {/* for (let i = 0; i < slides.findIndex(v => v = null); i++) { */}
                                 {slides.map((slide, index) => {
-                                    return (
+                                    return slide === null ? null : (
                                         <SwiperSlide key={index}>
                                             <div className="slider__image">
-                                                <img src={slide} alt="" />
+                                                <img src={`http://127.0.0.1:8000${slide}`} alt="" />
                                             </div>
                                         </SwiperSlide>
                                     );
@@ -95,10 +95,10 @@ export default function App({
                             modules={[Navigation, Pagination, Thumbs, Mousewheel]}
                         >
                             {slides.map((slide, index) => {
-                                return (
+                                return slide === null ? null : (
                                     <SwiperSlide key={index}>
                                         <div className="slider__image">
-                                            <img src={slide} alt="" />
+                                            <img src={`http://127.0.0.1:8000${slide}`} alt="" />
                                         </div>
                                     </SwiperSlide>
                                 );
