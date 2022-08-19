@@ -119,9 +119,9 @@ const Register = ({ isLoggedIn, setIsLoggedIn }) => {
                 navigate("/SignupProfile", { replace: true });
                 // replace: true로 페이지 이동 후 뒤로가기 불가능
             })
-
             .catch(function (err) {
                 console.log(err);
+                alert("네트워크 에러 발생");
                 const message = err.request.responseText;
                 let error_message = [];
                 if (message.includes(`username":["User의 username은/는 이미 존재합니다.`))
