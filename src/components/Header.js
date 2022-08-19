@@ -48,7 +48,7 @@ function Header() {
         };
         let send_response = "";
         axios
-            .post("http://13.124.66.197/search/", data)
+            .post("http://13.124.66.197:8000/search/", data)
             .then((response) => {
                 // console.log(response);
                 send_response = response.data;
@@ -65,7 +65,7 @@ function Header() {
     // 히스토리 get
     const get_history = async () => {
         try {
-            const request = await axios.get("http://13.124.66.197/search/history/");
+            const request = await axios.get("http://13.124.66.197:8000/search/history/");
             setHistory(request.data);
             console.log("히스토리 불러오기 성공!", history);
         } catch (err) {
@@ -81,7 +81,7 @@ function Header() {
         };
 
         axios
-            .post("http://13.124.66.197/search/history/", data)
+            .post("http://13.124.66.197:8000/search/history/", data)
             .then((response) => {
                 console.log("검색 기록 생성 완료!", response);
             })
@@ -94,7 +94,7 @@ function Header() {
     //히스토리 삭제
     const delete_history = (id) => {
         axios
-            .delete(`http://13.124.66.197/search/history/${id}/`)
+            .delete(`http://13.124.66.197:8000/search/history/${id}/`)
             .then((response) => {
                 // console.log(response);
 
@@ -167,13 +167,17 @@ function Header() {
     //검색한거 클릭하면 다른 사람 프로필 들어가지도록
     const fetchData = async (id) => {
         try {
-            const request = await axios.get(`http://13.124.66.197/mypage/profile_persona/${id}/`);
+            const request = await axios.get(
+                `http://13.124.66.197:8000/mypage/profile_persona/${id}/`
+            );
             const requestFollow = await axios.get(
-                `http://13.124.66.197/mypage/${id}/following_list/`
+                `http://13.124.66.197:8000/mypage/${id}/following_list/`
             );
             localStorage.setItem("local_follow_data", JSON.stringify(requestFollow.data));
 
-            const requestMyFollow = await axios.get("http://13.124.66.197/mypage/following_list/");
+            const requestMyFollow = await axios.get(
+                "http://13.124.66.197:8000/mypage/following_list/"
+            );
             localStorage.setItem("local_my_follow_data", JSON.stringify(requestMyFollow.data));
             localStorage.setItem("user_profile_data", JSON.stringify(request.data));
 
@@ -190,7 +194,7 @@ function Header() {
     const [notice, setNotice] = useState([]);
     const get_notice = async () => {
         try {
-            const request = await axios.get("http://13.124.66.197/notice/");
+            const request = await axios.get("http://13.124.66.197:8000/notice/");
             setNotice(request.data);
             console.log("알림 불러오기 성공!", notice);
         } catch (err) {
@@ -247,7 +251,7 @@ function Header() {
                                                             <section
                                                                 style={{
                                                                     backgroundImage: `url(
-                                                            http://13.124.66.197${data.image}
+                                                            http://13.124.66.197:8000${data.image}
                                                         )`,
                                                                 }}
                                                                 className={search.image}
@@ -292,7 +296,7 @@ function Header() {
                                                     <section
                                                         style={{
                                                             backgroundImage: `url(
-                                                              http://13.124.66.197${data.image}
+                                                              http://13.124.66.197:8000${data.image}
                                                           )`,
                                                         }}
                                                         className={search.image}
