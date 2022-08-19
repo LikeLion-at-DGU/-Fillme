@@ -27,6 +27,7 @@ function Pickpersona({ card_personas }) {
                     <div
                         id={"persona_detail"}
                         className={"detailPersona" + index}
+                        onClick={() => navigate(`/Detail/${detail.name}/`)}
                         style={{
                             backgroundImage: `url(http://127.0.0.1:8000${detail.image})`,
                             backgroundSize: `cover`,
@@ -39,7 +40,7 @@ function Pickpersona({ card_personas }) {
                 </div>
             ))
         );
-        // onClick = {() => navigate(`/Detail/${detail.name}/`)}
+
         return persona_f;
     };
     if (hover) {
