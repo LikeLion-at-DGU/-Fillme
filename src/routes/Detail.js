@@ -13,17 +13,17 @@ import { useEffect, useState } from "react";
 import { TextField, Button, Box, Container } from "@mui/material/";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-regular-svg-icons";
+// import { faSolidHeart } from "@fortawesome/free-solid-svg-icons";
 
 function Detail() {
     const location = useLocation();
     const postPk = location.state.postPk;
-    // console.log("String postPk 값 체크 ", postPk);
 
     // 포스트 데이터 초기값 선언
     const [postData, setPostData] = useState({
         personaname: "", title: "", created_at: "", image1: null, image2: null, image3: null, image4: null,
         image5: null, image6: null, image7: null, image8: null, image9: null, image10: null,
-        content: "", username: "", like_num: 0, comment_set: [], comment_count: 0,
+        content: "", username: "", like_num: 0, comment_set: [{}], comment_count: 0,
     });
 
     // 댓글 보기위한 데이터 초기값 선언
@@ -65,10 +65,10 @@ function Detail() {
                 comment_set: imgPostPullData.data.comment_set,
                 comment_count: imgPostPullData.data.comment_count,
             });                                 // 리렌더링 ++
+            console.log("postData.comment_set 체크 ", postData.comment_set);
             // 댓글 정보 GET
             const commentPullData = await axios.get(`http://127.0.0.1:8000/post/${postPk}/comments/`);
             localStorage.setItem("local_comment_data", JSON.stringify(commentPullData.data));
-            console.log("댓글 데이터 ", commentPullData.data);
             setCommentData({
                 id: commentPullData.data.id,
                 post: commentPullData.data.post,
@@ -78,12 +78,11 @@ function Detail() {
                 created_at: commentPullData.data.created_at,
                 updated_at: commentPullData.data.updated_at
             })                                  // 리렌더링 ++
+            console.log("댓글 데이터 확인 ", imgPostPullData.data.comment_set);
         } catch (err) {
             console.log(err, "fetchData 실패");
         }
     };
-    // const postRequest = JSON.parse(localStorage.getItem("local_post_data"));
-    // const commentRequest = JSON.parse(localStorage.getItem("local_comment_data"));
 
     const [inputValue, setInputValue] = useState("");
 
@@ -106,6 +105,16 @@ function Detail() {
                 setInputValue("");              // 리렌더링 ++
             })
     };
+    const clickHeart = async (e) => {
+        e.preventDefault();
+        await axios.patch(`http://127.0.0.1:8000/post/${postPk}/send_like/`)
+            .then((res) => {
+                console.log(res, "좋아요");
+            })
+            .catch((res) => {
+                console.log(res, "좋아요 실패");
+            })
+    }
 
     return (
         <>
@@ -158,19 +167,36 @@ function Detail() {
                         {postData.content}
                         <br /><br />
                         <span className={styleD.userName}>@{postData.username}</span>
-                        <span className={styleD.countText}>좋아요 {postData.like_num}개</span>
-                        <span className={styleD.countText}>댓글 {postData.comment_count}개</span>
+                        <span className={styleD.countText1}>좋아요 {postData.like_num}개</span>
+                        <span className={styleD.countText2}>댓글 {postData.comment_count}개</span>
                     </div>
 
                     <div className={styleD.item}>                   {/* 5 */}
-                        {postData.comment_set.map((detail) => {
-                            <Comment
-                                key={detail.id}
-                                Id={detail.id}
-                                Username={detail.username}
-                                Content={detail.content}
-                            />
+                        {postData.comment_set.map((d) => {
+                            if (postData.comment_set === []) {
+                                return ("댓글이 없습니다");
+                            } else {
+                                return (
+                                    <Comment
+                                        key={d.id}
+                                        Id={d.id}
+                                        Username={d.username}
+                                        Content={d.content}
+                                    />
+                                );
+                            }
                         })}
+                        {/* {postData.comment_set === []
+                            ? "댓글이 없습니다"
+                            : postData.comment_set.map((d) => {
+                                <Comment
+                                    key={d.id}
+                                    Id={d.id}
+                                    Username={d.username}
+                                    Content={d.content}
+                                />
+                            })
+                        } */}
                     </div>
 
                     <div className={styleD.item}>                   {/* 6 */}
@@ -190,7 +216,7 @@ function Detail() {
 
                                 }}
                             >
-                                <button>
+                                <button onClick={clickHeart}>
                                     <FontAwesomeIcon icon={faHeart} size="3x" color="#3cda9f" />
                                 </button>
                                 <TextField
