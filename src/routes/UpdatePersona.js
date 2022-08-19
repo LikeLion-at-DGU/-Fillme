@@ -54,7 +54,7 @@ const UpdatePersona = () => {
         formData.append("category", userUpdatePersona.category);
 
         await axios
-            .patch(`http://13.124.66.197:8000/mypage/persona/${prevId}/`, formData, {
+            .patch(`http://13.124.66.197/mypage/persona/${prevId}/`, formData, {
                 headers: {
                     "Content-Type": "multipart/form-data",
                 },
