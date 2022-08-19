@@ -1,9 +1,9 @@
 import newStyle from "../static/css/Newfeeling.module.css";
 import { useState, useEffect } from "react";
 
-function New_Feelings({ id, user_id, user_name, persona_id, persona_name, image }) {
+function New_Feelings({ id, user_id, user_name, persona_id, persona_name, image, category }) {
     const newfeeling_style = {
-        backgroundImage: `url(${image})`,
+        backgroundImage: `url(http://127.0.0.1:8000${image})`,
         backgroundSize: "cover",
         backgroundRepeat: `no-repeat`,
         backgroundPosition: `center`,
@@ -28,11 +28,11 @@ function New_Feelings({ id, user_id, user_name, persona_id, persona_name, image 
                     onMouseLeave={OnMouseOut}
                 >
                     <div>
-                        <section id="user_id">@{user_id}</section>
+                        <section id="user_id">@{user_name}</section>
                         <section className={newStyle.content}></section>
                         <section>
-                            <h2 className={newStyle.title}>{user_name}</h2>
-                            <p className={newStyle.sub}>{persona_name}</p>
+                            <h2 className={newStyle.title}>{persona_name}</h2>
+                            <p className={newStyle.sub}>{category}</p>
                         </section>
 
                         <buttton className={newStyle.button}>프로필 보기</buttton>
@@ -49,7 +49,7 @@ function New_Feelings({ id, user_id, user_name, persona_id, persona_name, image 
                 onMouseOver={OnMouseOver}
                 onMouseLeave={OnMouseOut}
             >
-                <section id="user_id">@{user_id}</section>
+                <section id="user_id">@{user_name}</section>
                 <section className={newStyle.subUnhover}>
                     <p>{persona_name}</p>
                 </section>
