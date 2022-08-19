@@ -57,7 +57,7 @@ function Feed() {
                                 key={per.id}
                                 user_id={per.user}
                                 user_name={per.username}
-                                persona_id={per.profile}
+                                persona_id={per.id}
                                 persona_name={per.name}
                                 image={per.image}
                                 category={per.category}

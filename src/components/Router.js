@@ -73,6 +73,7 @@ const AppRouter = ({ isLoggedIn, setIsLoggedIn }) => {
                         <Route path="/Fillup" element={<Fillup />}></Route>
                         <Route path="Profile/user_profile/:Id" element={<Profile2 />} />
                         <Route path="/user_profile/:Id" element={<User_persona_detail />} />
+                        <Route path="/new_feelings/:Id" element={<User_persona_detail />} />
                     </Route>
                 </Routes>
             </Router>
