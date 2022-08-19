@@ -62,6 +62,7 @@ const AppRouter = ({ isLoggedIn, setIsLoggedIn }) => {
                         <Route path="/Discover" element={<Discover />}></Route>
                         <Route path="/Discover/:Id" element={<User_persona_detail />}></Route>
                         <Route path="/Detail" element={<Detail />}></Route>
+                        <Route path="/Detail/:name" element={<User_persona_detail />}></Route>
                         <Route
                             path="/Profile"
                             element={

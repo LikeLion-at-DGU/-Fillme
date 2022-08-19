@@ -14,9 +14,6 @@ function Clicked_persona_card({ category, image, name, length, username, Color_h
                 <br /> <br />
                 <br />
                 <br />
-                <br />
-                <br />
-                <br />
                 <section
                     className={styles.user_memo}
                     style={{ display: "inline-block", marginRight: "0.5vw" }}

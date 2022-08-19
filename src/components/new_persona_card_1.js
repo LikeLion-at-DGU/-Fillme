@@ -1,8 +1,10 @@
 import dummy from "../data.json";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "../static/css/personadata_1.css";
 
 function Pickpersona({ card_personas }) {
+    const navigate = useNavigate();
     // const CardimgUrl = "http://127.0.0.1:8000" + card_personas.image
     console.log(card_personas);
 
@@ -37,7 +39,7 @@ function Pickpersona({ card_personas }) {
                 </div>
             ))
         );
-
+        // onClick = {() => navigate(`/Detail/${detail.name}/`)}
         return persona_f;
     };
     if (hover) {

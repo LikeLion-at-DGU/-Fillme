@@ -33,39 +33,6 @@
     text-align: center;
 }
 
-#title {
-    font-style: "AppleSDGothicNeoB00", "Roboto-bold";
-    position: absolute;
-    width: 25%;
-    font-size: 26px;
-    font-weight: 650;
-    margin-top: 0px;
-    margin-left: 10px;
-    margin-bottom: 20px;
-}
-
-#created_at {
-    font-style: "AppleSDGothicNeoB00", "Roboto-bold";
-    position: relative;
-    font-size: 14px;
-    font-weight: 350;
-    width: 60px;
-    margin: 10px;
-    left: 27%;
-    top: 0.5vw;
-}
-
-#persona_name {
-    font-style: "AppleSDGothicNeoB00", "Roboto-bold";
-    position: relative;
-    font-size: 14px;
-    font-weight: 350;
-    width: 300px;
-    margin-top: 0px;
-    margin-left: 10px;
-    margin-bottom: 7px;
-}
-
 :root {
     --swiper-navigation-size: 20px;
 }
@@ -83,8 +50,8 @@
     top: 28%;
     left: 37%;
     /* top: -16%;
-  left: 26.5vw; */
-    margin-bottom: 10px;
+    left: 26.5vw; */
+    margin: 3% 0 1% 1%;
 }
 
 /* 전체 */
@@ -94,8 +61,8 @@
     position: absolute;
     top: 28%;
     left: 8.8%;
-    margin-bottom: 10px;
-    padding-bottom: 40px;
+    margin: 3% 0 1% 1%;
+    /* padding-bottom: 5vh; */
 }
 
 /* 버튼 */
@@ -165,10 +132,10 @@
     width: 100%;
 }
 /* .slider__images .slider__image img {
-  transition: 3s;
+    transition: 3s;
 }
 .slider__images .slider__image:hover img {
-  transform: scale(1.1);
+    transform: scale(1.1);
 } */
 .slider__image {
     width: 100%;

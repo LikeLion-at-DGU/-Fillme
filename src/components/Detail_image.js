@@ -6,22 +6,12 @@ import "swiper/css/pagination";
 import "../static/css/Detail_image.css"
 // import "swiper/css/navigation";
 import { useState } from "react";
-import duby from "../detail_data.json"
 
-const slides = [
-    duby.image1,
-    duby.image2,
-    duby.image3,
-    duby.image4,
-    duby.image5,
-    duby.image6,
-    duby.image7,
-    duby.image8,
-    duby.image9,
-    duby.image10
-];
-
-export default function App() {
+export default function App({ Image1, Image2, Image3, Image4, Image5, Image6, Image7, Image8, Image9, Image10 }) {
+    const slides = [
+        Image1, Image2, Image3, Image4, Image5, Image6, Image7, Image8, Image9, Image10
+    ]
+    // console.log("slides 배열 분석 ", slides);
     const [imagesNavSlider, setImagesNavSlider] = useState(null);
     return (
         <div className="App">
@@ -29,7 +19,6 @@ export default function App() {
                 <div className="slider__flex">
                     <div className="slider__col">
                         <div className="slider__prev">Prev</div>
-
                         <div className="slider__thumbs">
                             <Swiper
                                 onSwiper={setImagesNavSlider}
@@ -48,6 +37,7 @@ export default function App() {
                                 }}
                                 modules={[Navigation, Thumbs, Mousewheel]}
                             >
+                                {/* for (let i = 0; i < slides.findIndex(v => v = null); i++) { */}
                                 {slides.map((slide, index) => {
                                     return (
                                         <SwiperSlide key={index}>
@@ -83,6 +73,7 @@ export default function App() {
                             className="swiper-container2"
                             modules={[Navigation, Pagination, Thumbs, Mousewheel]}
                         >
+
                             {slides.map((slide, index) => {
                                 return (
                                     <SwiperSlide key={index}>
