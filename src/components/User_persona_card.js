@@ -6,7 +6,7 @@ import { useNavigate, Link } from "react-router-dom";
 
 function User_persona_card({ Id, Name, Category, Image }) {
     const navigate = useNavigate();
-    const imageUrl = "http://127.0.0.1:8000" + Image;
+    const imageUrl = "http://13.124.66.197" + Image;
     // console.log(imageUrl);
 
     return (

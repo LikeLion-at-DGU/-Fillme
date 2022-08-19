@@ -20,7 +20,7 @@ function Persona_Card({
     following,
     my_post,
 }) {
-    const imageUrl = "http://127.0.0.1:8000" + image;
+    const imageUrl = "http://13.124.66.197" + image;
 
     return (
         <>

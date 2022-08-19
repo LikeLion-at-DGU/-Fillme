@@ -15,7 +15,9 @@ import { useForm } from "react-hook-form";
 
 const SignupPersona = () => {
     const navigate = useNavigate();
-    const { formState: { isSubmitting } } = useForm(); // 중복 제출 방지
+    const {
+        formState: { isSubmitting },
+    } = useForm(); // 중복 제출 방지
     const [userPersona, setUserPersona] = useState({
         name: "",
         category: "",
@@ -50,7 +52,7 @@ const SignupPersona = () => {
         formData.append("category", userPersona.category);
 
         await axios
-            .post("http://127.0.0.1:8000/mypage/persona/", formData, {
+            .post("http://13.124.66.197/mypage/persona/", formData, {
                 headers: {
                     "Content-Type": "multipart/form-data",
                 },
@@ -75,7 +77,7 @@ const SignupPersona = () => {
                         marginTop: 5,
                         display: "flex",
                         flexDirection: "column",
-                        minHeight: '85vh',
+                        minHeight: "85vh",
                     }}
                 >
                     <Typography

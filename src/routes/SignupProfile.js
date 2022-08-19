@@ -62,7 +62,7 @@ function SignupProfile() {
         formData.append("color", profile.color);
 
         await axios
-            .patch("http://127.0.0.1:8000/mypage/profile_update/", formData, {
+            .patch("http://13.124.66.197/mypage/profile_update/", formData, {
                 headers: {
                     "Content-Type": "multipart/form-data",
                 },
@@ -89,7 +89,7 @@ function SignupProfile() {
                         display: "flex",
                         flexDirection: "column",
                         alignItems: "center",
-                        minHeight: '70vh',
+                        minHeight: "70vh",
                     }}
                 >
                     <Typography

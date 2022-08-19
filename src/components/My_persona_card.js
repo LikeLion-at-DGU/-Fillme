@@ -7,7 +7,7 @@ import { useNavigate, Link } from "react-router-dom";
 function My_persona_card({ Id, Name, Category, Image, Openpublic }) {
     console.log("부모 컴포넌트 props 추출", Id, Name, Category, Openpublic);
     const navigate = useNavigate();
-    const imageUrl = "http://127.0.0.1:8000" + Image;
+    const imageUrl = "http://13.124.66.197" + Image;
     // console.log(imageUrl);
 
     // 버튼 상태 조절
@@ -21,7 +21,7 @@ function My_persona_card({ Id, Name, Category, Image, Openpublic }) {
         e.preventDefault();
         if (controlBtn.hideState) {
             axios
-                .patch(`http://127.0.0.1:8000/mypage/persona/${Id}/openpublic/`)
+                .patch(`http://13.124.66.197/mypage/persona/${Id}/openpublic/`)
                 .then((res) => {
                     console.log(res, "페르소나 비공개 성공");
                     setControlBtn({
@@ -36,7 +36,7 @@ function My_persona_card({ Id, Name, Category, Image, Openpublic }) {
                 });
         } else {
             axios
-                .patch(`http://127.0.0.1:8000/mypage/persona/${Id}/openpublic/`)
+                .patch(`http://13.124.66.197/mypage/persona/${Id}/openpublic/`)
                 .then((res) => {
                     console.log(res, "페르소나 공개 성공");
                     setControlBtn({
@@ -57,7 +57,7 @@ function My_persona_card({ Id, Name, Category, Image, Openpublic }) {
         e.preventDefault();
         if (window.confirm("해당 페르소나를 삭제하시겠습니까?")) {
             return axios
-                .delete(`http://127.0.0.1:8000/mypage/persona/${Id}/`)
+                .delete(`http://13.124.66.197/mypage/persona/${Id}/`)
                 .then((res) => {
                     console.log(res, "페르소나 삭제 성공");
                     window.location.replace("/Profile");

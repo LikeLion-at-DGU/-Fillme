@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import Header from "../components/Header";
 import { Footer } from "../components/Footer";
 import axios from "axios";
@@ -45,18 +45,19 @@ const SettingProfile = () => {
         formData.append("memo", editProfile.memo);
         formData.append("color", editProfile.color);
 
-        await axios.patch("http://127.0.0.1:8000/mypage/profile_update/", formData, {
-            headers: {
-                "Content-Type": "multipart/form-data",
-            },
-        })
+        await axios
+            .patch("http://13.124.66.197/mypage/profile_update/", formData, {
+                headers: {
+                    "Content-Type": "multipart/form-data",
+                },
+            })
             .then((res) => {
                 console.log(res, "메인 프로필 수정 성공");
                 navigate("/Profile", { replace: true });
             })
             .catch((res) => {
                 console.log(res, "메인 프로필 수정 실패");
-            })
+            });
     };
 
     return (
@@ -71,7 +72,7 @@ const SettingProfile = () => {
                         display: "flex",
                         flexDirection: "column",
                         alignItems: "center",
-                        minHeight: '70vh',
+                        minHeight: "70vh",
                     }}
                 >
                     <Typography

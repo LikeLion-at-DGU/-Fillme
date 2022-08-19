@@ -54,7 +54,7 @@ function Login({ isLoggedIn, setIsLoggedIn }) {
         };
 
         axios
-            .post("http://127.0.0.1:8000/accounts/login/", user)
+            .post("http://13.124.66.197/accounts/login/", user)
             .then((res) => {
                 localStorage.setItem("logInUserId", res.data.user.pk); // 현재 로그인한 유저 누군지 설정
                 const accesstoken = res.data.access_token; // API 요청 콜마다 헤더에 accessToken 담아 보내도록 설정
