@@ -29,13 +29,15 @@ function User_Profile() {
     const fetchFollow = async () => {
         try {
             const requestFollow = await axios.get(
-                `http://13.124.66.197/mypage/${user_id}/following_list/`
+                `http://13.124.66.197:8000/mypage/${user_id}/following_list/`
             );
             localStorage.setItem("local_follow_data", JSON.stringify(requestFollow.data));
             const request_user_post = await axios.get(
-                `http://13.124.66.197/post/user_post/${user_id}/`
+                `http://13.124.66.197:8000/post/user_post/${user_id}/`
             );
-            const requestMyFollow = await axios.get("http://13.124.66.197/mypage/following_list/");
+            const requestMyFollow = await axios.get(
+                "http://13.124.66.197:8000/mypage/following_list/"
+            );
             localStorage.setItem("local_my_follow_data", JSON.stringify(requestMyFollow.data));
             setFollowData({
                 followings: requestFollow.data.followings,
@@ -62,7 +64,7 @@ function User_Profile() {
             // 내 팔로잉 배열에 현재 페이지 params가 있는지 확인
             if (window.confirm("정말 언팔로우하시겠습니까?")) {
                 await axios
-                    .post(`http://13.124.66.197/mypage/follow/${user_id}/`)
+                    .post(`http://13.124.66.197:8000/mypage/follow/${user_id}/`)
                     .then((res) => {
                         console.log(res, "팔로우 취소 성공");
                     })
@@ -77,7 +79,7 @@ function User_Profile() {
         } else {
             if (window.confirm("해당 유저를 팔로우하시겠습니까?")) {
                 await axios
-                    .post(`http://13.124.66.197/mypage/follow/${user_id}/`)
+                    .post(`http://13.124.66.197:8000/mypage/follow/${user_id}/`)
                     .then((res) => {
                         console.log(res, "팔로우 성공");
                     })

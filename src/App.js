@@ -8,7 +8,7 @@ function App() {
 
     const fetchData = async () => {
         try {
-            const request = await axios.get("http://13.124.66.197/mypage/random_profile/");
+            const request = await axios.get("http://13.124.66.197:8000/mypage/random_profile/");
             console.log("get 성공", request.data);
             localStorage.setItem("discover_page", JSON.stringify(request.data));
         } catch (err) {
@@ -17,7 +17,7 @@ function App() {
     };
     const fetchData2 = async () => {
         try {
-            const request = await axios.get("http://13.124.66.197/mypage/profile_persona/");
+            const request = await axios.get("http://13.124.66.197:8000/mypage/profile_persona/");
             localStorage.setItem("local_persona_data", JSON.stringify(request.data.personas));
             // console.log("get 성공", request);
         } catch (err) {

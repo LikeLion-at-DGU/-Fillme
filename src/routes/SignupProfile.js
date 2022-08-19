@@ -62,7 +62,7 @@ function SignupProfile() {
         formData.append("color", profile.color);
 
         await axios
-            .patch("http://13.124.66.197/mypage/profile_update/", formData, {
+            .patch("http://13.124.66.197:8000/mypage/profile_update/", formData, {
                 headers: {
                     "Content-Type": "multipart/form-data",
                 },
