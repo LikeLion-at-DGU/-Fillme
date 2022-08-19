@@ -18,7 +18,6 @@ import { faHeart } from "@fortawesome/free-regular-svg-icons";
 function Detail() {
     const location = useLocation();
     const postPk = location.state.postPk;
-    // console.log("String postPk 값 체크 ", postPk);
 
     // 포스트 데이터 초기값 선언
     const [postData, setPostData] = useState({
