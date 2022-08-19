@@ -20,11 +20,17 @@ function Feed() {
     console.log(localStorage);
     const [following_post, setFollowing_post] = useState([]);
     // console.log("axios", axios.defaults.headers);
+    const [new_feelings, setNewfeelings] = useState([]);
+    console.log("new feelings받기 성공!", new_feelings);
     const get_post = async () => {
         try {
             const request = await axios.get(`http://127.0.0.1:8000/post/follow_persona/`);
-            console.log("팔로우 하는 사람들 게시물 받기", request);
+            const request_new_feelings = await axios.get(
+                `http://127.0.0.1:8000/mypage/new_feelings/`
+            );
+            // console.log("팔로우 하는 사람들 게시물 받기", request);
             setFollowing_post(request.data);
+            setNewfeelings(request_new_feelings.data);
         } catch (err) {
             console.log(err);
         }
@@ -46,14 +52,15 @@ function Feed() {
                 <h1 className={styles.title}>New Feelings</h1>
                 <div className={styles.wrap2}>
                     <div className="new_feelings">
-                        {persona.map((per) => (
+                        {new_feelings.map((per) => (
                             <New_Feelings
                                 key={per.id}
-                                user_id={per.user_id}
-                                user_name={per.user_name}
-                                persona_id={per.persona_id}
-                                persona_name={per.persona_name}
+                                user_id={per.user}
+                                user_name={per.username}
+                                persona_id={per.profile}
+                                persona_name={per.name}
                                 image={per.image}
+                                category={per.category}
                             />
                         ))}
                     </div>
