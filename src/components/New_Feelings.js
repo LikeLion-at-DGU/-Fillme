@@ -1,5 +1,6 @@
 import newStyle from "../static/css/Newfeeling.module.css";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 function New_Feelings({ id, user_id, user_name, persona_id, persona_name, image, category }) {
     const newfeeling_style = {
@@ -8,7 +9,13 @@ function New_Feelings({ id, user_id, user_name, persona_id, persona_name, image,
         backgroundRepeat: `no-repeat`,
         backgroundPosition: `center`,
     };
+    const navigate = useNavigate();
 
+    const profile_click = () => {
+        navigate(`/new_feelings/${persona_id}`, {
+            replace: true,
+        });
+    };
     const [hover, setHover] = useState(false);
     const OnMouseOver = () => {
         setHover(true);
@@ -35,7 +42,9 @@ function New_Feelings({ id, user_id, user_name, persona_id, persona_name, image,
                             <p className={newStyle.sub}>{category}</p>
                         </section>
 
-                        <buttton className={newStyle.button}>프로필 보기</buttton>
+                        <buttton className={newStyle.button} onClick={profile_click}>
+                            프로필 보기
+                        </buttton>
                     </div>
                 </div>
             </>
