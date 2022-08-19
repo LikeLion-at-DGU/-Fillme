@@ -24,9 +24,9 @@ function Feed() {
     console.log("new feelings받기 성공!", new_feelings);
     const get_post = async () => {
         try {
-            const request = await axios.get(`http://13.124.66.197:8000/post/follow_persona/`);
+            const request = await axios.get(`http://13.124.66.197/post/follow_persona/`);
             const request_new_feelings = await axios.get(
-                `http://13.124.66.197:8000/mypage/new_feelings/`
+                `http://13.124.66.197/mypage/new_feelings/`
             );
             // console.log("팔로우 하는 사람들 게시물 받기", request);
             setFollowing_post(request.data);

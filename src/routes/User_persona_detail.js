@@ -17,7 +17,7 @@ function User_persona_detail() {
 
     const get_post = async () => {
         try {
-            const request = await axios.get(`http://13.124.66.197:8000/post/mypost/${Id}/`);
+            const request = await axios.get(`http://13.124.66.197/post/mypost/${Id}/`);
             console.log("페르소나 글 정보", request);
             setmy_persona_post(request.data);
         } catch (err) {
@@ -27,7 +27,7 @@ function User_persona_detail() {
 
     const get_persona_info = async () => {
         try {
-            const request = await axios.get(`http://13.124.66.197:8000/mypage/persona/${Id}/`);
+            const request = await axios.get(`http://13.124.66.197/mypage/persona/${Id}/`);
             setmy_persona_info(request.data);
             console.log("페르소나 정보", request);
         } catch (err) {}
