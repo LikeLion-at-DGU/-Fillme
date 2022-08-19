@@ -363,7 +363,9 @@ function Header() {
                                             <section className={search.notice_comment}>
                                                 {data.content === "null"
                                                     ? null
-                                                    : data.content.slice(0, 20) + "..."}
+                                                    : data.content.length > 20
+                                                    ? data.content.slice(0, 34) + "..."
+                                                    : data.content}
                                                 <section className={search.date}>
                                                     {data.calculatedtime}
                                                 </section>

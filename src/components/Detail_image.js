@@ -3,14 +3,35 @@ import { Navigation, Pagination, Thumbs, Mousewheel } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import "../static/css/Detail_image.css"
+import "../static/css/Detail_image.css";
 // import "swiper/css/navigation";
 import { useState } from "react";
 
-export default function App({ Image1, Image2, Image3, Image4, Image5, Image6, Image7, Image8, Image9, Image10 }) {
+export default function App({
+    Image1,
+    Image2,
+    Image3,
+    Image4,
+    Image5,
+    Image6,
+    Image7,
+    Image8,
+    Image9,
+    Image10,
+}) {
     const slides = [
-        Image1, Image2, Image3, Image4, Image5, Image6, Image7, Image8, Image9, Image10
-    ]
+        Image1,
+        Image2,
+        Image3,
+        Image4,
+        Image5,
+        Image6,
+        Image7,
+        Image8,
+        Image9,
+        Image10,
+    ];
+    console.log(slides);
     // console.log("slides 배열 분석 ", slides);
     const [imagesNavSlider, setImagesNavSlider] = useState(null);
     return (
@@ -29,11 +50,11 @@ export default function App({ Image1, Image2, Image3, Image4, Image5, Image6, Im
                                 className="swiper-container1"
                                 breakpoints={{
                                     0: {
-                                        direction: "vertical"
+                                        direction: "vertical",
                                     },
                                     768: {
-                                        direction: "vertical"
-                                    }
+                                        direction: "vertical",
+                                    },
                                 }}
                                 modules={[Navigation, Thumbs, Mousewheel]}
                             >
@@ -64,16 +85,15 @@ export default function App({ Image1, Image2, Image3, Image4, Image5, Image6, Im
                             pagination={true}
                             breakpoints={{
                                 0: {
-                                    direction: "horizontal"
+                                    direction: "horizontal",
                                 },
                                 768: {
-                                    direction: "horizontal"
-                                }
+                                    direction: "horizontal",
+                                },
                             }}
                             className="swiper-container2"
                             modules={[Navigation, Pagination, Thumbs, Mousewheel]}
                         >
-
                             {slides.map((slide, index) => {
                                 return (
                                     <SwiperSlide key={index}>
