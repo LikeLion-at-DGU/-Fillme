@@ -18,6 +18,7 @@ function User_Profile() {
         followings: [],
         followingnum: "",
         followernum: "",
+        my_post: "0",
     });
 
     useEffect(() => {
@@ -31,13 +32,16 @@ function User_Profile() {
                 `http://127.0.0.1:8000/mypage/${user_id}/following_list/`
             );
             localStorage.setItem("local_follow_data", JSON.stringify(requestFollow.data));
-
+            const request_user_post = await axios.get(
+                `http://127.0.0.1:8000/post/user_post/${user_id}/`
+            );
             const requestMyFollow = await axios.get("http://127.0.0.1:8000/mypage/following_list/");
             localStorage.setItem("local_my_follow_data", JSON.stringify(requestMyFollow.data));
             setFollowData({
                 followings: requestFollow.data.followings,
                 followingnum: requestFollow.data.followingnum,
                 followernum: requestFollow.data.followernum,
+                my_post: request_user_post.data.length,
             }); // 리렌더링++
         } catch (err) {
             console.log(err);
@@ -118,6 +122,7 @@ function User_Profile() {
                         followings={followData.followings}
                         follower={followData.followernum}
                         following={followData.followingnum}
+                        my_post={followData.my_post}
                     />
                 </div>
                 <button

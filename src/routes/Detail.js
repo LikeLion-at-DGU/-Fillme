@@ -1,12 +1,12 @@
-import Navbar from "../components/Navbar"
+import Navbar from "../components/Navbar";
 import { Footer } from "../components/Footer";
 import duby from "../detail_data.json";
-import DetailImage from "../components/Detail_image"
+import DetailImage from "../components/Detail_image";
 import DetailContent from "../components/Detail_content";
 import Comment from "../components/Comment";
 import styleD from "../static/css/Detail_content.module.css";
 // import DetailImage from "../components/Detail_image"
-import Discover from './Discover';
+import Discover from "./Discover";
 import axios from "axios";
 import { Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -21,9 +21,24 @@ function Detail() {
 
     // 포스트 데이터 초기값 선언
     const [postData, setPostData] = useState({
-        personaname: "", title: "", created_at: "", image1: null, image2: null, image3: null, image4: null,
-        image5: null, image6: null, image7: null, image8: null, image9: null, image10: null,
-        content: "", username: "", like_num: 0, comment_set: [{}], comment_count: 0,
+        personaname: "",
+        title: "",
+        created_at: "",
+        image1: null,
+        image2: null,
+        image3: null,
+        image4: null,
+        image5: null,
+        image6: null,
+        image7: null,
+        image8: null,
+        image9: null,
+        image10: null,
+        content: "",
+        username: "",
+        like_num: 0,
+        comment_set: [{}],
+        comment_count: 0,
     });
 
     // 댓글 보기위한 데이터 초기값 선언
@@ -39,7 +54,7 @@ function Detail() {
     // 상세 페이지 리로드 시 1회 실행 / 댓글 & 좋아요 변화 시 리렌더링
     useEffect(() => {
         fetchData();
-    }, [postData.like_num, postData.comment_count,]);
+    }, [postData.like_num, postData.comment_count]);
     const fetchData = async () => {
         try {
             // 포스트 정보 GET
@@ -48,7 +63,7 @@ function Detail() {
             setPostData({
                 personaname: imgPostPullData.data.personaname,
                 title: imgPostPullData.data.title,
-                created_at: imgPostPullData.data.created_at,
+                created_at: imgPostPullData.data.created_at.slice(0, 10),
                 image1: "http://127.0.0.1:8000" + imgPostPullData.data.image1,
                 image2: "http://127.0.0.1:8000" + imgPostPullData.data.image2,
                 image3: "http://127.0.0.1:8000" + imgPostPullData.data.image3,
@@ -64,10 +79,12 @@ function Detail() {
                 like_num: imgPostPullData.data.like_num,
                 comment_set: imgPostPullData.data.comment_set,
                 comment_count: imgPostPullData.data.comment_count,
-            });                                 // 리렌더링 ++
+            }); // 리렌더링 ++
             console.log("postData.comment_set 체크 ", postData.comment_set);
             // 댓글 정보 GET
-            const commentPullData = await axios.get(`http://127.0.0.1:8000/post/${postPk}/comments/`);
+            const commentPullData = await axios.get(
+                `http://127.0.0.1:8000/post/${postPk}/comments/`
+            );
             localStorage.setItem("local_comment_data", JSON.stringify(commentPullData.data));
             setCommentData({
                 id: commentPullData.data.id,
@@ -76,8 +93,8 @@ function Detail() {
                 username: commentPullData.data.username,
                 content: commentPullData.data.content,
                 created_at: commentPullData.data.created_at,
-                updated_at: commentPullData.data.updated_at
-            })                                  // 리렌더링 ++
+                updated_at: commentPullData.data.updated_at,
+            }); // 리렌더링 ++
             console.log("댓글 데이터 확인 ", imgPostPullData.data.comment_set);
         } catch (err) {
             console.log(err, "fetchData 실패");
@@ -87,34 +104,36 @@ function Detail() {
     const [inputValue, setInputValue] = useState("");
 
     const onChange = (e) => {
-        setInputValue(e.target.value);          // 리렌더링 ++
+        setInputValue(e.target.value); // 리렌더링 ++
     };
 
     const commentSubmit = async (e) => {
         e.preventDefault();
-        await axios.post(`http://127.0.0.1:8000/post/${postPk}/comments/`, {
-            content: inputValue
-        })
+        await axios
+            .post(`http://127.0.0.1:8000/post/${postPk}/comments/`, {
+                content: inputValue,
+            })
             .then((res) => {
                 console.log(res, "댓글 등록 성공");
-                setInputValue("");              // 리렌더링 ++
+                setInputValue(""); // 리렌더링 ++
                 alert("댓글이 등록되었습니다.");
             })
             .catch((res) => {
                 console.log(res, "댓글 등록 실패");
-                setInputValue("");              // 리렌더링 ++
-            })
+                setInputValue(""); // 리렌더링 ++
+            });
     };
     const clickHeart = async (e) => {
         e.preventDefault();
-        await axios.patch(`http://127.0.0.1:8000/post/${postPk}/send_like/`)
+        await axios
+            .patch(`http://127.0.0.1:8000/post/${postPk}/send_like/`)
             .then((res) => {
                 console.log(res, "좋아요");
             })
             .catch((res) => {
                 console.log(res, "좋아요 실패");
-            })
-    }
+            });
+    };
 
     return (
         <>
@@ -124,31 +143,27 @@ function Detail() {
                 brightness(120%) contrast(95%);}`}
             </style>
             <div className={styleD.wrap}>
-                <div className={styleD.container}>                 {/* Grid */}
-                    <div className={styleD.item}>                   {/* 1 */}
+                <div className={styleD.container}>
+                    {" "}
+                    {/* Grid */}
+                    <div className={styleD.item}>
+                        {" "}
+                        {/* 1 */}
                         <br />
-                        <section className={styleD.personaname}>
-                            {postData.personaname}
-                        </section>
-                        <section className={styleD.title}>
-                            {postData.title}
-                        </section>
-                        <section className={styleD.created_at}>
-                            {postData.created_at}
-                        </section>
-                        <section>
-                            {/* <Link>수정</Link> */}
-                        </section>
-                        <section>
-                            {/* <Link>삭제</Link> */}
-                        </section>
+                        <section className={styleD.personaname}>{postData.personaname}</section>
+                        <section className={styleD.title}>{postData.title}</section>
+                        <section className={styleD.created_at}>{postData.created_at}</section>
+                        <section>{/* <Link>수정</Link> */}</section>
+                        <section>{/* <Link>삭제</Link> */}</section>
                     </div>
-
-                    <div className={styleD.item}>                   {/* 2 */}
+                    <div className={styleD.item}>
+                        {" "}
+                        {/* 2 */}
                         {/* 공백 Grid */}
                     </div>
-
-                    <div className={styleD.item}>                   {/* 3 */}
+                    <div className={styleD.item}>
+                        {" "}
+                        {/* 3 */}
                         <DetailImage
                             Image1={postData.image1}
                             Image2={postData.image2}
@@ -162,19 +177,22 @@ function Detail() {
                             Image10={postData.image10}
                         />
                     </div>
-
-                    <div className={styleD.item}>                   {/* 4 */}
+                    <div className={styleD.item}>
+                        {" "}
+                        {/* 4 */}
                         {postData.content}
-                        <br /><br />
+                        <br />
+                        <br />
                         <span className={styleD.userName}>@{postData.username}</span>
                         <span className={styleD.countText1}>좋아요 {postData.like_num}개</span>
                         <span className={styleD.countText2}>댓글 {postData.comment_count}개</span>
                     </div>
-
-                    <div className={styleD.item}>                   {/* 5 */}
+                    <div className={styleD.item}>
+                        {" "}
+                        {/* 5 */}
                         {postData.comment_set.map((d) => {
                             if (postData.comment_set === []) {
-                                return ("댓글이 없습니다");
+                                return "댓글이 없습니다";
                             } else {
                                 return (
                                     <Comment
@@ -198,13 +216,14 @@ function Detail() {
                             })
                         } */}
                     </div>
-
-                    <div className={styleD.item}>                   {/* 6 */}
+                    <div className={styleD.item}>
+                        {" "}
+                        {/* 6 */}
                         {/* 공백 Grid */}
-
                     </div>
-
-                    <div className={styleD.item}>                   {/* 7 */}
+                    <div className={styleD.item}>
+                        {" "}
+                        {/* 7 */}
                         <Container component="main" maxWidth="md">
                             <Box
                                 component="form"
@@ -213,7 +232,6 @@ function Detail() {
                                     mt: 2,
                                     display: "flex",
                                     flexDirection: "row",
-
                                 }}
                             >
                                 <button onClick={clickHeart}>
@@ -246,4 +264,5 @@ function Detail() {
             <Footer />
         </>
     );
-} export default Detail;    
+}
+export default Detail;
