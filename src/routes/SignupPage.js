@@ -66,9 +66,9 @@ const Register = ({ isLoggedIn, setIsLoggedIn }) => {
         else setEmailError("");
 
         // 아이디 유효성 검사
-        const idRegex = /^[a-zA-Z0-9]{4,12}$/;
+        const idRegex = /^[a-zA-Z\\d`~!@#$%^&*()-_=+]{4,20}$/;
         if (!idRegex.test(id) || id.length < 1)
-            setIdError("특수문자를 제외한 올바른 아이디를 입력해주세요.");
+            setIdError("숫자, 알파벳 및 숫자와 관련된 특수문자 조합의 올바른 아이디를 입력해주세요. 글자수 제한[4~20]");
         else setIdError("");
 
         // 비밀번호 유효성 체크
