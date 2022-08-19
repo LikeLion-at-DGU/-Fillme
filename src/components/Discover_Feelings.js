@@ -7,11 +7,11 @@ import Pickpersona from "./new_persona_card_1";
 import { useNavigate } from "react-router-dom";
 
 function Mainprofile({ image, color, user, username, fullname, memo, personas }) {
-    const imageUrl = "http://13.124.66.197" + image;
+    const imageUrl = "http://13.124.66.197:8000" + image;
 
     const navigate = useNavigate();
     const clickMe = () => {
-        // const request = await axios.get(`http://13.124.66.197/mypage/profile_persona/${id}/`);
+        // const request = await axios.get(`http://13.124.66.197:8000/mypage/profile_persona/${id}/`);
         // localStorage.setItem("user_profile_data", JSON.stringify(request.data));
 
         navigate(`/Discover/${user}`, {
@@ -44,7 +44,7 @@ function Mainprofile({ image, color, user, username, fullname, memo, personas })
     //         persona_f.push(personas.map((card, index) => (
     //         <div className="persona_data_1_img_in">
     //             <div>
-    //                 <img className={"Persona_image"+index} style={cover_style} src={"http://13.124.66.197"+card.image}></img>
+    //                 <img className={"Persona_image"+index} style={cover_style} src={"http://13.124.66.197:8000"+card.image}></img>
     //             </div>
     //             <div id={"persona_card"}>{card.name}</div>
     //         </div>)))
@@ -84,7 +84,7 @@ function Mainprofile({ image, color, user, username, fullname, memo, personas })
                     {/* {personas.map((persona, index) => (
                         <div>
                         <div>
-                            <img className={"Persona_image"+index} style={cover_style} src={"http://13.124.66.197"+persona.image}></img>                      
+                            <img className={"Persona_image"+index} style={cover_style} src={"http://13.124.66.197:8000"+persona.image}></img>                      
                         </div>
                         <div>{persona.name}</div>
                         </div>
