@@ -25,6 +25,7 @@ function Profile({ isLoggedIn, setIsLoggedIn }) {
         followings: [],
         followingnum: 0,
         followernum: 0,
+        my_post: 0,
     });
 
     const navigate = useNavigate();
@@ -44,7 +45,7 @@ function Profile({ isLoggedIn, setIsLoggedIn }) {
         try {
             const request = await axios.get("http://127.0.0.1:8000/mypage/profile_persona/");
             localStorage.setItem("local_persona_data", JSON.stringify(request.data.personas));
-
+            const request_my_post = await axios.get("http://127.0.0.1:8000/post/mypost/");
             const requestMyFollow = await axios.get("http://127.0.0.1:8000/mypage/following_list/");
             localStorage.setItem("local_my_follow_data", JSON.stringify(requestMyFollow.data));
             setUserProfile({
@@ -59,6 +60,7 @@ function Profile({ isLoggedIn, setIsLoggedIn }) {
                 followings: requestMyFollow.data.followings,
                 followingnum: requestMyFollow.data.followingnum,
                 followernum: requestMyFollow.data.followernum,
+                my_post: request_my_post.data.length,
             }); // 리렌더링++
             // console.log("request.data 추출", request.data);
             console.log("requestMyFollow.data 추출", requestMyFollow.data);
@@ -122,6 +124,7 @@ function Profile({ isLoggedIn, setIsLoggedIn }) {
                         followList={userProfile.followList}
                         follower={userProfile.followernum}
                         following={userProfile.followingnum}
+                        my_post={userProfile.my_post}
                     />
                 </div>
                 <div className={styles.persona_card}>
