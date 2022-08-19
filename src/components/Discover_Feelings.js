@@ -92,10 +92,10 @@ function Mainprofile({ image, color, user, username, fullname, memo, personas })
                     <Pickpersona card_personas={personas} />
                 </div>
 
-                <button id="btn_profile" onClick={clickMe}>
+                {/* <button id="btn_profile" onClick={clickMe}>
                     프로필 보기
                 </button>
-                <button id="btn_following">팔로잉</button>
+                <button id="btn_following">팔로잉</button> */}
             </Color>
         </div>
     );
