@@ -1,6 +1,6 @@
 import { useState } from "react";
 import duby from "../detail_data.json"
-import "../static/css/Detail_content.css"
+import "../static/css/Detail_content.module.css"
 
 export default function DetailContent({ content, comment_set }) {
 

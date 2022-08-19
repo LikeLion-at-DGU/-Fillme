@@ -73,6 +73,7 @@ function render_fill_feelings(fill) {
     return (
         <Fill_feelings
             key={fill.id}
+            post_pk={fill.id} // post key 값
             user_id={fill.username}
             index={fill.id}
             image={fill.image1}
