@@ -364,7 +364,7 @@ function Header() {
                                                 {data.content === "null"
                                                     ? null
                                                     : data.content.length > 20
-                                                    ? data.content.slice(0, 34) + "..."
+                                                    ? data.content.slice(0, 30) + "..."
                                                     : data.content}
                                                 <section className={search.date}>
                                                     {data.calculatedtime}
