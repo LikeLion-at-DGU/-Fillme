@@ -103,6 +103,7 @@ function Detail() {
             })
             .catch((res) => {
                 console.log(res, "댓글 등록 실패");
+                setInputValue("");              // 리렌더링 ++
             })
     };
 
@@ -183,7 +184,7 @@ function Detail() {
                                 component="form"
                                 onSubmit={commentSubmit}
                                 sx={{
-
+                                    mt: 2,
                                     display: "flex",
                                     flexDirection: "row",
 
@@ -206,7 +207,7 @@ function Detail() {
                                     variant="contained"
                                     fullWidth
                                     fontFamily="AppleSDGothicNeoB00"
-                                    sx={{ ml: 2, bgcolor: "#3CDA9F", width: "7vw" }}
+                                    sx={{ ml: 2, bgcolor: "#3CDA9F", width: "10vw" }}
                                     onClick={commentSubmit}
                                 >
                                     보내기
