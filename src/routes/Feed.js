@@ -17,27 +17,26 @@ import SwiperCore, { Navigation, Pagination, Mousewheel, Scrollbar, Keyboard } f
 import { useEffect, useState } from "react";
 
 function Feed() {
-    console.log(localStorage);
+    // console.log(localStorage);
     const [following_post, setFollowing_post] = useState([]);
-    // console.log("axios", axios.defaults.headers);
     const [new_feelings, setNewfeelings] = useState([]);
-    console.log("new feelings받기 성공!", new_feelings);
+    // console.log("follwing_post 받기 ", following_post);
+    // console.log("new feelings받기 성공!", new_feelings);
+
+    useEffect(() => {
+        get_post();
+    }, []);
     const get_post = async () => {
         try {
-            const request = await axios.get(`http://127.0.0.1:8000/post/follow_persona/`);
-            const request_new_feelings = await axios.get(
-                `http://127.0.0.1:8000/mypage/new_feelings/`
-            );
-            // console.log("팔로우 하는 사람들 게시물 받기", request);
+            const request = await axios.get(`http://127.0.0.1:8000/post/`);
             setFollowing_post(request.data);
+
+            const request_new_feelings = await axios.get(`http://127.0.0.1:8000/mypage/new_feelings/`);
             setNewfeelings(request_new_feelings.data);
         } catch (err) {
             console.log(err);
         }
     };
-    useEffect(() => {
-        get_post();
-    }, []);
 
     return (
         <>
@@ -68,31 +67,29 @@ function Feed() {
                 <br />
                 <br />
                 <h1 className={styles.title}>Fill the Feelings</h1>
-                <div className={styles.wrap2}>{following_post.map(render_fill_feelings)}</div>
+                <div className={styles.wrap2}>
+                    {following_post.map((fill) => (
+                        < Fill_feelings
+                            key={fill.id}
+                            post_pk={fill.id} // post key 값
+                            user_id={fill.username}
+                            index={fill.id}
+                            image={fill.image1}
+                            video={fill.video}
+                            persona={fill.personaname}
+                            personaimage={fill.personaimage}
+                            title={fill.title}
+                            body={fill.content}
+                            date_time={fill.updated_at}
+                        />
+                    ))}
+                </div>
             </div>
             <Footer />
         </>
     );
 }
 export default Feed;
-
-function render_fill_feelings(fill) {
-    return (
-        <Fill_feelings
-            key={fill.id}
-            post_pk={fill.id} // post key 값
-            user_id={fill.username}
-            index={fill.id}
-            image={fill.image1}
-            video={fill.video}
-            persona={fill.personaname}
-            personaimage={fill.personaimage}
-            title={fill.title}
-            body={fill.content}
-            date_time={fill.updated_at}
-        />
-    );
-}
 
 // New Feelings json data example
 const persona = [

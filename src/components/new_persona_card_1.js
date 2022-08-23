@@ -16,7 +16,6 @@ function Pickpersona({ card_personas }) {
         setHover(false);
     };
     useEffect(() => {
-        console.log("hover change");
     }, [hover]);
 
     const rend = (card_personas) => {

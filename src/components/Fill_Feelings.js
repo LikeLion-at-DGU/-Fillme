@@ -3,16 +3,15 @@ import { Link } from "react-router-dom";
 import React from "react";
 
 function Fill_feelings({
-    id,
     post_pk,
     user_id,
     image,
+    video,
     persona,
+    personaimage,
     title,
     body,
     date_time,
-    personaimage,
-    video,
 }) {
     //personaimage 추가해야함
     const [hover, setHover] = useState(false);

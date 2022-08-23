@@ -17,7 +17,6 @@ function Mainprofile({ image, color, user, username, fullname, memo, personas })
         navigate(`/Discover/${user}`, {
             replace: true,
         });
-        console.log("change page");
     };
 
     const feelings_style = {
