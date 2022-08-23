@@ -5,7 +5,7 @@ import "../static/css/personadata_1.css";
 
 function Pickpersona({ card_personas }) {
     const navigate = useNavigate();
-    // const CardimgUrl = "http://13.124.66.197" + card_personas.image
+    // const CardimgUrl = "http://127.0.0.1:8000" + card_personas.image
     console.log(card_personas);
 
     const [hover, setHover] = useState(false);
@@ -16,7 +16,6 @@ function Pickpersona({ card_personas }) {
         setHover(false);
     };
     useEffect(() => {
-        console.log("hover change");
     }, [hover]);
 
     const rend = (card_personas) => {
@@ -29,7 +28,7 @@ function Pickpersona({ card_personas }) {
                         className={"detailPersona" + index}
                         // onClick={() => navigate(`/Detail/${detail.name}/`)}
                         style={{
-                            backgroundImage: `url(http://13.124.66.197${detail.image})`,
+                            backgroundImage: `url(http://127.0.0.1:8000${detail.image})`,
                             backgroundSize: `cover`,
                             backgroundRepeat: `no-repeat`,
                             backgroundPosition: `center`,

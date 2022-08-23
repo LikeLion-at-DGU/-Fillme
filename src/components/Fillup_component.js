@@ -9,9 +9,8 @@ import "swiper/css/scrollbar";
 import SwiperCore, { Navigation, Pagination, Mousewheel, Scrollbar, Keyboard } from "swiper";
 import "../static/css/fillup.css";
 import { useNavigate } from "react-router";
-function Fillup_component() {
+function Fillup_component({ personas }) {
     SwiperCore.use([Navigation, Pagination, Mousewheel, Scrollbar, Keyboard]);
-    const local_persona_data = JSON.parse(localStorage.getItem("local_persona_data"));
 
     //페르소나 만들기 버튼 클릭 시
     const navigate = useNavigate();
@@ -27,7 +26,7 @@ function Fillup_component() {
     const [reload, setreload] = useState(random_qna[random_num]);
 
     //페르소나 여부 (하나도 없으면 false)
-    const persona_state = local_persona_data.length == 0 ? false : true;
+    const persona_state = personas.length === 0 ? false : true;
 
     const [form, setForm] = useState({
         persona: "",
@@ -75,7 +74,7 @@ function Fillup_component() {
         const currentPostImageList = [...postImages];
         const currentImageList = [...imagelist];
 
-        console.log(postImages);
+        // console.log(postImages);
 
         for (let i = 0; i < selectedImageList.length; i += 1) {
             const currentImageURL = URL.createObjectURL(selectedImageList[i]);
@@ -126,7 +125,7 @@ function Fillup_component() {
         formData.append("title", form.title);
         formData.append("video", video[0], video[0].name);
         await axios
-            .post("http://13.124.66.197/post/video_post_create/", formData, {
+            .post("http://127.0.0.1:8000/post/video_post_create/", formData, {
                 headers: {
                     "Content-Type": "multipart/form-data",
                 },
@@ -164,7 +163,7 @@ function Fillup_component() {
         formData.append("title", form.title);
 
         await axios
-            .post("http://13.124.66.197/post/", formData, {
+            .post("http://127.0.0.1:8000/post/", formData, {
                 headers: {
                     "Content-Type": "multipart/form-data",
                 },
@@ -224,11 +223,11 @@ function Fillup_component() {
                         페르소나 선택
                     </option>
                     {persona_state
-                        ? local_persona_data.map((p) => (
-                              <option value={p.id} key={p.id}>
-                                  {p.name}
-                              </option>
-                          ))
+                        ? personas.map((p) => (
+                            <option value={p.id} key={p.id}>
+                                {p.name}
+                            </option>
+                        ))
                         : null}
                 </select>
                 <br />
