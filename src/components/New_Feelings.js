@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 function New_Feelings({ id, user_id, user_name, persona_id, persona_name, image, category }) {
     const newfeeling_style = {
-        backgroundImage: `url(http://13.124.66.197${image})`,
+        backgroundImage: `url(http://127.0.0.1:8000${image})`,
         backgroundSize: "cover",
         backgroundRepeat: `no-repeat`,
         backgroundPosition: `center`,

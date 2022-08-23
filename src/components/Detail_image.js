@@ -63,7 +63,7 @@ export default function App({
                                     return slide === null ? null : (
                                         <SwiperSlide key={index}>
                                             <div className="slider__image">
-                                                <img src={`http://13.124.66.197${slide}`} alt="" />
+                                                <img src={`http://127.0.0.1:8000${slide}`} alt="" />
                                             </div>
                                         </SwiperSlide>
                                     );
@@ -98,7 +98,7 @@ export default function App({
                                 return slide === null ? null : (
                                     <SwiperSlide key={index}>
                                         <div className="slider__image">
-                                            <img src={`http://13.124.66.197${slide}`} alt="" />
+                                            <img src={`http://127.0.0.1:8000${slide}`} alt="" />
                                         </div>
                                     </SwiperSlide>
                                 );

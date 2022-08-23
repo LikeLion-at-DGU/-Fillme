@@ -126,7 +126,7 @@ function Fillup_component() {
         formData.append("title", form.title);
         formData.append("video", video[0], video[0].name);
         await axios
-            .post("http://13.124.66.197/post/video_post_create/", formData, {
+            .post("http://127.0.0.1:8000/post/video_post_create/", formData, {
                 headers: {
                     "Content-Type": "multipart/form-data",
                 },
@@ -164,7 +164,7 @@ function Fillup_component() {
         formData.append("title", form.title);
 
         await axios
-            .post("http://13.124.66.197/post/", formData, {
+            .post("http://127.0.0.1:8000/post/", formData, {
                 headers: {
                     "Content-Type": "multipart/form-data",
                 },
@@ -225,10 +225,10 @@ function Fillup_component() {
                     </option>
                     {persona_state
                         ? local_persona_data.map((p) => (
-                              <option value={p.id} key={p.id}>
-                                  {p.name}
-                              </option>
-                          ))
+                            <option value={p.id} key={p.id}>
+                                {p.name}
+                            </option>
+                        ))
                         : null}
                 </select>
                 <br />

@@ -5,7 +5,7 @@ import { useState } from "react";
 import Logout from "../routes/Logout";
 function Clicked_persona_card({ category, image, name, length, username, Color_hex }) {
     const loginusername = localStorage.getItem("loginUserName");
-    const imageUrl = "http://13.124.66.197" + image;
+    const imageUrl = "http://127.0.0.1:8000" + image;
 
     return (
         <>

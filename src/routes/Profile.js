@@ -21,6 +21,7 @@ function Profile({ isLoggedIn, setIsLoggedIn }) {
         color: null,
         color_hex: null,
         image: null,
+        personas: [],
         followList: [],
         followings: [],
         followingnum: 0,
@@ -33,9 +34,6 @@ function Profile({ isLoggedIn, setIsLoggedIn }) {
         navigate("/SignupPersona");
     };
 
-    const local_persona_data = JSON.parse(localStorage.getItem("local_persona_data"));
-    // console.log("local_persona_data", local_persona_data);
-
     useEffect(() => {
         fetchData();
     }, []);
@@ -43,11 +41,9 @@ function Profile({ isLoggedIn, setIsLoggedIn }) {
     const [clicked_persona, setClicked_persona] = useState([]);
     const fetchData = async () => {
         try {
-            const request = await axios.get("http://13.124.66.197/mypage/profile_persona/");
-            localStorage.setItem("local_persona_data", JSON.stringify(request.data.personas));
-            const request_my_post = await axios.get("http://13.124.66.197/post/mypost/");
-            const requestMyFollow = await axios.get("http://13.124.66.197/mypage/following_list/");
-            localStorage.setItem("local_my_follow_data", JSON.stringify(requestMyFollow.data));
+            const request = await axios.get("http://127.0.0.1:8000/mypage/profile_persona/");
+            const request_my_post = await axios.get("http://127.0.0.1:8000/post/mypost/");
+            const requestMyFollow = await axios.get("http://127.0.0.1:8000/mypage/following_list/");
             setUserProfile({
                 user: request.data.user,
                 username: request.data.username,
@@ -56,20 +52,17 @@ function Profile({ isLoggedIn, setIsLoggedIn }) {
                 color: request.data.color,
                 color_hex: request.data.color_hex,
                 image: request.data.image,
+                personas: request.data.personas,
                 followList: requestMyFollow.data,
                 followings: requestMyFollow.data.followings,
                 followingnum: requestMyFollow.data.followingnum,
                 followernum: requestMyFollow.data.followernum,
                 my_post: request_my_post.data.length,
             }); // 리렌더링++
-            // console.log("request.data 추출", request.data);
-            console.log("requestMyFollow.data 추출", requestMyFollow.data);
         } catch (err) {
             console.log(err);
         }
     };
-    const myFollowList = JSON.parse(localStorage.getItem("local_my_follow_data"));
-    console.log("myFollowList 확인 ", myFollowList);
 
     const addCard = [
         <button className={styles.one_persona_card} onClick={onClick}>
@@ -82,7 +75,7 @@ function Profile({ isLoggedIn, setIsLoggedIn }) {
         </button>,
     ];
     const personaCard = [
-        local_persona_data.map((per) => (
+        userProfile.personas.map((per) => (
             <My_persona_card
                 Id={per.id}
                 Color_hex={per.color_hex}
@@ -104,7 +97,6 @@ function Profile({ isLoggedIn, setIsLoggedIn }) {
             <div className={styles.wrap}>
                 <h1 className={styles.title}>My Profile</h1>
                 <br />
-
                 <div className={styles.wrap2}>
                     <Logout isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
                     <Link to="/SettingProfile">
@@ -128,11 +120,11 @@ function Profile({ isLoggedIn, setIsLoggedIn }) {
                     />
                 </div>
                 <div className={styles.persona_card}>
-                    {local_persona_data.length === 0
+                    {userProfile.personas.length === 0
                         ? [addCard]
-                        : local_persona_data.length >= 4
-                        ? [personaCard]
-                        : [...personaCard, addCard]}
+                        : userProfile.personas.length >= 4
+                            ? [personaCard]
+                            : [...personaCard, addCard]}
                 </div>
             </div>
             <Footer />

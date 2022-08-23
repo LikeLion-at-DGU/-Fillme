@@ -58,7 +58,7 @@ function Detail() {
     const fetchData = async () => {
         try {
             // 포스트 정보 GET
-            const imgPostPullData = await axios.get(`http://13.124.66.197/post/${postPk}/`);
+            const imgPostPullData = await axios.get(`http://127.0.0.1:8000/post/${postPk}/`);
             localStorage.setItem("local_post_data", JSON.stringify(imgPostPullData.data));
             setPostData({
                 personaname: imgPostPullData.data.personaname,
@@ -83,7 +83,7 @@ function Detail() {
             console.log("postData.comment_set 체크 ", postData.comment_set);
             // 댓글 정보 GET
             const commentPullData = await axios.get(
-                `http://13.124.66.197/post/${postPk}/comments/`
+                `http://127.0.0.1:8000/post/${postPk}/comments/`
             );
             localStorage.setItem("local_comment_data", JSON.stringify(commentPullData.data));
             setCommentData({
@@ -110,7 +110,7 @@ function Detail() {
     const commentSubmit = async (e) => {
         e.preventDefault();
         await axios
-            .post(`http://13.124.66.197/post/${postPk}/comments/`, {
+            .post(`http://127.0.0.1:8000/post/${postPk}/comments/`, {
                 content: inputValue,
             })
             .then((res) => {
@@ -126,7 +126,7 @@ function Detail() {
     const clickHeart = async (e) => {
         e.preventDefault();
         await axios
-            .patch(`http://13.124.66.197/post/${postPk}/send_like/`)
+            .patch(`http://127.0.0.1:8000/post/${postPk}/send_like/`)
             .then((res) => {
                 console.log(res, "좋아요");
             })

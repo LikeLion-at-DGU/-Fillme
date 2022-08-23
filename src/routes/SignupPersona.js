@@ -52,7 +52,7 @@ const SignupPersona = () => {
         formData.append("category", userPersona.category);
 
         await axios
-            .post("http://13.124.66.197/mypage/persona/", formData, {
+            .post("http://127.0.0.1:8000/mypage/persona/", formData, {
                 headers: {
                     "Content-Type": "multipart/form-data",
                 },
