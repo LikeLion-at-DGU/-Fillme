@@ -56,6 +56,7 @@ function Detail() {
     useEffect(() => {
         fetchData();
     }, [postData.like_num, postData.comment_count]);
+
     const fetchData = async () => {
         try {
             // 포스트 정보 GET
@@ -115,6 +116,7 @@ function Detail() {
                 console.log(res, "댓글 등록 성공");
                 setInputValue(""); // 리렌더링 ++
                 alert("댓글이 등록되었습니다.");
+                fetchData();
             })
             .catch((res) => {
                 console.log(res, "댓글 등록 실패");
