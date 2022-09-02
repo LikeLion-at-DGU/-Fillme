@@ -129,6 +129,7 @@ function Detail() {
             .patch(`http://127.0.0.1:8000/post/${postPk}/send_like/`)
             .then((res) => {
                 console.log(res, "좋아요");
+                fetchData();
             })
             .catch((res) => {
                 console.log(res, "좋아요 실패");
