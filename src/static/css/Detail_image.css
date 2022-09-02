@@ -3,17 +3,15 @@
     src: url("../font/Roboto-Regular.ttf");
     unicode-range: 
       /* 영어 대문자, 영어 소문자 */ U+0041-005A, U+0061-007A,
-        /* 숫자, 특수문자 */ U+0030-0039, U+0020-002F, U+003A-0040, U+005B-0060,
-        U+007B-007E;
+        /* 숫자, 특수문자 */ U+0030-0039, U+0020-002F, U+003A-0040, U+005B-0060, U+007B-007E;
 }
 
 @font-face {
     font-family: "Roboto-bold";
     src: url("../font/Roboto-Bold.ttf");
     unicode-range: 
-      /* 한글, 영어 대문자, 영어 소문자 */ U+0041-005A,
-        U+0061-007A, /* 숫자, 특수문자 */ U+0030-0039, U+0020-002F, U+003A-0040,
-        U+005B-0060, U+007B-007E;
+      /* 한글, 영어 대문자, 영어 소문자 */ U+0041-005A, U+0061-007A,
+        /* 숫자, 특수문자 */ U+0030-0039, U+0020-002F, U+003A-0040, U+005B-0060, U+007B-007E;
 }
 
 @font-face {
@@ -37,21 +35,17 @@
     --swiper-navigation-size: 20px;
 }
 
-.slider {
-    padding: 10px;
-    color: #fff;
-}
-
 /* 세부 */
+
 .slider .swiper-container1 {
     width: 5.5vw;
     height: 27vw;
     position: absolute;
-    top: 28%;
+    top: 27%;
     left: 37%;
     /* top: -16%;
     left: 26.5vw; */
-    margin: 2% 0 1% 1%;
+    margin: 0% 0 1% 1%;
 }
 
 /* 전체 */
@@ -59,25 +53,10 @@
     width: 27vw;
     height: 27vw;
     position: absolute;
-    top: 28%;
+    top: 27%;
     left: 8.8%;
-    margin: 2% 0 1% 1%;
+    margin: 0% 0 1% 1%;
     /* padding-bottom: 5vh; */
-}
-
-/* 버튼 */
-.swiper-button-prev {
-    top: 95.5%;
-    left: 22%;
-    color: #3cda9f;
-    z-index: 100;
-}
-
-.swiper-button-next {
-    top: 95.5%;
-    left: 75%;
-    color: #3cda9f;
-    z-index: 100;
 }
 
 /* bullet */

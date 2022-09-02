@@ -3,17 +3,12 @@
     src: url("../font/Roboto-Regular.ttf");
     unicode-range: 
       /* 영어 대문자, 영어 소문자 */ U+0041-005A, U+0061-007A,
-        /* 숫자, 특수문자 */ U+0030-0039, U+0020-002F, U+003A-0040, U+005B-0060,
-        U+007B-007E;
+        /* 숫자, 특수문자 */ U+0030-0039, U+0020-002F, U+003A-0040, U+005B-0060, U+007B-007E;
 }
 
 @font-face {
     font-family: "Roboto-bold";
     src: url("../font/Roboto-Bold.ttf");
-    unicode-range: 
-      /* 한글, 영어 대문자, 영어 소문자 */ U+0041-005A,
-        U+0061-007A, /* 숫자, 특수문자 */ U+0030-0039, U+0020-002F, U+003A-0040,
-        U+005B-0060, U+007B-007E;
 }
 
 @font-face {
@@ -34,10 +29,9 @@
 /* 상세페이지 그리드 */
 .container {
     max-width: 90vw;
-    min-height: 100vh;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 15vh 0.5fr 0.5fr 15vh;
+    grid-template-rows: 14vh 27vh 27vh 8vh;
     /* border: 1px solid gray; */
     /* place-items: center / center; */
 }
@@ -46,21 +40,21 @@
     /* 포스트 제목 */
     grid-column: 1 / 2;
     grid-row: 1 / 2;
-    border: 1px solid gray;
+    /* border: 1px solid gray; */
 }
 
 .item:nth-child(2) {
     /* 포스트 제목 옆 공백 */
     grid-column: 2 / 3;
     grid-row: 1 / 2;
-    border: 1px solid gray;
+    /* border: 1px solid gray; */
 }
 
 .item:nth-child(3) {
     /* 포스트 사진 */
     grid-column: 1 / 2;
     grid-row: 2 / 4;
-    border: 1px solid gray;
+    /* border: 1px solid gray; */
 }
 
 .item:nth-child(4) {
@@ -69,9 +63,9 @@
     grid-row: 2 / 3;
     font-family: "AppleSDGothicNeoM00";
     font-weight: 100;
-    font-size: 1.2vw;
+    font-size: 1vw;
     position: relative;
-    border: 1px solid gray;
+    /* border: 1px solid gray; */
 }
 
 .item:nth-child(5) {
@@ -79,7 +73,7 @@
     grid-column: 2 / 3;
     grid-row: 3 / 4;
     font-family: "AppleSDGothicNeoM00";
-    border: 1px solid gray;
+    /* border: 1px solid gray; */
     border-radius: 10px;
     /* max-width: 100%; */
     max-height: 30vh;
@@ -91,7 +85,7 @@
     /* 사진 밑 공백 */
     grid-column: 1 / 2;
     grid-row: 4 / 5;
-    border: 1px solid gray;
+    /* border: 1px solid gray; */
 }
 
 .item:nth-child(7) {
@@ -99,27 +93,29 @@
     grid-column: 2 / 3;
     grid-row: 4 / 5;
     font-family: "AppleSDGothicNeoM00";
-    border: 1px solid gray;
+    /* border: 1px solid gray; */
 }
 /* 그리드 */
 
 /* 포스트 타이틀 & 서브 타이틀 */
 .persona_name {
-    font-style: "Roboto-bold", "AppleSDGothicNeoB00";
+    font-family: "Roboto-bold", "AppleSDGothicNeoB00";
     font-size: 1rem;
     font-weight: 500;
+    padding-left: 15px;
 }
 
 .title {
-    font-style: "AppleSDGothicNeoB00", "Roboto-bold";
+    font-family: "AppleSDGothicNeoB00", "Roboto-bold";
     display: inline-block;
     font-size: 2rem;
     font-weight: 550;
     margin-right: 3%;
+    padding: 10px;
 }
 
 .created_at {
-    font-style: "AppleSDGothicNeoM00", "Roboto";
+    font-family: "AppleSDGothicNeoM00", "Roboto";
     font-size: 1rem;
     display: inline;
     font-weight: 500;
@@ -127,16 +123,18 @@
 
 /* 포스트 유저 네임 */
 .userName {
-    font-style: "Roboto-bold", "AppleSDGothicNeoM00";
-    font-size: 1.3rem;
+    position: absolute;
+    bottom: 3vw;
+    right: 1vw;
+    font-family: "Roboto-bold", "AppleSDGothicNeoM00";
+    font-size: 1rem;
     display: grid;
     justify-items: end;
-    margin-right: 4%;
 }
 
 /* 좋아요 댓글 카운트 */
 .countText1 {
-    font-style: "AppleSDGothicNeoB00", "Roboto";
+    font-family: "AppleSDGothicNeoB00", "Roboto";
     font-size: medium;
     font-weight: 600;
     color: #3cda9f;
@@ -145,7 +143,7 @@
 }
 
 .countText2 {
-    font-style: "AppleSDGothicNeoB00", "Roboto";
+    font-family: "AppleSDGothicNeoB00", "Roboto";
     font-size: medium;
     font-weight: 600;
     color: #3cda9f;
@@ -155,14 +153,17 @@
 }
 
 /* 댓글 Comment 컴포넌트 */
+
 .commentName {
-    font-style: "Roboto-bold", "AppleSDGothicNeoB00";
-    font-size: 14px;
+    font-family: "Roboto-bold", "AppleSDGothicNeoB00";
+    font-size: 0.8vw;
+    margin-bottom: 0.3vw;
 }
 
 .commentContent {
-    font-style: "AppleSDGothicNeoM00", "Roboto";
-    font-size: 16px;
+    font-family: "AppleSDGothicNeoM00", "Roboto";
+    font-size: 1vw;
+    margin-top: 0;
 }
 
 /*  */
@@ -175,7 +176,7 @@
 }
 
 #userComment_id {
-    font-style: "AppleSDGothicNeoM00", "Roboto";
+    font-family: "AppleSDGothicNeoM00", "Roboto";
     color: black;
     text-shadow: none;
     font-size: 14px;
@@ -186,7 +187,7 @@
 }
 
 #user_comment {
-    font-style: "AppleSDGothicNeoM00", "Roboto";
+    font-family: "AppleSDGothicNeoM00", "Roboto";
     font-size: 14px;
     left: 10%;
     width: 45vw;

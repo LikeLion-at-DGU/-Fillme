@@ -82,7 +82,9 @@ function Detail() {
             }); // 리렌더링 ++
 
             // 댓글 정보 GET
-            const commentPullData = await axios.get(`http://127.0.0.1:8000/post/${postPk}/comments/`);
+            const commentPullData = await axios.get(
+                `http://127.0.0.1:8000/post/${postPk}/comments/`
+            );
             setCommentData({
                 id: commentPullData.data.id,
                 post: commentPullData.data.post,
@@ -105,9 +107,10 @@ function Detail() {
 
     const commentSubmit = async (e) => {
         e.preventDefault();
-        await axios.post(`http://127.0.0.1:8000/post/${postPk}/comments/`, {
-            content: inputValue,
-        })
+        await axios
+            .post(`http://127.0.0.1:8000/post/${postPk}/comments/`, {
+                content: inputValue,
+            })
             .then((res) => {
                 console.log(res, "댓글 등록 성공");
                 setInputValue(""); // 리렌더링 ++
@@ -120,7 +123,8 @@ function Detail() {
     };
     const clickHeart = async (e) => {
         e.preventDefault();
-        await axios.patch(`http://127.0.0.1:8000/post/${postPk}/send_like/`)
+        await axios
+            .patch(`http://127.0.0.1:8000/post/${postPk}/send_like/`)
             .then((res) => {
                 console.log(res, "좋아요");
             })
@@ -137,19 +141,23 @@ function Detail() {
                 brightness(120%) contrast(95%);}`}
             </style>
             <div className={styleD.wrap}>
-                <div className={styleD.container}>{/* Grid */}
-                    <div className={styleD.item}>{/* 1 */}
+                <div className={styleD.container}>
+                    {/* Grid */}
+                    <div className={styleD.item}>
+                        {/* 1 */}
                         <br />
-                        <section className={styleD.personaname}>{postData.personaname}</section>
+                        <section className={styleD.persona_name}>{postData.personaname}</section>
                         <section className={styleD.title}>{postData.title}</section>
                         <section className={styleD.created_at}>{postData.created_at}</section>
                         <section>{/* <Link>수정</Link> */}</section>
                         <section>{/* <Link>삭제</Link> */}</section>
                     </div>
-                    <div className={styleD.item}>{/* 2 */}
+                    <div className={styleD.item}>
+                        {/* 2 */}
                         {/* 공백 Grid */}
                     </div>
-                    <div className={styleD.item}>{/* 3 */}
+                    <div className={styleD.item}>
+                        {/* 3 */}
                         <DetailImage
                             Image1={postData.image1}
                             Image2={postData.image2}
@@ -163,7 +171,8 @@ function Detail() {
                             Image10={postData.image10}
                         />
                     </div>
-                    <div className={styleD.item}>{/* 4 */}
+                    <div className={styleD.item}>
+                        {/* 4 */}
                         {postData.content}
                         <br />
                         <br />
@@ -171,7 +180,8 @@ function Detail() {
                         <span className={styleD.countText1}>좋아요 {postData.like_num}개</span>
                         <span className={styleD.countText2}>댓글 {postData.comment_count}개</span>
                     </div>
-                    <div className={styleD.item}>{/* 5 */}
+                    <div className={styleD.item}>
+                        {/* 5 */}
                         {postData.comment_set.map((d) => {
                             if (postData.comment_set === []) {
                                 return "댓글이 없습니다";
@@ -198,10 +208,12 @@ function Detail() {
                             })
                         } */}
                     </div>
-                    <div className={styleD.item}>{/* 6 */}
+                    <div className={styleD.item}>
+                        {/* 6 */}
                         {/* 공백 Grid */}
                     </div>
-                    <div className={styleD.item}>{/* 7 */}
+                    <div className={styleD.item}>
+                        {/* 7 */}
                         <Container component="main" maxWidth="md">
                             <Box
                                 component="form"
@@ -216,6 +228,7 @@ function Detail() {
                                     <FontAwesomeIcon icon={faHeart} size="3x" color="#3cda9f" />
                                 </button>
                                 <TextField
+                                    className={styleD.comment_text}
                                     label="댓글을 입력해주세요"
                                     name="content"
                                     value={inputValue}
@@ -225,6 +238,7 @@ function Detail() {
                                     onChange={onChange}
                                 />
                                 <Button
+                                    className={styleD.submit_button}
                                     type="submit"
                                     variant="contained"
                                     fullWidth

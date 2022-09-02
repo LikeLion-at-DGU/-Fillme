@@ -28,10 +28,12 @@ function Feed() {
     }, []);
     const get_post = async () => {
         try {
-            const request = await axios.get(`http://127.0.0.1:8000/post/`);
+            const request = await axios.get(`http://127.0.0.1:8000/post/follow_persona/`);
             setFollowing_post(request.data);
 
-            const request_new_feelings = await axios.get(`http://127.0.0.1:8000/mypage/new_feelings/`);
+            const request_new_feelings = await axios.get(
+                `http://127.0.0.1:8000/mypage/new_feelings/`
+            );
             setNewfeelings(request_new_feelings.data);
         } catch (err) {
             console.log(err);
@@ -69,7 +71,7 @@ function Feed() {
                 <h1 className={styles.title}>Fill the Feelings</h1>
                 <div className={styles.wrap2}>
                     {following_post.map((fill) => (
-                        < Fill_feelings
+                        <Fill_feelings
                             key={fill.id}
                             post_pk={fill.id} // post key 값
                             user_id={fill.username}
