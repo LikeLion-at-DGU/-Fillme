@@ -12,7 +12,7 @@ function User_Profile() {
     const { user_id } = useParams();
 
     let request = JSON.parse(localStorage.getItem("user_profile_data"));
-    console.log("string user_id 확인 ", user_id);
+    // console.log("string user_id 확인 ", user_id);
 
     const [followData, setFollowData] = useState({
         followings: [],
@@ -48,12 +48,12 @@ function User_Profile() {
         }
     };
     const followList = JSON.parse(localStorage.getItem("local_follow_data"));
-    console.log("다른 사용자 followList 확인하자 ", followList);
+    // console.log("다른 사용자 followList 확인하자 ", followList);
 
     const myFollowList = JSON.parse(localStorage.getItem("local_my_follow_data"));
-    console.log("마이 사용자 followList 확인하자 ", myFollowList);
+    // console.log("마이 사용자 followList 확인하자 ", myFollowList);
 
-    console.log("타입 맞는지 확인해줘 ", myFollowList.followings.includes(Number(user_id)));
+    // console.log("타입 맞는지 확인해줘 ", myFollowList.followings.includes(Number(user_id)));
 
     // 내가 팔로우한 followList.followings 배열 안에 팔로우한 유저 Id값 있으면 팔로잉 버튼 출력
     const onChange = async (e) => {

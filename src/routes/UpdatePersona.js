@@ -12,7 +12,7 @@ import axios from "axios";
 const UpdatePersona = () => {
     const location = useLocation();
     const prevId = location.state.personaId;
-    console.log("페르소나 Id 잘 넘어왔는지 확인", prevId);
+    // console.log("페르소나 Id 잘 넘어왔는지 확인", prevId);
     const navigate = useNavigate();
     const {
         formState: { isSubmitting },

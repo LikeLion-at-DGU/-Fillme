@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 
 function My_persona_card({ Id, Name, Category, Image, Openpublic }) {
-    console.log("부모 컴포넌트 props 추출", Id, Name, Category, Openpublic);
+    // console.log("부모 컴포넌트 props 추출", Id, Name, Category, Openpublic);
     const navigate = useNavigate();
     const imageUrl = "http://127.0.0.1:8000" + Image;
     // console.log(imageUrl);

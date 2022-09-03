@@ -25,7 +25,7 @@ const SettingProfile = () => {
 
     const onLoadFile = (e) => {
         const file = e.target.files[0];
-        console.log(file);
+        // console.log(file);
         setEditProfile({
             ...editProfile,
             image: file,
