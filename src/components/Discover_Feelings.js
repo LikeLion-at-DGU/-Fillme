@@ -15,13 +15,12 @@ function Mainprofile({ image, color, user, username, fullname, memo, personas })
             const requestFollow = await axios.get(
                 `http://127.0.0.1:8000/mypage/${id}/following_list/`
             );
-            localStorage.setItem("local_follow_data", JSON.stringify(requestFollow.data));
-
             const requestMyFollow = await axios.get("http://127.0.0.1:8000/mypage/following_list/");
+            localStorage.setItem("local_follow_data", JSON.stringify(requestFollow.data));
             localStorage.setItem("local_my_follow_data", JSON.stringify(requestMyFollow.data));
             localStorage.setItem("user_profile_data", JSON.stringify(request.data));
 
-            navigate(`/${id}`, {
+            navigate(`/Discover/${id}`, {
                 replace: true,
             });
         } catch (err) {
@@ -33,9 +32,6 @@ function Mainprofile({ image, color, user, username, fullname, memo, personas })
         // const request = await axios.get(`http://127.0.0.1:8000/mypage/profile_persona/${id}/`);
         // localStorage.setItem("user_profile_data", JSON.stringify(request.data));
         fetchData(user);
-        navigate(`/${user}`, {
-            replace: true,
-        });
     };
 
     const feelings_style = {
