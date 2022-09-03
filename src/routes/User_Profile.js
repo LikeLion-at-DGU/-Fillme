@@ -10,6 +10,7 @@ import User_persona_card from "../components/User_persona_card";
 
 function User_Profile() {
     const { user_id } = useParams();
+    // console.log(user_id);
 
     let request = JSON.parse(localStorage.getItem("user_profile_data"));
     // console.log("string user_id 확인 ", user_id);
