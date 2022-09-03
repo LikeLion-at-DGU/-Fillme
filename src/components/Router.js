@@ -58,6 +58,7 @@ const AppRouter = ({ isLoggedIn, setIsLoggedIn }) => {
                     ></Route>
                     <Route path="/Feed" element={<Feed />}></Route>
                     <Route path=":user_id" element={<User_Profile />}></Route>
+                    <Route path="/Discover/:user_id" element={<User_Profile />}></Route>
                     <Route path="/" element={<Navbar />}>
                         <Route path="/Discover" element={<Discover />}></Route>
                         <Route path="/Detail" element={<Detail />}></Route>
