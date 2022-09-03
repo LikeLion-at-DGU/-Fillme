@@ -30,7 +30,7 @@ function Profile2() {
             const request = await axios.get(`http://127.0.0.1:8000/mypage/persona/${Id}/`);
             setmy_persona_info(request.data);
             console.log("페르소나 정보", request);
-        } catch (err) { }
+        } catch (err) {}
     };
     useEffect(() => {
         get_post();
@@ -63,6 +63,7 @@ function render_fill_feelings(fill) {
     return (
         <Fill_feelings
             key={fill.id}
+            post_pk={fill.id}
             user_id={fill.username}
             index={fill.id}
             image={fill.image1}
