@@ -67,7 +67,7 @@ function Header() {
         try {
             const request = await axios.get("http://127.0.0.1:8000/search/history/");
             setHistory(request.data);
-            console.log("히스토리 불러오기 성공!", history);
+            // console.log("히스토리 불러오기 성공!", history);
         } catch (err) {
             console.log(err);
         }
@@ -83,11 +83,11 @@ function Header() {
         axios
             .post("http://127.0.0.1:8000/search/history/", data)
             .then((response) => {
-                console.log("검색 기록 생성 완료!", response);
+                // console.log("검색 기록 생성 완료!", response);
             })
             .catch((error) => {
                 console.log(error);
-                console.log("이미지 형식", history.image);
+                // console.log("이미지 형식", history.image);
             });
     };
 
@@ -99,7 +99,7 @@ function Header() {
                 // console.log(response);
 
                 set_delete_hist_list(response);
-                console.log("히스토리 삭제 성공");
+                // console.log("히스토리 삭제 성공");
             })
             .catch((error) => {
                 console.log(error);
@@ -119,11 +119,11 @@ function Header() {
 
     //post해서 받은 response확인
     useEffect(() => {
-        console.log("받은 데이터", searchResult);
+        // console.log("받은 데이터", searchResult);
     }, [searchResult]);
 
     useEffect(() => {
-        console.log(searchOpen);
+        // console.log(searchOpen);
         get_history();
     }, [searchOpen]);
 
@@ -192,7 +192,7 @@ function Header() {
         try {
             const request = await axios.get("http://127.0.0.1:8000/notice/");
             setNotice(request.data);
-            console.log("알림 불러오기 성공!", notice);
+            // console.log("알림 불러오기 성공!", notice);
         } catch (err) {
             console.log(err);
         }
@@ -236,11 +236,11 @@ function Header() {
                                         {history.map((data) => {
                                             return (
                                                 <>
-                                                    <div className={search.one_user}>
+                                                    <div className={search.one_user} key={data.id}>
                                                         <div
                                                             className={search.left}
                                                             onClick={() => {
-                                                                console.log("받아온 데이터", data);
+                                                                // console.log("받아온 데이터", data);
                                                                 fetchData(data.resultprofile);
                                                             }}
                                                         >
@@ -283,6 +283,7 @@ function Header() {
                                             <>
                                                 <div
                                                     className={search.one_user}
+                                                    key={data.id}
                                                     // 검색어 클릭하면 해당 유저의 정보를 get해오고, 해당 유저의 프로필로 이동
                                                     onClick={() => {
                                                         fetchData(data.id);
@@ -335,11 +336,11 @@ function Header() {
                         onClick={
                             modalOpen
                                 ? () => {
-                                    setbuttonState(false);
-                                }
+                                      setbuttonState(false);
+                                  }
                                 : () => {
-                                    setbuttonState(true);
-                                }
+                                      setbuttonState(true);
+                                  }
                         }
                     >
                         <img className={styles.icon} id="bell" src="images/bell.png" alt="New" />
@@ -350,7 +351,7 @@ function Header() {
                             {notice.length > 0 ? (
                                 notice.map((data) => {
                                     return (
-                                        <p className={search.notice}>
+                                        <p className={search.notice} key={data.id}>
                                             <section className={search.username}>
                                                 @{data.userfrom}
                                             </section>
@@ -364,8 +365,8 @@ function Header() {
                                                 {data.content === "null"
                                                     ? null
                                                     : data.content.length > 20
-                                                        ? data.content.slice(0, 30) + "..."
-                                                        : data.content}
+                                                    ? data.content.slice(0, 30) + "..."
+                                                    : data.content}
                                                 <section className={search.date}>
                                                     {data.calculatedtime}
                                                 </section>

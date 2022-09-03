@@ -64,12 +64,12 @@ function Login({ isLoggedIn, setIsLoggedIn }) {
                 localStorage.setItem("refresh_token", res.data.refresh_token);
                 localStorage.setItem("loginUserName", res.data.user.username);
                 setIsLoggedIn(true);
-                console.log(res);
+                // console.log(res);
                 navigate("/Feed", { replace: true });
             })
             .catch((err) => {
                 console.clear();
-                console.log(user);
+                // console.log(user);
                 alert("아이디 또는 비밀번호가 일치하지 않습니다");
                 console.log(err);
             });

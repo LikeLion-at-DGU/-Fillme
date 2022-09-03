@@ -6,7 +6,7 @@ import "../static/css/personadata_1.css";
 function Pickpersona({ card_personas }) {
     const navigate = useNavigate();
     // const CardimgUrl = "http://127.0.0.1:8000" + card_personas.image
-    console.log(card_personas);
+    // console.log(card_personas);
 
     const [hover, setHover] = useState(false);
     const OnmouseEnter = () => {
@@ -15,8 +15,7 @@ function Pickpersona({ card_personas }) {
     const OnmouseLeave = () => {
         setHover(false);
     };
-    useEffect(() => {
-    }, [hover]);
+    useEffect(() => {}, [hover]);
 
     const rend = (card_personas) => {
         const persona_f = [];

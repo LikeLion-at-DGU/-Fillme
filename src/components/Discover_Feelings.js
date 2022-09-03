@@ -7,14 +7,33 @@ import Pickpersona from "./new_persona_card_1";
 import { useNavigate } from "react-router-dom";
 
 function Mainprofile({ image, color, user, username, fullname, memo, personas }) {
+    console.log(user, username);
     const imageUrl = "http://127.0.0.1:8000" + image;
+    const fetchData = async (id) => {
+        try {
+            const request = await axios.get(`http://127.0.0.1:8000/mypage/profile_persona/${id}/`);
+            const requestFollow = await axios.get(
+                `http://127.0.0.1:8000/mypage/${id}/following_list/`
+            );
+            localStorage.setItem("local_follow_data", JSON.stringify(requestFollow.data));
 
+            const requestMyFollow = await axios.get("http://127.0.0.1:8000/mypage/following_list/");
+            localStorage.setItem("local_my_follow_data", JSON.stringify(requestMyFollow.data));
+            localStorage.setItem("user_profile_data", JSON.stringify(request.data));
+
+            navigate(`/${id}`, {
+                replace: true,
+            });
+        } catch (err) {
+            console.log(err);
+        }
+    };
     const navigate = useNavigate();
     const clickMe = () => {
         // const request = await axios.get(`http://127.0.0.1:8000/mypage/profile_persona/${id}/`);
         // localStorage.setItem("user_profile_data", JSON.stringify(request.data));
-
-        navigate(`/Discover/${user}`, {
+        fetchData(user);
+        navigate(`/${user}`, {
             replace: true,
         });
     };
@@ -33,7 +52,9 @@ function Mainprofile({ image, color, user, username, fullname, memo, personas })
     };
 
     const Color = styled.div`
-        {background: linear-gradient(90deg, rgba(0, 0, 0, 0.01) 4%, ${color} 15%);}
+         {
+            background: linear-gradient(90deg, rgba(0, 0, 0, 0.01) 4%, ${color} 15%);
+        }
     `;
 
     // const rend = (personas => {
@@ -59,12 +80,12 @@ function Mainprofile({ image, color, user, username, fullname, memo, personas })
                 <p id="intro">{memo}</p>
                 <div>
                     {personas.map((persona, index) => (
-                        <div>
+                        <div key={index}>
                             <div className={"Persona_name" + index}>{persona.name}</div>
                         </div>
                     ))}
                     {personas.map((persona, index) => (
-                        <div>
+                        <div key={index}>
                             <div className={"Persona_category" + index}>{persona.category}</div>
                         </div>
                     ))}
@@ -89,10 +110,10 @@ function Mainprofile({ image, color, user, username, fullname, memo, personas })
                     <Pickpersona card_personas={personas} />
                 </div>
 
-                {/* <button id="btn_profile" onClick={clickMe}>
+                <button id="btn_profile" onClick={clickMe}>
                     프로필 보기
                 </button>
-                <button id="btn_following">팔로잉</button> */}
+                {/* <button id="btn_following">팔로잉</button> */}
             </Color>
         </div>
     );

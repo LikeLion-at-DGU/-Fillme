@@ -35,7 +35,7 @@ function Fillup_component({ personas }) {
     });
     //폼 저장된 내용 확인
     useEffect(() => {
-        console.log(form);
+        // console.log(form);
     }, [form]);
 
     //페르소나 선택됐을 때, 값 갱신
@@ -131,21 +131,21 @@ function Fillup_component({ personas }) {
                 },
             })
             .then(function (res) {
-                console.log(res, "post 성공");
+                // console.log(res, "post 성공");
                 navigate("/Feed");
             })
             .catch(function (err) {
                 console.log(err, "post 실패");
-                console.log("폼데이터", formData);
+                // console.log("폼데이터", formData);
                 alert("페르소나 선택, 영상, 제목, 본문 내용은 필수 입력란입니다");
-                for (let key of formData.keys()) {
-                    console.log(key);
-                }
+                // for (let key of formData.keys()) {
+                //     console.log(key);
+                // }
 
-                /* value 확인하기 */
-                for (let value of formData.values()) {
-                    console.log(value);
-                }
+                // /* value 확인하기 */
+                // for (let value of formData.values()) {
+                //     console.log(value);
+                // }
             });
     };
     const Submit_image = async (e) => {
@@ -169,21 +169,21 @@ function Fillup_component({ personas }) {
                 },
             })
             .then(function (res) {
-                console.log(res, "post 성공");
+                // console.log(res, "post 성공");
                 navigate("/Feed");
             })
             .catch(function (err) {
                 console.log(err, "post 실패");
-                console.log("폼데이터", formData);
+                // console.log("폼데이터", formData);
                 alert("페르소나 선택, 사진, 제목, 본문 내용은 필수 입력란입니다");
-                for (let key of formData.keys()) {
-                    console.log(key);
-                }
+                // for (let key of formData.keys()) {
+                //     console.log(key);
+                // }
 
-                /* value 확인하기 */
-                for (let value of formData.values()) {
-                    console.log(value);
-                }
+                // /* value 확인하기 */
+                // for (let value of formData.values()) {
+                //     console.log(value);
+                // }
             });
     };
     //선택된 이미지 확인
@@ -193,7 +193,7 @@ function Fillup_component({ personas }) {
 
     //이미지 삭제
     const handleDeleteImage = (id) => {
-        console.log("삭제 id", id);
+        // console.log("삭제 id", id);
         setImagelist(imagelist.filter((_, index) => index !== id));
         setPostImages(postImages.filter((_, index) => index !== id));
     };
@@ -224,10 +224,10 @@ function Fillup_component({ personas }) {
                     </option>
                     {persona_state
                         ? personas.map((p) => (
-                            <option value={p.id} key={p.id}>
-                                {p.name}
-                            </option>
-                        ))
+                              <option value={p.id} key={p.id}>
+                                  {p.name}
+                              </option>
+                          ))
                         : null}
                 </select>
                 <br />
@@ -283,7 +283,7 @@ function Fillup_component({ personas }) {
                                     className="swiper-container"
                                     spaceBetween={0}
                                     slidesPerView={6}
-                                    onSlideChange={() => console.log("slide change")}
+                                    // onSlideChange={() => console.log("slide change")}
                                     // navigation
                                     // pagination={{ clickable: true }}
                                     // mousewheel={true}

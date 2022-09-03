@@ -58,7 +58,7 @@ const SignupPersona = () => {
                 },
             })
             .then(function (res) {
-                console.log(res, "페르소나 생성 성공");
+                // console.log(res, "페르소나 생성 성공");
                 navigate("/Profile", { replace: true });
             })
             .catch(function (err) {

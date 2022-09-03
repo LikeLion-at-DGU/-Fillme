@@ -6,7 +6,7 @@ function LandingPage() {
     return (
         <>
             <Header2 />
-            <img class="landing" src="images/landing.jpg" />
+            <img className="landing" src="images/landing.jpg" />
             <NavLink to="/Login">
                 <Button className="landing_login_btn">로그인하여 시작하기</Button>
             </NavLink>

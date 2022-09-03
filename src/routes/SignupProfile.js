@@ -35,7 +35,7 @@ function SignupProfile() {
 
     const onLoadFile = (e) => {
         const file = e.target.files[0];
-        console.log(file);
+        // console.log(file);
         setProfile({
             ...profile,
             image: file,
@@ -68,7 +68,7 @@ function SignupProfile() {
                 },
             })
             .then((res) => {
-                console.log(res, "프로필 설정 성공");
+                // console.log(res, "프로필 설정 성공");
                 navigate("/", { replace: true });
                 // replace: true로 피드 페이지 이동 후 뒤로가기 불가능
             })

@@ -68,7 +68,9 @@ const Register = ({ isLoggedIn, setIsLoggedIn }) => {
         // 아이디 유효성 검사
         const idRegex = /^[a-zA-Z\\d`~!@#$%^&*()-_=+]{4,20}$/;
         if (!idRegex.test(id) || id.length < 1)
-            setIdError("숫자, 알파벳 및 숫자와 관련된 특수문자 조합의 올바른 아이디를 입력해주세요. 글자수 제한[4~20]");
+            setIdError(
+                "숫자, 알파벳 및 숫자와 관련된 특수문자 조합의 올바른 아이디를 입력해주세요. 글자수 제한[4~20]"
+            );
         else setIdError("");
 
         // 비밀번호 유효성 체크
@@ -115,7 +117,7 @@ const Register = ({ isLoggedIn, setIsLoggedIn }) => {
                 localStorage.setItem("refresh_token", res.data.refresh_token);
                 localStorage.setItem("loginUserName", res.data.user.username);
                 setIsLoggedIn(true);
-                console.log(res, "성공");
+                // console.log(res, "성공");
                 navigate("/SignupProfile", { replace: true });
                 // replace: true로 페이지 이동 후 뒤로가기 불가능
             })

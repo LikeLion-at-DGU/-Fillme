@@ -31,7 +31,7 @@ export default function App({
         Image9,
         Image10,
     ];
-    console.log(slides);
+    // console.log(slides);
     // console.log("slides 배열 분석 ", slides);
     const [imagesNavSlider, setImagesNavSlider] = useState(null);
     return (
