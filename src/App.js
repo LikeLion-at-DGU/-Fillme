@@ -26,7 +26,7 @@ function App() {
 
     return (
         <div className="app">
-            <AppRouter isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+            <AppRouter isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}></AppRouter>
         </div>
     );
 }

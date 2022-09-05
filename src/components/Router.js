@@ -16,10 +16,12 @@ import Logout from "../routes/Logout";
 import Detail from "../routes/Detail";
 import LandingPage from "../routes/Landing_page";
 import User_Profile from "../routes/User_Profile";
+import ScrollToTop from "./ScrollToTop";
 const AppRouter = ({ isLoggedIn, setIsLoggedIn }) => {
     return (
         <>
             <Router>
+                <ScrollToTop />
                 <Routes>
                     <Route path="/" element={isLoggedIn ? <Feed /> : <LandingPage />}></Route>
                     <Route
