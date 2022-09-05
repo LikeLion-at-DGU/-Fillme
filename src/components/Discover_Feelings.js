@@ -7,7 +7,7 @@ import Pickpersona from "./new_persona_card_1";
 import { useNavigate } from "react-router-dom";
 
 function Mainprofile({ image, color, user, username, fullname, memo, personas }) {
-    console.log(user, username);
+    // console.log(user, username);
     const imageUrl = "http://127.0.0.1:8000" + image;
     const fetchData = async (id) => {
         try {
