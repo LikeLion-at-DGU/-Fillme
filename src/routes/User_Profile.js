@@ -22,10 +22,11 @@ function User_Profile() {
         my_post: "0",
     });
 
+    const [button_state, setButton_state] = useState("false");
     useEffect(() => {
         request = JSON.parse(localStorage.getItem("user_profile_data"));
         fetchFollow(); // 로그인 유저 ID로 팔로우 리스트 가져오기
-    }, [request]);
+    }, [button_state]);
 
     const fetchFollow = async () => {
         try {
@@ -91,6 +92,7 @@ function User_Profile() {
                 return;
             }
         }
+        setButton_state(!button_state);
     };
 
     const userPersonaCard = [

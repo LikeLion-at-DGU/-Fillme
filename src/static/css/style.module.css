@@ -317,7 +317,7 @@
 /* follow button */
 .followingBtn {
     position: absolute;
-    top: 24vw;
+    top: 23.2vw;
     left: 42vw;
     font-family: "AppleSDGothicNeoB00";
     z-index: 1;
@@ -331,7 +331,7 @@
 }
 .followBtn {
     position: absolute;
-    top: 24vw;
+    top: 23.2vw;
     left: 42vw;
     font-family: "AppleSDGothicNeoB00";
     z-index: 1;
