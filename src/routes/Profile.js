@@ -123,8 +123,8 @@ function Profile({ isLoggedIn, setIsLoggedIn }) {
                     {userProfile.personas.length === 0
                         ? [addCard]
                         : userProfile.personas.length >= 4
-                            ? [personaCard]
-                            : [...personaCard, addCard]}
+                        ? [personaCard]
+                        : [...personaCard, addCard]}
                 </div>
             </div>
             <Footer />

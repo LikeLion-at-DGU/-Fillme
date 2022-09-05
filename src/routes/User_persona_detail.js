@@ -42,6 +42,7 @@ function User_persona_detail() {
             <div className={styles.wrap}>
                 <br />
                 <Clicked_persona_card
+                    id={my_persona_info.id}
                     username={my_persona_info.username}
                     category={my_persona_info.category}
                     image={my_persona_info.image}
