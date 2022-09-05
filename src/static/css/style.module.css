@@ -80,6 +80,7 @@
 }
 
 .user_id {
+    display: inline-block;
     font-family: "Roboto";
     font-weight: 500;
     font-style: normal;
@@ -167,7 +168,6 @@
     font-family: "AppleSDGothicNeoEB00";
     color: #3cda9f;
     font-size: 2vw;
-    cursor: pointer;
 }
 .one_persona_card:hover {
     border: 2px solid #3cda9f;
@@ -219,6 +219,10 @@
     height: 3.3vh;
     cursor: pointer;
     font-size: 0.8vw;
+}
+.show_persona_feed:hover {
+    color: white;
+    background-color: #3cda9f;
 }
 .persona_card_update {
     font-family: "AppleSDGothicNeoM00";
@@ -367,4 +371,16 @@
     color: #3cda9f;
     border: 1px solid #3cda9f;
     border-radius: 5px;
+}
+
+.back_profile {
+    display: inline-block;
+    background-image: url("../../../public/images/back.png");
+    width: 0.7vw;
+    height: 0.7vw;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    margin-right: 1vw;
+    cursor: pointer;
 }
